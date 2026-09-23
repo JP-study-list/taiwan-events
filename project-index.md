@@ -60,19 +60,19 @@ index.html（Cloudflare Pages，組建命令只複製指定檔案進 dist/）
 | 檔案 | 職責 | 台灣版待改 |
 |---|---|---|
 | `fetch_events.py` | **活動抓取唯一進入點**（4,244 行）。Jina 抓頁 → LLM 抽取翻譯 → 清洗 → 累積合併 → 查座標 → 寫 `events.json` | 138 個日本來源、`JST = ZoneInfo("Asia/Tokyo")`（第 31 行）、国土地理院、日本 bbox／市町村清單。⚠️ **`id` 要改用中文標題算** |
-| `build_restaurants.py` | 餐廳管線：`restaurants_src/` → `restaurants/` | 国土地理院、UA 字串 `kanto-events-*` |
+| `build_restaurants.py` | 餐廳管線：`restaurants_src/` → `restaurants/` | 国土地理院（UA 已改 `taiwan-events-*`） |
 | `build_places.py` | 景點管線：`places_src/` → `places.json`（**import `build_restaurants`**，改那支簽章這支會炸） | 同上；地區桶 |
-| `build_photos.py` | 景點照片壓縮（本機跑） | ⚠️ `SRC_DEFAULT`（第 50 行）指向外接碟**日本原圖**，改掉前不要跑 |
+| `build_photos.py` | 景點照片壓縮（本機跑） | `SRC_DEFAULT` 已改成 `None`（2026-09-23）：**`--src` 必填**，台灣原圖放哪待單位 H |
 
 ### 人工確認工具（本機跑，fetch → serve 網頁 → apply 三段式）
 
 | 檔案 | 職責 | 台灣版待改 |
 |---|---|---|
-| `pick_photos.py` | 景點挑圖（Commons／維基） | UA 指向日本版網域；日文維基 → 可能改中文維基 |
+| `pick_photos.py` | 景點挑圖（Commons／維基） | `assign` 同樣要 `--src`；日文維基 → 可能改中文維基 |
 | `places_review.py` | 後台 hold 景點逐筆決定去留 | — |
 | `hours_pick.py` | 營業時間頁逐筆確認 | 關鍵字是日文（営業時間…） |
 | `klook_match.py`／`klook_scout.py` | Klook 商品候選比對（只讀 sitemap） | sitemap 範圍是日本商品 |
-| `codex_kit.py`＋`codex_kit/` | 與外部 Codex 資料夾同步 | ⚠️ `DEFAULT_KIT`（第 38 行）＝`~/Projects/kanto-places-codex`，**在這裡跑會把日本景點收進台灣專案**。台灣版是否用 Codex 未定 |
+| `codex_kit.py`＋`codex_kit/` | 與外部 Codex 資料夾同步 | `DEFAULT_KIT` 已改成 `None`（2026-09-23）：**`--kit` 必填**。台灣版是否接外部代理待單位 L |
 
 ### 測試（五支，都不打網路；目前守的全是日本規則）
 

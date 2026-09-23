@@ -47,7 +47,9 @@ sys.path.insert(0, HERE)
 import build_restaurants as R        # 只為了拿 AREAS 的顯示順序，**只讀不改**
 
 # ---------------------------------------------------------------- 設定
-SRC_DEFAULT = '/Volumes/renssd/vscodegithub/event-photo'
+# ⚠️ 台灣版刻意**沒有預設值**（2026-09-23，單位 C-2）：日本版的預設是外接碟上**日本的原圖**
+# （`/Volumes/renssd/vscodegithub/event-photo`）。台灣的原圖放哪是單位 H，定案後再填。
+SRC_DEFAULT = None
 PLACES_JSON = os.path.join(HERE, 'places.json')
 PLACES_SRC  = os.path.join(HERE, 'places_src')
 PHOTO_DIR   = os.path.join(HERE, 'places')
@@ -332,7 +334,7 @@ def cmd_todo(places):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--src', default=SRC_DEFAULT, help='原圖資料夾（預設是外接硬碟那個）')
+    ap.add_argument('--src', default=SRC_DEFAULT, help='原圖資料夾（台灣版尚無預設，必填）')
     ap.add_argument('--todo', action='store_true', help='只列出還沒照片的景點')
     ap.add_argument('--force', action='store_true', help='連已經有照片的也重壓覆蓋')
     ap.add_argument('--yes', action='store_true', help='不要停下來問')
@@ -346,6 +348,8 @@ def main():
 
     # ⚠️ 路徑不存在時**一定要 exit 1 並講清楚**。若只回「找到 0 張照片，完成」，
     # 那跟「全部都處理過了」在畫面上長得一模一樣——本專案最怕的那種失敗。
+    if not a.src:
+        sys.exit('台灣版還沒設定原圖資料夾（單位 H），請用 --src 指定路徑。')
     if not os.path.isdir(a.src):
         sys.exit('找不到原圖資料夾：%s\n外接硬碟是不是沒接上？（或用 --src 指定別的路徑）' % a.src)
     if not shutil.which('cwebp'):

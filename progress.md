@@ -9,6 +9,27 @@
 
 ---
 
+## 2026-09-23（第五筆）
+
+- 類型：修正（**單位 C：工具去日本化防呆**）
+- 影響檔案：`codex_kit.py`、`build_photos.py`、`pick_photos.py`、`build_restaurants.py`、`fetch_events.py`、
+  `development-plan.md`、`project-index.md`、`CLAUDE.md` §8、本檔
+- 摘要：
+  - C-1／C-2：`DEFAULT_KIT`、`SRC_DEFAULT` 改成 `None`，沒指定路徑就停下來說明要用 `--kit`／`--src`。
+    **沒有改成「台灣的某個路徑」**：那兩個資料夾要看單位 L（要不要接外部代理）與 H（原圖放哪），還沒定。
+    ⚠️ 盤點時多找到一處：`pick_photos.py assign` 也吃 `build_photos.SRC_DEFAULT`，一起擋。
+  - C-3：`kanto-events-*` 兩處與 `fetch_events.py` 送給查座標服務的 `jp-events/2.0` 四處，
+    改成 `taiwan-events-*`，聯絡網址用 GitHub repo（網站網址要到單位 A 才定）。
+  - `fetch_events.py` 檢查圖片時送的 `Referer` 是網站網域，跟著網址走，歸進 D-2。
+- 驗證：三條「沒給路徑」都停下來並印出說明（exit 1）；給了路徑照常運作（`codex_kit export --kit`
+  寫出五樣東西、`build_photos --src` 空資料夾正常結束、`--todo` 不需要路徑照舊）。
+  ⚠️ 第一次測 `build_photos` 是**假通過**：它先因為沒有 `places.json` 停下，根本沒走到新檢查；
+  改成在 scratchpad 複製一份、放空的 `places.json` 才真的測到。UA 實際 import 印出確認；
+  三支離線測試照樣全過。
+- 待辦/已知問題：無。
+
+---
+
 ## 2026-09-23（第四筆）
 
 - 類型：重構（**改成公開 repo 開發，並從乾淨起點開始**）

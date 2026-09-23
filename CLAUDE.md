@@ -472,5 +472,5 @@
 - **網址 `events.tw.rensakobo.com`**（兩層子網域，⚠️ **HTTPS 憑證未驗證，第一件事就是實測**；網址是最不可逆的決定）。
 - **活動・景點・飯店・法規全部是台灣的**；介面**中文與日文**都要。
 - ⚠️ **活動 `id` 用中文標題算**（日本版用日文，因為那是原文；這裡方向相反）。
-- ⚠️ **兩支工具的預設路徑還指回日本**（`codex_kit.py` 的 `DEFAULT_KIT`、`build_photos.py` 的 `SRC_DEFAULT`），改掉之前不要跑。
+- ✅ 兩支工具指回日本的預設路徑已於 2026-09-23 拿掉（單位 C）：`codex_kit.py` 要 `--kit`、`build_photos.py`／`pick_photos.py assign` 要 `--src`。
 - 日本版的完整開發歷史在 `_ref-kanto/progress-kanto.md`，是參考資料不是本專案的進度。

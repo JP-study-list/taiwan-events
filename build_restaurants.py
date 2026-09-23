@@ -46,7 +46,7 @@ COORD_TOLERANCE_M = 100
 COORD_REPLACE_M = 500
 
 GSI_URL = 'https://msearch.gsi.go.jp/address-search/AddressSearch?q='
-UA = 'kanto-events-restaurants/1.0 (+https://events.rensakobo.com)'
+UA = 'taiwan-events-restaurants/1.0 (+https://github.com/JP-study-list/taiwan-events)'
 
 # ── OSM 補位（2026-08-20）────────────────────────────────────────────
 # **GSI 只查得到「大字」、連番地重組也救不回來時的最後一手**。鄉下的地址

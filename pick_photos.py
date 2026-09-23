@@ -75,7 +75,7 @@ TRASH = os.path.join(HERE, 'places_src', '_placetrash.json')
 HOLD = os.path.join(HERE, 'places_src', '_photohold.json')
 
 API = 'https://commons.wikimedia.org/w/api.php?'
-UA = 'kanto-events-photo-picker/1.0 (https://events.rensakobo.com)'
+UA = 'taiwan-events-photo-picker/1.0 (https://github.com/JP-study-list/taiwan-events)'
 RADIUS_M = 300      # 放寬會開始撈到隔壁景點，見檔頭
 MIN_W = 1200        # 瀑布流目標寬 900（IMG_W），留一點餘裕
 TOP_N = 8           # 每個景點最多列幾張，多了挑不動
@@ -1268,6 +1268,8 @@ if __name__ == '__main__':
         src = bp.SRC_DEFAULT
         if '--src' in sys.argv:
             src = sys.argv[sys.argv.index('--src') + 1]
+        if not src:
+            sys.exit('台灣版還沒設定原圖資料夾（單位 H），請用 --src 指定路徑。')
         cmd_assign(os.path.abspath(os.path.expanduser(src)))
     elif cmd == 'fetch' and '--wiki' in sys.argv:
         cmd_fetch_wiki()

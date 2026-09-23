@@ -35,7 +35,9 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, 'places_src')
 OUT = os.path.join(ROOT, 'places.json')
 KIT_SRC = os.path.join(ROOT, 'codex_kit')        # 規範正本（進 git）
-DEFAULT_KIT = os.path.expanduser('~/Projects/kanto-places-codex')
+# ⚠️ 台灣版刻意**沒有預設值**（2026-09-23，單位 C-1）：日本版的預設是 `~/Projects/kanto-places-codex`，
+# 在這裡照跑會把日本的景點收進台灣專案。台灣版要不要接外部代理是單位 L，定案後再填。
+DEFAULT_KIT = None
 INBOX_NAME = '交回這裡'
 LIST_NAME = '現有景點.json'
 
@@ -239,6 +241,8 @@ def main():
     ap.add_argument('--kit', default=DEFAULT_KIT, help='那個資料夾的路徑')
     ap.add_argument('--dry-run', action='store_true', help='intake：只檢查不搬動')
     a = ap.parse_args()
+    if not a.kit:
+        sys.exit('台灣版還沒設定給外部代理的資料夾（單位 L），請用 --kit 指定路徑。')
     if a.action == 'export':
         return do_export(a.kit)
     return do_intake(a.kit, a.dry_run)

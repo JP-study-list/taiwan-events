@@ -2438,7 +2438,7 @@ def geocode_google(query, allowed_prefs=None):
         "bounds": f"{lat_min},{lng_min}|{lat_max},{lng_max}",
     })
     try:
-        data = json.loads(http_get(url, headers={"User-Agent": "jp-events/2.0"}, timeout=30))
+        data = json.loads(http_get(url, headers={"User-Agent": "taiwan-events/2.0 (+https://github.com/JP-study-list/taiwan-events)"}, timeout=30))
     except (urllib.error.URLError, urllib.error.HTTPError, OSError, json.JSONDecodeError) as e:
         print(f"    [geo] Google 連線失敗（{query}）：{e}")
         bump("google_error")
@@ -2517,7 +2517,7 @@ def geocode_osm(query, allowed_prefs=None):
     )
     arr = None
     try:
-        arr = json.loads(http_get(url, headers={"User-Agent": "jp-events/2.0 (github actions)"}))
+        arr = json.loads(http_get(url, headers={"User-Agent": "taiwan-events/2.0 (github actions; +https://github.com/JP-study-list/taiwan-events)"}))
     except (urllib.error.URLError, urllib.error.HTTPError, OSError, json.JSONDecodeError) as e:
         print(f"    [geo] OpenStreetMap 查詢失敗（{query}）：{e}")
         bump("osm_error")
@@ -2570,7 +2570,7 @@ def geocode_photon(query, allowed_prefs=None):
            "&q=" + urllib.parse.quote(query))
     data = None
     try:
-        data = json.loads(http_get(url, headers={"User-Agent": "jp-events/2.0 (github actions)"},
+        data = json.loads(http_get(url, headers={"User-Agent": "taiwan-events/2.0 (github actions; +https://github.com/JP-study-list/taiwan-events)"},
                                    timeout=30))
     except (urllib.error.URLError, urllib.error.HTTPError, OSError, json.JSONDecodeError) as e:
         print(f"    [geo] Photon 查詢失敗（{query}）：{e}")
@@ -2888,7 +2888,7 @@ def reverse_pref(lat, lng):
     """
     url = f"{REVERIFY_URL}?lat={lat}&lon={lng}"
     try:
-        raw = http_get(url, headers={"User-Agent": "jp-events/2.0 (github actions)"}, timeout=30)
+        raw = http_get(url, headers={"User-Agent": "taiwan-events/2.0 (github actions; +https://github.com/JP-study-list/taiwan-events)"}, timeout=30)
     except Exception as e:
         bump("reverify_error")
         return (False, None)
