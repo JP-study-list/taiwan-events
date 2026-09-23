@@ -219,6 +219,8 @@
   python3 -c "import http.server as h,functools as f;S=type('S',(h.ThreadingHTTPServer,),{'request_queue_size':128});S(('127.0.0.1',8931),f.partial(h.SimpleHTTPRequestHandler,directory='.')).serve_forever()"
   ```
   收掉用 `pkill -f "request_queue_size':128"`。
+- 📌 **篩選面板裡的地區筆數，要打開面板之後才讀**（2026-09-24 E-3）。開頁那一次 `buildAreaSel` 畫在資料到之前，
+  筆數全是 0；`openFilter` 才重算。沒開就讀，會得到「每個桶 0 筆」而篩選照常正確——看起來像筆數壞了。
 - 📌 同一輪還有第三個：**`load()` 等 300ms 就開始檢查，讀到的是「上一頁」**。導航前先在舊頁設
   `window.__stale=1`，等它消失才算新頁到了。
 

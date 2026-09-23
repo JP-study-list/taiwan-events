@@ -1,5 +1,5 @@
 // 全站地圖（地圖頁）。行程頁自己的小地圖在 plan-ui.js。
-import { IMG_W_THUMB, TYPES } from './config.js';
+import { IMG_W_THUMB, LOC_VIEW, LOC_VIEW_ZOOM, TYPES } from './config.js';
 import { typeIconHTML } from './icons.js';
 import { keepMapView, store, takeMapView } from './store.js';
 import { areaLabel, esc, fld, fmtDate, imgChain, match, pinColor, t, typeLabel } from './util.js';
@@ -24,7 +24,7 @@ function clusterIcon(cluster){
 
 function initMap(){
   if(map)return;
-  map=L.map('map',{zoomControl:true}).setView([35.55,139.65],10);
+  map=L.map('map',{zoomControl:true}).setView(LOC_VIEW,LOC_VIEW_ZOOM);
   // 圖磚維持 OSM；深色模式在 CSS 對 .leaflet-tile-pane 套濾鏡轉深，
   // 不換圖磚服務（不新增外部依賴，也不必處理另一家的使用條款與標示要求）。
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{

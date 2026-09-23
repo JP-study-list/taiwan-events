@@ -15,7 +15,7 @@
 //
 // 依賴方向：config → store → util → **mylocation** → cards。
 // 這裡不 import cards，開完地圖要重畫是走 openLocPicker(cb) 的 cb 回去，避免環。
-import { LOC_ACC_ZOOM, LOC_FAR_KM, LOC_GEO_OPTS, LOC_KEY, LOC_VIEW, LOC_ZOOM, LOC_ZOOM_SET } from './config.js';
+import { LOC_ACC_ZOOM, LOC_FAR_KM, LOC_GEO_OPTS, LOC_KEY, LOC_VIEW, LOC_VIEW_ZOOM, LOC_ZOOM, LOC_ZOOM_SET } from './config.js';
 // hav() 與 T.km() 都是現成的——硬規則寫明距離計算與文案不新增來源。
 import { hav, t } from './util.js';
 
@@ -190,7 +190,7 @@ function locateMe(){
 
 function initLocMap(){
   if (lmap) return;
-  lmap = L.map('locmap', { zoomControl: true }).setView(LOC_VIEW, LOC_ZOOM);
+  lmap = L.map('locmap', { zoomControl: true }).setView(LOC_VIEW, LOC_VIEW_ZOOM);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18, attribution: '© OpenStreetMap'
   }).addTo(lmap);
@@ -245,7 +245,7 @@ function openLocPicker(cb){
     lmap.setView([loc.lat, loc.lng], LOC_ZOOM_SET);
     lmarker = L.marker([loc.lat, loc.lng], { icon: locPin() }).addTo(lmap);
   }else{
-    lmap.setView(LOC_VIEW, LOC_ZOOM);
+    lmap.setView(LOC_VIEW, LOC_VIEW_ZOOM);
   }
   applyLocLang();
   // 覆蓋層剛從 display:none 變出來，Leaflet 這時量到的容器尺寸還是 0

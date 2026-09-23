@@ -24,7 +24,7 @@
 //     ⚠️ 使用者同時決定**圓與方都不加尖端**：精確位置是點開才看的東西。
 //  3. **不記狀態**：每次都要從切換器進來（同三張地圖的 legendOpen 不寫 localStorage）。
 //  4. **沒有第二套篩選**：三種各自沿用自己那一頁的篩選狀態，這裡只提供入口。
-import { PLACE_TYPE, TYPES } from './config.js';
+import { LOC_VIEW, LOC_VIEW_ZOOM, PLACE_TYPE, TYPES } from './config.js';
 import { genreIconHTML, placeIconHTML, typeIconHTML } from './icons.js';
 import { keepMapView, store, takeMapView } from './store.js';
 import { cssVar, esc, pinColor, t, typeLabel } from './util.js';
@@ -60,7 +60,7 @@ function clusterIcon(cluster){
 }
 function initAllMap(){
   if(allMap)return;
-  allMap=L.map('allMap',{zoomControl:true}).setView([35.55,139.65],10);
+  allMap=L.map('allMap',{zoomControl:true}).setView(LOC_VIEW,LOC_VIEW_ZOOM);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
     maxZoom:18,attribution:'© OpenStreetMap'
   }).addTo(allMap);

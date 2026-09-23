@@ -1,5 +1,5 @@
 // 行程頁畫面：三套行程卡、月曆、自己組、共用地圖、匯出圖片。
-import { AREAS, FOOD_MAX, FOOD_TYPE, HOME_ZONE, LOC_KEY, OTHER_SPOT, PLACE_DIR, PLAN_MAX, SPOT_AREAS, TRIP_MAX_DAYS, ZONE_KEY } from './config.js';
+import { AREAS, FOOD_MAX, FOOD_TYPE, HOME_ZONE, LOC_KEY, LOC_VIEW, LOC_VIEW_ZOOM, OTHER_SPOT, PLACE_DIR, PLAN_MAX, SPOT_AREAS, TRIP_MAX_DAYS, ZONE_KEY } from './config.js';
 import { savePlan, store } from './store.js';
 import { activeOn, addDays, areaLabel, bigImgUrl, cssVar, dowOf, esc, evById, fld, foodKey, hav, hoursHTML, imgChain, isFoodId, isPlace, isRestaurant, locKnown, mapQuery, otherDayIds, proxied, t, todayStr, typeLabel, weekendDate } from './util.js';
 import { tabAll, tabFav, tabPlan } from './cards.js';
@@ -556,7 +556,7 @@ function renderPlanMap(){
   // 於是畫面留著上一次的舊路線——資料是對的、畫面是舊的，又一個「壞掉但看起來正常」。
   if(!planWide()&&!body.classList.contains('open'))return;
   if(!pmap){
-    pmap=L.map('planMap',{zoomControl:false}).setView([35.55,139.65],10);
+    pmap=L.map('planMap',{zoomControl:false}).setView(LOC_VIEW,LOC_VIEW_ZOOM);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       {maxZoom:18,attribution:'© OpenStreetMap'}).addTo(pmap);
     pLayer=L.layerGroup().addTo(pmap);

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""地區桶三份清單的離線回歸（2026-09-02 新增，第三支常設測試）。
+"""地區桶清單的離線回歸（2026-09-02 新增，第三支常設測試；2026-09-24 改成台灣 20 桶）。
 
 **它守的不變量只有一個：同一件事不可以有兩個版本。**
 
@@ -56,11 +56,13 @@ def main():
 
     js_areas = json.loads(re.search(r'var AREAS=(\[.*?\]);', js, re.S).group(1).replace("'", '"'))
 
-    print('[1] AREAS 三份逐字相同')
-    chk('fetch_events.py == build_restaurants.py', fe.AREAS == br.AREAS,
-        sorted(set(fe.AREAS) ^ set(br.AREAS)))
-    chk('build_restaurants.py == js/config.js', br.AREAS == js_areas,
-        sorted(set(br.AREAS) ^ set(js_areas)))
+    print('[1] AREAS：活動（fetch_events.py）與前端（js/config.js）逐字相同')
+    chk('fetch_events.py == js/config.js', fe.AREAS == js_areas,
+        sorted(set(fe.AREAS) ^ set(js_areas)))
+    # ⚠️ 台灣版（2026-09-24）：餐廳（build_restaurants.py）首發不上線，它的地區判斷整套綁日本縣名，
+    # 跟著單位 I 一起換。在那之前**只提示、不算失敗**——換完之後要把這一項改回 chk。
+    if br.AREAS != js_areas:
+        print('  INFO  build_restaurants.py 的 AREAS 仍是日本版（單位 I 處理）')
     chk('桶名沒有重複', len(js_areas) == len(set(js_areas)))
     # 「其他」是舊資料的殘留值（LEGACY_AREA），不可以出現在白名單裡
     chk('白名單裡沒有「其他」', '其他' not in js_areas)
@@ -87,12 +89,20 @@ def main():
     chk('AREA_PREF_OK 的縣名都在 PREF_ALL 裡', not bad, bad)
     nocenter = sorted({p for a in fe.AREAS for p in fe.AREA_PREF_OK[a] if p not in fe.PREF_CENTER})
     chk('每個被接受的縣都有縣中心可退', not nocenter, nocenter)
-    # 桶名一律用全名比對（「東京都」裡含著「京都」兩個字，短名會讓東京被判成京都府）
-    shortname = [p for p in fe.PREF_ALL
-                 if not (p.endswith('県') or p.endswith('府') or p in ('東京都', '北海道'))]
-    chk('PREF_ALL 都是含後綴的全名', not shortname, shortname)
+    # 縣市名一律用含「市／縣」的全名比對（短名會互相包含：日本版「東京都」含「京都」；
+    # 台灣版「嘉義」同時是市與縣的前綴）。
+    shortname = [p for p in fe.PREF_ALL if not (p.endswith('市') or p.endswith('縣'))]
+    chk('PREF_ALL 都是含「市／縣」的全名', not shortname, shortname)
+    chk('PREF_ALL 剛好 22 個縣市', len(fe.PREF_ALL) == 22 and len(set(fe.PREF_ALL)) == 22, len(fe.PREF_ALL))
+    # PREF_ALL 用正式寫法「臺」（OSM 地址欄就是這樣寫），桶名用日常寫法「台」——兩邊各自一致
+    tai = [p for p in fe.PREF_ALL if '台' in p]
+    chk('PREF_ALL 用「臺」不用「台」', not tai, tai)
+    uses = sorted({p for a in fe.AREAS for p in fe.AREA_PREF_OK[a]})
+    chk('每個縣市都被某個桶接受', uses == sorted(fe.PREF_ALL), sorted(set(fe.PREF_ALL) ^ set(uses)))
+    outside = [k for k, c in list(fe.PREF_CENTER.items()) + list(fe.AREA_CENTER.items()) if not fe.in_bbox(*c)]
+    chk('所有縣市中心與桶中心都在 GEO_BBOX 內', not outside, outside)
 
-    print('[5] build_restaurants.py 的縣→桶對照')
+    print('[5] build_restaurants.py 的縣→桶對照（⚠️ 仍是日本版，單位 I 改）')
     ghost = sorted({v for v in br.PREF_AREA.values() if v not in br.AREAS})
     chk('PREF_AREA 沒有指向不存在的桶', not ghost, ghost)
     # area_of 的抽測：每一條分支各一筆，含「刻意不涵蓋」的那一個
@@ -133,7 +143,7 @@ def main():
     for lang in ('zh', 'ja'):
         seg = js[js.index('  %s:{' % lang):]
         keys = re.findall(r"'([^']+)':'", re.search(r'areas:\{(.*?)\}', seg, re.S).group(1))
-        chk('T.%s.areas 涵蓋 26 桶＋「其他」' % lang,
+        chk('T.%s.areas 涵蓋每個桶＋「其他」' % lang,
             sorted(keys) == sorted(js_areas + ['其他']),
             sorted(set(js_areas + ['其他']) ^ set(keys)))
         gkeys = re.findall(r"'([^']+)':'", re.search(r'groups:\{(.*?)\}', seg, re.S).group(1))
