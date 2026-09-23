@@ -150,6 +150,18 @@ def main():
         chk('T.%s.groups 涵蓋每一個圈' % lang, sorted(gkeys) == sorted(groups),
             sorted(set(groups) ^ set(gkeys)))
 
+    print('[7] 活動分類前後端一致（2026-09-24 加，單位 E-7）')
+    # 同「AREAS 兩份」的道理：後端有、前端沒有＝那一類的活動畫面上沒有篩選鈕；
+    # 前端有、後端沒有＝AI 分到那一類的活動被 clean_event 整筆丟棄。**兩種都沒有錯誤訊息。**
+    js_types = json.loads(re.search(r'var TYPES=(\[.*?\]);', js).group(1).replace("'", '"'))
+    chk('fetch_events.py 的 TYPES == js/config.js 的 TYPES（含順序）', fe.TYPES == js_types,
+        sorted(set(fe.TYPES) ^ set(js_types)))
+    for lang in ('zh', 'ja'):
+        seg = js[js.index('  %s:{' % lang):]
+        tkeys = re.findall(r"'([^']+)':'", re.search(r'types:\{(.*?)\}', seg, re.S).group(1))
+        miss = [x for x in js_types if x not in tkeys]
+        chk('T.%s.types 每一類都有名稱' % lang, not miss, miss)
+
     print()
     if FAIL:
         print('%d 項失敗：%s' % (len(FAIL), '、'.join(FAIL)))
