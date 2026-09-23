@@ -1,0 +1,2500 @@
+/* ============================================================
+   寄道日和 YORIMICHI BIYORI —— 視覺語言：瀑布流．輕盈質感
+   受眾是會特地去看展、逛市集的人，所以整體抽到接近無彩，
+   讓活動照片成為畫面上唯一的顏色來源。
+   三個原則：
+     1. 卡片高度由照片實際比例決定，不裁切（見 wireImage）
+     2. 照片上不放任何角標，資訊全在照片下方
+     3. 沒有卡片容器（無底色、無外框），輕盈來自「少一層」
+   ============================================================ */
+
+/* ---------- 淺色：美術館白牆（暖白，不用純白） ---------- */
+/* ⚠️ `.theme-light` 不是給畫面用的，是給**匯出行程圖**用的：那張圖一律走淺色，
+   所以要有辦法在深色模式下仍讀得到這一組值。掛這個 class 的節點會把整組
+   自訂屬性在自己身上重新定義一次，蓋掉從 `:root[data-theme="dark"]` 繼承下來的。
+   ⚠️ **這裡只多一個選擇器，一個顏色值都沒有重複**——地雷 #7「顏色只留在 CSS
+   的單一來源」完全保住。要改配色仍然只動這兩個區塊。 */
+:root, .theme-light{
+  --paper:#FBFAF7;
+  --surface:#FFFFFF;
+  --ink:#1A1917;
+  --ink-2:#6E6A63;      /* 所有次要文字與圖示一律用這層（紙底上 5.15，過 AA） */
+  /* --ink-3 只准用在純裝飾（hover 邊框、圖例小點）。
+     它在紙底上只有 2.85，任何文字或可點控制項用了都不合格；
+     而這個紙白底下「明顯更淡又達 4.5」的灰其實不存在（4.32 就已經與 --ink-2 難以區分），
+     所以第三層刻意不當文字色用，不要再把它套到文字上。 */
+  --ink-3:#9A958C;
+  --line:#E5E1D8;
+  --hot:#9A3B24;           /* 倒數、提醒 */
+  --geo:#3D5A6C;           /* 地點、地圖相關 */
+  /* 世界遺產的星號（2026-08-22）。**vs --paper 3.46**，門檻是 UI 元件的 3:1
+     ——那圈紙白描邊就是拿它跟星身分開的東西，所以要比的是這個對比。
+     ⚠️ **刻意避開 `--pin-展覽` 的 #B8860B**：那個值在站上已經是「展覽」的意思了。
+     ⚠️ 對景點圖釘 #14868A 的對比只有 1.21，**所以描邊不是裝飾是必要的**，
+        沒有它星星會直接黏在圖釘上看不出來（見 icons.js 的 worldHeritageIconHTML）。 */
+  --wh:#AD7F0C;
+  --ttl-w:500;             /* 明體字重（深色模式會降一級） */
+  --radius:4px;            /* 一點點圓角 */
+  /* 明度改由 data-theme 決定後，捲軸與原生控制項（側欄的 <select>）不會自己跟著變，
+     要靠 color-scheme 明講。若少了這行，深色模式下的下拉選單會是白底。 */
+  color-scheme:light;
+
+  /* 六個分類色（低彩度）。**JS 直接讀這些變數**，不再另存一份，
+     所以改色只需要動這裡一處。深色模式的值在下方 media query。
+     注意：變數名是資料裡的中文值，不可改名。 */
+  --c-展覽:#856726;        /* 用 #856726 而非更亮的土黃：亮一階在白底上小字只有 3.39，不到 AA 4.5 */
+  --c-祭典:#A85A3C;
+  --c-煙火:#4A5570;
+  --c-市集:#4F6B52;
+  --c-動漫:#8E4A63;
+  --c-寶可夢:#6A5A83;
+  /* 第七個分類「點燈」（2026-08-28）。**色相是量出來的不是挑的**：八色在 Lab 的
+     LCh 色相依序是 祭典47・展覽83・餐廳122・市集146・景點200・煙火279・寶可夢307・動漫357，
+     這一格落在寶可夢與動漫之間的 329。
+     vs paper 7.72 / surface 7.86（門檻 AA 4.5，它會當文字用）；
+     ΔE 對最近的動漫 25.7、寶可夢 26.5——遠高於既有八色彼此最擠的那一組（14.1）。
+     ⚠️ **刻意避開藍色那一格**（LCh 200~279 其實是最寬的空隙）：煙火已經是藍的，
+     而點燈與煙火同樣是「晚上去看光」的活動，**兩個藍色在地圖上最容易被讀成同一件事**。
+     幾何上最寬的空隙不等於最好的選擇。
+     ⚠️ 與餐廳的 --c-甜點（#7B3588，也是紫紅）撞色沒有關係：那 23 種料理色只出現在
+     餐廳分頁，行程頁的餐廳一律走 --c-餐廳，兩者永遠不同框（同 --c-景點 vs --c-壽司）。 */
+  --c-點燈:#7B3478;
+  /* 常設景點（單位 H）。青綠是六個活動色唯一沒人佔的一格——既有 hue 依序是
+     祭典 47・展覽 83・市集 146・煙火 279・寶可夢 307・動漫 357，180~200 整段是空的。
+     vs paper 5.73 / surface 5.98（門檻 AA 4.5，它會當文字用）；
+     與最近的市集 ΔE 20.1，比六色彼此最擠的一組還鬆。
+     ⚠️ 與餐廳的 --c-壽司（也是青綠）撞色沒有關係：餐廳是獨立分頁，兩者永遠不同框。 */
+  --c-景點:#1C6E70;
+  /* 行程裡的餐廳（單位 I，2026-08-26）。**這是「三大類」的那個餐廳色，
+     不是下面那 23 種料理類別**——行程頁要一眼分的是活動／景點／餐廳，
+     23 色會讓那三類糊在一起（決策 13，同景點方案 B 的先例）。
+     ⚠️ **與下面 `--c-燒肉` 那批撞不撞色無所謂**：那些只出現在餐廳分頁，
+     與行程頁永遠不同框（同 `--c-景點` vs `--c-壽司` 的情況）。
+     色相 83＝行程頁同框那七色**最寬的一段空隙**（展覽 41 ↔ 市集 126，寬 85 度）的中點。
+     vs paper 5.20 / surface 5.43（門檻 AA 4.5，它會當文字用）；
+     與最近的市集 ΔE 28.3、展覽 28.7，**比既有最擠的一組（煙火↔寶可夢 14.1）鬆一倍**。 */
+  --c-餐廳:#557326;
+  /* 餐廳分頁的類別色。它們不是活動分類，不進 TYPES；只作餐廳文字與圖釘語義色。
+     **每加一份新類別的榜單就要在這裡加一組**（淺 --c-／淺 --pin-／深 --c-／深 --pin- 轉指），
+     JS 靠 typeColor(r.genre)／pinColor(r.genre) 即時讀，讀不到會退回灰。 */
+  --c-燒肉:#8A452E;          /* 炭火銅紅，vs paper 6.77 */
+  --c-義式料理:#2F6B4A;      /* 羅勒深綠，vs paper 6.05 / surface 6.32 */
+  --c-壽喜燒:#5B4A9C;        /* 紫檀，vs paper 6.93 / surface 7.23 */
+  /* 其餘已登記類別的預留配色（2026-08-13 一次配齊，之後放任何一份榜單都不會是灰的）。
+     **21 個類別遠超過「顏色能可靠分辨」的上限（一般 8〜12）**，所以目標不是任兩個都分得出來
+     ——那做不到——而是色相均勻攤開＋**相鄰者明度交錯**，讓同時出現的少數幾種盡量拉開。
+     實測 21 個圖釘色最接近的一組是 24（義式料理 vs 烏龍麵，兩個深綠），其餘皆 >31。
+     全部由程式產生並逐項驗過對比度，數值與既有三色同一家族（淺 5.6〜7.5、深 6.8〜9.4）。
+     類別篩選才是分辨的主要工具，顏色是輔助。 */
+  --c-炸豬排:#835D33;
+  --c-天婦羅:#5E5224;
+  --c-咖哩:#646829;
+  --c-定食:#465923;
+  --c-蕎麥麵:#446F2B;
+  --c-餃子:#2A5D24;
+  --c-中華料理:#2C7239;
+  --c-烏龍麵:#245C4D;
+  --c-壽司:#2C6E71;
+  --c-拉麵:#2A586D;
+  --c-小酒館:#3F64A1;
+  --c-法式料理:#3F49A3;
+  /* 第 22 類（2026-08-14 為了接米其林而開）。色相 264 度＝現有最寬的空隙
+     （壽喜燒 252 ↔ 居酒屋 275）的中點。vs paper 6.72 / surface 6.22，
+     與兩個鄰居的 ΔE 為 9.2／12.4——比既有最擠的一組（法式料理 ↔ 壽喜燒 8.5）還鬆一些。 */
+  --c-日本料理:#6A45A3;
+  --c-居酒屋:#8746B5;
+  --c-甜點:#7B3588;
+  --c-麵包:#9F3E94;
+  --c-牛排:#873467;
+  --c-燒鳥:#A74165;
+  --c-漢堡排:#8C363E;
+  /* 第 23 類（2026-08-14）。⚠️ **色相圈已經滿了**——22 個類別平均每格 16 度、最擠 10.7 度，
+     再插一個色相只會讓某一組更擠，所以這一類改用**明度**分家：深焙咖啡棕，比所有既有類別
+     都暗一階（L23，既有最暗是 L24）。ΔE 對最近的天婦羅 21.5、炸豬排 23.5、燒肉 23.7，
+     全部遠高於既有最擠的一組（法式料理 ↔ 壽喜燒 8.5）。vs paper 10.88 / surface 11.36。
+     **第 24 類請照這個方向想**：色相已無空位，靠明度或彩度另闢一格，不要硬擠色相。 */
+  --c-咖啡廳:#513324;
+
+  /* 地圖圖釘專用色（只有淺色模式需要，見下方 dark 區塊）。
+     **為什麼不直接把上面六色調亮**：那六色同時是卡片分類標籤與收藏星的**文字**色，
+     調亮會讓白底上的小字掉到 AA 4.5 以下——`--c-展覽` 的註解記的就是這個實測。
+     但淺色模式的 OSM 圖磚是滿版彩色（綠山、藍海、粉紅高速公路），
+     低彩度圖釘壓上去會直接融進底圖：市集綠消失在綠地、煙火藍灰消失在海面。
+     故拆成兩組職責：**`--c-*` 管文字（要對比度），`--pin-*` 管地圖（要辨識度）**。
+     圖釘不當文字用，門檻是 UI 元件的 3:1 而非 4.5。 */
+  --pin-展覽:#B8860B;
+  --pin-祭典:#D2542F;
+  --pin-煙火:#3E63C8;
+  --pin-市集:#2E8B57;
+  --pin-動漫:#C2436F;
+  --pin-寶可夢:#7B5EC7;
+  --pin-點燈:#D75CC0;        /* vs paper 3.25（門檻 UI 元件 3:1）；ΔE 對最近的寶可夢圖釘 34.0 */
+  --pin-景點:#14868A;        /* vs paper 4.19（門檻 UI 元件 3:1）；ΔE 對最近的市集圖釘 33 */
+  --pin-餐廳:#628627;        /* vs paper 4.06（門檻 3:1）；ΔE 對最近的市集圖釘 27.6 */
+  --pin-燒肉:#C24828;
+  --pin-義式料理:#1E8A54;    /* vs paper 4.18，遠高於 UI 元件 3:1 */
+  /* 壽喜燒刻意選紫色系而非「醬油褐／琥珀」那類語義色：hue 252 與燒肉的 15、
+     義式的 147 三方拉得最開。暖褐色（實測 #614A2E hue 33）與燒肉只差 18 度，
+     在地圖上會看成「比較暗的燒肉」——**類別色的職責是分辨，不是描述食物**。 */
+  --pin-壽喜燒:#6B4FD8;      /* vs paper 5.39 */
+  /* 預留類別的圖釘色。門檻是 UI 元件 3:1，交錯取 3.5 與 5.4 兩段（見上方 --c- 那段註解）。 */
+  --pin-炸豬排:#BB762C;
+  --pin-天婦羅:#78661C;
+  --pin-咖哩:#848B21;
+  --pin-定食:#52701A;
+  --pin-蕎麥麵:#4D9623;
+  --pin-餃子:#25761C;
+  --pin-中華料理:#249939;
+  --pin-烏龍麵:#1B745D;
+  --pin-壽司:#239397;
+  --pin-拉麵:#226E92;
+  --pin-小酒館:#5385D7;
+  --pin-法式料理:#4C59D5;
+  --pin-日本料理:#7736D9;    /* vs paper 6.07；ΔE 對壽喜燒 16.3、對居酒屋 30.8 */
+  --pin-居酒屋:#AB68DC;
+  --pin-甜點:#A62CBC;
+  --pin-麵包:#D54EC6;
+  --pin-牛排:#B82B82;
+  --pin-燒鳥:#D85A86;
+  --pin-漢堡排:#C12D3A;
+  --pin-咖啡廳:#6A3C25;      /* vs paper 8.80（門檻 3:1）；ΔE 對天婦羅 30.2、炸豬排 37.2。
+                                **刻意不比 --c- 亮太多**：調亮就會滑進燒肉／炸豬排那兩個棕色，
+                                這一類的分辨靠的正是「比誰都暗」。線條 var(--paper) 對比 8.80。 */
+
+  /* 三套行程專用色。與分類色分工：分類色標活動類型，行程色標同一條路線。 */
+  --route-1:#1257C4;
+  --route-2:#AD5300;
+  --route-3:#A8228A;
+
+  --f-ttl:'Noto Serif TC','Shippori Mincho',serif;
+  --f-body:'Noto Sans TC','Shippori Mincho',system-ui,sans-serif;
+  --f-num:'Archivo',ui-sans-serif,system-ui,sans-serif;
+
+  --gap:10px;
+}
+/* 日文模式標題改明朝優先（日文的明朝體字面比中文明體更適合日文） */
+:root:lang(ja){--f-ttl:'Shippori Mincho','Noto Serif TC',serif;}
+
+/* ---------- 深色：夜間展場（暖黑，不用純黑） ----------
+   **深色值只定義在這一處。** data-theme 由 <head> 那段 script 在繪製前寫入
+   （沒有手動偏好時就用系統偏好），所以這裡不需要再寫一次 media query 版本。 */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#141311;
+  --surface:#1D1B18;
+  --ink:#EFEBE3;
+  --ink-2:#A09A8F;
+  --ink-3:#7A7469;
+  --line:#2E2B26;
+  --hot:#C97A5E;
+  --geo:#8FB0C4;
+  --wh:#E0B341;            /* vs 深 paper 9.46。**不可沿用淺色的 #AD7F0C**，暗底上會糊掉 */
+  --ttl-w:500;
+  /* 深底不能沿用淺色值（暗色壓在暗底上會糊掉），要用更亮的同色系 */
+  --c-展覽:#C9A961;
+  --c-祭典:#C77B5C;
+  --c-煙火:#7A87A8;
+  --c-市集:#7A9A7E;
+  --c-動漫:#B5798F;
+  --c-寶可夢:#9689AD;
+  /* **不可沿用淺色的 #7B3478**（暗底上會糊掉），同色相的亮版。
+     vs 深 paper 8.49 / surface 7.85；ΔE 對最近的動漫 28.8、寶可夢 30.3。 */
+  --c-點燈:#E196DC;
+  --c-景點:#63C4C8;          /* vs 深 paper 9.07 / surface 8.40；ΔE 對最近的市集 27.6 */
+  /* **不可沿用淺色的 #557326**（暗底上會糊掉），同色相的亮版。
+     vs 深 paper 7.97 / surface 7.37；ΔE 對最近的展覽 26.6、市集 28.6。 */
+  --c-餐廳:#96B464;
+  --c-燒肉:#D89273;
+  --c-義式料理:#7FC79B;      /* vs 深 paper 9.32 / surface 8.63 */
+  --c-壽喜燒:#B0A0E0;        /* vs 深 paper 7.91 / surface 7.32 */
+  /* 預留類別的深色值。**不可沿用淺色值**（暗色壓在暗底上會糊掉），是另一組已驗證色票。 */
+  --c-炸豬排:#D6B18A;
+  --c-天婦羅:#BAA241;
+  --c-咖哩:#B7BF48;
+  --c-定食:#88B03E;
+  --c-蕎麥麵:#89C964;
+  --c-餃子:#4DB941;
+  --c-中華料理:#6DCC7E;
+  --c-烏龍麵:#40B696;
+  --c-壽司:#68C7CA;
+  --c-拉麵:#69ACCA;
+  --c-小酒館:#A2B9DE;
+  --c-法式料理:#989FDB;
+  --c-日本料理:#B99CE6;    /* vs 深 paper 7.92 / surface 7.25 */
+  --c-居酒屋:#CBACE2;
+  --c-甜點:#CC8DD7;
+  --c-麵包:#DFA5D8;
+  --c-牛排:#D68CBA;
+  --c-燒鳥:#E1A8BC;
+  --c-漢堡排:#D89096;
+  /* 深色模式沒有「更暗一階」這個位子可用（暗底上會直接消失），故換成同色相的亮版：
+     烘焙棕。vs 深 paper 5.30 / 深 surface 4.90，ΔE 對燒肉 19.8（既有最擠 7.1）。
+     **不要再調亮**：往上會滑進 --c-燒肉 #D89273。 */
+  --c-咖啡廳:#CD7042;
+  /* 深色的圖磚已被濾鏡壓暗（見 .leaflet-tile-pane），上面那組亮色壓上去本來就跳，
+     不需要第二套。**但一定要在這裡明講指回 --c-***：CSS 變數會繼承，
+     少了這六行，淺色的 --pin-* 會一路帶進深色模式。這裡只是轉指，不另存色票。 */
+  --pin-展覽:var(--c-展覽);
+  --pin-祭典:var(--c-祭典);
+  --pin-煙火:var(--c-煙火);
+  --pin-市集:var(--c-市集);
+  --pin-動漫:var(--c-動漫);
+  --pin-寶可夢:var(--c-寶可夢);
+  --pin-點燈:var(--c-點燈);
+  --pin-景點:var(--c-景點);
+  --pin-餐廳:var(--c-餐廳);
+  --pin-燒肉:var(--c-燒肉);
+  --pin-義式料理:var(--c-義式料理);
+  --pin-壽喜燒:var(--c-壽喜燒);
+  --pin-炸豬排:var(--c-炸豬排);
+  --pin-天婦羅:var(--c-天婦羅);
+  --pin-咖哩:var(--c-咖哩);
+  --pin-定食:var(--c-定食);
+  --pin-蕎麥麵:var(--c-蕎麥麵);
+  --pin-餃子:var(--c-餃子);
+  --pin-中華料理:var(--c-中華料理);
+  --pin-烏龍麵:var(--c-烏龍麵);
+  --pin-壽司:var(--c-壽司);
+  --pin-拉麵:var(--c-拉麵);
+  --pin-小酒館:var(--c-小酒館);
+  --pin-法式料理:var(--c-法式料理);
+  --pin-日本料理:var(--c-日本料理);
+  --pin-居酒屋:var(--c-居酒屋);
+  --pin-甜點:var(--c-甜點);
+  --pin-麵包:var(--c-麵包);
+  --pin-牛排:var(--c-牛排);
+  --pin-燒鳥:var(--c-燒鳥);
+  --pin-漢堡排:var(--c-漢堡排);
+  --pin-咖啡廳:var(--c-咖啡廳);
+  /* 行程色的深色值是另一組已驗證色票，不可轉指淺色值。 */
+  --route-1:#5B9BF5;
+  --route-2:#E8944A;
+  --route-3:#EE9BD8;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:16px;line-height:1.6;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(84px + env(safe-area-inset-bottom));
+}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;}
+img{display:block;max-width:100%;}
+.wrap{max-width:900px;margin:0 auto;padding:8px 14px 0;}
+
+/* ===== 頂部：左對齊，不置中 =====
+   按鈕改用 flex 排而非絕對定位。第四顆（晝夜）加進來之後，絕對定位需要
+   padding-right 一路加到 159px，副標在 412px 螢幕上就沒空間了。
+   flex + 副標可省略號，之後再加按鈕也不會撞到。 */
+.top{padding:14px 0 10px;padding-top:calc(14px + env(safe-area-inset-top));}
+.topbar{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+.top .region{
+  flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-family:var(--f-num);font-size:9.5px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2);
+}
+.tools{display:flex;gap:5px;flex:none;}
+.top h1{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);
+  font-size:clamp(24px,5.2vw,34px);line-height:1.12;letter-spacing:.01em;
+}
+.corner-btn{
+  width:34px;height:34px;flex:none;border-radius:var(--radius);
+  border:1px solid var(--line);background:transparent;
+  display:flex;align-items:center;justify-content:center;padding:0;
+  transition:border-color .18s ease;
+}
+.corner-btn:hover{border-color:var(--ink-3);}
+.corner-btn svg{width:17px;height:17px;stroke:var(--ink);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.lang-btn{font-family:var(--f-ttl);font-size:14px;font-weight:var(--ttl-w);color:var(--ink);}
+/* ===== 彈窗：篩選與設定（2026-08-21 取代左側欄）=====
+   半透明遮罩 + 置中方框，與景點頁「加進行程」的日期小卡同一套視覺語言。
+   ⚠️ **z-index 刻意壓在 1000 底下**（全螢幕覆蓋層都是 1000）。排序點「離我最近」
+   會開全螢幕選點地圖，那時彈窗必須讓路——程式那邊已經先關掉自己（closeFilter），
+   這裡是第二道保險：萬一日後有人漏了，結果是「彈窗被地圖蓋住」而不是
+   「按了完全沒反應」。**失敗方向要是安全的那一邊。**
+   側欄時代正好相反（抽屜 1200 壓在覆蓋層 1000 上面），那個坑踩過一次。 */
+.sheet{
+  position:fixed;inset:0;z-index:900;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  background:rgba(0,0,0,.42);
+}
+.sheet[hidden]{display:none;}
+/* ⚠️⚠️ **活動地圖上那顆篩選鈕按下去時，這個彈窗必須壓在地圖之上**（單位 き-1，2026-09-09）。
+   `.sheet` 訂在 900 是**刻意**的（地雷 #21）：它原本只從清單開，而清單底下沒有全螢幕覆蓋層，
+   壓在 1000 之下反而是「萬一漏了 closeFilter()」的第二道保險。⚠️ 但 `#mapview` 是 1000，
+   從地圖按下去會開在**地圖後面**——畫面上完全看不到，按了像沒反應。餐廳頁 2026-09-03
+   踩過一模一樣的坑（`#restaurantFilterView` 因此單獨訂 1150）。
+   ⚠️ **這裡刻意不把 `.sheet` 一律改成 1150**，而是只在地圖開著時提高：那樣清單頁那道保險
+   還在，而「選點地圖」（`.locview`，同樣 1000）也不會因為漏了 closeFilter 就被彈窗蓋住。
+   1150 與景點詳情卡同層：在覆蓋層（1000）與圖例（1001）之上、toast 與小卡（1200）之下。
+   ⚠️⚠️ **驗證不能問「有沒有畫出來」**——`hidden` 與 DOM 內容兩邊都正常。
+   要用 `elementFromPoint` 打在彈窗裡的元素上，看回的是不是它自己（地雷 #21 那次
+   59 項斷言一項都沒抓到）。 */
+body.map-open .sheet{z-index:1150;}
+/* 內容自己捲：類型七顆 + 時間四顆 + 排序四顆 + 地區，在 568px 高的手機上會超出。
+   **上限給在方框而不是外層**，否則捲的是整片遮罩、方框會被推出畫面。 */
+.sheet-box{
+  width:100%;max-width:330px;padding:18px 20px 16px;
+  max-height:calc(100vh - 40px);overflow-y:auto;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+}
+.sheet-box h2{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:17px;letter-spacing:.01em;
+}
+.sheet h3{
+  font-family:var(--f-num);font-size:9.5px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);
+  margin:22px 0 10px;
+}
+.sheet-box h2+h3{margin-top:16px;}
+.sheet .info{font-size:12.5px;font-weight:300;line-height:1.85;color:var(--ink-2);}
+.sheet-btns{
+  display:flex;align-items:center;gap:10px;
+  margin-top:20px;padding-top:14px;border-top:1px solid var(--line);
+}
+.sheet-clear{
+  font-size:12.5px;color:var(--ink-2);
+  text-decoration:underline;text-underline-offset:2px;
+}
+.sheet-clear:hover{color:var(--ink);}
+/* 「顯示 N 筆」。唯一一顆有外框的鈕——它是結束這件事的動作，
+   而且數字會跳，需要一個固定的框才不會讓整列跟著抖。 */
+.sheet-done{
+  margin-left:auto;padding:7px 15px;
+  border:1px solid var(--ink);border-radius:var(--radius);
+  font-size:13px;color:var(--ink);font-variant-numeric:tabular-nums;
+}
+
+/* ===== 設定彈窗：外觀的預覽卡（2026-08-27）=====
+   兩張卡各自畫出「那個主題長什麼樣」——迷你的兩欄瀑布流、照片框、
+   一條文字線加一個分類色小方塊。**不必猜，直接看到結果。**
+   原本是兩顆 .side-chip（純文字＋底線），與篩選彈窗的類型／時間／排序共用樣式，
+   但**外觀是二選一的模式開關、篩選是條件**，兩者語義不同卻長得一模一樣。
+
+   ⚠️⚠️ **卡片內部那六個顏色是刻意寫死的十六進位，絕對不可以改成 var(--xxx)。**
+   那正是這個元件存在的理由：`.theme-pv-light` 永遠要畫淺色的樣子、
+   `.theme-pv-dark` 永遠要畫深色的樣子，**與使用者當下是哪一個主題無關**。
+   改成變數的話兩張卡會變成一模一樣（都畫成當前主題），而**畫面上看起來完全正常**
+   ——只是那兩張卡再也沒有在比較任何東西了。這與地雷 #7「JS 一份都不存、
+   改色只動 :root」不衝突：那條講的是「同一個顏色的單一來源」，
+   而這裡的兩組值是**兩個不同主題的樣本**，本來就該各存一份。
+   ⚠️ 代價是**本站改版時這張縮圖會過期**（而且不會有任何地方報錯）。
+   六個值抄自本檔開頭的 :root 與 :root[data-theme="dark"]：
+   paper／line／ink／--c-展覽。動了那四個就回來看一眼。
+
+   ⚠️ 卡片底色與彈窗底色（--paper）在當前主題下**故意是同一個值**，
+   靠 1px 外框區隔就夠——而且那反而是對的：當前那張卡字面上就是「你現在看到的」。 */
+.theme-pick{display:flex;gap:8px;}
+.theme-pv{
+  flex:1;min-width:0;padding:0;background:none;border:0;
+  display:flex;flex-direction:column;gap:7px;text-align:left;cursor:pointer;
+}
+.theme-pv:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+/* 選中用 box-shadow 疊出第二圈而不是把 border 加粗——**border 會改變內容盒尺寸，
+   兩張卡會在切換的瞬間跳一下**（同月曆 .keep 用 outline 不用 border 的理由）。 */
+.theme-pv .pv-frame{
+  display:flex;gap:5px;height:74px;padding:7px;overflow:hidden;
+  border:1px solid var(--line);border-radius:var(--radius);
+  transition:border-color .18s ease,box-shadow .18s ease;
+}
+.theme-pv:hover .pv-frame{border-color:var(--ink-3);}
+.theme-pv.on .pv-frame{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink);}
+.theme-pv .pv-lbl{
+  font-size:13px;text-align:center;color:var(--ink-2);
+  transition:color .18s ease;
+}
+.theme-pv.on .pv-lbl{color:var(--ink);font-weight:500;}
+/* 迷你的本站畫面。兩欄、且兩欄不等高——那就是瀑布流看起來的樣子。 */
+.theme-pv .pv-col{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;}
+.theme-pv .pv-ph{border-radius:2px;}
+.theme-pv .pv-t{height:3px;border-radius:1px;}
+.theme-pv .pv-t.short{width:58%;}
+.theme-pv .pv-meta{display:flex;align-items:center;gap:3px;}
+.theme-pv .pv-sq{width:5px;height:5px;flex:none;}
+.theme-pv .pv-meta .pv-t{flex:1;}
+/* ↓ 這六行就是上面那段警告講的東西。 */
+.theme-pv-light .pv-frame{background:#FBFAF7;}
+.theme-pv-light .pv-ph{background:#E5E1D8;}
+.theme-pv-light .pv-t{background:#1A1917;opacity:.72;}
+.theme-pv-light .pv-sq{background:#856726;}
+.theme-pv-dark .pv-frame{background:#141311;}
+.theme-pv-dark .pv-ph{background:#2E2B26;}
+.theme-pv-dark .pv-t{background:#EFEBE3;opacity:.72;}
+.theme-pv-dark .pv-sq{background:#C9A961;}
+
+/* ===== 設定彈窗：網頁導覽的入口卡（2026-08-28）=====
+   原本是一顆 .side-chip。問題不是不好看，是**語彙錯了**：那一套是篩選彈窗的
+   類型／時間／排序在用的（純文字＋選中底線），而**篩選是「條件」、導覽是「動作」**
+   ——同 2026-08-27 晝夜由 chip 改成預覽卡的理由（見地雷 #26 那張表）。
+   它還天生帶著一條 `border-bottom` 的選中底線，而這顆永遠不會被選中。
+
+   現在是「一個入口」最通用的長相：圖示 ＋ 標題 ＋ 一行說明 ＋ 右側箭頭。
+   ⚠️ **那一行說明才是這次真正的收穫**：使用者按下去之前完全不知道會發生什麼。
+   ⚠️ 份量刻意比同一個彈窗裡的其他東西重——它排在最上面，是給第一次來的人看的，
+      而下面三段（外觀／資料更新／資料來源）都是回頭客才會找的。
+
+   ⚠️ **底色用 `--surface` 而不是 `--paper`**：彈窗本身就是 `--paper`，同色的話
+      只剩那圈 1px 外框在說話。深色模式下 `--surface`(#1D1B18) 比紙(#141311) 亮一階，
+      淺色則是純白對暖白——兩邊都剛好浮起來一點點。 */
+.tour-card{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  padding:12px 13px;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  transition:border-color .18s ease;
+}
+.tour-card:hover{border-color:var(--ink-3);}
+.tour-card:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+/* 圓形底的圖示。**圓形是刻意的**——彈窗裡其餘的框全是 --radius(4px) 的方角，
+   圓形讓它一眼就與「一段設定」分開，讀起來像一個可以進去的地方。 */
+.tour-card .ic{
+  flex:none;width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;background:var(--paper);border:1px solid var(--line);
+}
+.tour-card .ic svg{
+  width:17px;height:17px;stroke:var(--ink);fill:none;
+  stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;
+}
+.tour-card .tx{flex:1;min-width:0;}
+.tour-card .tt{display:block;font-size:14px;color:var(--ink);line-height:1.4;}
+.tour-card .sb{
+  display:block;font-size:11.5px;font-weight:300;color:var(--ink-2);
+  line-height:1.6;margin-top:2px;
+}
+/* 箭頭用 --ink-3：它是純裝飾（整張卡都可以點，它不是獨立的可點控制項），
+   正是地雷 #7c 允許 --ink-3 出現的那一種用法。hover 時才提到 --ink-2。 */
+.tour-card .cv svg{
+  width:15px;height:15px;flex:none;stroke:var(--ink-3);fill:none;
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;
+  transition:stroke .18s ease;
+}
+.tour-card:hover .cv svg{stroke:var(--ink-2);}
+/* 疊圖模式的篩選彈窗：三張入口卡直排（單位 く，2026-09-10）。
+   ⚠️ **沿用 `.tour-card` 不是 `.side-chip`**——那三張是「進去改條件」的**動作**，
+      而篩選 chip 的語彙是「條件」本身（地雷 #26 那張表）。同一顆鈕長成兩種意思，
+      使用者就分不出「按下去是選中它」還是「按下去會開一個新畫面」。 */
+.all-filter-cards{display:flex;flex-direction:column;gap:8px;}
+
+/* ===== 網頁導覽（2026-08-21）=====
+   遮罩不是一整片底色，而是**高亮框那圈 9999px 的 box-shadow**——這樣「洞」本身
+   完全沒有被覆蓋，底下的真實畫面看得一清二楚。⚠️ 因此 .tour-hole 一定要
+   pointer-events:none，否則整片遮罩會變成它在吃點擊，而 .tourview 反而收不到。 */
+.tourview{position:fixed;inset:0;z-index:1400;}
+.tourview[hidden]{display:none;}
+/* 導覽開著時，篩選彈窗自己那層遮罩要關掉：導覽已經壓暗一次，
+   兩層疊起來會暗到看不出彈窗裡有東西（「離我最近」那一步會把它打開）。 */
+body.tour-on .sheet{background:transparent;}
+.tour-hole{
+  position:fixed;border-radius:6px;
+  box-shadow:0 0 0 9999px rgba(0,0,0,.55);
+  /* ⚠️ **這圈框刻意不吃 --paper，是全站少數寫死顏色的地方。** 它貼著的是遮罩，
+     而遮罩淺深兩種模式都是暗的；跟著主題走的話，深色模式下它會變成深色壓在
+     深色遮罩上——等於沒有框，而畫面看起來只是「有點糊」不像壞掉。 */
+  outline:1.5px solid rgba(255,255,255,.85);
+  pointer-events:none;
+}
+/* 開場與結尾兩張卡片不指任何東西。**不能把洞藏起來**——遮罩就是洞投出去的影子，
+   藏了等於整片變亮。改成縮成 0×0 擺在畫面中央：畫面照樣全暗，洞看不見。
+   ⚠️ **光靠這條 CSS 沒有用**：前一步是直接寫 hole.style.width／height 的，
+   inline 永遠贏。place() 因此會在這一步把那四個 inline 值清掉（2026-08-21 修）。 */
+.tour-hole.none{top:50%;left:50%;width:0;height:0;outline:none;}
+.tour-box{
+  position:fixed;left:50%;transform:translateX(-50%);
+  width:calc(100vw - 32px);max-width:330px;
+  max-height:calc(100vh - 32px);overflow-y:auto;
+  padding:16px 18px 14px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+}
+.tour-box h2{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:16px;letter-spacing:.01em;
+  padding-right:44px;            /* 讓開右上角的步數，長標題才不會撞上去 */
+}
+/* ⚠️ **這裡刻意不用 --ink-2／font-weight:300**（全站次要文字的慣例）。
+   導覽的字壓在暗遮罩上、只出現幾秒，使用者沒有時間細看——2026-08-21 使用者
+   回報淺色模式下看不清楚。**主因是 13px 的細體不是顏色**（--ink-2 在紙底上
+   本來就有 5.15、過 AA），所以顏色與字重一起調。 */
+.tour-box p{font-size:13px;font-weight:400;line-height:1.85;color:var(--ink);margin:8px 0 0;}
+/* 步數在方框右上角。**tabular-nums 不可省**：9/15 跳到 10/15 時寬度會變，
+   右上角那一格跟著抖一下，看起來像畫面在閃。 */
+.tour-n{
+  position:absolute;top:18px;right:18px;
+  font-family:var(--f-num);font-size:10.5px;font-weight:500;letter-spacing:.08em;
+  color:var(--ink-2);font-variant-numeric:tabular-nums;
+}
+.tour-box .sheet-btns{margin-top:18px;}
+/* 「上一步／下一步」（2026-08-21 第三批）。**箭頭與月曆的 .cal-nav 同一組 path**。
+   靠 .tour-nav 吃掉 margin-left:auto 把兩顆一起推到右邊——若改讓每顆自己
+   margin-left:auto，第二顆會被推開、兩顆中間裂一大條。
+   ⚠️ **停用態用 opacity 而不是隱藏**：藏起來的話右箭頭會在第一步跳一次位置。 */
+.tour-nav{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.tour-arrow{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:44px;min-height:32px;padding:6px 13px;
+  border:1px solid var(--ink);border-radius:var(--radius);
+  font-size:13px;color:var(--ink);
+}
+.tour-arrow svg{width:16px;height:16px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;}
+/* 最後一步：箭頭換成文字「完成」，靠按鈕上的 .done 一個 class 同時切兩件事。
+   ⚠️ **不要改用 svg.hidden = true**：`hidden` 是 HTMLElement 的屬性，
+   **SVGElement 根本沒有它**——那行賦值只是在 JS 物件上掛一個普通欄位，DOM 完全沒變，
+   而且讀回來還是 true，所以連測試都會被騙過去（2026-08-21 實拍才抓到「箭頭與『完成』
+   兩個一起出現」）。 */
+.tour-arrow .txt{display:none;}
+.tour-arrow.done svg{display:none;}
+.tour-arrow.done .txt{display:inline;}
+.tour-arrow[disabled]{opacity:.28;}
+
+/* 篩選 chip：純文字 + 選中加底線，不用膠囊按鈕 */
+.side-chips{display:flex;flex-wrap:wrap;gap:0 4px;}
+.side-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 11px 5px 0;font-size:14px;color:var(--ink-2);
+  border-bottom:1.5px solid transparent;
+  transition:color .18s ease,border-color .18s ease;
+}
+.side-chip .sq{width:6px;height:6px;flex:none;}
+.side-chip:hover{color:var(--ink);}
+.side-chip.on{color:var(--ink);border-bottom-color:var(--ink);}
+/* 「離我最近」選中時接在後面的「變更」。用 --geo（地點色）與它旁邊的排序 chip 區隔——
+   它不是第五個排序選項，是一個入口。刻意不做成常駐的設定項目（99% 時間是噪音）。 */
+.loc-change{
+  align-self:center;padding:5px 0 5px 2px;
+  font-size:11.5px;font-weight:500;color:var(--geo);
+  background:none;border:0;
+}
+.loc-change::before{content:'·';margin-right:5px;color:var(--ink-3);}
+.sheet select{
+  width:100%;padding:9px 2px;font-size:14px;font-family:inherit;
+  border:0;border-bottom:1px solid var(--line);border-radius:0;
+  background:transparent;color:var(--ink);outline:none;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+}
+.sheet select:focus{border-bottom-color:var(--ink);}
+
+/* ===== 搜尋列：底線輸入框，不用膠囊 ===== */
+.searchbar{
+  margin-top:6px;display:flex;align-items:center;gap:9px;
+  border-bottom:1px solid var(--line);padding:8px 0;
+  transition:border-color .18s ease;
+}
+.searchbar:focus-within{border-bottom-color:var(--ink);}
+.searchbar svg{width:15px;height:15px;stroke:var(--ink-2);fill:none;stroke-width:1.8;stroke-linecap:round;flex:none;}
+.searchbar input{
+  flex:1;border:none;outline:none;font-size:15px;font-family:inherit;
+  background:none;color:var(--ink);min-width:0;
+}
+.searchbar input::placeholder{color:var(--ink-2);}
+.searchbar .total{
+  font-family:var(--f-num);font-variant-numeric:tabular-nums;
+  font-size:11px;font-weight:500;letter-spacing:.08em;
+  color:var(--ink-2);white-space:nowrap;
+}
+.activefilter{
+  margin:10px 0 0;font-size:12px;color:var(--ink-2);
+  display:flex;gap:7px;flex-wrap:wrap;align-items:center;
+}
+.activefilter .tagf{
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:2px 9px;color:var(--ink-2);
+}
+.activefilter .clear{
+  text-decoration:underline;text-underline-offset:2px;
+  color:var(--ink-2);font-size:12px;
+}
+
+/* ===== 分類篩選：頂部橫排純文字（取代原本的首頁分類卡入口） =====
+   2026-08-27 由「自動換行」改成「橫向捲動一行」。實測日文在 390px 手機上要排
+   **3 行 112px**（整列真正需要 774px，可用只有 362px，差 2.1 倍），而 430px 的
+   大手機也還是 2 行——**縮字級救不了，分類還只會愈加愈多**（v4 已定案要加第七個）。
+   ⚠️ **捲動掛在 .typebar（內層），border-top 留在 .typebar-wrap（外層）**：
+   兩者同層的話那條分隔線會跟著捲走，而且它本來要與搜尋列那條對齊。 */
+.typebar-wrap{
+  position:relative;margin:12px 0 14px;padding-top:11px;border-top:1px solid var(--line);
+}
+.typebar{
+  display:flex;flex-wrap:nowrap;gap:0;overflow-x:auto;overflow-y:hidden;
+  /* 左右出血到螢幕邊，最後一顆才滑得出畫面外緣——切在 14px 的 padding 上
+     看起來像「被截斷」，滑到邊緣才看得出來是「還有」。
+     .wrap 的左右 padding 是 14px，故負 margin 與 padding 必須成對出現。 */
+  margin:0 -14px;padding:0 14px;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.typebar::-webkit-scrollbar{display:none;}
+/* ⚠️ 少了這行 chip 會被**壓扁成一團**而不是捲動（flex 預設 shrink:1）。 */
+.typebar>*{flex:none;}
+/* 右緣淡出：唯一在說「右邊還有東西」的東西。捲到底時由 JS 拿掉 .has-more。
+   right:-14px 是為了蓋到出血後的那一邊。 */
+.typebar-wrap::after{
+  content:'';position:absolute;top:11px;bottom:0;right:-14px;width:34px;
+  background:linear-gradient(to right,transparent,var(--paper));
+  pointer-events:none;opacity:0;transition:opacity .18s ease;
+}
+.typebar-wrap.has-more::after{opacity:1;}
+.typebar .side-chip{
+  font-size:14px;padding:5px 13px 5px 0;margin-right:5px;white-space:nowrap;
+}
+.typebar .cnt,
+.geo-tree .cnt,
+.restaurant-filters .cnt{
+  font-family:var(--f-num);font-variant-numeric:tabular-nums;
+  font-size:10.5px;font-weight:500;color:var(--ink-2);
+}
+.typebar .side-chip.on .cnt,
+.geo-tree .side-chip.on .cnt{color:var(--ink);}
+/* 「新收錄」「快結束」與後面七個分類是**正交的篩選**，包成一組、
+   右邊一條 hairline 分開。少了它會被讀成第八、第九個分類，
+   而點下去卻不會取消原本選的分類。
+   線畫在群組上而不是個別 chip 上：兩顆都可能因為 0 筆而不顯示，
+   掛在 chip 上就得回答「哪一顆才是最後一顆」，掛在群組上不必。 */
+.typebar .chip-group{
+  display:inline-flex;flex-wrap:wrap;align-items:center;
+  margin-right:12px;padding-right:12px;border-right:1px solid var(--line);
+}
+.typebar .chip-group .side-chip:last-child{margin-right:0;}
+/* 「篩選」釘在最左不跟著捲走：它是**入口**，滑到後面還要滑回來找它太麻煩。
+   ⚠️ 三件事缺一不可——`background` 少了會與捲過來的 chip **疊字**；
+   `margin-left/padding-left` 那 14px 少了，**出血區會露出底下捲過去的字**；
+   `z-index` 少了會被後面的 chip 蓋過去（同層時後來的在上面）。
+   ⚠️⚠️ **`left` 是 -14px 不是 0**：sticky 的 `left` 量的是**捲動容器的 padding box**，
+   而這一列為了出血自己帶了 14px 的 padding——寫 0 會把它釘在「距螢幕邊 14px」，
+   於是「篩選」比搜尋列與底下的卡片**整整偏右 14px**（實測文字落在 28px 而不是 14px）。
+   ⚠️ **這件事要量不要看**：偏 14px 在畫面上只像「留白多一點」，是量 svg 左緣才發現的。 */
+.typebar .chip-group:first-child{
+  position:sticky;left:-14px;z-index:1;
+  margin-left:-14px;padding-left:14px;background:var(--paper);
+}
+/* 捲過去的字若直接被切在分隔線上會像「壞掉的字」（實拍看到「花火」剩「火 38」），
+   所以線的右邊補一小段淡出讓它滑進去時淡掉。
+   ⚠️ `left` 要從 100%+1px 起——正好是 100% 的話，不透明的那一端會把
+   那條 1px 的 hairline 自己蓋掉。⚠️ 寬度只給 16px，再寬會吃到下一顆 chip 的字。 */
+.typebar .chip-group:first-child::after{
+  content:'';position:absolute;left:calc(100% + 1px);top:0;bottom:0;width:16px;
+  background:linear-gradient(to right,var(--paper),transparent);pointer-events:none;
+}
+/* 「篩選」是**入口不是篩選狀態**，所以維持主文字色（其餘 chip 未選中時是 --ink-2），
+   而且永遠不會有 .on。開著幾個條件則靠後面那個數字說話。 */
+/* ⚠️ 這三條 2026-09-03 起**餐廳頁工具列那顆篩選鈕也吃**（選擇器並列，不複製第二份）：
+   兩處是同一顆鈕的同一個狀態，複製一份日後調圖示大小會漏改一邊而兩邊各自看起來都正常。
+   ⚠️⚠️ **景點頁（`.places-toolbar`）2026-09-03 加篩選時漏了並列，躺了六天**（單位 き-1 修）。
+   症狀完全不像壞掉：那顆鈕**照樣按得開、彈窗照樣正常**，只是**漏斗圖示整個不見、
+   文字比餐廳頁淡一階**（吃到 `.side-chip` 未選中的 `--ink-2`）。
+   ⚠️ 三顆鈕的 HTML 一字不差（都有 `<svg class="ic">`），所以**看 DOM 看不出來，
+   要嘛量寬度**（實測景點 45px vs 餐廳 58px，差的就是那 13px 的圖示）**要嘛看截圖**。
+   活動地圖那顆（`.map-toolbar`）是抄景點的結構做的，所以一起漏、也一起修。 */
+.typebar .filter-chip,
+.restaurant-filters .filter-chip,
+.places-toolbar .filter-chip,
+.map-toolbar .filter-chip{color:var(--ink);}
+.typebar .filter-chip .ic,
+.restaurant-filters .filter-chip .ic,
+.places-toolbar .filter-chip .ic,
+.map-toolbar .filter-chip .ic{
+  width:13px;height:13px;flex:none;
+  stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
+}
+.typebar .filter-chip .cnt,
+.restaurant-filters .filter-chip .cnt,
+.places-toolbar .filter-chip .cnt,
+.map-toolbar .filter-chip .cnt{color:var(--ink);}
+/* 「快結束」的筆數用倒數色（與卡片上那行「剩 N 天」同一個 --hot）。
+   **只有數字上色、chip 文字維持一般樣式**：整顆上色在這個近無彩的版面上太跳，
+   而分類列已經有六個分類色的小方塊在旁邊了。 */
+.typebar .soon-chip .cnt,
+.typebar .soon-chip.on .cnt{color:var(--hot);}
+
+/* ===== 瀑布流：等寬欄，卡高由照片比例決定 ===== */
+.cards{display:flex;gap:var(--gap);align-items:flex-start;}
+.col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:var(--gap);}
+
+/* 卡片：沒有底色、沒有外框 */
+.card{display:block;background:transparent;position:relative;}
+.card:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+.card .ph img{transition:opacity .28s ease;}
+.card:hover .ph img{opacity:.86;}
+
+/* 圖框：aspect-ratio 由 wireImage() 依照片實際比例寫入。
+   預留值 1.39 是刻意的——等於 AR_MIN 的倒數（最扁那一端）。
+   來源多半是橫幅照，落點就在這裡，所以多數卡片載入後高度不會變動。
+   設 4/3 反而讓大部分卡片都要動一次。 */
+.ph{
+  position:relative;overflow:hidden;
+  aspect-ratio:1.39;background:var(--line);
+  border-radius:var(--radius);
+}
+.ph img{width:100%;height:100%;object-fit:cover;}
+/* 無圖／來源刪圖／抓到的其實是網站 logo → 安靜的替代面板。
+   刻意**不用分類色大面積填滿**：深色模式下一片亮土黃比周圍的照片還搶眼，
+   等於讓「沒有照片的活動」最吸引目光，邏輯是反的。
+   改成中性面板 + 分類色只上在文字，六色在 --surface 上都過 AA
+   （若用 --line 當底，祭典 3.84、煙火 3.93 會不合格）。 */
+.ph .block{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);
+  font-size:clamp(15px,2.6vw,24px);letter-spacing:.14em;
+}
+
+/* ===== 卡片文字：分類＋日期 → 標題 → 地點 ===== */
+.body{position:relative;padding:8px 0 2px;display:flex;flex-direction:column;gap:3px;}
+.meta{
+  display:flex;align-items:baseline;flex-wrap:wrap;gap:3px 9px;
+  padding-right:26px;font-size:11px;line-height:1.5;
+}
+.meta .cat{display:inline-flex;align-items:center;gap:5px;letter-spacing:.1em;}
+.meta .cat .sq{width:6px;height:6px;flex:none;}
+.meta .when{
+  font-family:var(--f-num);font-variant-numeric:tabular-nums;
+  font-weight:500;letter-spacing:.03em;color:var(--ink-2);
+}
+.meta .when .arw{color:var(--ink-2);}
+.meta .live{font-family:var(--f-body);}
+.meta .soon{color:var(--hot);font-weight:500;}
+.meta .soon.last{font-weight:700;}
+.body h2{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);
+  font-size:14.5px;line-height:1.42;letter-spacing:.01em;color:var(--ink);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+/* 收藏：釘在文字區右上，不壓在照片上 */
+.fav{
+  position:absolute;top:5px;right:-2px;z-index:2;
+  width:26px;height:26px;padding:0;
+  font-size:15px;line-height:26px;text-align:center;
+  color:var(--ink-2);transition:color .18s ease;
+}
+.fav:hover{color:var(--ink-2);}
+.fav.on{color:var(--c-展覽);}
+/* 地點：一律用地點藍，整塊可點開 Google 地圖 */
+.place{
+  display:flex;align-items:flex-start;gap:4px;padding:1px 0 0;
+  color:var(--geo);font-size:11.5px;line-height:1.45;text-align:left;
+}
+.place svg{
+  flex:none;width:11px;height:11px;margin-top:3px;pointer-events:none;
+  stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+}
+.place .v{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;}
+button.place:hover .v{text-decoration:underline;text-underline-offset:2px;}
+/* 地區用 --ink-2 而非更淡的 --ink-3：後者在紙底上只有 2.85，小字不合格 */
+.place .ar{flex:none;color:var(--ink-2);font-family:var(--f-num);font-size:10px;letter-spacing:.06em;}
+/* 距離：只在「離我最近」排序下出現，且沉底那組（geo==='area'）永遠沒有數字。
+   用 --geo 與同一行的地點資訊同色系，讓它讀起來是「這個地點離你多遠」而不是另一則後設資料。 */
+.place .dist{
+  flex:none;color:var(--geo);font-family:var(--f-num);font-size:10px;
+  font-weight:600;letter-spacing:.04em;
+}
+.place.approx{color:var(--ink-2);}
+
+.empty{
+  margin-top:64px;text-align:center;color:var(--ink-2);
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:15px;
+}
+
+/* ===== 已結束的收藏 =====
+   活動結束後會從 events.json 被剔除，而收藏存的是 id——查無此人時那張卡片
+   就**靜默消失**，使用者只會覺得「我明明收藏過」。這一段是它的墓誌銘。
+   刻意做得很淡：它是一份備查名單，不是內容，不該跟上面的照片搶。
+   文字一律 --ink-2，**不可以用 --ink-3**（紙底上只有 2.85，那層只准裝飾）。 */
+.expired{margin:34px 0 0;}
+.expired:empty{margin:0;}
+.expired-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding-bottom:4px;
+}
+.expired-head h3,
+.favfood-head h3{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);
+  font-size:13px;letter-spacing:.02em;color:var(--ink-2);
+}
+.expired-clear{
+  font-size:11.5px;color:var(--ink-2);background:none;border:0;padding:2px 0;
+  transition:color .18s ease;
+}
+.expired-clear:hover{color:var(--ink);}
+.expired-row{
+  display:flex;align-items:baseline;gap:10px;
+  padding:8px 0;border-top:1px solid var(--line);
+}
+.expired-tag{
+  flex:none;font-family:var(--f-num);font-variant-numeric:tabular-nums;
+  font-size:10.5px;font-weight:500;color:var(--ink-2);
+}
+/* 「已下架」＝結束日還沒到卻不見了，那是異常而不是自然的落幕，值得一點溫度。
+   與卡片上的倒數共用 --hot，因為兩者都在說「這件事跟時間有關且要注意」。 */
+.expired-tag.off{color:var(--hot);}
+.expired-name{
+  flex:1 1 auto;min-width:0;font-size:13px;color:var(--ink-2);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.expired-x,
+.favfood-x{
+  flex:none;width:22px;height:22px;font-size:15px;line-height:1;
+  color:var(--ink-2);background:none;border:0;
+  transition:color .18s ease;
+}
+.expired-x:hover,
+.favfood-x:hover{color:var(--ink);}
+
+/* ===== 收藏的餐廳（單位 K，2026-08-27）=====
+   接在瀑布流後面、「已結束的收藏」前面。它是**內容**（那份是備查名單），
+   所以列比 .expired-row 高一點、店名用標題字。
+   ⚠️ 標題、× 與「＋」三樣**沿用既有選擇器**（見上方 .expired-head h3 / .expired-x /
+   .plan-row .act 各自多掛了一個），不另寫一套：同一種東西長得不一樣，
+   等於在說「這是兩件不同的事」。 */
+.favfood{margin:32px 0 0;}
+.favfood:empty{margin:0;}
+.favfood-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding-bottom:4px;
+}
+.favfood-n{
+  font-family:var(--f-num);font-size:10px;letter-spacing:.08em;color:var(--ink-3);
+}
+.favfood-row{
+  display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;
+  padding:10px 0;border-top:1px solid var(--line);
+}
+.favfood-row .info{flex:1;min-width:0;}
+.favfood-row .nm{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:13.5px;
+  line-height:1.45;margin-bottom:3px;
+}
+.favfood-row .sub{
+  font-family:var(--f-num);font-size:10.5px;letter-spacing:.04em;
+  color:var(--ink-2);display:flex;gap:9px;flex-wrap:wrap;align-items:center;
+}
+.favfood-row .sub .cat{font-weight:500;}
+/* 「已從榜單移除或歇業」。與 .expired-tag.off 同色（--hot）是刻意的：
+   兩者都在說「這件事不是自然的落幕，值得看一眼」。 */
+.favfood-off{color:var(--hot);}
+/* 就地問「哪一餐」：**自成一列**。擠在店名右邊的話長店名會被壓到折兩行，
+   而那時使用者正在看的就是「我要為哪一家店選餐別」（實測 430px 下就會折）。 */
+.favfood-ask-bar{
+  flex:0 0 100%;display:flex;align-items:center;gap:14px;
+  padding-top:8px;
+}
+.favfood-row .side-chip{flex:none;padding-top:0;padding-bottom:0;}
+.favfood-row .side-chip[disabled]{opacity:.35;}
+.favfood-ask{flex:none;font-size:11.5px;color:var(--ink-2);}
+
+/* ===== 底部導覽 ===== */
+.tabbar{
+  position:fixed;left:50%;transform:translateX(-50%);
+  bottom:calc(14px + env(safe-area-inset-bottom));z-index:800;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  display:flex;padding:4px;
+}
+.tab{
+  width:58px;height:40px;border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .18s ease;
+}
+.tab svg{width:19px;height:19px;stroke:var(--ink-2);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.tab.on{background:var(--ink);}
+.tab.on svg{stroke:var(--paper);}
+
+/* ===== 三張地圖之間的切換器（2026-08-27）=====
+   活動／景點／餐廳三個全螢幕覆蓋層的右上角各放一份，**選中的那一格是寫死的**
+   （每張地圖裡永遠選中自己），所以它不需要記任何狀態，見 js/mapswitch.js。
+   ⚠️ **選中刻意不用 `--ink` 實心底**（第一版是那樣，使用者說太醜）：那個深色實心塊在本站
+      已經是**底部分頁列**的語彙（「你現在在哪一頁」），而且直角外框＋深塊在這個近無彩、
+      沒有卡片容器的版面上重得突兀。現在是「淺色凹槽＋淺色滑塊」的膠囊分段，
+      靠位置與明度說話，是 iOS／Material 都在用的形狀。 */
+.mapswitch, .viewswitch{
+  display:flex;flex:none;align-items:center;gap:2px;
+  padding:2px;border-radius:999px;
+  /* ⚠️ 凹槽的深度是**算過的**：未選中那兩格是 `--ink-2`，它壓在凹槽上要過 AA 4.5。
+     直接用 `--line`（#E5E1D8）只有 **4.18 不合格**；墨色 6% 疊在紙上是 4.64。
+     **想把凹槽加深之前先回來算這一條。** */
+  background:rgba(26,25,23,.06);
+}
+.mapswitch-seg, .viewswitch-seg{
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  height:27px;padding:0 13px;border:0;border-radius:999px;background:transparent;
+  font-size:12px;color:var(--ink-2);white-space:nowrap;
+  transition:background .18s ease,color .18s ease;
+}
+/* 圖示平常不出現，只有窄到放不下文字時才頂上（見下方那兩條 media query）。 */
+.mapswitch-seg svg{
+  display:none;width:13px;height:13px;flex:none;
+  stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;
+}
+.mapswitch-seg:hover, .viewswitch-seg:hover{color:var(--ink);}
+/* 選中：滑塊比凹槽亮一階＋字轉成主色＋加粗。**三個訊號一起給**是因為滑塊與凹槽的明度差
+   本來就小（同 iOS），只靠底色的話在強光下的手機上會看不出來。 */
+.mapswitch-seg.on, .viewswitch-seg.on{
+  background:var(--surface);color:var(--ink);font-weight:600;
+  box-shadow:0 1px 2.5px rgba(0,0,0,.12);
+}
+/* 深色要**翻面**：紙是 #141311、而 `--surface` 只比它亮一點點，照抄淺色的寫法會變成
+   「滑塊比凹槽還暗」。所以兩邊都改用白色疊層——凹槽 6%、滑塊 18%。 */
+:root[data-theme="dark"] .mapswitch,
+:root[data-theme="dark"] .viewswitch{background:rgba(255,255,255,.06);}
+:root[data-theme="dark"] .mapswitch-seg.on,
+:root[data-theme="dark"] .viewswitch-seg.on{
+  background:rgba(255,255,255,.18);box-shadow:0 1px 2.5px rgba(0,0,0,.35);
+}
+/* 窄螢幕改成只留圖示。**這兩條只作用在 `.mapswitch-seg`，不可加上 `.viewswitch-seg`**
+   ——後者沒有圖示，藏掉文字會變成兩個空格子（見下方 `.viewswitch` 那段）。
+   **門檻是量出來的**（拿每個寬度下「標題文字寬」對「標題那格可用寬」比）：
+   帶文字時中文 158px、日文更寬（イベント／スポット／グルメ），而最長的標題是
+   「東京美食地圖」102px／「東京グルメマップ」136px。
+   ⚠️ **這件事要量不要看**——標題被截成「東京グルメマッ…」在畫面上只像「標題比較短」。
+   ⚠️ 日文那條的選擇器比較 specific，所以下面那條要把它一起寫進去，否則日文吃不到。 */
+@media (max-width:389px){
+  .mapswitch-seg b{display:none;}
+  .mapswitch-seg svg{display:block;}
+  .mapswitch-seg, :root:lang(ja) .mapswitch-seg{padding:0 11px;}
+}
+@media (max-width:479px){
+  :root:lang(ja) .mapswitch-seg b{display:none;}
+  :root:lang(ja) .mapswitch-seg svg{display:block;}
+}
+/* 320px 上再收緊：日文的「東京グルメマップ」136px，圖示版（113px）之後可用只有 123px
+   ——**差 1px 就會被截成「東京グルメマッ…」**。內距收到 8px 之後可用 141px。
+   ⚠️ 這條要排在上面那條之後，而且要把 `:root:lang(ja)` 一起寫進去（它比較 specific）。 */
+@media (max-width:359px){ .mapswitch-seg, :root:lang(ja) .mapswitch-seg{padding:0 8px;} }
+
+/* ⚠️⚠️ **這一整組有六條是綁在 id 上的，疊圖那張（`#allView`）必須逐條並列。**
+   底層的 `.maptop` 是與「選點地圖」共用的**舊版絕對定位排版**（`position:relative`
+   ＋ `padding:13px 54px`），漏並列的話新的覆蓋層會安靜地退回那一版——
+   實測症狀是**切換器整排掉到第二行、頂欄由 65.9px 變成 103.4px**，
+   而且**每個寬度都一樣（連 768px 也是）**，所以看起來不像「太窄放不下」而像「本來就長這樣」。
+   （單位 く，2026-09-10 實際踩到。）
+   ⚠️ **標題與切換器不要用絕對定位擺在同一列。** 那樣標題（block）仍然佔滿整列，
+   長一點的標題會直接鑽到切換器底下——而**畫面上要等到標題夠長才看得出來**。
+   改成 flex 分左右：標題那格 `flex:1;min-width:0` 並截字，切換器 `flex:none`。 */
+#mapview .maptop,
+#allView .maptop{
+  display:flex;align-items:center;gap:12px;
+  /* 三個尺寸（padding 12／標題行高 1.3／筆數上緣 2）**刻意與餐廳、景點兩頁對齊**：
+     三張地圖現在可以互相切換，頂欄一高一低的話，切換的瞬間底下的地圖會上下跳 6.5px。
+     ⚠️ 只作用在活動地圖——`.maptop` 與「選點地圖」共用，那一頁維持原本的尺寸。
+     ⚠️ **2026-09-09（き-1）padding 由 `12px 14px 12px 54px` 改成 `12px 14px`**：
+     那個 54px 是替絕對定位的返回鈕留位，而桌面的 media query 只把另外兩張加寬到 32px
+     ——實測 1440px 下這一張的返回鈕與右上角切換器比另兩張往外 **18px**，
+     **切換的瞬間會水平跳一下**。改成返回鈕當 flex 子項之後，三張的頂欄規則就一字不差了。 */
+  padding:12px 14px;padding-top:calc(12px + env(safe-area-inset-top));
+}
+#mapview .maptop h2,
+#allView .maptop h2{font-size:17px;line-height:1.3;}   /* 三張地圖的標題同一個尺寸（原本 16px，差 1.3px 的行高就會讓頂欄不同高） */
+#mapview .maptop .sub,
+#allView .maptop .sub{margin-top:2px;}
+.map-heading{flex:1;min-width:0;}
+/* 返回鈕原本靠 bottom:11px 對齊（那時這一列只有標題與筆數）。加了切換器之後，
+   同一列上有兩個框而它們差 9px，看起來就是沒對齊——改成一起垂直置中。
+   ⚠️ **只作用在活動地圖**：`.map-close` 與 `.maptop` 是與「選點地圖」共用的。
+   ⚠️ **2026-09-09（き-1）再改成 `position:static` 的 flex 子項**，與 `.restaurant-close`／
+   `.places-close` 同一種排法（DOM 順序本來就是 鈕 → 標題 → 切換器，所以不必動 HTML）。
+   絕對定位那版必須靠 `padding-left:54px` 替它留位，而那個 54px 正是桌面 18px 錯位的來源。 */
+#mapview .maptop .map-close,
+#allView .maptop .map-close{position:static;transform:none;flex:none;}
+
+/* ===== 地圖頁 ===== */
+.mapview{position:fixed;inset:0;z-index:1000;background:var(--paper);display:none;flex-direction:column;}
+.mapview.show{display:flex;}
+/* 地圖與行程都是整頁覆蓋層，底下那幾百張卡片看不見卻仍要瀏覽器維護——實測光是把清單
+   藏起來，拖曳地圖的中位幀就從 60ms 降到 36ms（占總改善的一半）。
+   捲動位置各自由 map.js／plan-ui.js 存起來、關閉時還原（display:none 會讓頁面高度歸零）。
+   **日後若再加全螢幕覆蓋層，記得一併加進這個選擇器。** */
+body.map-open #cards, body.map-open #expired,
+body.restaurant-open #cards, body.restaurant-open #expired,
+body.places-open #cards, body.places-open #expired,
+body.loc-open #cards, body.loc-open #expired,
+body.plan-open #cards, body.plan-open #expired,
+body.map-open #favFood, body.restaurant-open #favFood, body.places-open #favFood,
+body.loc-open #favFood, body.plan-open #favFood{display:none;}
+.maptop{
+  position:relative;padding:13px 54px;
+  padding-top:calc(13px + env(safe-area-inset-top));
+  border-bottom:1px solid var(--line);
+}
+.maptop h2{font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.maptop .sub{
+  font-family:var(--f-num);font-size:10.5px;font-weight:500;
+  letter-spacing:.1em;color:var(--ink-2);margin-top:3px;
+}
+/* 活動地圖的副標與另外兩張對齊（字距 .1em → .08em、上緣 3 → 2）。
+   ⚠️ 只作用在活動地圖，選點地圖那一頁維持原本的尺寸。 */
+#mapview .maptop .sub,
+#allView .maptop .sub{letter-spacing:.08em;}
+.map-close{
+  position:absolute;left:14px;bottom:11px;
+  width:32px;height:32px;border-radius:var(--radius);border:1px solid var(--line);
+  background:transparent;display:flex;align-items:center;justify-content:center;padding:0;
+}
+.map-close svg{width:17px;height:17px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+#map,
+#allMap{flex:1;width:100%;background:var(--line);}
+/* ===== 地圖上的日期鈕（單位 さ，2026-09-16）=====
+   ⚠️ **只有活動地圖與疊圖兩張有**，景點與餐廳沒有日期欄位（見 js/datefilter.js 檔頭）。
+   `.map-panel` 是日期鈕的定位基準：它讓「右上角」是**地圖區域**的右上角，
+   而不必把頂欄那兩列的高度（實測 116.3px）寫死進 top。
+   **形狀抄餐廳頁的 `.restaurant-map-panel`**，那是既有的同一個做法。 */
+.map-panel{position:relative;display:flex;flex:1;min-height:0;}
+/* 位置與圖例對稱：圖例在左下、Leaflet 的縮放在左上，右上原本是空的。
+   z-index 與圖例同層（1001）＝壓在地圖上、但仍在覆蓋層自己的浮層之下。
+   外觀沿用圖例那一套（紙底＋細框＋圓角），因為它們是同一類東西：貼在地圖上的小面板。 */
+.map-datebtn{
+  position:absolute;top:12px;right:14px;z-index:1001;
+  display:flex;align-items:center;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+}
+.map-datebtn .dpick{
+  display:flex;align-items:center;gap:6px;
+  background:transparent;border:0;padding:7px 10px;
+  font-size:12px;line-height:1;color:var(--ink-2);cursor:pointer;
+}
+/* 選中了就轉主色＋加粗。**兩個訊號一起給**：這顆鈕壓在滿版彩色圖磚旁邊，
+   只靠一個顏色差在強光下的手機上看不出來（同膠囊分段那條的理由）。 */
+.map-datebtn.on .dpick{color:var(--ink);font-weight:600;}
+.map-datebtn .dpick .ic{
+  width:14px;height:14px;flex:none;
+  stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
+}
+/* 原生日期選擇器的代理。**opacity:0 不是 display:none**——後者會讓 showPicker()
+   丟 InvalidStateError（規範要求元素「正在被 render」）。
+   ⚠️ `pointer-events:none` 是必要的：讓它吃到點擊的話，桌機 Chrome 點在 date input
+   的文字區**不會**打開選擇器，於是變成「按了沒反應」。點擊一律由上面那顆 button 接。 */
+.map-datebtn .dclr{
+  background:transparent;border:0;border-left:1px solid var(--line);
+  padding:7px 9px;font-size:12px;line-height:1;color:var(--ink-2);cursor:pointer;
+}
+/* ⚠️ 地雷 #26：全站已經補過十處「自己設了 display 的元素用 hidden 藏不住」。
+   這一顆目前沒有自己設 display，所以 UA 的 `[hidden]{display:none}` 本來就有效
+   ——這條是**預防性**的：日後若有人給它 `display:flex` 對齊圖示，
+   沒有它就會變成「清除鈕在沒選日期時也一直掛在那裡」。 */
+.map-datebtn .dclr[hidden]{display:none;}
+.map-datebtn .dpick:focus-visible,
+.map-datebtn .dclr:focus-visible{outline:2px solid var(--ink);outline-offset:-2px;}
+/* ===== 日期小卡的月曆（單位 さ 第二輪，2026-09-16）=====
+   ⚠️⚠️ **這一段只放大，不改 `.cal` 本身一個宣告**。`.cal`／`.cal .day`／`.cal .dow`／
+   `.cal-head`／`.cal-nav`／`.cal .dots` 是**行程頁那個月曆的**，而它的格子刻意壓扁
+   （`aspect-ratio:1.45`）是因為要與「我的行程」擠在同一個畫面上——直接調那裡
+   等於把行程頁的月曆一起變胖，**而那一頁看起來只是「月曆怎麼變高了」**，
+   不會有任何錯誤訊息（同 `.legend-genres` 三頁共用那條的反面）。
+   ⚠️ 這裡的值是為了「按開之後看得清楚」而訂的：格子近正方形、字大三號、
+   點也跟著放大——**小卡是獨立的一張，沒有東西要跟它搶高度**。 */
+.datesheet .sheet-box{max-width:362px;}
+.datesheet .cal-head{margin-bottom:12px;}
+.datesheet .cal-head .mon{font-size:15px;}
+.datesheet .cal-nav{width:34px;height:34px;}
+.datesheet .cal-nav svg{width:17px;height:17px;}
+.datesheet .cal{gap:4px;}
+.datesheet .cal .dow{font-size:11px;padding-bottom:7px;}
+.datesheet .cal .day{aspect-ratio:1.04;border-radius:3px;font-size:15px;gap:3px;}
+.datesheet .cal .dots{height:4px;gap:2px;}
+.datesheet .cal .dots i{width:4px;height:4px;}
+/* 今天：一圈細框。**與「選中」（實心翻面）刻意不同**——同時看得出
+   「今天在哪裡」與「我選的是哪一天」，兩件事用同一種強調就分不出來了。
+   ⚠️ 用 outline 不用 border（border 會改變內容盒尺寸，整排日期會跳一下，
+   同 `.cal .day.keep` 那條）。 */
+.datesheet .cal .day.today{outline:1.5px solid var(--ink-3);outline-offset:-2px;}
+.datesheet .cal .day.today.on{outline:none;}
+.datesheet .cal .day:not([disabled]):hover{background:var(--surface);}
+.datesheet .cal .day.on:hover{background:var(--ink);}
+.datesheet .cal .day:focus-visible{outline:2px solid var(--ink);outline-offset:-2px;}
+/* 月曆底下那行「這一天有 N 個活動」。⚠️ **它是這張小卡唯一在說「點會變成什麼」的地方**：
+   點的密度只分三階，看不出實際筆數。 */
+.datesheet .cal-note{
+  margin-top:12px;font-size:11.5px;line-height:1.5;color:var(--ink-2);min-height:1.5em;
+}
+.map-legend{
+  position:absolute;bottom:calc(16px + env(safe-area-inset-bottom));left:14px;z-index:1001;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:9px 12px;font-size:11px;line-height:1.95;color:var(--ink-2);
+}
+/* 色塊 2026-08-14 由 8px 放大到 14px，因為要裝得下與圖釘同一個圖示（與餐廳圖例同一套）。
+   最後那行「概略位置」沒有圖示，就是單純的色塊，寬度一致才對得齊。 */
+.map-legend .dot{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:14px;height:14px;border-radius:2px;margin-right:7px;vertical-align:-3px;
+}
+.map-legend .dot .gi{color:var(--paper);}
+/* 水滴色塊（單位 こ-1，2026-09-11）：**活動的圖釘是水滴，圖例色塊就要是水滴**。
+   在 2026-09-11 形狀升格成全站一致之前（圓＝景點／圓角方＝餐廳）這無所謂，
+   之後活動那顆 2px 圓角方在疊圖裡**長得就是餐廳**，而同一塊圖例上面那行才剛說
+   「圓角方＝餐廳」——自相矛盾。
+   ⚠️⚠️ **做成一個獨立的 class，絕不可以直接改 `.map-legend .dot`**：
+   **`#allLegend` 用的就是 `.map-legend` 這個 class**，而疊圖裡景點與餐廳那兩段
+   只在行內覆蓋了 `border-radius`、**沒有覆蓋 `transform`**，改那條的話它們會跟著
+   轉成菱形——**而畫面上看起來像「餐廳的形狀改了」**，不像是這次改動的波及。
+   ⚠️ 圖示要轉回來（同 `.event-pin` 的 45 度補償，只有水滴是轉的那條）。
+   ⚠️ **`transform` 不進版面計算**，所以圖例高度一個像素都沒變（實測疊圖 314、
+   活動 225，改動前後相同）。列距 21.4px、旋轉後的外框上限 19.8px，不會疊到。 */
+.map-legend .dot.drop{border-radius:50% 50% 50% 0;transform:rotate(-45deg);}
+.map-legend .dot.drop .gi{transform:rotate(45deg);}
+/* 疊圖的「概略位置」是三顆並排（三種都可能是概略位置），間距收窄才不會比文字還長。 */
+#allLegend .approxline .dot{margin-right:3px;}
+#allLegend .approxline .dot:last-of-type{margin-right:7px;}
+
+/* ===== 疊圖圖例的收束（單位 こ-2，2026-09-11）=====
+   ⚠️ **只作用在 `#allLegend`**：另外三張地圖的圖例一個像素都沒有變（使用者決定）。
+   形狀那三行併成一行、三段類別收進一顆 summary，**實測 390px 下圖例
+   154×173 → 219×61，佔地圖高 24% → 8%**（收起時）。
+   ⚠️ 三角形與 summary 的排版**並列進上面 `.legend-genres` 那一段共用規則**，
+   不在這裡複製第二份——那段的宣告值一個字都沒動，三頁行為不受影響。
+   ⚠️ **寬度是代價**：橫排之後由 154px 變 219px（日文三個標籤最長）。
+   面積其實只省一半，真正省掉的是「高度」——圖例壓在地圖下緣，高比寬礙事。 */
+#allLegend .shapeline{display:flex;gap:9px;align-items:center;}
+/* ⚠️ `nowrap` 不可省：三個標籤要各自成一塊，斷在中間會變成兩行而高度就白省了。 */
+#allLegend .shapeline>div{display:inline-flex;align-items:center;white-space:nowrap;}
+/* 色塊與文字的間距在橫排時收窄（直排 7px 是為了與 summary 的三角形對齊，橫排沒有這個約束）。 */
+#allLegend .shapeline .dot{margin-right:4px;}
+
+/* ===== 我的位置：選點地圖（單位 A）=====
+   結構刻意與 .mapview 同款（沿用 .maptop 與 .map-close），使用者一眼就知道這是同一種畫面。
+   底部多一條動作列——這張地圖不是用來看的，是用來「決定一個點然後離開」的。 */
+.locview{position:fixed;inset:0;z-index:1000;background:var(--paper);display:none;flex-direction:column;}
+.locview.show{display:flex;}
+#locmap{flex:1;width:100%;background:var(--line);}
+.locbar{
+  border-top:1px solid var(--line);padding:11px 14px;
+  padding-bottom:calc(11px + env(safe-area-inset-bottom));
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+/* 隱私那句話是這個功能的核心承諾，故常駐在動作列上而不是塞進說明頁。
+   `flex:1 1 200px` + 外層 wrap：三顆鈕擠不下時（390px 手機）整排鈕落到第二行，
+   而不是把這句話壓成五行。桌面寬度仍是一行，版面不變。 */
+.locnote{flex:1 1 200px;min-width:0;font-size:10.5px;line-height:1.5;color:var(--ink-2);}
+.locbtns{flex:none;margin-left:auto;display:flex;align-items:center;gap:8px;}
+.loc-ok{
+  padding:9px 20px;border-radius:var(--radius);border:1px solid var(--ink);
+  background:var(--ink);color:var(--paper);font-size:13px;font-weight:500;
+}
+/* 還沒點任何地方時「確定」沒有東西可存。灰掉而不是藏起來——
+   藏起來會讓動作列在點下地圖的瞬間跳動一次。 */
+.loc-ok:disabled{opacity:.32;}
+.loc-clear{
+  padding:9px 14px;border-radius:var(--radius);border:1px solid var(--line);
+  background:transparent;color:var(--ink-2);font-size:13px;
+}
+/* 「用我現在的位置」。與 .loc-clear 同一個外型（次要動作），只有文字改用 --geo，
+   與 .loc-change 一致——地點相關的入口在本站一律是這個顏色。
+   定位中一律灰掉並改字，避免連按送出多個請求。 */
+.loc-here{
+  padding:9px 14px;border-radius:var(--radius);border:1px solid var(--line);
+  background:transparent;color:var(--geo);font-size:13px;font-weight:500;
+}
+.loc-here:disabled{opacity:.45;}
+/* 位置標記。用 --geo 與全站的地點資訊同色系，且刻意不用分類六色——
+   它不是活動，是使用者自己。 */
+.locpin{
+  width:22px;height:22px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);
+  background:var(--geo);border:2.5px solid var(--paper);box-shadow:0 1px 5px rgba(0,0,0,.45);
+}
+.pin{
+  width:20px;height:20px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);
+  border:1.5px solid var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.35);
+}
+.pin.approx{opacity:.5;}
+/* 放圖示的圖釘放大到 26px 才塞得下（20px 扣掉白邊只剩約 11px，線條會糊成一團）。
+   **2026-08-14 起活動地圖也放圖示**（使用者要求），故兩者共用這組規則——
+   原本只有餐廳，註解寫著「活動只有 6 個分類、顏色就夠」，那條已被推翻。
+   圖示要反向轉 45 度轉回來，因為 .pin 本身是轉了 -45 度的水滴。 */
+.pin.restaurant-pin,
+.pin.event-pin,
+.pin.place-pin{width:26px;height:26px;display:flex;align-items:center;justify-content:center;}
+.pin.restaurant-pin .gi,
+.pin.event-pin .gi,
+.pin.place-pin .gi{color:var(--paper);}
+/* ── 形狀＝這是哪一種（2026-09-11，單位 く 第二輪）──────────────────────
+   **活動水滴／景點圓／餐廳圓角方，全站一致**，不再只存在於疊圖模式。
+   形狀升格成**型別本身的標記**，所以它直接寫在型別的 class 上——
+   原本那組 `.pin.shape-round`／`.pin.shape-square` 是疊圖才外加的，已整組移除。
+   ⚠️ **使用者 2026-09-11 決定圓與方都不加尖端**：精確位置是點開才看的東西，
+   圖釘不必承擔那件事。⚠️ **錨點三種一律維持底部中心**（`iconAnchor` 不動），
+   三種因此「站」在同一條基線上——改成置中的話，同一個座標上的活動與景點
+   會差 13px，而那在疊圖模式裡看得出來。
+   ⚠️ **只有水滴需要把圖示轉回來**（`.pin` 本身轉了 -45 度）；圓與方不轉，
+   所以那條 45 度補償現在只掛在 `.event-pin` 上。**兩件事要一起想**：
+   日後若把某一種改回水滴，補償也要跟著加回去，否則圖示會歪 45 度。 */
+.pin.event-pin .gi{transform:rotate(45deg);}
+.pin.place-pin{border-radius:50%;transform:none;}
+.pin.restaurant-pin{border-radius:6px;transform:none;}
+/* ── 世界遺產的星號（2026-08-22，只有景點地圖用）────────────────────────
+   ⚠️ **這一層存在的唯一理由是「不要旋轉」**。`.pin` 是轉了 -45 度的水滴，
+   星號若掛在它裡面，`top/right` 的「右上角」畫出來會跑到**正上方**，而且星星
+   自己是歪的（類別圖示就是靠上面那條 rotate(45deg) 轉回來才正的）。
+   包一層不旋轉的框之後，「右上角」就是字面意義的右上角，不必做任何角度換算。
+   框維持 26×26＝圖釘本身的大小，所以 divIcon 的 iconSize／iconAnchor／popupAnchor
+   三個值一個都不必動（動了其中一個沒動另外兩個，圖釘會偏離它指的座標）。 */
+.place-pin-wrap{position:relative;width:26px;height:26px;}
+/* 星號刻意溢出到框外（Leaflet 對 divIcon 不裁切），才不會把類別圖示壓掉。
+   `line-height:0` 不可省——否則 inline 元素的行高會把星號往下推幾個 px。 */
+.wh-badge{position:absolute;top:-3px;right:-4px;line-height:0;color:var(--wh);}
+/* 淺色的圖磚是滿版彩色，圖釘要更厚的白邊與更重的陰影才切得開；
+   深色的圖磚已被下面那條濾鏡壓暗，1.5px 就夠——故**刻意只加在晝模式**。 */
+:root[data-theme="light"] .pin{border-width:2px;box-shadow:0 1px 4px rgba(0,0,0,.45);}
+/* 深色模式：OSM 只有亮底圖磚，用濾鏡轉深。
+   **只套在圖磚層**——套在整張地圖會把圖釘與彈窗的顏色一起反掉。 */
+:root[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.88) contrast(.92) saturate(.75);}
+:root[data-theme="dark"] .leaflet-control-attribution{background:rgba(20,19,17,.8)!important;color:var(--ink-2)!important;}
+:root[data-theme="dark"] .leaflet-control-attribution a{color:var(--ink-2)!important;}
+:root[data-theme="dark"] .leaflet-popup-content-wrapper,
+:root[data-theme="dark"] .leaflet-popup-tip{background:var(--surface);color:var(--ink);}
+:root[data-theme="dark"] .leaflet-bar a{background:var(--surface);color:var(--ink);border-color:var(--line);}
+:root[data-theme="dark"] .leaflet-bar a:hover{background:var(--paper);}
+.leaflet-popup-content-wrapper{border-radius:var(--radius);}
+.leaflet-popup-content{margin:11px 13px;font-family:var(--f-body);}
+.pop h3{font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:14px;margin-bottom:4px;line-height:1.4;}
+.pop .m{font-size:11.5px;color:var(--ink-2);line-height:1.7;}
+/* ⚠️ 票券那顆在「兩家以上」時是 <button> 不是 <a>（它要跳中轉小卡），
+   但在使用者眼裡與旁邊兩條外連是同一種東西——**視覺必須一模一樣**，
+   所以選擇器並列而不是另外複製一份值。`padding:0` 是按鈕的預設值要清掉。 */
+.pop a,
+.pop .places-links button{display:inline-block;margin-top:7px;font-size:11.5px;color:var(--geo);font-weight:500;padding:0;}
+.pop .approxnote{color:var(--hot);font-size:10.5px;}
+/* 縮圖在左、文字在右。刻意用小圖而非卡片那種大圖——彈窗浮在地圖上，
+   佔太高會把周圍的圖釘全遮住，反而看不出這個活動在哪一帶。 */
+.pop-main{display:flex;gap:10px;align-items:flex-start;}
+.pop-txt{flex:1;min-width:0;}         /* min-width:0 才讓長標題正常斷行而不是把縮圖擠扁 */
+.pop .pth{
+  flex:0 0 64px;width:64px;height:64px;border-radius:var(--radius);
+  object-fit:cover;display:block;background:var(--surface);
+}
+/* 沒有照片或破圖時的替代面板。與卡片同一套做法：中性底 + 分類色只上在文字，
+   不用分類色大面積填滿（深色模式下會比照片還搶眼）。 */
+.pop .pth-block{
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-num);font-size:9.5px;letter-spacing:.06em;text-align:center;
+  background:var(--surface);
+}
+
+/* ===== 叢集圓圈 =====
+   只載了 markercluster 的 MarkerCluster.css（定位與展開動畫），配色一律自己來。
+   刻意走近無彩：分類六色已經用在圖釘上，叢集若也上色會變成兩套色彩系統在打架。
+   紙底 + 墨字 + 墨框壓在滿版彩色的 OSM 圖磚上仍然清楚（對比遠超 UI 元件的 3:1 門檻），
+   且淺深兩色都靠變數自動翻面，不必寫第二套。 */
+.marker-cluster{background:transparent;}
+.cl{
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  background:var(--paper);border:2px solid var(--ink);color:var(--ink);
+  font-family:var(--f-num);font-weight:500;font-size:12px;line-height:1;
+  box-shadow:0 1px 4px rgba(0,0,0,.35);
+}
+
+/* ===== 餐廳頁：地圖優先，清單沿用同一套瀑布流 ===== */
+.restaurant-view{
+  position:fixed;inset:0;z-index:1000;background:var(--paper);
+  display:none;flex-direction:column;min-height:0;
+}
+.restaurant-view.show{display:flex;}
+.restaurant-top{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 14px;padding-top:calc(12px + env(safe-area-inset-top));
+  border-bottom:1px solid var(--line);background:var(--paper);
+}
+.restaurant-close{
+  width:32px;height:32px;flex:none;border:1px solid var(--line);border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;padding:0;
+}
+.restaurant-close svg{
+  width:17px;height:17px;stroke:var(--ink);fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.restaurant-heading{flex:1;min-width:0;}
+.restaurant-heading h2{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:17px;line-height:1.3;
+  /* 右邊多了切換器之後，最窄的螢幕上日文標題會被擠成兩行，而**三張地圖的頂欄一高一低，
+     切換的瞬間地圖就會上下跳**。一律單行、放不下才截字。 */
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.restaurant-heading .sub{
+  margin-top:2px;font-family:var(--f-num);font-size:10.5px;font-weight:500;
+  letter-spacing:.08em;color:var(--ink-2);
+}
+.restaurant-toolbar{
+  display:flex;align-items:center;gap:12px;padding:8px 14px;
+  border-bottom:1px solid var(--line);background:var(--paper);
+}
+/* 工具列左半（篩選鈕＋「只看收藏」）。⚠️ **這一列 2026-09-03 之前放的是兩個 `<select>`**，
+   `flex-wrap` 與 `min-width:0` 都是為它們留的——現在只剩兩顆 chip，但**保留**：
+   ⚠️ 少了 `min-width:0`，日後任何 flex 子項一長就會撐破工具列（同 `.places-toolbar`
+   那條「篩選兩個字被擠成直排」）。**`.restaurant-spot`／`.places-filter` 那兩組
+   `<label>+<select>` 的規則已於 2026-09-07 移除（單位 Y-6）**——三頁的篩選都統一成
+   `js/geofilter.js` 那顆彈窗了，「放回下拉」等於推翻整輪設計。要回頭找那份 CSS 去 git 歷史。 */
+.restaurant-filters{display:flex;align-items:center;gap:14px;flex:1;min-width:0;flex-wrap:wrap;}
+/* ⚠️⚠️ **餐廳頁的篩選彈窗必須壓在覆蓋層之上**（2026-09-03，實測抓到）。
+   `.sheet` 是 z-index **900**，那是**刻意**的——活動頁的篩選從清單開，而清單底下沒有
+   全螢幕覆蓋層，壓在 1000 之下反而是第二道保險（地雷 #21）。
+   ⚠️ 但餐廳頁的篩選是**從 `.restaurant-view`（z-index 1000）裡面打開的**，
+   沿用 900 等於開在那張地圖後面——**畫面上完全看不到，按了像沒反應**。
+   1150 這一段與景點詳情卡同層：壓在覆蓋層（1000）與圖例（1001）之上、
+   toast 與日期／票券小卡（1200）之下——那幾個是「必須讀到」的東西。
+   ⚠️ 景點頁的篩選彈窗（2026-09-03）**同一個理由、同一條規則**，故選擇器並列。
+   ⚠️⚠️ **這件事我的 59 項斷言全部沒抓到**，因為它們問的是 DOM 內容與 `hidden` 屬性。
+   要抓得到只有一種問法：**`elementFromPoint` 打在 chip 上，回的是不是那顆 chip**
+   （地雷 #21 當年也是這樣量出來的）。**凡是新的浮動層，第一項斷言就要問這個。** */
+#restaurantFilterView,
+#placesFilterView{z-index:1150;}
+/* ===== 餐廳頁篩選彈窗裡的地理 chip 樹（2026-09-03，js/geofilter.js 畫的）=====
+   圈 → 桶 → 據點三層。**外觀完全沿用 `.side-chip`**（篩選語彙：純文字＋選中底線，
+   可多選、可清除），不新增第四種「選中」的長相——地雷 #26 那張表就是為了擋這件事。
+   層次靠**縮排與字級**表達，不靠顏色：`.geo-group` 與 `.geo-area` 若長得一模一樣，
+   「東京」（圈）與「東京23區」（桶）並排會分不出誰是誰。 */
+/* ⚠️ 「選中」沿用全站篩選 chip 的**文字＋底線**（`--ink` ＋底線），不另立第五種語彙。
+   ⚠️ 2026-09-03 曾短暫做成「淡底色膠囊」（`--geo-soft`），**使用者當天決定撤掉**——
+   撤的是地區那一組，改由**類別的色塊**來提供顏色（見下方 `.sq`）。
+   舊做法的兩條教訓仍然成立，日後若再想加底色先讀：
+   ①**左右 padding 必須對稱且選不選中都一樣**，`.side-chip` 原本左邊是 0，
+     選中才補會讓每點一下字就位移、整片重排，看起來像畫面在抖；
+   ②底色與紙底的明度差只有 1.26／深色 1.49，**必須同時給三個訊號**（地雷 #26）。 */
+.geo-tree{display:flex;flex-direction:column;gap:2px;}
+.geo-seg{display:flex;flex-direction:column;}
+.geo-kids{display:flex;flex-wrap:wrap;gap:0 4px;}
+/* 有圈的那幾段才縮排；單桶的圈（埼玉／千葉／北關東…）直接與圈同一階，不必空一格。 */
+.geo-kids.sub{padding-left:13px;}
+/* 圈比桶大一點點、字重高一階。**只差這兩樣**——再多就變成第二種語彙了。 */
+.geo-group{font-size:14px;font-weight:500;}
+.geo-area{font-size:13px;}
+/* 據點：自己一塊、標明是哪個桶的。⚠️ 沒有這行小標的話，24 顆據點會像是
+   接在上一排桶後面的同一層，看不出「這是東京23區底下的」。 */
+.geo-spots{
+  display:flex;flex-wrap:wrap;align-items:center;gap:0 4px;
+  margin:2px 0 4px;padding:6px 0 2px 13px;border-left:1px solid var(--line);
+}
+.geo-spots-h{
+  flex:0 0 100%;
+  font-family:var(--f-num);font-size:9px;font-weight:500;
+  letter-spacing:.14em;color:var(--ink-2);margin-bottom:2px;
+}
+.geo-spot{font-size:12.5px;}
+/* chip 上的筆數沿用分類列那份 `.cnt`（選擇器並列在上面那一區），這裡不再定義第二套。 */
+/* 「只看收藏」（單位 K）。沿用 .side-chip（純文字＋選中加底線），
+   與行程頁的餐別 chip、篩選彈窗同一套，不新增第二種 chip 樣式。
+   ⚠️ 這一列的另外兩個是 `<label>+<select>`（底線對齊在下緣），故靠 flex-end 對齊，
+   否則它會浮在兩個下拉的上方。 */
+.restaurant-favonly{flex:none;align-self:flex-end;padding-right:0;}
+/* ⚠️ **`[hidden]` 那條不可省，理由與下面 `.viewswitch` 一模一樣**（2026-09-03 補，
+      漏了將近一個月）：`.side-chip` 是 `display:inline-flex`，優先度高過瀏覽器預設的
+      `[hidden]{display:none}`，所以「一家都沒收藏」時 `syncFavOnlyChip` 設的 `hidden`
+      **擋不住它佔位**——實測它照樣佔著 56×33px。
+   ⚠️ **失敗方式是隱形的**：那顆鈕看不見，所以畫面上只像「工具列有點高」。
+      而它撐出來的是**一整行**——實測 390px（最常見的手機寬度）工具列 96px → **49px**，
+      地圖還回 47px；320px 與 430px 剛好排得進既有那一行，所以**只有中間那一段看得出來**。
+      這正是「只在某一個寬度現形」的那種，桌面與 320px 都測不出來。 */
+.restaurant-favonly[hidden]{display:none;}
+/* 「清單／地圖」（2026-08-28）。**外觀完全共用地圖切換器那份膠囊分段**——選擇器並列在
+   上面 `.mapswitch` 那一區，不複製第二份，所以兩者永遠長一樣（同 `.legend-genres`
+   三頁共用的理由）。⚠️ **改那一區等於這裡也一起變，那是刻意的。**
+   ⚠️ **它刻意不吃 `.mapswitch-seg` 那兩條窄螢幕的 media query**（那是把文字換成圖示的）：
+      這兩格沒有圖示，藏掉文字會留下**兩個空格子**。而它天生不需要——標籤只有
+      「清單／地圖」「リスト／マップ」，320px 上也放得下（同一列的兩個下拉會先換行）。
+   ⚠️ **`[hidden]` 那條不可省。** 這顆現在被 `RESTAURANT_LIST` 關著，靠的就是 JS 設
+      `hidden`；而 `display:flex` 的優先度高過瀏覽器預設的 `[hidden]{display:none}`
+      ——少了它，關掉的清單鈕會**照樣出現在畫面上**（原本是 `<button>`，沒有這個問題）。 */
+.viewswitch[hidden]{display:none;}
+.restaurant-close:focus-visible,
+.viewswitch-seg:focus-visible,
+.restaurant-gmap:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.restaurant-map-panel{position:relative;display:flex;flex:1;min-height:0;}
+#restaurantMap{flex:1;width:100%;background:var(--line);}
+.restaurant-legend{
+  position:absolute;left:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:1001;
+  padding:8px 11px;background:var(--paper);border:1px solid var(--line);
+  border-radius:var(--radius);font-size:11px;line-height:1.9;color:var(--ink-2);
+}
+/* 色塊放大到 14px 並改成 inline-flex，是為了裝得下與圖釘同一個圖示。
+   沒有圖示的類別（21 個裡有 8 個）與最後那兩行說明就是單純的色塊，寬度一致才對得齊。 */
+/* ⚠️ 同景點：色塊跟著圖釘走（2026-09-11）。⚠️⚠️ **圓角要按比例換算，不可以照抄 6px**：
+   圖釘是 26px 配 6px（0.23），同樣的 6px 放在 14px 的色塊上是 0.43——**看起來會變成圓**，
+   而圓正好是景點的形狀。3px 才與圖釘同一個比例，也才仍然讀得出是方的。 */
+.restaurant-legend .dot{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:14px;height:14px;border-radius:3px;margin-right:7px;vertical-align:-3px;
+}
+.restaurant-legend .dot .gi{color:var(--paper);}
+.restaurant-legend .dot.approx{opacity:.5;}
+/* 類別段收合（2026-08-14 餐廳，**2026-08-27 起景點頁與活動地圖也走同一份**）。
+   **存在理由是類別數只會愈長愈多**：餐廳 8 個類別時整個圖例是 10 行約 226px，
+   手機上吃掉三分之一的地圖，接了米其林還會再多；景點是 7 個小類 ＋ 世界遺產
+   共 8 行約 185px；活動地圖是 6 個分類 ＋ 概略位置共 7 行約 168px。
+   收起來固定剩兩三行，**與類別數無關**。
+   ⚠️ **活動地圖的理由與另外兩頁不同**：它的分類**永遠是六個**，不會愈長愈多，
+   收合純粹是為了手機上的地圖高度，以及三張地圖行為一致。
+   展開時給高度上限並內部捲動——沒有這個上限，展開後就退回原本的問題。
+   ⚠️ **`.map-legend`／`.places-*`／`.restaurant-*` 平常刻意分家，這裡是唯一共用的一段**：
+   三角形、高度上限、分隔線是同一組視覺規則，複製一份等於同一條規則存在多處，
+   日後調高度會漏改一邊，而**每一邊各自看起來都正常**。
+   ⚠️ **代價是知情的：改一頁等於三頁一起改。** */
+.restaurant-legend .legend-genres>summary,
+.places-legend .legend-genres>summary,
+.map-legend .legend-genres>summary,
+#allLegend>.legendbox>summary{
+  list-style:none;cursor:pointer;color:var(--ink);
+  /* summary 與下面兩行的文字要對齊：色點是 14px + 7px 間距，故三角形佔一樣的寬度。 */
+  display:flex;align-items:center;gap:7px;
+}
+.restaurant-legend .legend-genres>summary::-webkit-details-marker,
+.places-legend .legend-genres>summary::-webkit-details-marker,
+.map-legend .legend-genres>summary::-webkit-details-marker,
+#allLegend>.legendbox>summary::-webkit-details-marker{display:none;}
+.restaurant-legend .legend-genres>summary::before,
+.places-legend .legend-genres>summary::before,
+.map-legend .legend-genres>summary::before,
+#allLegend>.legendbox>summary::before{
+  content:'';flex:none;width:14px;height:14px;
+  background:currentColor;opacity:.55;
+  /* 右指三角，展開時轉 90 度。用 clip-path 切出來而不是打一個「▸」字元——
+     字元的大小與基線會跟著字型跑，而這裡要與 14px 色點嚴格切齊。 */
+  clip-path:polygon(33% 20%, 70% 50%, 33% 80%);
+  transition:transform .15s ease;
+}
+.restaurant-legend .legend-genres[open]>summary::before,
+.places-legend .legend-genres[open]>summary::before,
+.map-legend .legend-genres[open]>summary::before,
+#allLegend>.legendbox[open]>summary::before{transform:rotate(90deg);}
+.restaurant-legend .legend-genres>summary:focus-visible,
+.places-legend .legend-genres>summary:focus-visible,
+.map-legend .legend-genres>summary:focus-visible,
+#allLegend>.legendbox>summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.restaurant-legend .legend-rows,
+.places-legend .legend-rows,
+.map-legend .legend-rows{
+  /* 上限用固定值封頂而不只是 vh：小尺寸手機（667px 高）上 38vh 仍有 253px，
+     展開後整個圖例會佔到地圖的一半。180px ≈ 8 行，再多就捲動。 */
+  max-height:min(34vh,180px);overflow-y:auto;
+  /* 捲動時左邊界與 summary 切齊，不縮排——縮排會讓色點對不上下面兩行。 */
+  margin-top:2px;
+  /* 分隔線把「類別」與底下那幾行分成兩組。**捲動時它同時是必要的**：
+     被切一半的那一列若直接貼著下一行，看起來像破圖而不是「還有更多」。 */
+  padding-bottom:5px;margin-bottom:4px;border-bottom:1px solid var(--line);
+}
+.restaurant-list-panel{
+  display:none;flex:1;min-height:0;overflow-y:auto;
+  padding:18px 14px calc(34px + env(safe-area-inset-bottom));
+}
+.restaurant-view.list-mode .restaurant-map-panel{display:none;}
+.restaurant-view.list-mode .restaurant-list-panel{display:block;}
+.restaurant-cards{
+  width:100%;max-width:1400px;margin:0 auto;display:flex;gap:var(--gap);align-items:flex-start;
+}
+.restaurant-col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:var(--gap);}
+.restaurant-card{display:block;background:transparent;}
+.restaurant-card .ph img{transition:opacity .28s ease;}
+.restaurant-card:hover .ph img{opacity:.86;}
+/* 替代面板的文字色**不在這裡寫死**：寫死等於所有類別都畫成同一色（原本寫的是
+   --c-燒肉，義式與日後的居酒屋破圖時都會變成炭火銅紅）。顏色一律由 JS 隨記錄的
+   類別行內給——無照片的走 restaurantCardHTML()、破圖的走 showRestaurantBlock()
+   讀 data-color，兩條路都涵蓋到了。同理見 js/restaurants.js 的 pinColor 註解。 */
+.restaurant-card-body{padding:8px 0 4px;display:flex;flex-direction:column;gap:4px;}
+.restaurant-card-meta{
+  display:flex;justify-content:space-between;gap:8px;
+  font-family:var(--f-num);font-size:10px;letter-spacing:.05em;color:var(--ink-2);
+}
+/* 類別標籤的顏色同樣由 JS 行內給（restaurantCardHTML 的 typeColor(r.genre)）。
+   這裡原本也寫死 --c-燒肉，雖然一直被行內色蓋掉、看不出問題，但留著就是下一個地雷。 */
+.restaurant-card h2{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:14.5px;
+  line-height:1.42;letter-spacing:.01em;
+}
+.restaurant-budget{font-size:11.5px;line-height:1.55;color:var(--ink);}
+.restaurant-budget span{color:var(--ink-2);}
+/* 營業時間／公休日。只有部分榜單的資料有，缺的整段不會被輸出（見 hoursHTML）。
+   刻意用 --ink-2 而非分類色：一張卡上已經有類別色的標籤與徽章，再加一組會太吵。 */
+.restaurant-hours{margin-top:2px;font-size:10.5px;line-height:1.5;color:var(--ink-2);}
+.restaurant-hours .clip{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+  overflow:hidden;overflow-wrap:anywhere;
+}
+/* 營業時間預設收合，只露出「營業時間」四個字。展開後才是全文（最長 400 字）。 */
+.restaurant-hours .hfold summary{
+  display:inline-flex;align-items:center;gap:3px;cursor:pointer;list-style:none;
+  font-family:var(--f-num);font-size:9.5px;letter-spacing:.1em;
+}
+.restaurant-hours .hfold summary::-webkit-details-marker{display:none;}
+.restaurant-hours .hfold summary::after{content:'＋';font-size:9px;line-height:1;}
+.restaurant-hours .hfold[open] summary::after{content:'－';}
+.restaurant-hours .hfold summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.restaurant-hours .hfold>div{margin-top:2px;overflow-wrap:anywhere;}
+/* 標籤靠等寬字與字距與內容區隔，**不用降對比的方式**——
+   --ink-2 打 .75 透明後只剩 3.4，等於重蹈 --ink-3 那條地雷。 */
+.restaurant-hours span{
+  margin-right:4px;font-family:var(--f-num);font-size:9.5px;letter-spacing:.1em;
+}
+.restaurant-awards{display:flex;flex-wrap:wrap;gap:4px;margin-top:1px;}
+.restaurant-award{
+  /* ⚠️ **不可以是 inline-flex**。徽章裡放進 `<b>` 之後，榜單名／等級／年份會變成
+     三個 flex item，一換行就被攤開成「ミシュランガイド東　　ビブグルマ　2026」
+     那種散開的排版（實測 390px 下的米其林徽章）。改成一般文字流就正常斷行。
+     它本身是 .restaurant-awards（flex）的子項，所以這裡宣告什麼都會被 blockify。 */
+  display:inline-block;padding:1px 5px;border:1px solid currentColor;
+  border-radius:2px;color:var(--ink-2);font-family:var(--f-num);
+  font-size:9.5px;line-height:1.55;letter-spacing:.02em;
+}
+/* 徽章裡的等級（一つ星／ビブグルマン）。**只加粗、不換色**——徽章整體已經套了
+   類別色，第二個顏色會讓 21 種類別 × 每個徽章兩色，畫面直接吵起來。
+   食べログ那批看不到這個元素（等級已含在榜單名裡，見 awardsHTML）。 */
+.restaurant-tier{font-weight:700;}
+.restaurant-gmap{
+  align-self:flex-start;margin-top:2px;color:var(--geo);font-size:11.5px;font-weight:500;
+}
+.restaurant-gmap:hover{text-decoration:underline;text-underline-offset:2px;}
+.restaurant-pop .restaurant-awards{margin-top:5px;}
+.restaurant-pop .restaurant-address{
+  margin-top:7px;padding-top:6px;border-top:1px solid var(--line);
+  color:var(--ink-2);font-size:10.5px;line-height:1.55;
+}
+/* 無圖面板的文字色由 JS 依 r.genre 以 inline style 給（typeColor()），
+   **不要在這裡寫死某個類別**——多一份榜單就多一種顏色。 */
+.restaurant-status{
+  position:absolute;left:50%;top:50%;z-index:1100;transform:translate(-50%,-50%);
+  display:none;max-width:calc(100% - 48px);padding:9px 13px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  color:var(--ink-2);font-size:12px;text-align:center;
+}
+.restaurant-status.show{display:block;}
+
+/* ===== 景點頁：只有地圖，篩選只有地區一個下拉 =====
+   骨架與 .restaurant-* 相同（全螢幕覆蓋層＋頂欄＋工具列＋地圖），但**另寫一套 class
+   而不是共用**：兩頁的內容密度本來就不同（餐廳兩個下拉＋切換鈕、景點只有一個下拉），
+   共用會逼出一堆 `:not()`，日後改其中一頁一定波及另一頁。 */
+.places-view{
+  position:fixed;inset:0;z-index:1000;background:var(--paper);
+  display:none;flex-direction:column;min-height:0;
+}
+.places-view.show{display:flex;}
+.places-top{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 14px;padding-top:calc(12px + env(safe-area-inset-top));
+  border-bottom:1px solid var(--line);background:var(--paper);
+}
+.places-close{
+  width:32px;height:32px;flex:none;border:1px solid var(--line);border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;padding:0;
+}
+.places-close svg{
+  width:17px;height:17px;stroke:var(--ink);fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.places-heading{flex:1;min-width:0;}
+.places-heading h2{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:17px;line-height:1.3;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;   /* 理由同 .restaurant-heading h2 */
+}
+.places-heading .sub{
+  margin-top:2px;font-family:var(--f-num);font-size:10.5px;font-weight:500;
+  letter-spacing:.08em;color:var(--ink-2);
+}
+/* ⚠️ **活動地圖那一列（`.map-toolbar`）並列在這裡，不複製第二份**（單位 き-1，2026-09-09）。
+   兩者的 DOM 結構一樣（篩選鈕是這個 flex 列的直接子項），所以下面那條 `flex:none` 也一起吃
+   ——`.restaurant-toolbar` 的鈕包在 `.restaurant-filters{flex:1}` 裡面，那邊的寫法本來就不同。
+   ⚠️ **改高度等於三張地圖一起變，那是刻意的**：這一列的高度就是「切換時會不會上下跳」本身。 */
+.places-toolbar,
+.map-toolbar{
+  display:flex;align-items:center;gap:12px;padding:8px 14px;
+  border-bottom:1px solid var(--line);background:var(--paper);
+}
+/* ⚠️⚠️ **篩選鈕必須 `flex:none` ＋ `nowrap`**（2026-09-03 截圖抓到）。
+   它是 `.places-toolbar` 這個 flex 列的**直接子項**，與 `.viewswitch` 並排；
+   預設的 `flex-shrink:1` 會讓它被擠到縮，而 `.side-chip` 沒有 `white-space:nowrap`
+   ——於是「篩選」兩個字被擠成**直排**，工具列從 50px 變成 **73px**。
+   ⚠️ **餐廳頁沒有這個問題**，因為它的鈕包在 `.restaurant-filters{flex:1}` 裡面
+   ——所以那邊的寫法不能直接照抄過來，兩處的 DOM 結構本來就不同。
+   ⚠️ 這件事**「工具列不因篩選而變高」那種斷言抓不到**（它本來就一直是 73px），
+   要嘛量鈕有沒有換行（`getClientRects().length`），要嘛看截圖。 */
+.places-toolbar .filter-chip,
+.map-toolbar .filter-chip{flex:none;white-space:nowrap;}
+.places-close:focus-visible,
+.places-add:focus-visible,
+.places-links a:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.places-map-panel{position:relative;display:flex;flex:1;min-height:0;}
+#placesMap{flex:1;width:100%;background:var(--line);}
+/* 圖例。⚠️ **所有方塊的顏色一模一樣是刻意的**——景點的圖釘一律 --pin-景點，
+   小類只用圖示區分（方案 B）。所以這張表要讀的是「圖案」不是「顏色」。
+   **小類那段收合起來**（2026-08-27）：規則與餐廳頁共用，見上方 .legend-genres 那段。
+   世界遺產／概略位置留在外面常駐（條件性的，有才印，且永遠只有一行）。 */
+.places-legend{
+  position:absolute;left:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:1001;
+  padding:8px 11px;background:var(--paper);border:1px solid var(--line);
+  border-radius:var(--radius);font-size:11px;line-height:1.9;color:var(--ink-2);
+}
+/* ⚠️ **色塊跟著圖釘變成圓**（2026-09-11）：圖例是唯一能查「這個圖案是什麼」的地方，
+   而它要長得跟地圖上看到的東西一樣。景點的圖釘現在是圓的，色塊就不能是方的。 */
+.places-legend .dot{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:14px;height:14px;border-radius:50%;margin-right:7px;vertical-align:-3px;
+}
+.places-legend .dot .gi{color:var(--paper);}
+.places-legend .dot.approx{opacity:.5;}
+/* 世界遺產那一行的色塊**刻意沒有底色**：它要解釋的是「那顆星」而不是一種圖釘。
+   寬度仍與上面的小類色塊一樣 14px，三行才對得齊。 */
+.places-legend .dot.wh-dot{background:none;color:var(--wh);}
+/* 三種狀態共用一格：載入中／整份讀不到／這個地區沒有景點。文案由 JS 決定，
+   三者的處置方式完全不同，**不可混成一句**（見 js/places.js 的 syncPlacesUi）。 */
+.places-status{
+  position:absolute;left:50%;top:50%;z-index:1100;transform:translate(-50%,-50%);
+  display:none;max-width:calc(100% - 48px);padding:9px 13px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  color:var(--ink-2);font-size:12px;text-align:center;
+}
+.places-status.show{display:block;}
+/* ---- 地圖彈窗 ---- */
+/* 外框沿用 .pop（縮圖、標題、m 那一行都是共用的），這裡只補景點多出來的三塊。 */
+/* 彈窗裡的世界遺產標記。**另起一行不併進 `.m`**：小類與地區講的是「這是什麼」，
+   世界遺產是外部的認定，兩者性質不同（同餐廳頁把榜單徽章與類別分開的做法）。
+   字重 500 而不是靠放大字級——彈窗裡已經有 h3，第二個大字會跟標題打架。 */
+.places-pop .wh-tag{
+  display:flex;align-items:center;gap:4px;margin-top:4px;
+  font-size:11px;font-weight:500;color:var(--wh);
+}
+.places-pop .wh-tag .wh-star{flex:none;}
+.places-pop .hours{margin-top:7px;padding-top:6px;border-top:1px solid var(--line);}
+.places-pop .hours>summary{
+  font-family:var(--f-num);font-size:10px;letter-spacing:.06em;
+  color:var(--ink-2);cursor:pointer;list-style:none;
+}
+.places-pop .hours>summary::-webkit-details-marker{display:none;}
+.places-pop .hours>summary::after{content:'▾';margin-left:4px;}
+.places-pop .hours[open]>summary::after{content:'▴';}
+/* white-space:pre-wrap ——營業時間是照抄官網原文的，換行本身就是資訊
+   （「9:00~17:00（最終入場 16:30）」與公休那一行不可以黏成一段）。 */
+/* ⚠️ **max-height 不可拿掉。** 彈窗是點開之後才展開營業時間的，而 Leaflet 只在
+   「設定內容」那一刻算過一次版面（`_updateLayout`），**展開撐高之後不會重算、也不會
+   重新 autoPan**——最長那筆（皇居東御苑 205 字）會把彈窗往上撐出地圖上緣，標題整個看不到。
+   要它重算就得呼叫 `popup.update()`，而那會拿原始字串重繪、把剛展開的 <details> 收回去
+   （餐廳頁 2026-08-12 踩過的坑）。所以改成**由內容自己封頂**：超過就內部捲動，
+   彈窗的最大高度因此是可預測的。Leaflet 已對彈窗內容做 disableScrollPropagation，
+   在這裡捲動不會連帶縮放地圖。 */
+.places-pop .hours-body{
+  font-size:11px;line-height:1.7;color:var(--ink-2);
+  white-space:pre-wrap;margin-top:4px;overflow-wrap:anywhere;
+  max-height:132px;overflow-y:auto;overscroll-behavior:contain;
+}
+.places-pop .hours-body .hl{color:var(--ink);font-weight:500;}
+.places-pop .hours-chk{
+  display:block;margin-top:4px;
+  font-family:var(--f-num);font-size:9px;letter-spacing:.04em;color:var(--ink-2);
+}
+/* ⚠️ **2026-08-27 起這一列可能有兩顆**（單位 K 的收藏星）。景點彈窗只有一顆，
+   flex 之下它照樣佔滿整列，所以那邊的樣子一個像素都沒變。 */
+.places-acts{margin-top:9px;display:flex;gap:8px;align-items:stretch;}
+.places-acts .places-add{flex:1 1 auto;width:auto;}
+/* 「加進行程」是這張彈窗裡唯一的**動作**（其餘兩個是外連），所以做成實心鈕，
+   與外連那兩條純文字連結拉開層級。已加入時翻成空心＋墨色，
+   一眼看得出狀態，再按一下就是移除（同「自己組」清單的 ✓）。
+   ⚠️ **2026-08-26 起餐廳彈窗也用同一顆**（單位 I 決策 17②）：兩處是同一個動作、
+   同一個狀態機，共用一份樣式。名稱裡的 `places` 是它第一次出現的地方，
+   不改名的理由同 `.side-chip` 裡那個側欄時代的 `side`。 */
+.places-add{
+  width:100%;padding:7px 10px;border-radius:var(--radius);
+  border:1px solid var(--ink);background:var(--ink);color:var(--paper);
+  font-size:12px;font-weight:500;letter-spacing:.02em;
+}
+.places-add.on{background:transparent;color:var(--ink);}
+/* 收藏星（單位 K）。**做成空心的方框鈕**，與實心的「加進行程」拉開層級：
+   收藏是隨手的、加進行程是決定。收藏色沿用卡片星星那顆的 --c-展覽，
+   全站「已收藏」只有一種顏色。 */
+.places-fav{
+  flex:none;width:36px;border:1px solid var(--line);border-radius:var(--radius);
+  background:transparent;color:var(--ink-2);font-size:14px;line-height:1;
+  transition:color .18s ease,border-color .18s ease;
+}
+.places-fav:hover{border-color:var(--ink-2);}
+.places-fav.on{color:var(--c-展覽);border-color:var(--c-展覽);}
+.places-links{display:flex;flex-wrap:wrap;gap:14px;}
+/* .pop a 已經給了 margin-top 與配色，這裡只需要讓兩條連結並排時不要各自再推開一次。 */
+.places-links a{margin-top:7px;}
+/* ---- 加進行程前的日期小卡 ----
+   ⚠️ **2026-08-26 由 `absolute` 改成 `fixed`**：這張小卡原本躺在 `#placesView` 裡面，
+   而單位 I 讓餐廳分頁也要用它——留在原地的話，從餐廳頁按下去它會被關在一個
+   `display:none` 的容器裡，**畫面上什麼都不會發生**。
+   z-index 1200 與 `.plan-toast` 同層：壓在四個全螢幕覆蓋層（1000）之上、
+   網頁導覽（1400）之下。 */
+.places-date{
+  position:fixed;inset:0;z-index:1200;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  background:rgba(0,0,0,.42);
+}
+.places-date[hidden]{display:none;}
+.places-date-box{
+  width:100%;max-width:300px;padding:16px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+}
+.places-date-box h3{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:15px;margin-bottom:11px;
+}
+.places-date-quick{display:flex;flex-wrap:wrap;gap:8px;}
+.places-date-quick button{
+  flex:1 1 auto;padding:8px 10px;border:1px solid var(--line);border-radius:var(--radius);
+  background:transparent;color:var(--ink);font-size:12.5px;
+}
+.places-date-quick button:hover{border-color:var(--ink-2);}
+.places-date-other{
+  display:flex;align-items:center;gap:9px;margin-top:12px;
+  padding-top:11px;border-top:1px solid var(--line);
+}
+.places-date-other>span{
+  flex:none;font-family:var(--f-num);font-size:9.5px;font-weight:500;
+  letter-spacing:.14em;color:var(--ink-2);
+}
+/* 原生日期輸入。**不自己做月曆**：行程頁那個月曆要算活動密度、是另一件事，
+   而這裡只要一個日子。原生的在 iOS 上是滾輪、在桌面是日曆，兩邊都比自製的好用。 */
+.places-date-other input{
+  min-width:0;flex:1;padding:5px 0;
+  border:0;border-bottom:1px solid var(--line);border-radius:0;
+  background:transparent;color:var(--ink);font-family:var(--f-body);font-size:13px;
+}
+.places-date-cancel{
+  display:block;width:100%;margin-top:13px;padding:6px;
+  background:transparent;color:var(--ink-2);font-size:12px;
+}
+
+/* ---- 票券中轉小卡（單位 M，2026-09-02）----
+   **只有兩家以上平台有票時才會跳出來**；一家的時候那顆鈕直接就是外連。
+   ⚠️ 遮罩與外框整套沿用日期小卡（HTML 上直接掛 `.places-date` + `.places-date-box`），
+   這裡只寫清單那幾行——複製第二份遮罩等於同一條規則存在兩處，日後改一邊就漂移。 */
+.ticket-list{display:flex;flex-direction:column;gap:8px;}
+.ticket-row{
+  display:flex;flex-direction:column;gap:2px;
+  padding:9px 11px;border:1px solid var(--line);border-radius:var(--radius);
+}
+.ticket-row:hover{border-color:var(--ink-2);}
+.ticket-row-main{display:flex;align-items:baseline;gap:8px;}
+/* 平台名是這一列要回答的問題（「在哪裡買」），所以它是主角、用標題字。 */
+.ticket-row-p{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:13.5px;color:var(--ink);
+}
+.ticket-row-t{
+  font-family:var(--f-num);font-size:9.5px;letter-spacing:.1em;color:var(--ink-2);
+}
+/* 商品名是平台的行銷文案，可能很長。**截成一行**：它是輔助資訊，
+   讓小卡為了它變成三倍高，會蓋掉「選一個平台」這件事本身。 */
+.ticket-row-n{
+  font-size:11.5px;color:var(--ink-2);line-height:1.5;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+/* 廣告標示。**現在看不到它**（js/config.js 的 AFF_DISCLOSURE 是 false，
+   裸連結不是廣告）。⚠️ `[hidden]` 這一行不可省——這個元素沒有設 display，
+   靠瀏覽器預設就藏得住，但日後若有人給它 flex/block，那顆開關會**靜默失效**
+   （餐廳頁那顆膠囊就是這樣被打開的）。 */
+/* ⚠️ **站上唯一的廣告標示**，排在選項之前（見 index.html 那段註解）。
+   ⚠️ 顏色用 `--ink-2` 不可用 `--ink-3`——後者在紙白底上只有 2.85，
+      不可用於文字（地雷 #7c）。**這是拿來被讀的，縮小它之前先想想這件事。** */
+.ticket-ad{
+  margin:-2px 0 10px;font-family:var(--f-num);font-size:10px;
+  letter-spacing:.12em;color:var(--ink-2);
+}
+.ticket-ad[hidden]{display:none;}
+
+/* ---- 景點詳情卡（單位 M，2026-09-02）----
+   瀑布流的卡片點照片就開這張。內容與地圖彈窗共用同一個產生器，
+   所以外框帶著 `.pop` 與 `.places-pop` 兩個 class，排版整套沿用。
+   ⚠️ **z-index 1150：壓在覆蓋層（1000）之上、日期與票券小卡（1200）之下。**
+   反過來的話，從這裡按「加進行程」跳出來的日期小卡會被它蓋住，
+   而畫面上只看得到「按了沒反應」（地雷 #21）。 */
+.place-sheet{
+  position:fixed;inset:0;z-index:1150;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  background:rgba(0,0,0,.42);
+}
+.place-sheet[hidden]{display:none;}
+.place-sheet-box{
+  position:relative;
+  width:100%;max-width:340px;max-height:88vh;overflow:auto;
+  padding:0 14px 14px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+}
+/* 照片貼齊卡片上緣：左右負 margin 抵掉容器的 padding，圓角只留上面兩個。
+   比例沿用瀑布流卡片的 1.39，**兩處看到的是同一張構圖**。 */
+.place-sheet-ph{
+  margin:0 -14px 11px;aspect-ratio:1.39;overflow:hidden;
+  background:var(--line);border-radius:var(--radius) var(--radius) 0 0;
+}
+.place-sheet-ph img{width:100%;height:100%;object-fit:cover;}
+.place-sheet-ph .block{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  background:var(--surface);
+}
+/* 關閉鈕壓在照片右上角。**紙色圓底不是裝飾**：照片什麼顏色都有，
+   純線條的 × 壓在亮處會整個看不見。 */
+.place-sheet-close{
+  position:absolute;top:8px;right:8px;z-index:1;
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;background:var(--paper);color:var(--ink);
+}
+.place-sheet-close svg{
+  width:15px;height:15px;fill:none;stroke:currentColor;
+  stroke-width:2;stroke-linecap:round;
+}
+
+/* ============================================================
+   桌面版（≥1024px）：側欄常駐、瀑布流加欄
+   ============================================================ */
+/* ===== 行程頁 =====
+   結構刻意比照 .mapview（全螢幕覆蓋層），沿用同一套「頂欄 + 內容」骨架。
+   一樣不做卡片容器：分隔靠 hairline，層次靠字級與灰階。 */
+/* `--plan-top-h` ＝頂欄高度，桌面版右欄地圖要拿它算可視高（見 ≥1024px 那段）。
+   **這是那個數字唯一的來源**，不要在別處再寫一次。
+   實測中日文都是 72px（h2 16px + sub + 上下 13px padding + hairline），故不另外
+   釘 min-height（釘了反而可能壓縮內容）。⚠️ 2026-08-14 的註解寫 82px 是錯的，
+   2026-08-15 用 headless Chrome 量過訂正。改 .plantop 的 padding／字級時回來對這個值。 */
+.planview{position:fixed;inset:0;z-index:1000;background:var(--paper);display:none;flex-direction:column;--plan-top-h:72px;}
+.planview.show{display:flex;}
+.plantop{
+  position:relative;padding:13px 54px;
+  padding-top:calc(13px + env(safe-area-inset-top));
+  border-bottom:1px solid var(--line);
+}
+.plantop h2{font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:16px;}
+.plantop .sub{
+  font-family:var(--f-num);font-size:10.5px;font-weight:500;
+  letter-spacing:.1em;color:var(--ink-2);margin-top:3px;
+}
+.plan-close{
+  position:absolute;left:12px;top:50%;transform:translateY(-50%);
+  width:38px;height:38px;display:flex;align-items:center;justify-content:center;
+}
+.plan-close svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.planbody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 0 40px;}
+.plan-sec{padding:16px 18px;border-bottom:1px solid var(--line);}
+.plan-sec:last-child{border-bottom:0;}
+.plan-h{
+  font-family:var(--f-num);font-size:10.5px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-2);margin-bottom:10px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+
+/* ---- 快捷日期 ---- */
+/* ---- 跨天：日期切換列（單位 J，2026-08-26）---- */
+/* 橫向捲動而不是換行：7 天在 360px 下一定放不進一行，而換行會把行程頁的第一屏
+   推掉半頁。⚠️ `scrollbar-width:none` 只是為了不在桌面多一條灰槓，捲動本身照樣有。 */
+/* ⚠️ **捲動一定要在內層，外層不可以有 overflow。** 桌面版 .planbody 是 grid，
+   而**捲動容器在區塊軸上的自動最小尺寸是 0**——直接讓這一列自己捲的話，
+   grid 軌道只會算到 padding（實測 12px），59px 高的內容整個溢出去疊在下一段上。
+   症狀是「快捷鈕與日期列疊在一起」，而手機（非 grid）完全正常，很容易漏掉。 */
+.plan-days-wrap{padding:12px 18px 0;}
+.plan-days{
+  display:flex;gap:8px;align-items:stretch;
+  overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.plan-days::-webkit-scrollbar{display:none;}
+.plan-days .dchip{
+  flex:0 0 auto;text-align:left;line-height:1.35;
+  padding:7px 11px;border:1px solid var(--line);border-radius:var(--radius);
+  color:var(--ink-2);background:transparent;transition:border-color .15s ease,color .15s ease;
+}
+.plan-days .dchip b{display:block;font-size:12px;font-weight:600;color:inherit;}
+.plan-days .dchip span{display:block;font-family:var(--f-num);font-size:11px;letter-spacing:.02em;}
+/* 選中的那一天用實心翻面，與月曆的 `.cal .day.on` 同一套語言（紙底翻墨底）。 */
+.plan-days .dchip.on{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+/* 「＋ 加一天」「移除最後一天」是動作不是日期，故只有一行、字級與快捷鈕一致。 */
+.plan-days .dchip.act{display:flex;align-items:center;font-size:12px;color:var(--ink-2);}
+.plan-days .dchip.del{color:var(--ink-3);}
+.plan-quick{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+.plan-quick button{
+  font-size:13px;color:var(--ink-2);padding:2px 0;
+  border-bottom:1.5px solid transparent;transition:color .15s ease;
+}
+.plan-quick button.on{color:var(--ink);border-bottom-color:var(--ink);}
+
+/* ---- 月曆 ---- */
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.cal-head .mon{font-family:var(--f-num);font-size:13px;font-weight:500;letter-spacing:.04em;}
+.cal-nav{width:30px;height:30px;display:flex;align-items:center;justify-content:center;}
+.cal-nav svg{width:15px;height:15px;stroke:var(--ink-2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.cal-nav[disabled]{opacity:.28;}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.cal .dow{
+  font-family:var(--f-num);font-size:9.5px;font-weight:500;letter-spacing:.06em;
+  color:var(--ink-2);text-align:center;padding-bottom:5px;
+}
+/* 格子刻意壓扁（1.45 而非正方形）：正方形時整個月曆會吃掉手機畫面一半以上，
+   把「我的行程」擠到摺線下方——月曆是選日子的工具，不該比行程本身還顯眼。 */
+.cal .day{
+  position:relative;aspect-ratio:1.45;border-radius:2px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  font-family:var(--f-num);font-size:12px;color:var(--ink);
+  transition:background .15s ease;
+}
+.cal .day.pad{visibility:hidden;}
+/* 已過去的日子是 disabled 控制項，依 WCAG 1.4.3 不受 AA 4.5 限制，
+   是 --ink-3 唯一合理的文字用途（地雷 #7c 說的是「可讀的文字」）。 */
+.cal .day.past{color:var(--ink-3);}
+/* 區間的**兩端**（起日與結束日）。單日時兩端是同一格，畫出來與跨天之前一字不差。
+   ⚠️ 2026-08-27 起月曆是訂飯店式的區間選擇，所以「其餘幾天點不到」那條理由
+   已經不成立了——每一格都能當新的起日點。 */
+.cal .day.on{background:var(--ink);color:var(--paper);}
+/* 區間中間那幾天。⚠️ **刻意比兩端弱一階**：這一段從哪到哪要一眼看得出來，
+   全部同色的話就只剩「有幾格被選到」而看不出頭尾。 */
+.cal .day.in{background:var(--surface);color:var(--ink);}
+/* 「維持現在天數」的建議結束日：正在等第二下、而且目前是多天時才出現。
+   點它＝整趟平移、站全部保留。⚠️ 程式裡**不是特殊分支**，走的是與點任何一格
+   完全相同的那條路——這裡只負責讓它看起來像個可以按的建議。
+   ⚠️ 用 outline 不用 border：border 會改變格子的內容盒尺寸，整排日期會跳一下。 */
+.cal .day.keep{outline:1.5px dashed var(--ink-2);outline-offset:-2px;}
+/* 區間選擇的提示行。⚠️ 跨月時「維持天數」那一格在畫面外，這行是唯一看得到那個日期的地方。 */
+.cal-hint{margin-top:8px;font-size:11.5px;line-height:1.5;color:var(--ink-2);}
+/* 活動密度：點越多代表當天可排的活動越多。純裝飾故可用 --ink-3（地雷 #7c） */
+.cal .dots{display:flex;gap:1.5px;height:3px;}
+.cal .dots i{width:3px;height:3px;border-radius:50%;background:var(--ink-3);}
+.cal .day.on .dots i{background:var(--paper);opacity:.75;}
+
+/* ---- 推薦與行程列 ---- */
+.plan-row{
+  display:flex;gap:11px;align-items:flex-start;
+  padding:11px 0;border-bottom:1px solid var(--line);
+}
+.plan-row:last-child{border-bottom:0;}
+.plan-row .idx{
+  flex:none;font-family:var(--f-num);font-size:9.5px;font-weight:500;
+  letter-spacing:.08em;color:var(--ink-2);width:46px;padding-top:3px;
+}
+.plan-row .info{flex:1;min-width:0;}
+.plan-row .nm{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:14px;
+  line-height:1.45;margin-bottom:4px;
+}
+.plan-row .sub{
+  font-family:var(--f-num);font-size:10.5px;letter-spacing:.04em;
+  color:var(--ink-2);display:flex;gap:9px;flex-wrap:wrap;align-items:center;
+}
+.plan-row .sub .cat{font-weight:500;}
+/* 位置不確定：不顯示公里數，改講實話。用 --geo 與地點資訊同色系 */
+.plan-row .sub .vague{color:var(--geo);opacity:.85;}
+/* 查看詳情：與地圖彈窗的 .pop a 同一套視覺（--geo + 箭頭），字級配合行程列的密度縮到 10.5px。
+   行程列本身不是連結，故這裡可以直接用 <a>（卡片那邊因為外層已是 <a> 才被迫改用 <button>）。 */
+.plan-row .detail{
+  display:inline-block;margin-top:5px;
+  font-family:var(--f-num);font-size:10.5px;letter-spacing:.04em;
+  font-weight:500;color:var(--geo);
+}
+.plan-row .detail:hover{text-decoration:underline;}
+/* 票券連結（單位 H）。與「查看詳情」並排，視覺完全相同——兩顆都是外連，
+   沒有理由長得不一樣。⚠️ 沒填 ticket_url 就整顆不出現，不做成灰掉的死鈕：
+   KKday 商品會下架，能按但按了是空頁面比沒有這顆更糟。 */
+.plan-row .links{display:flex;gap:12px;flex-wrap:wrap;}
+.plan-row .ticket{
+  display:inline-block;margin-top:5px;padding:0;
+  font-family:var(--f-num);font-size:10.5px;letter-spacing:.04em;
+  font-weight:500;color:var(--geo);
+}
+.plan-row .ticket:hover{text-decoration:underline;}
+/* 景點列的 64px 縮圖（單位 H）。尺寸與圓角沿用地圖彈窗那一套，但**選擇器不能直接借用**
+   ——CSS 裡它們寫成 `.pop .pth`，只在彈窗底下生效。
+   ⚠️ 有縮圖的那一列不畫左邊 46px 的站號欄：瀏覽清單本來就沒有站號（那格是空的），
+   兩個都留著會讓手機上的標題只剩不到一半寬度。
+   活動列刻意維持純文字——兩段長得不一樣，本身就在說明這是兩種不同的東西。 */
+.plan-row .pth{
+  flex:0 0 64px;width:64px;height:64px;border-radius:var(--radius);
+  object-fit:cover;display:block;background:var(--surface);
+}
+/* 還沒拍照片時的中性面板。**放圖示不放「景點」兩個字**——只有一個分類，
+   寫字會一整排都一樣、等於沒有資訊；圖示則與地圖圖釘是同一個符號，看過一次就認得。 */
+.plan-row .pth-block{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface);color:var(--c-景點);
+}
+/* 營業時間（單位 H）。**預設收合**：照抄官網原文可能很長，而使用者在這一列
+   真正要決定的只是「加不加進行程」。抓不到就整段不顯示（沒有 hours 就不畫）。
+   ⚠️ 行程列重畫（按「＋」加入一站）會把展開的它收回去。發生時機正好是
+   「已經看完、做出決定」的那一刻，故意不為它多存展開狀態。 */
+.plan-row .hours{margin-top:6px;}
+.plan-row .hours>summary{
+  font-family:var(--f-num);font-size:10.5px;letter-spacing:.04em;
+  color:var(--ink-2);cursor:pointer;list-style:none;
+}
+.plan-row .hours>summary::-webkit-details-marker{display:none;}
+.plan-row .hours>summary::after{content:'▾';margin-left:4px;}
+.plan-row .hours[open]>summary::after{content:'▴';}
+.plan-row .hours-body{
+  font-size:11.5px;line-height:1.7;color:var(--ink-2);
+  white-space:pre-wrap;margin-top:4px;
+}
+.plan-row .hours-body .hl{color:var(--ink);font-weight:500;}
+.plan-row .hours-chk{
+  display:block;margin-top:5px;
+  font-family:var(--f-num);font-size:9.5px;letter-spacing:.04em;color:var(--ink-2);
+}
+.plan-row .act,
+.favfood-row .act{
+  flex:none;width:30px;height:30px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line);border-radius:2px;color:var(--ink-2);font-size:15px;
+  transition:border-color .15s ease,color .15s ease;
+}
+.plan-row .act:hover,
+.favfood-row .act:hover{border-color:var(--ink-2);color:var(--ink);}
+.plan-row .act.on,
+.favfood-row .act.on{border-color:var(--ink);color:var(--ink);}   /* 已在行程裡 */
+.plan-empty{font-size:12.5px;color:var(--ink-2);padding:6px 0 2px;line-height:1.7;}
+
+/* ---- 加一頓飯（單位 I，2026-08-26）---- */
+/* 候選列沿用 `.plan-row` 的骨架（同一種東西就該長得一樣），差別只有兩點：
+   沒有站號欄（那是「已經排進行程」才有的東西），而且改印「離某一站多遠」。 */
+.plan-food-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin-bottom:6px;
+}
+/* 類別下拉沿用餐廳頁那顆的視覺，但這裡空間窄得多，故限寬並允許縮。 */
+.plan-food-bar select{
+  flex:0 1 auto;max-width:52%;padding:4px 2px;
+  border:0;border-bottom:1px solid var(--line);border-radius:0;
+  background:transparent;color:var(--ink);
+  font-family:var(--f-body);font-size:12px;
+}
+/* 「N 家在附近」：這一段的母體有多大，看得到才知道下拉篩掉了多少。 */
+.plan-food-n{
+  font-family:var(--f-num);font-size:10px;letter-spacing:.08em;
+  color:var(--ink-3);padding:2px 0 4px;
+}
+/* 候選清單上的榜單徽章（2026-08-26）。徽章本身沿用 `.restaurant-award`
+   （邊框、9.5px、等級加粗那一整套），這裡只調它與上一行的距離——
+   **不要為它另寫一套徽章樣式**，兩處長得不一樣就等於在說「這是兩種東西」。 */
+.plan-food-aw{margin-top:4px;}
+/* 候選列的收藏星（單位 K）。**排在「＋」左邊、做成無框**——一列裡不該有兩顆
+   看起來一樣重的方框鈕，那會讓「哪一顆是把它排進今天」變得要想一下。
+   ⚠️ 顏色是 --ink-2 不是 --ink-3：後者只准用在裝飾，可點的東西不行（地雷 #7c）。 */
+.plan-food-fav{
+  flex:none;width:26px;height:30px;background:none;border:0;
+  color:var(--ink-2);font-size:14px;line-height:30px;
+  transition:color .18s ease;
+}
+.plan-food-fav:hover{color:var(--ink);}
+.plan-food-fav.on{color:var(--c-展覽);}
+
+/* `.plan-more` 本來是 `.plan-sec` 的兄弟（自帶 18px 左右內距），
+   這裡它在 `.plan-sec` **裡面**，不歸零會縮排兩次。 */
+.plan-food-body-more,#foodList /* ---- 行程頁的大區列（單位 N，2026-09-03）---- */
+/* 26 桶開完之後「想跑遠一點」把大阪・北海道・沖繩全塞進同一個池子，所以先選「在哪一帶玩」。
+   ⚠️ **選中用深色實心，與日期切換列（.plan-days .dchip.on）同一套語彙**——地雷 #26 那張
+      分工表：深色實心＝「你人在哪裡」，而且**段數會變、要橫向捲動**，正好與日期列同構。
+      膠囊分段（.mapswitch-seg）撐不住這件事：它的適用條件是「2～5 段且段數不會長」，
+      而大區最多 7 個且會隨開桶增加。
+   ⚠️ 捲動一定要在**內層** .zone-scroll，外層 .zone-row 不可以有 overflow（見 .plan-days 那條）。
+   ⚠️ `.zone-row[hidden]` 那條不可省：日後若有人給 .zone-row 一個 display，
+      瀏覽器預設的 [hidden]{display:none} 就會被蓋掉，於是「只有一個大區時整列隱藏」
+      會靜默失效，畫面上只像「多了一排看起來沒用的鈕」（.viewswitch 踩過同款）。 */
+.zone-row{margin:0 0 12px;}
+.zone-row[hidden]{display:none;}
+.zone-scroll{
+  display:flex;gap:8px;
+  overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.zone-scroll::-webkit-scrollbar{display:none;}
+.zone-chip{
+  flex:0 0 auto;font-size:12.5px;line-height:1.3;padding:6px 13px;
+  border:1px solid var(--line);border-radius:999px;
+  color:var(--ink-2);background:transparent;
+  transition:background .15s ease,border-color .15s ease,color .15s ease;
+}
+.zone-chip:hover{color:var(--ink);}
+.zone-chip.on{background:var(--ink);border-color:var(--ink);color:var(--paper);font-weight:600;}
+
+.plan-more{padding:10px 0 0;}
+
+/* ---- 段間路線外連（單位 D）---- */
+/* 站與站之間的一列：左邊距離、右邊外連。**與三套行程卡的 .hop 刻意分開命名**——
+   那個是純資訊、沒有連結，兩者日後改動時不該互相波及。 */
+.plan-hop{
+  display:flex;align-items:center;gap:10px;
+  padding:7px 0 7px 57px;        /* 57 = .plan-row .idx 的 46 + gap 11，與站名切齊 */
+  font-family:var(--f-num);font-size:10.5px;letter-spacing:.04em;color:var(--ink-2);
+}
+.plan-hop .d{flex:1;min-width:0;}
+/* 「怎麼去」與「整趟路線」沿用「查看詳情」那顆的視覺（--geo + 箭頭），
+   在設計上會完全消失，看起來就是站內功能而不是外連廣告。 */
+.plan-hop .go,.plan-whole .go{
+  flex:none;font-family:var(--f-num);font-size:10.5px;letter-spacing:.04em;
+  font-weight:500;color:var(--geo);
+}
+.plan-hop .go:hover,.plan-whole .go:hover{text-decoration:underline;}
+.plan-whole{display:flex;justify-content:flex-end;padding:12px 0 2px;}
+/* 站數超過 Google 的中間站上限時，那顆鈕原地換成一句話（單位 I 決策 5）。
+   **視覺層級要降下來**：它是說明不是動作，沿用 `.plan-empty` 的字級與墨色；
+   維持 `.plan-whole` 那個右對齊的話，一段說明文字靠右會被讀成「還可以點」。 */
+.plan-whole.over{
+  justify-content:flex-start;padding:10px 0 2px;
+  font-size:12.5px;line-height:1.7;color:var(--ink-2);
+}
+/* 起點模式的兩顆 chip。沿用側欄與分類列的 .side-chip（純文字 + 選中加底線），
+   但 .plan-h 是標題列、帶 uppercase 與 .12em 寬字距，chip 要關掉那兩項。 */
+.route-chips{display:flex;gap:0;text-transform:none;letter-spacing:0;}
+.route-chips .side-chip{font-size:11.5px;padding:2px 0;margin-left:12px;}
+
+/* ---- 底部動作 ---- */
+.plan-acts{display:flex;gap:10px;padding:16px 18px 0;}
+.plan-acts button{
+  flex:1;height:40px;border-radius:var(--radius);font-size:13px;
+  border:1px solid var(--line);color:var(--ink);
+  transition:background .15s ease,border-color .15s ease;
+}
+.plan-acts button:hover{border-color:var(--ink-2);}
+.plan-acts button.primary{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.plan-acts button[disabled]{opacity:.4;pointer-events:none;}
+
+/* 註：卡片上曾有一顆「＋排行程」鈕，2026-08-02 移除——每張卡多一顆按鈕讓瀑布流變吵，
+   與「照片上不放角標、卡片不放容器」的視覺原則衝突。加入行程改由行程頁自己完成。 */
+
+/* 分享連結進來的唯讀模式：藏掉所有編輯控制項 */
+.planview.ro .plan-editonly{display:none;}
+.plan-cta{padding:16px 18px 0;}
+.plan-cta button{
+  width:100%;height:40px;border-radius:var(--radius);font-size:13px;
+  background:var(--ink);color:var(--paper);
+}
+/* ---- 可收合區塊（月曆、地圖、自己組共用）---- */
+.fold-h{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  width:100%;padding:13px 18px;border-bottom:1px solid var(--line);
+  font-size:13px;color:var(--ink);text-align:left;
+}
+.fold-h .cur{font-family:var(--f-num);font-size:11px;color:var(--ink-2);letter-spacing:.04em;}
+.fold-h .caret{
+  flex:none;width:14px;height:14px;transition:transform .2s ease;
+}
+.fold-h .caret svg{width:14px;height:14px;stroke:var(--ink-2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.fold-h[aria-expanded="true"] .caret{transform:rotate(90deg);}
+.fold-b{display:none;}
+.fold-b.open{display:block;}
+
+/* ---- 三套行程的方案卡 ---- */
+.pcards{padding:4px 18px 0;}
+.pcard{
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:13px 14px 12px;margin-bottom:10px;
+  transition:border-color .18s ease;
+}
+.pcard.sel{border-color:var(--ink);}
+.pcard-h{
+  display:flex;align-items:baseline;gap:8px;margin-bottom:11px;
+  font-family:var(--f-num);font-size:10.5px;font-weight:500;letter-spacing:.1em;
+  color:var(--ink-2);text-transform:uppercase;
+}
+.pcard-h .no{color:var(--ink);}
+/* 這一顆代表「哪一套行程」，各站 rail 上的 .dot 代表「活動分類」——兩種語義不同的顏色
+   會同時出現在一張卡上，故刻意分成方塊與圓點。**圓角不可用 var(--radius)**：
+   那是 4px，套在 8px 方塊上就成了正圓，與各站的分類色點長得一模一樣。 */
+.pcard-h .route-key{
+  width:8px;height:8px;border-radius:2px;background:var(--rc);
+  flex:none;align-self:center;
+}
+.pcard-h .star{color:var(--c-展覽);letter-spacing:0;font-size:11px;}
+/* 路線：左側一條細線串起各站，站與站之間標距離 */
+.stop{display:flex;gap:11px;align-items:flex-start;}
+.stop .rail{
+  flex:none;width:16px;display:flex;flex-direction:column;align-items:center;align-self:stretch;
+}
+.stop .dot{
+  width:7px;height:7px;border-radius:50%;margin-top:5px;flex:none;
+}
+.stop .bar{flex:1;width:1px;background:var(--line);margin:3px 0;}
+.stop:last-child .bar{display:none;}
+.stop .txt{flex:1;min-width:0;padding-bottom:2px;}
+.stop .nm{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:13.5px;line-height:1.45;
+}
+.stop .vn{
+  font-family:var(--f-num);font-size:10.5px;color:var(--ink-2);
+  letter-spacing:.03em;margin-top:2px;
+}
+.hop{
+  display:flex;gap:11px;align-items:center;
+  font-family:var(--f-num);font-size:10px;color:var(--ink-2);letter-spacing:.05em;
+  padding:1px 0 3px;
+}
+.hop .rail{flex:none;width:16px;display:flex;justify-content:center;}
+.hop .rail i{width:1px;height:15px;background:var(--line);display:block;}
+.pcard-f{display:flex;justify-content:flex-end;margin-top:9px;}
+.pcard-f button{
+  height:31px;padding:0 15px;border-radius:2px;font-size:12.5px;
+  border:1px solid var(--line);color:var(--ink);
+}
+.pcard.sel .pcard-f button{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.plan-more{
+  display:block;width:100%;text-align:left;padding:2px 18px 16px;
+  font-size:12.5px;color:var(--ink-2);
+}
+/* ⚠️ 這條不可省，而且它是**第十處**（同 .viewswitch／.restaurant-favonly）：
+   上面那個 display:block 會蓋掉瀏覽器預設的 [hidden]{display:none}，於是 renderPlan 的
+   `ft.hidden=store.planZone!==HOME_ZONE`（「想跑遠一點」只存在於首都圈，定案 2）
+   **完全沒有效果**——關西大區底下照樣出現一顆寫著「埼玉・千葉・北關東・湘南・箱根・
+   富士山等」的鈕（列的是首都圈的地名），而 `inPlanZone` 對非首都圈直接 return true，
+   所以按下去池子一筆都沒變、只是重新洗牌，文案卻翻成「看回市區（東京・橫濱・川崎）」。
+   ⚠️ 2026-09-03 是靠**截圖**抓到的：斷言問 `f.hidden` 一律 PASS（屬性真的有設），
+   要問的是 `f.getClientRects().length`。 */
+.plan-more[hidden]{display:none;}
+.plan-more:hover{color:var(--ink);}
+.plan-more.on{color:var(--ink);}
+
+/* ---- 共用地圖（三套一起比較）---- */
+#planMap{height:260px;background:var(--line);}
+.planview .leaflet-container{background:var(--line);}
+/* 三套靠色相分辨；選中與否另以實心／空心分辨，兩個維度互不干擾。 */
+.rpin{
+  width:20px;height:20px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-num);font-size:10.5px;font-weight:500;
+  background:var(--rc);color:var(--paper);
+  border:1.5px solid var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.3);
+}
+/* 未選中的用「空心」而不是半透明。低彩度 + 透明度壓在滿版彩色的 OSM 圖磚上會直接
+   消失（地雷 #7 記載過同一件事），實心／空心的對比則不受底圖影響。 */
+.rpin.dim{background:var(--paper);color:var(--rc);border-color:var(--rc);
+          box-shadow:0 1px 2px rgba(0,0,0,.22);}
+
+/* ---- 自己組：地區與據點 ---- */
+.pick-row{display:flex;flex-wrap:wrap;gap:9px 15px;margin-bottom:12px;}
+.pick-row button{
+  font-size:12.5px;color:var(--ink-2);padding:2px 0;
+  border-bottom:1.5px solid transparent;
+}
+.pick-row button.on{color:var(--ink);border-bottom-color:var(--ink);}
+.pick-row button .n{
+  font-family:var(--f-num);font-size:10px;color:var(--ink-3);margin-left:4px;
+}
+.pick-row button.on .n{color:var(--ink-2);}
+.pick-sub{padding-left:11px;border-left:1px solid var(--line);margin-bottom:12px;}
+.fav-note{
+  font-size:12px;color:var(--ink-2);line-height:1.7;
+  padding:9px 0 3px;border-top:1px solid var(--line);
+}
+.fav-note b{color:var(--c-展覽);font-weight:500;}
+
+.plan-toast{
+  position:fixed;left:50%;transform:translateX(-50%);
+  bottom:calc(78px + env(safe-area-inset-bottom));z-index:1200;
+  background:var(--ink);color:var(--paper);font-size:12.5px;
+  padding:9px 16px;border-radius:var(--radius);
+  opacity:0;pointer-events:none;transition:opacity .2s ease;
+}
+.plan-toast.show{opacity:1;}
+
+/* ===== 行程列的照片預覽（2026-08-27）=====
+   ⚠️ **既有版面一個像素都沒動**——這是浮在上面的一張圖，不是插進列裡的欄位。
+   當初評估過在列左邊加常駐縮圖，代價是三套行程卡那條「先去這裡再去那裡」的鐵軌
+   要讓位、我的行程的站號要與縮圖搶同一格、候選清單一屏看得到的筆數變少。
+   ⚠️ **z-index 壓在 toast(1200) 與導覽(1400) 之下**：那兩個是「必須讀到」的東西，
+   這只是一張輔助的照片，被蓋住是對的。 */
+.plan-peek{
+  position:fixed;z-index:1150;width:280px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:0 6px 24px rgba(0,0,0,.16);
+  overflow:hidden;display:none;
+  /* ⚠️ **這行不可省。** 桌機的浮窗跟著滑鼠跑，一定會蓋到底下那顆「＋」或「✕」——
+     沒有它使用者按不到那些鈕，而那長得就像按鈕壞了。手機版在下面改回 auto
+     （固定在畫面下緣、不跟著手指，而且要點得到才關得掉）。 */
+  pointer-events:none;
+}
+.plan-peek.show{display:block;}
+/* 封頂是為了直式海報：280px 寬的直圖最高會到 389px，佔掉半個手機畫面。
+   用 cover 而不是 contain——留兩條灰邊比裁掉一點更難看，而這裡的用途是「認出是哪一個」
+   不是欣賞（卡片那邊「不裁切」的原則管的是清單，兩者目的不同）。 */
+.plan-peek img{
+  display:block;width:100%;height:auto;max-height:min(320px,44vh);
+  object-fit:cover;background:var(--surface);
+}
+/* 沒照片／載入中。沿用卡片 `.ph .block` 的做法：中性底，顏色只上在文字上，
+   不用分類色大面積填滿（深色模式下會比照片本身還搶眼）。 */
+.plan-peek .peek-block{
+  display:flex;align-items:center;justify-content:center;
+  height:96px;background:var(--surface);font-size:12px;color:var(--ink-2);
+}
+/* 手機（沒有 hover 的裝置）：固定在畫面下緣上方，**不跟著手指**。
+   位置與 .plan-toast 對齊，那是站上「暫時浮出來的東西」既有的落點。
+   ⚠️ JS 那邊在這個模式下**絕對不可以寫 inline 的 left/top**——inline 永遠贏，
+   會把這裡的定位整個蓋掉（導覽的高亮框就踩過同一個坑）。 */
+@media (hover:none){
+  .plan-peek{
+    left:50%;transform:translateX(-50%);
+    bottom:calc(78px + env(safe-area-inset-bottom));
+    width:min(280px,calc(100vw - 28px));
+    pointer-events:auto;
+  }
+  /* 點到畫面下半部的那幾列時改貼上緣。⚠️ **不加這個的話浮窗會蓋住使用者剛剛點的那一列**
+     ——而那正是他想看清楚的東西，等於這個功能自己擋住自己。 */
+  .plan-peek.at-top{
+    top:calc(12px + env(safe-area-inset-top));
+    bottom:auto;
+  }
+}
+
+@media (min-width:1024px){
+  :root{--gap:16px;}
+  /* 側欄拿掉之後（2026-08-21）內容區直接置中吃滿。這不是新版面——
+     它就是原本「側欄收合」（body.sb-off）的那個狀態，只是變成唯一的狀態。
+     ⚠️ **body 的 padding-bottom 不可再蓋成 40px**：分頁列以前釘在側欄底部、
+     不壓到內容，現在它浮在畫面中央下方，要留出基準的 84px 才不會蓋住最後一排卡片。 */
+  .wrap{max-width:1600px;margin:0 auto;padding:14px 32px 0;}
+  .top{padding:20px 0 12px;}
+  .searchbar input{font-size:15px;}
+  .body h2{font-size:15.5px;}
+  .restaurant-top{padding-left:32px;padding-right:32px;}
+  .restaurant-toolbar{padding-left:32px;padding-right:32px;}
+  .restaurant-list-panel{padding:24px 32px 40px;}
+  .places-top{padding-left:32px;padding-right:32px;}
+  .places-toolbar{padding-left:32px;padding-right:32px;}
+  /* 活動地圖（單位 き-1）。⚠️ **`#mapview .maptop` 必須跟著加寬**，否則它的返回鈕與
+     右上角切換器會比另外兩張往外 18px——實測 1440px 下切換的瞬間會水平跳一下。
+     ⚠️ 只針對 `#mapview`：`.maptop` 與「選點地圖」共用，那一頁沒有這個問題。 */
+  #mapview .maptop,
+  #allView .maptop{padding-left:32px;padding-right:32px;}
+  .map-toolbar{padding-left:32px;padding-right:32px;}
+  /* ---- 行程頁桌面版：左邊文字、右邊地圖釘住（手機完全不受影響）----
+     原本是單欄收窄置中，兩側整片留白；桌面改成兩欄，右欄地圖常駐並黏在視窗上，
+     捲到下面挑活動時仍看得到路線。左欄仍維持 620px 的閱讀寬度，一行文字才不會太長。 */
+  /* **`width:100%` 不可省。** .planview 是 flex column，.planbody 一旦有了
+     `margin:0 auto`，在交叉軸上就從「撐滿」變成「縮到內容大小」，grid 容器寬度
+     只剩 620+380+gap，右欄的 1fr 永遠拿不到剩餘空間（實測地圖卡在最小值 380px，
+     看起來像 1fr 壞掉，其實是容器根本沒那麼寬）。 */
+  .planbody{
+    display:grid;
+    grid-template-columns:minmax(0,620px) minmax(380px,1fr);
+    column-gap:32px;align-items:start;
+    width:100%;max-width:1400px;margin:0 auto;padding:0 32px;
+  }
+  .planbody>*{grid-column:1;max-width:none;margin-left:0;margin-right:0;}
+  /* 底部留白刻意用「左欄的一個空白格」而不是 .planbody 的 padding-bottom。
+     padding-bottom 只會加長捲動距離、不會加長 sticky 的可黏範圍
+     （可黏範圍 = 左欄內容高 − 地圖高，捲動距離 = 左欄內容高 + padding − 視窗高），
+     兩者一減就是 `視窗高 − 地圖高 − padding`；padding 一大於那個差值，
+     捲到底時地圖就會被往上推出去（實測正好被推 30px）。改成空白格後兩邊同步成長，
+     條件簡化成「地圖高 ≤ 可視高」，恆成立。 */
+  .planbody::after{content:'';grid-column:1;height:40px;}
+  /* 地圖獨佔右欄、跨滿所有列。兩個都不可省：
+     ①`align-self:start` —— grid item 預設會被拉伸成整列高度，那樣 sticky 就沒有
+       可黏的行程，等於失效（看起來像沒寫，很難查）。
+     ②`span 99` 而不是 `1/-1` —— 沒有明確定義 grid-template-rows 時，`-1` 指的是
+       明確網格的最後一條線，也就是第 1 條，`1/-1` 會塌成「只佔一列」。 */
+  /* **地圖在可視區內垂直置中**（2026-08-15 使用者要求）。原本 `top:0` 讓它貼齊可視區
+     頂端，底下空出一整片（1440×900 實測 288px）。
+     ⚠️ **不要改寫成「算好 top 偏移」**（`top:calc(20vh - 36px)` 那種）——那會把
+     「地圖高 60vh」與「頂欄高」兩個數字寫死進同一行 calc，日後只要有人改地圖高度，
+     置中就靜默歪掉、而且看起來只是「有點偏」不像壞掉。
+     現在的寫法是外框吃滿可視高、內部置中，**地圖高度改成多少都自動置中**。
+     `flex-direction:column` 不可省：預設橫排會讓 #mapBody 縮成內容寬。
+     sticky 依然成立——上方註解算過條件是「黏住的東西高 ≤ 可視高」，這裡剛好相等。 */
+  #mapFoldWrap{
+    grid-column:2;grid-row:1/span 99;align-self:start;
+    position:sticky;top:0;
+    height:calc(100vh - var(--plan-top-h));
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  #mapFold{display:none;}          /* 桌面常駐展開，折疊鈕沒有用途 */
+  /* 蓋掉 .fold-b 的 display:none。**但這只管「看得見」**——renderPlanMap() 是看
+     #mapBody 有沒有 .open 才決定畫不畫的，所以 JS 那邊還要 syncPlanMapFold()
+     把狀態同步過去，否則右欄會是一塊空的灰底。 */
+  #mapBody{display:block;}
+  /* **刻意不滿高**（2026-08-14 使用者要求）。原本是滿高，右欄一整條頂天立地，
+     比旁邊的行程卡搶眼太多。60vh 仍看得出跨區域的整條路線，又留了空白。
+     sticky 不會因此壞掉——上方註解算過它的成立條件是「地圖高 ≤ 可視高」，
+     可視高是 `100vh - var(--plan-top-h)`，而 60vh 恆小於它（只要視窗高 > 180px），
+     **變矮只會更穩**。空出來的那段現在由上方的置中規則平均分到上下兩側。
+     `min-height` 跟著從 420 降到 360，否則矮視窗下 60vh 會被 420 壓回去、白改。 */
+  #planMap{height:60vh;min-height:360px;}
+}
+@media (min-width:1440px){
+  .wrap{padding:16px 44px 0;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+
+/* ===== 圖片出處（2026-09-02）=====
+   景點照片多數是 CC BY / CC BY-SA，那兩種授權要求標示作者，而 build_photos.py
+   會把 EXIF 連同內嵌的作者資訊一起清掉（`-metadata none`，GPS 不能上網站），
+   所以畫面上非標不可。由設定彈窗（z-index 900）進來，故本層仍是 1000。
+   ⚠️ 外框刻意沿用 .places-top／.places-close／.places-heading 那三個既有 class，
+      只有內文另開——多一個全螢幕覆蓋層不該多一套頁首樣式。 */
+.credits-view{
+  position:fixed;inset:0;z-index:1000;background:var(--paper);
+  display:none;flex-direction:column;min-height:0;
+}
+.credits-view.show{display:flex;}
+.credits-body{
+  flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  padding:14px 14px calc(20px + env(safe-area-inset-bottom));
+}
+.credits-note{
+  max-width:640px;margin:0 auto 14px;font-size:12.5px;line-height:1.75;color:var(--ink-2);
+}
+.credits-list{max-width:640px;margin:0 auto;list-style:none;padding:0;}
+/* 一列四欄：景點名／作者／授權／原始檔。窄螢幕自動換行成兩行，
+   名稱獨佔一行、其餘擠在下面——固定欄寬在 320px 會把作者名切碎。 */
+.credit-row{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;
+  padding:9px 2px;border-bottom:1px solid var(--line);font-size:12.5px;line-height:1.6;
+}
+.credit-row:last-child{border-bottom:0;}
+.cr-n{flex:1 1 100%;color:var(--ink);}
+@media (min-width:600px){ .cr-n{flex:0 0 210px;} }
+/* 作者名可能很長（Commons 常是一整串署名），讓它吃掉剩下的空間並可省略 */
+.cr-b{flex:1 1 auto;min-width:0;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;}
+.cr-l,.cr-s{flex:none;font-family:var(--f-num);font-size:11px;letter-spacing:.02em;}
+.cr-l a,.cr-s{color:var(--ink-2);text-decoration:underline;text-underline-offset:2px;}
+.cr-l a:hover,.cr-s:hover{color:var(--ink);}
+.cr-l{color:var(--ink-2);}
+
+/* ===== 網站資訊（2026-09-02）=====
+   關於／隱私權政策／聯絡方式三段。
+   ⚠️ **外殼一個位元組都沒有自己的**：那個覆蓋層同時掛 `.credits-view`，
+      所以 fixed／inset／z-index／`.show` 與內文容器 `.credits-body` 全部沿用。
+      這裡只出「一段長文章該長什麼樣」。複製一份殼等於同一組規則存在兩處。
+   ⚠️ 寬度與 .credits-note 同樣是 640px：兩頁在同一個覆蓋層語境裡，
+      行長不一致會看得出來。 */
+.si-wrap{max-width:640px;margin:0 auto;}
+.si-sec{margin:0 0 26px;}
+.si-sec:last-of-type{margin-bottom:18px;}
+/* h3 在設定彈窗裡是「小標籤」的角色，這裡是「文章的節標題」，
+   所以不沿用那一套，改用與內文拉開一階的字級。 */
+.si-sec h3{
+  margin:0 0 8px;font-size:14px;font-weight:600;color:var(--ink);
+  letter-spacing:.01em;
+}
+.si-sec p{margin:0 0 9px;font-size:12.5px;line-height:1.85;color:var(--ink-2);}
+.si-sec p:last-child{margin-bottom:0;}
+.si-list{margin:2px 0 11px;padding-left:1.1em;}
+.si-list li{
+  font-size:12.5px;line-height:1.8;color:var(--ink-2);margin:0 0 2px;
+}
+/* 信箱獨立一行並放大一階——那是這一頁唯一「要拿去用」的資訊。
+   ⚠️ 用 --ink 不用 --ink-3：--ink-3 在紙白底上只有 2.85，
+      不可用於文字或可點控制項（地雷 #7c）。 */
+.si-mail{margin-top:4px;}
+.si-mail a{
+  font-size:13.5px;color:var(--ink);text-decoration:underline;
+  text-underline-offset:3px;word-break:break-all;
+}
+.si-foot{
+  margin:0;padding-top:14px;border-top:1px solid var(--line);
+  font-size:11.5px;color:var(--ink-2);font-family:var(--f-num);
+}
+
+/* ===== 景點清單／瀑布流（2026-09-02，L4）=====
+   ⚠️ **切換鈕的外觀完全沿用餐廳頁的 `.viewswitch`**（見上方那一區的並列選擇器），
+      這裡只出「哪一塊要顯示」。複製一份等於同一組視覺規則存在兩處。 */
+.places-list-panel{
+  display:none;flex:1;min-height:0;overflow-y:auto;
+  padding:18px 14px calc(34px + env(safe-area-inset-bottom));
+}
+.places-view.list-mode .places-map-panel{display:none;}
+.places-view.list-mode .places-list-panel{display:block;}
+.places-cards{
+  width:100%;max-width:1400px;margin:0 auto;display:flex;gap:var(--gap);align-items:flex-start;
+}
+.places-col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:var(--gap);}
+.place-card{display:block;background:transparent;}
+/* ⚠️ 照片區是一顆真的 `<button>`（點開詳情卡，單位 M）。**這三行不可省**：
+   按鈕的預設 padding 與 `width:auto` 會把照片縮成左上角一小塊，
+   而那看起來像「圖片壞了」不像「樣式沒寫」。背景色由 `.ph` 給（class 贏過 button 標籤）。 */
+.place-card .ph{display:block;width:100%;padding:0;cursor:pointer;}
+.place-card .ph:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.place-card .ph img{transition:opacity .28s ease;}
+.place-card-body{padding:8px 0 4px;display:flex;flex-direction:column;gap:4px;}
+/* 小類與地區。⚠️ **小類的顏色不隨小類變**——景點一律 --c-景點（方案 B，
+   小類只用圖示區分）。這與餐廳頁「顏色跟著記錄走」不同，別照抄過去。 */
+.place-card-meta{
+  display:flex;gap:8px;font-size:11px;line-height:1.6;color:var(--ink-2);
+  font-family:var(--f-num);letter-spacing:.04em;
+}
+.place-card-meta .g{color:var(--c-景點);}
+.place-card h2{
+  font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:15px;line-height:1.45;
+}
+.place-card .wh-tag{margin-left:5px;}

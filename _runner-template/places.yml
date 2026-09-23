@@ -1,0 +1,129 @@
+name: Update Places
+
+# 常設景點管線（單位 H2）。與另外兩支完全獨立，**不要合併**：
+#   活動 update.yml       自動抓 64 個網站、每天變
+#   餐廳 restaurants.yml  人工放清單、只查座標、不需要金鑰
+#   景點 places.yml       人工放清單、查座標 ＋ **每月去官網抓營業時間**（要 LLM）
+#
+# ⚠️ 這支同樣**做不到「放清單就自動產出」**（理由見 restaurants.yml 開頭）。
+# 加了新景點之後請自己來按一次 Run workflow，或等下個月的排程。
+#
+# ⚠️ **--hours 是這支存在的理由。** 不帶這個旗標時 build_places.py 只查座標、
+# 完全不碰營業時間（那是給使用者在本機加景點時用的）。旗標掉了不會報錯，
+# 只會讓營業時間從此停在最後一次抓到的那天，而畫面上完全看不出來。
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 每月 3 日 19:30 UTC ＝ 4 日 04:30 JST。
+    # 餐廳那支是 1 日同時刻，錯開兩天。
+    # ⚠️ **「活動那支錯開 1.5 小時」這句從 2026-09-04 起就過期了**（單位 あ-1）：
+    # 時間預算 4 小時＝這一輪會跑到 23:30 UTC，**與 21:00 那班重疊兩個多小時**。
+    # 靠底下的 concurrency 排隊（活動那支 2026-09-09 才補掛），不是靠錯開時間。
+    # 避開 UTC 午夜（CLAUDE.md §6）。
+    - cron: "30 19 3 * *"
+
+permissions:
+  models: read                # LLM 遞補鏈的第二層（GitHub Models），與 update.yml 同
+
+# 三支都推同一個私有 repo 的 main，撞車時沒有任何警訊。
+concurrency:
+  group: kanto-events-push
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # 每筆 = Jina 抓頁（最慢 90 秒 × 3 次重試）＋ 一次 LLM ＋ 8 秒間隔。
+    # ⚠️⚠️ **實測每筆 26.2 秒**（2026-08-21 那輪 85 筆跑了 37 分 5 秒），
+    # 而景點已經 459 筆——2026-09-04 那班 schedule 就是這樣跑滿 60 分鐘被砍的。
+    # 真正的解法是 build_places.py 的分批（單位 あ-1），這裡只是**後備的閘**：
+    # 程式自己的 HOURS_BUDGET_SEC（4 小時）會先收工，走到這個閘代表出事了。
+    # ⚠️ 這是 job 層的閘，**被它砍掉是灰色的 `cancelled` 不是紅色的 `failure`**
+    # ＝不會有任何通知（2026-09-04 就是這樣沒有人發現）。所以真正負責「變紅」的是
+    # 下面「產生景點資料」那一步自己的 timeout-minutes，它刻意比這個短一截。
+    timeout-minutes: 300
+    steps:
+      - name: 取出私有 repo 的程式碼
+        uses: actions/checkout@v4
+        with:
+          repository: JP-study-list/kanto-events
+          token: ${{ secrets.KANTO_PAT }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 產生景點資料（完整輸出寫進 places_run.log，不進公開紀錄）
+        id: build
+        # ⚠️ **步驟層的閘，比 job 的 300 短一截，這是刻意的。**
+        # 步驟逾時算 failure（紅的、會通知），job 逾時算 cancelled（灰的、不會）。
+        # 留 30 分鐘給後面的座標查詢與寫檔。
+        timeout-minutes: 270
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          JINA_API_KEY:   ${{ secrets.JINA_API_KEY }}
+          GITHUB_TOKEN:   ${{ github.token }}
+        run: |
+          set +e
+          python build_places.py --hours > places_run.log 2>&1
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          # _probe/ 在私有 repo 是 gitignored，報告不併進 log 就會隨執行環境一起消失。
+          # 這份報告是唯一逐筆列出「這次抓到什麼營業時間」的地方，而抽錯與抽對
+          # 在畫面上長得一模一樣——沒有它就沒有任何辦法複查。
+          if [ -f _probe/places_report.txt ]; then
+            {
+              echo
+              echo "===== _probe/places_report.txt ====="
+              cat _probe/places_report.txt
+            } >> places_run.log
+          fi
+
+      - name: 安全摘要（白名單，只印統計數字）
+        if: always()
+        run: |
+          # 白名單而非黑名單：景點名與官網網址會出現在 `  [hours]` 開頭那幾行
+          # 與報告裡，一律不進公開紀錄（H-40：沿用同一套遮蔽，日後有人加 print
+          # 不必重新判斷一次）。`[places] ` 開頭的那幾行**只有數字**。
+          # ⚠️ 改動 build_places.py 的統計文案要同步改這裡——漏改只會讓摘要變空，
+          # 不會洩漏，失敗方向是安全的。
+          grep -E '^\[places\] ' places_run.log \
+            || echo "(沒有摘要行，詳情請看私有 repo 的 places_run.log)"
+
+      - name: 把產出推回私有 repo
+        if: always()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # 逐項指定，不用 git add -A：repo 根目錄就是網站根目錄（地雷 #14）。
+          git add places.json places_src/_geocache.json
+          # ⚠️⚠️ **log 是空的就不要 commit 它。**
+          # 產生那一步被砍掉時，`> places_run.log` 已經先把檔案清成 0 bytes，
+          # 而這一步是 `if: always()`——2026-09-04 就這樣把上一份成功的 256 行紀錄
+          # 覆蓋掉了，而那是**唯一逐筆列出「這次抓到什麼營業時間」的地方**。
+          # 保住舊的比留一個空檔有用：失敗的原因在 Actions 的執行紀錄裡看得到。
+          if [ -s places_run.log ]; then
+            git add places_run.log
+          else
+            echo "⚠️ places_run.log 是空的（產生那步多半被砍了）——不 commit 它，保住上一份紀錄"
+            git checkout -- places_run.log || true
+          fi
+          if git diff --cached --quiet; then
+            echo "無異動（管線的產出是決定性的，沒變就不推）"
+            exit 0
+          fi
+          git commit -m "Update places $(date -u -d '+9 hours' '+%Y-%m-%d %H:%M JST')"
+          for i in 1 2 3; do
+            if git push; then
+              echo "已推回（第 $i 次嘗試）"
+              exit 0
+            fi
+            git pull --rebase origin main || { echo "rebase 失敗"; exit 1; }
+          done
+          exit 1
+
+      - name: 產生若失敗，讓這次執行標紅
+        if: always() && steps.build.outputs.code != '0'
+        run: |
+          echo "結束碼 ${{ steps.build.outputs.code }}，詳情請看私有 repo 的 places_run.log"
+          exit 1

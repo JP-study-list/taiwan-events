@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>寄道日和｜日本展覽、祭典、花火與景點地圖</title>
+<!-- ⚠️⚠️ **這個 title 會被 `js/main.js` 的 applyLang() 蓋掉**（讀 `L.pageTitle`）。
+     Google 看的是渲染之後的 DOM，所以**兩處要一起改，改一邊等於沒改**。
+     目前中文那一份與這裡一字不差。 -->
+<meta name="description" content="每日自動彙整日本各地的展覽、祭典、花火、市集與動漫活動，另有 700 多個常設景點與各大美食指南推薦餐廳。可看地圖、收藏、排行程，中日雙語。">
+<!-- ⚠️ canonical 指向自訂網域：本站同時活在 kanto-events.pages.dev 上，
+     少了這一行，Google 會把兩個網域當成重複內容互相稀釋。 -->
+<link rel="canonical" href="https://events.rensakobo.com/">
+<!-- 分享到 LINE／Facebook／X 時的預覽卡片。
+     ⚠️ `og:image` 必須是絕對網址，相對路徑不會被抓。目前借用 apple-touch-icon
+     （180×180，只夠 summary 這種小方圖）；日後要大張橫幅卡片得另外做一張 1200×630。
+     ⚠️ 語言只有中文一份：Googlebot 與各家預覽機器人的 localStorage 是空的，
+     一律會落在中文，所以這裡刻意不跟著 `jpev_lang` 切。 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="寄道日和">
+<meta property="og:url" content="https://events.rensakobo.com/">
+<meta property="og:title" content="寄道日和｜日本展覽、祭典、花火與景點地圖">
+<meta property="og:description" content="每日自動彙整日本各地的展覽、祭典、花火、市集與動漫活動，另有 700 多個常設景點與各大美食指南推薦餐廳。可看地圖、收藏、排行程，中日雙語。">
+<meta property="og:image" content="https://events.rensakobo.com/apple-touch-icon.png">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary">
+<script>
+// 明度必須在第一次繪製前決定，否則深色使用者會先閃一下白畫面。
+// 這段刻意放在 CSS 之前、且不包在 IIFE 的初始化流程裡。
+// 設計重點：**把系統偏好在這裡解析成明確的 data-theme**，
+// CSS 因此只需要一組深色定義（`:root[data-theme="dark"]`）。
+// 若改成「media query 一份 + attribute 一份」，深色調色盤就會存在兩處，
+// 那正是地雷 #7 的老毛病，別走回頭路。
+(function(){
+  var t=null;
+  try{t=localStorage.getItem('jpev_theme');}catch(e){}
+  if(t!=='light'&&t!=='dark'){
+    t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';
+  }
+  document.documentElement.setAttribute('data-theme',t);
+})();
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%231A1917'/><rect x='6' y='6' width='9' height='12' fill='%23FBFAF7'/><rect x='17' y='6' width='9' height='8' fill='%23856726'/><rect x='6' y='20' width='20' height='6' fill='%23FBFAF7'/></svg>">
+<!-- iOS「加到主畫面」用的圖示。**iOS 完全不看上面那個 SVG favicon** —— 它只認
+     apple-touch-icon，而且必須是 PNG。少了這行，主畫面上會是網頁縮圖截圖。
+     圖案與 favicon 同一套，只是四周留白加大（18.75% → 23%），iOS 裁圓角時不會削到。 -->
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="寄道日和">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<!-- 全螢幕模式下最上面狀態列（時間、電量）的底色。這裡的值只是 JS 接手前的預設，
+     實際由 syncThemeColor() 從 CSS 的 --paper 讀 —— 不在 JS 另存一份調色盤（地雷 #7）。 -->
+<meta name="theme-color" id="themeColor" content="#FBFAF7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;500;600&family=Shippori+Mincho:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<!-- 叢集只載 MarkerCluster.css（定位與展開動畫），**刻意不載 MarkerCluster.Default.css**
+     ——那是它預設的綠／黃／紅配色，會與本站的近無彩調性和分類六色打架。
+     圓圈外觀自己在 style.css 的 .cl 定義（淺深各一組）。 -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="topbar">
+      <div class="region" id="region"></div>
+      <div class="tools">
+        <!-- 設定（齒輪）。晝夜由這裡進去——它本來是右上一顆獨立的鈕，
+             2026-08-21 隨側欄改版收進設定裡。語言鈕刻意留在外面：
+             那是一鍵切換，進彈窗再點反而變慢。 -->
+        <button class="corner-btn gear-btn" id="gearBtn">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1.08-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 8.6a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </button>
+        <button class="corner-btn lang-btn" id="langBtn"></button>
+        <button class="corner-btn map-btn" id="mapBtn">
+          <svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>
+        </button>
+      </div>
+    </div>
+    <h1 id="appname"></h1>
+  </div>
+
+  <div class="searchbar">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input id="kw" type="search">
+    <span class="total" id="total"></span>
+  </div>
+  <div class="activefilter" id="activefilter"></div>
+
+  <!-- 分類列：外層負責上緣分隔線與間距（維持與搜尋列同寬），
+       內層才是橫向捲動的那一條（左右出血到螢幕邊，讓最後一顆滑得出去）。
+       ⚠️ 捲動一定要在內層——外層還掛著 border-top，兩件事分開才不會一起捲走。 -->
+  <div class="typebar-wrap" id="typebarWrap">
+    <div class="typebar" id="typebar"></div>
+  </div>
+  <div class="cards" id="cards"></div>
+  <!-- 收藏的餐廳（單位 K）：同樣只在收藏分頁且有收藏時才有東西。
+       排在「已結束的收藏」之前——這是內容，那是備查名單。 -->
+  <div class="favfood" id="favFood"></div>
+  <!-- 已結束的收藏：只在收藏分頁且真的有內容時才有東西，平常是空的。
+       放在瀑布流後面而不是前面——它是備查名單，不該擋在內容之前。 -->
+  <div class="expired" id="expired"></div>
+  <div class="empty" id="empty" style="display:none"></div>
+</div>
+
+<div class="tabbar">
+  <button class="tab on" id="tabAll">
+    <svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg>
+  </button>
+  <button class="tab" id="tabFav">
+    <svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>
+  </button>
+  <button class="tab" id="tabPlan">
+    <svg viewBox="0 0 24 24"><circle cx="6" cy="5.5" r="2"/><circle cx="18" cy="18.5" r="2"/><path d="M8 5.5h6a3.5 3.5 0 0 1 0 7h-4a3.5 3.5 0 0 0 0 7h6"/></svg>
+  </button>
+  <button class="tab" id="tabRestaurant">
+    <svg viewBox="0 0 24 24"><path d="M5 3v6a3 3 0 0 0 6 0V3M8 3v18M16 3v18M16 3c3 1 4 4 4 7v2h-4"/></svg>
+  </button>
+  <!-- 景點（2026-08-20）。圖示是地圖圖釘（Tabler map-pin）——分頁列上另外四顆分別是
+       格狀、星星、路線、餐具，圖釘沒有跟任何一顆撞。
+       五顆共 298px（.tab 58px × 5 + .tabbar padding 4px × 2 + 邊框），
+       最窄的 320px 手機仍有餘裕。 -->
+  <button class="tab" id="tabPlaces">
+    <svg viewBox="0 0 24 24"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg>
+  </button>
+</div>
+
+<!-- 篩選：分類列第一顆「篩選」開的彈窗（2026-08-21，取代原本的左側欄）。
+     ⚠️ **側欄那四段原封搬過來，id 一個都沒改**——buildSideChips()／buildAreaSel()
+     與三個點擊監聽器因此一行都不必動，只是它們畫的地方換了。
+     日後要改 id 前先想一下那四處。 -->
+<div class="sheet" id="filterView" hidden>
+  <div class="sheet-box">
+    <h2 id="filterTitle"></h2>
+    <h3 id="lbType"></h3>
+    <div class="side-chips" id="sideType"></div>
+    <h3 id="lbDate"></h3>
+    <div class="side-chips" id="sideDate"></div>
+    <h3 id="lbSort"></h3>
+    <div class="side-chips" id="sideSort"></div>
+    <h3 id="lbArea"></h3>
+    <!-- 地區：2026-09-03 由單選 `<select>` 改成多選 chip 樹（圈 → 桶），
+         與餐廳頁／景點頁共用 `js/geofilter.js`。⚠️ 活動沒有據點欄位，那一層天生不出現。
+         ⚠️ 點擊走**委派**（掛在這個容器上）：chip 每次重畫都整個換掉。 -->
+    <div class="geo-tree" id="areaTree"></div>
+    <div class="sheet-btns">
+      <button class="sheet-clear" id="filterClear"></button>
+      <!-- 這顆鈕上寫的是「顯示 N 筆」。彈窗蓋住畫面時看不到篩出什麼，
+           數字就是那個回饋——它是即時的，選一下就跳一次。 -->
+      <button class="sheet-done" id="filterDone"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 日期小卡（單位 さ 第二輪，2026-09-16）。地圖右上角那顆日期鈕開的就是它。
+     ⚠️⚠️ **為什麼自己畫月曆**：第一版用的是原生 `<input type="date">`，而**原生選擇器
+     彈出來的月曆是瀏覽器 UI，CSS 完全碰不到、放不大**，使用者要的正是「按開之後大一點」。
+     ⚠️ **格子尺寸不是沿用行程頁那個月曆**：那一個刻意壓扁（`aspect-ratio:1.45`），
+     因為它跟「我的行程」擠在同一個畫面上、不該比行程本身還顯眼。這裡是獨立的小卡，
+     所以用 `.datesheet` 這個變體放大——**`.cal` 本身一個宣告都沒動**，
+     否則行程頁的月曆會跟著變（同 `.legend-genres` 三頁共用那條的反面）。
+     ⚠️ **必須放在最上層**，不可以塞進任何一個地圖覆蓋層裡：兩張地圖都要用它，
+     而覆蓋層關著時 `display:none`，塞進去會變成「在另一張地圖上按了什麼都不發生」
+     （單位 I 的日期小卡就踩過這個，已從 #placesView 搬出來）。
+     ⚠️ z-index 走 `.sheet` 那條既有規則：`body.map-open .sheet{z-index:1150}`，
+     而**疊圖那張也是掛 `body.map-open`**（已查），所以兩張地圖都壓得住（地雷 #21）。 -->
+<div class="sheet datesheet" id="dateView" hidden>
+  <div class="sheet-box">
+    <h2 id="dfTitle"></h2>
+    <div class="cal-head">
+      <button class="cal-nav" id="dfPrev" type="button">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="mon" id="dfMon"></span>
+      <button class="cal-nav" id="dfNext" type="button">
+        <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+    <div class="cal" id="dfCal"></div>
+    <!-- 選中那天的實際筆數。⚠️ 格子上的點只分三階，看不出真正有幾筆——
+         這一行是小卡裡唯一說得出「選這天會剩多少」的地方。沒選日期時是空的。 -->
+    <div class="cal-note" id="dfNote"></div>
+    <div class="sheet-btns">
+      <button class="sheet-clear" id="dfClear"></button>
+      <button class="sheet-done" id="dfDone"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 餐廳頁的篩選彈窗（2026-09-03）。**自己一個 DOM，不與活動頁的 #filterView 共用**——
+     那個綁著 store.state 與它自己那四段，塞成雙模式會很髒。共用的是 `.sheet` 那套 CSS
+     （z-index 900，壓在分頁列 800 之上、覆蓋層 1000 之下），同 .legend-genres 三頁共用樣式、
+     各自建構的模子。⚠️ `.sheet[hidden]{display:none}` 已經在那份 CSS 裡，不必再補一次。 -->
+<div class="sheet" id="restaurantFilterView" hidden>
+  <div class="sheet-box">
+    <h2 id="rfTitle"></h2>
+    <h3 id="rfAreaH"></h3>
+    <!-- ⚠️ 點擊走**委派**（掛在這個容器上）：底下的 chip 每次重畫都整個換掉，
+         掛在 chip 上一重畫就失效——buildLegend／mapswitch／favfood 都踩過。 -->
+    <div class="geo-tree" id="rfArea"></div>
+    <h3 id="rfGenreH"></h3>
+    <div class="side-chips" id="rfGenre"></div>
+    <div class="sheet-btns">
+      <button class="sheet-clear" id="rfClear"></button>
+      <button class="sheet-done" id="rfDone"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 景點頁的篩選彈窗（2026-09-03）。結構與餐廳頁那個一模一樣，**但各自一個 DOM**——
+     兩頁的資料與狀態不同，共用同一個節點會變成雙模式。共用的是 `.sheet` 那套 CSS
+     與 `js/geofilter.js` 的判定與 chip。
+     ⚠️ 它同樣要壓在覆蓋層之上（見 style.css 的 z-index 1150 那條）。 -->
+<div class="sheet" id="placesFilterView" hidden>
+  <div class="sheet-box">
+    <h2 id="pfTitle"></h2>
+    <h3 id="pfAreaH"></h3>
+    <div class="geo-tree" id="pfArea"></div>
+    <h3 id="pfGenreH"></h3>
+    <div class="side-chips" id="pfGenre"></div>
+    <div class="sheet-btns">
+      <button class="sheet-clear" id="pfClear"></button>
+      <button class="sheet-done" id="pfDone"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 設定：右上齒輪。外觀（晝夜）＋ 網站資訊。 -->
+<div class="sheet" id="settingsView" hidden>
+  <div class="sheet-box">
+    <h2 id="settingsTitle"></h2>
+    <!-- 網頁導覽（2026-08-21）。**排在最上面**：它是給第一次來的人看的，
+         而下面三段（外觀／資料更新／資料來源）都是回頭客才會找的東西。 -->
+    <h3 id="lbGuide"></h3>
+    <!-- 入口卡（2026-08-28）。原本是一顆 .side-chip——那是**篩選 chip 的語彙**
+         （純文字＋選中底線），而篩選是「條件」、導覽是「動作」，兩者長得一樣。
+         同 2026-08-27 晝夜由 chip 改成預覽卡的理由。
+         ⚠️ 標題與副標**各自一個 id**：applyLang 的 set() 走 textContent，
+            塞在按鈕本身會把圖示與副標一起清光（同導覽箭頭那顆的坑）。 -->
+    <button class="tour-card" id="tourBtn">
+      <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.6 9.4l-1.8 5.2-5.2 1.8 1.8-5.2z"/></svg></span>
+      <span class="tx"><span class="tt" id="tourBtnT"></span><span class="sb" id="tourBtnS"></span></span>
+      <span class="cv"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+    </button>
+    <h3 id="lbTheme"></h3>
+    <!-- 兩張預覽卡（2026-08-27）。**class 不再是 side-chips**——那是篩選 chip 的
+         橫排容器（gap:0 4px），預覽卡要的是等寬兩欄。樣式見 .theme-pick。 -->
+    <div class="theme-pick" id="themePick"></div>
+    <h3 id="lbUpdated"></h3>
+    <div class="info" id="updated"></div>
+    <h3 id="lbSource"></h3>
+    <div class="info" id="sourceInfo"></div>
+    <!-- 圖片出處（2026-09-02）。**排在最下面**：它是法規義務的落腳處，
+         不是使用者會主動來找的東西，而導覽在最上面是因為它是給新手的。
+         沿用 .tour-card 的入口卡語彙（圖示＋標題＋副標＋箭頭）——同樣是「動作」
+         不是「條件」，所以不能用篩選 chip 的樣子。 -->
+    <h3 id="lbCredits"></h3>
+    <button class="tour-card" id="creditsBtn">
+      <span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M4.5 17l4.2-4.2a2 2 0 0 1 2.6 0L16 17"/><path d="M14 14.5l1.3-1.3a2 2 0 0 1 2.6 0L20 15"/></svg></span>
+      <span class="tx"><span class="tt" id="creditsBtnT"></span><span class="sb" id="creditsBtnS"></span></span>
+      <span class="cv"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+    </button>
+    <!-- 網站資訊（2026-09-02）。**排在最後**：關於／隱私權／聯絡方式是「出事才會找」
+         的東西，比圖片出處還更少人主動點。沿用同一套入口卡語彙。
+         ⚠️ 圖示刻意用「文件」而不是「i 圓圈」——導覽那顆已經是圓形了，
+            兩個圓在 20px 下很難分辨。 -->
+    <h3 id="lbSiteinfo"></h3>
+    <button class="tour-card" id="siteinfoBtn">
+      <span class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></span>
+      <span class="tx"><span class="tt" id="siteinfoBtnT"></span><span class="sb" id="siteinfoBtnS"></span></span>
+      <span class="cv"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+    </button>
+    <div class="sheet-btns">
+      <button class="sheet-done" id="settingsDone"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 網頁導覽（2026-08-21）。z-index 1400：**壓在四個全螢幕覆蓋層（1000）之上**——
+     導覽會自己走進地圖頁與行程頁，得蓋得住它們；也壓在篩選彈窗（900）之上，
+     因為「離我最近」那一步會把篩選彈窗打開再指裡面的 chip。
+     ⚠️ 這是全站唯一允許超過 1000 的浮動層，新增別的層時不要跟著抄。 -->
+<div class="tourview" id="tourView" hidden>
+  <!-- 高亮框：靠 box-shadow 的大範圍擴散把「洞」以外的地方壓暗，
+       所以它自己一定要 pointer-events:none，否則整片遮罩會變成它在吃點擊。 -->
+  <div class="tour-hole" id="tourHole"></div>
+  <div class="tour-box" id="tourBox">
+    <span class="tour-n" id="tourN"></span>
+    <h2 id="tourH"></h2>
+    <p id="tourP"></p>
+    <div class="sheet-btns">
+      <!-- 左邊次要文字、右邊主要動作，與篩選彈窗的「清除條件／顯示 N 筆」同一套。
+           **刻意不做浮動的 ✕**：它會壓在右上角那三顆鈕上面。
+           2026-08-21 第三批：右邊改成「上一步／下一步」兩顆箭頭並排（拇指按得到的位置）。
+           ⚠️ 箭頭的 path 與月曆的 .cal-nav 完全相同，兩處是同一個手勢，不要各畫各的。
+           ⚠️ 最後一步右鈕要變回文字「完成」，所以那顆裡面同時放 svg 與 span，
+              由 tour.js 切換誰出現——**不可再用 textContent 寫它**，那會把 svg 一起清掉。 -->
+      <button class="sheet-clear" id="tourEnd"></button>
+      <div class="tour-nav">
+        <button class="tour-arrow" id="tourPrev">
+          <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="tour-arrow" id="tourNext">
+          <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+          <span class="txt" id="tourNextTxt"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 地圖頁 -->
+<div class="mapview" id="mapview">
+  <div class="maptop">
+    <button class="map-close" id="mapClose">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <!-- 標題與筆數包成一格：右邊要放切換器，兩者用 flex 分左右，
+         **這樣標題再長也不可能鑽到切換器底下**（日文的「イベントマップ」就比中文長）。 -->
+    <div class="map-heading">
+      <h2 id="mapTitle"></h2>
+      <div class="sub" id="mapSub"></div>
+    </div>
+    <!-- 三張地圖（活動／景點／餐廳）之間的切換器（2026-08-27）。三個覆蓋層各放一個空容器，
+         內容由 js/mapswitch.js 畫。**每一張地圖裡選中的永遠是它自己那一格**，
+         所以那三段 HTML 是固定的、不需要記任何狀態。 -->
+    <div class="mapswitch" id="mapSwitchEv"></div>
+  </div>
+  <!-- 第二列（單位 き-1，2026-09-09）。**它存在的第一個理由是「三張地圖切換時不要上下跳」**
+       ——活動地圖原本沒有這一列，實測地圖上緣 65.9 vs 另兩張 116.3，切換的瞬間整張圖跳 50.4px
+       （2026-08-27 對齊第一列時在意的落差是 6.5px，這是它的 7.7 倍）。
+       ⚠️ **刻意只有一顆篩選鈕，沒有「清單／地圖」膠囊**：活動的清單就是首頁本身、
+       不是這個覆蓋層裡的一個面板，而左上角的返回鈕已經是「回清單」——加了會有兩顆鈕做同一件事。
+       ⚠️ 這顆鈕開的是**清單頁那個既有的 #filterView**（同一份 store.state，
+       在地圖上改了篩選，回到清單也是同一套），所以這裡只有 DOM 沒有第二套狀態。 -->
+  <div class="map-toolbar">
+    <button class="side-chip filter-chip" id="mapFilterBtn">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M4 5h16l-6.2 7.3v6.2l-3.6 1.8v-8z"/></svg>
+      <span id="mapFilterLabel"></span>
+      <span class="cnt" id="mapFilterCount" hidden></span>
+    </button>
+  </div>
+  <!-- ⚠️ `#map` 從 2026-09-16（單位 さ）起包了一層 `.map-panel`，**那是為了日期鈕**：
+       它要 `position:absolute` 貼在**地圖區域**的右上角，而 `.mapview` 的上緣還有
+       兩列頂欄（實測 116.3px）——直接掛在 `.mapview` 上就得把那個高度寫死在 CSS 裡，
+       而頂欄一改高度它就會浮在錯的位置。**這個包法不是新發明**，餐廳頁的
+       `.restaurant-map-panel` 早就是同一個形狀（`relative + flex:1 + min-height:0`）。
+       ⚠️ 圖例刻意**留在外面**：它本來就相對於 `.mapview` 定位，搬進來等於動到
+       一個與這次無關的東西。 -->
+  <div class="map-panel">
+    <div id="map"></div>
+    <!-- 日期鈕（單位 さ）。**位置與圖例對稱**：圖例在左下、Leaflet 的縮放在左上，
+         右上是空的。⚠️ **景點與餐廳兩張地圖沒有這顆**，理由見 js/datefilter.js 檔頭
+         （它們連 `date_*` 欄位都沒有，放上去會是一顆按了不會有任何變化的鈕）。
+         ⚠️⚠️ **2026-09-16 第二輪改成自己畫的月曆**（`#dateView`），原本那個隱形的
+         `<input type="date">` 已整個移除——**原生選擇器的彈出月曆是瀏覽器 UI，
+         CSS 碰不到，放不大**，而使用者要的正是「按開之後的月曆大一點」。 -->
+    <div class="map-datebtn" id="evDate">
+      <button class="dpick" type="button">
+        <svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M16 3v4M8 3v4M4 11h16"/></svg>
+        <span class="dlab"></span>
+      </button>
+      <button class="dclr" type="button" hidden>✕</button>
+    </div>
+  </div>
+  <div class="map-legend" id="mapLegend"></div>
+</div>
+
+<!-- 疊圖模式：三種資料同時顯示（單位 く，2026-09-10）。切換器的第四格「全部」開這一張。
+     ⚠️ **外殼一個位元組都沒有自己的**：class 掛 `mapview`，所以 fixed／inset／z-index／
+        `.show`／`.maptop`／`.map-toolbar`／`.map-legend` 全部沿用活動地圖那一份
+        （同網站資訊沿用 `.credits-view` 的做法）。`#allMap` 也是並列進 `#map` 那條規則的。
+     ⚠️ **它不是第四個分頁**：分頁列只有五顆，這一張只從切換器進得來，
+        所以左上角那顆返回鈕與活動地圖一樣是「回清單」。 -->
+<div class="mapview allview" id="allView">
+  <div class="maptop">
+    <button class="map-close" id="allClose">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="map-heading">
+      <h2 id="allTitle"></h2>
+      <div class="sub" id="allSub"></div>
+    </div>
+    <div class="mapswitch" id="mapSwitchAll"></div>
+  </div>
+  <div class="map-toolbar">
+    <!-- 篩選：一顆鈕開一個分三段的彈窗（三種各一張入口卡）。
+         ⚠️ **這裡沒有第二套篩選狀態**——三段各自開的是那一頁既有的篩選彈窗，
+            所以「在疊圖模式改了條件、回到單張地圖也是同一套」天生成立。 -->
+    <button class="side-chip filter-chip" id="allFilterBtn">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M4 5h16l-6.2 7.3v6.2l-3.6 1.8v-8z"/></svg>
+      <span id="allFilterLabel"></span>
+      <span class="cnt" id="allFilterCount" hidden></span>
+    </button>
+  </div>
+  <!-- 見活動地圖那一段的註解（`.map-panel` 是為了日期鈕而包的）。
+       ⚠️ 疊圖上的日期**只作用在活動那一種**——景點與餐廳沒有檔期，
+       所以選了日期之後這張地圖上少掉的只會是活動的圖釘，那是預期行為不是漏做。 -->
+  <div class="map-panel">
+    <div id="allMap"></div>
+    <div class="map-datebtn" id="allDate">
+      <button class="dpick" type="button">
+        <svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M16 3v4M8 3v4M4 11h16"/></svg>
+        <span class="dlab"></span>
+      </button>
+      <button class="dclr" type="button" hidden>✕</button>
+    </div>
+  </div>
+  <div class="map-legend" id="allLegend"></div>
+</div>
+
+<!-- 疊圖模式的篩選：三張入口卡，各自開既有那一份彈窗（單位 く）。
+     ⚠️ 卡片用 `.tour-card` 而不是 `.side-chip`：那三張是「動作」不是「條件」（地雷 #26）。 -->
+<div class="sheet" id="allFilterView" hidden>
+  <div class="sheet-box">
+    <h2 id="afTitle"></h2>
+    <div class="all-filter-cards" id="afCards"></div>
+    <div class="sheet-btns">
+      <button class="sheet-done" id="afDone"></button>
+    </div>
+  </div>
+</div>
+
+<!-- 我的位置：在地圖上點一個點。畫面上刻意不出現任何地名（見 js/mylocation.js 開頭）。 -->
+<div class="locview" id="locview">
+  <div class="maptop">
+    <button class="map-close" id="locClose">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <h2 id="locTitle"></h2>
+    <div class="sub" id="locHint"></div>
+  </div>
+  <div id="locmap"></div>
+  <div class="locbar">
+    <div class="locnote" id="locNote"></div>
+    <div class="locbtns">
+      <!-- 預設 hidden：不支援 geolocation 或非安全來源時，JS 不會把它打開。
+           留一顆「按了必定失敗」的鈕，與灰掉的 chip 是同一種壞設計。 -->
+      <button class="loc-here" id="locHere" hidden></button>
+      <button class="loc-clear" id="locClear" hidden></button>
+      <button class="loc-ok" id="locOK" disabled></button>
+    </div>
+  </div>
+</div>
+
+<!-- 餐廳頁：第一次點分頁才載入 restaurants/ 底下的資料，且直接進地圖。 -->
+<div class="restaurant-view" id="restaurantView">
+  <div class="restaurant-top">
+    <button class="restaurant-close" id="restaurantClose">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="restaurant-heading">
+      <h2 id="restaurantTitle"></h2>
+      <div class="sub" id="restaurantSub"></div>
+    </div>
+    <div class="mapswitch" id="mapSwitchRs"></div>
+  </div>
+  <div class="restaurant-toolbar">
+    <div class="restaurant-filters">
+      <!-- 篩選（2026-09-03 第二輪：三個下拉 → 一顆鈕＋彈窗多選）。
+           ⚠️ **地區、據點、類別全部收進彈窗**，所以工具列不論選了什麼都只有這一列
+           ——原本選了有據點的桶會變成兩列（390px 實測 49px → 95px）。
+           數字是**條件數**（地區 1 ＋ 類別 1，最多 2），沿用活動頁 activeCount() 的算法：
+           算「選了幾項」的話，選 5 個地區會顯示 5，那讀起來像「篩掉很多」而不是「開了幾個條件」。 -->
+      <button class="side-chip filter-chip" id="restaurantFilterBtn">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M4 5h16l-6.2 7.3v6.2l-3.6 1.8v-8z"/></svg>
+        <span id="restaurantFilterLabel"></span>
+        <span class="cnt" id="restaurantFilterCount" hidden></span>
+      </button>
+      <!-- 只看收藏（單位 K）。**一家都沒收藏時整顆隱藏**（見 syncFavOnlyChip）。 -->
+      <button class="side-chip restaurant-favonly" id="restaurantFavOnly" hidden></button>
+    </div>
+    <!-- 「清單／地圖」（2026-08-28 由單顆鈕改成膠囊分段，與地圖切換器同一種語彙）。
+         ⚠️ 目前整顆被 RESTAURANT_LIST 關掉（照片太少），內容由 js/restaurants.js 畫。 -->
+    <div class="viewswitch" id="restaurantSwitch"></div>
+  </div>
+  <div class="restaurant-map-panel" id="restaurantMapPanel">
+    <div id="restaurantMap"></div>
+    <div class="restaurant-legend" id="restaurantLegend"></div>
+  </div>
+  <div class="restaurant-list-panel" id="restaurantListPanel">
+    <div class="restaurant-cards" id="restaurantCards"></div>
+    <div class="empty" id="restaurantEmpty"></div>
+  </div>
+  <div class="restaurant-status" id="restaurantStatus"></div>
+</div>
+
+<!-- 景點頁：資料在 main.js 開站時就與 events.json 並行載好了，這裡不 fetch 任何東西。
+     **只有地圖沒有清單**（67 筆全部沒有照片，瀑布流會是一面文字牆），
+     所以也沒有餐廳頁那顆「清單／地圖」切換鈕。 -->
+<!-- 圖片出處（2026-09-02）。z-index 1000，與其餘全螢幕覆蓋層同層——
+     它由設定彈窗（900）進來，所以會蓋在它上面，這是對的。 -->
+<div class="credits-view" id="creditsView">
+  <div class="places-top">
+    <button class="places-close" id="creditsClose">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="places-heading">
+      <h2 id="creditsTitle"></h2>
+      <div class="sub" id="creditsSub"></div>
+    </div>
+  </div>
+  <div class="credits-body" id="creditsBody"></div>
+</div>
+
+<!-- 網站資訊（2026-09-02）：關於／隱私權政策／聯絡方式，三段一頁。
+     ⚠️ 外框沿用 .places-top／.places-close／.places-heading 與 .credits-view 的殼
+        （CSS 是並列選擇器，不是複製一份）——多一個全螢幕覆蓋層不該多一套頁首樣式。
+     ⚠️ 副標是站名（吃 L.app），**內文一個字都不提站名**：站名日後會改。 -->
+<div class="credits-view siteinfo-view" id="siteinfoView">
+  <div class="places-top">
+    <button class="places-close" id="siteinfoClose">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="places-heading">
+      <h2 id="siteinfoTitle"></h2>
+      <div class="sub" id="siteinfoSub"></div>
+    </div>
+  </div>
+  <div class="credits-body" id="siteinfoBody"></div>
+</div>
+
+<div class="places-view" id="placesView">
+  <div class="places-top">
+    <button class="places-close" id="placesClose">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="places-heading">
+      <h2 id="placesTitle"></h2>
+      <div class="sub" id="placesSub"></div>
+    </div>
+    <div class="mapswitch" id="mapSwitchPl"></div>
+  </div>
+  <div class="places-toolbar">
+    <!-- 篩選（2026-09-03，由地區下拉改成一顆鈕＋多選彈窗，與餐廳頁同一套）。
+         ⚠️ 順便補上**小類篩選**——景點頁在這之前只有地區可以篩，
+         而圖例上就列著七個小類、卻沒有任何地方可以只看其中幾類。 -->
+    <button class="side-chip filter-chip" id="placesFilterBtn">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M4 5h16l-6.2 7.3v6.2l-3.6 1.8v-8z"/></svg>
+      <span id="placesFilterLabel"></span>
+      <span class="cnt" id="placesFilterCount" hidden></span>
+    </button>
+    <!-- 清單／地圖（2026-09-02，L4）。**與餐廳頁共用 .viewswitch 那一整區 CSS**
+         （選擇器並列，不複製第二份）。⚠️ 它沒有 [hidden]：景點永遠兩種都給，
+         不像餐廳那顆被 RESTAURANT_LIST 關著。 -->
+    <div class="viewswitch" id="placesSwitch"></div>
+  </div>
+  <div class="places-map-panel" id="placesMapPanel">
+    <div id="placesMap"></div>
+    <!-- 圖例是**圖示對照表**：六個小類共用同一個圖釘顏色，方塊顏色全部一樣，
+         唯一在變的是裡面的圖示。它是唯一能查「這個圖案是什麼」的地方。 -->
+    <div class="places-legend" id="placesLegend"></div>
+  </div>
+  <div class="places-list-panel" id="placesListPanel">
+    <div class="places-cards" id="placesCards"></div>
+    <div class="empty" id="placesEmpty"></div>
+  </div>
+  <div class="places-status" id="placesStatus"></div>
+</div>
+
+<!-- 行程頁 -->
+<div class="planview" id="planview">
+  <div class="plantop">
+    <button class="plan-close" id="planClose">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <h2 id="planTitle"></h2>
+    <div class="sub" id="planSub"></div>
+  </div>
+  <div class="planbody">
+
+    <!-- 跨天：日期切換列（單位 J）。**唯讀模式照樣可以切天**，只是加減天數那兩顆不出現。
+         ⚠️ **只有一天時這裡只會有一顆「＋ 加一天」**——單日使用者的畫面因此與跨天之前
+         幾乎相同，而多天的入口仍然在。
+         ⚠️ **刻意放在 .planbody 裡而不是 .plantop**：`--plan-top-h:72px` 是頂欄高度
+         唯一的來源，桌面版右欄地圖靠它算垂直置中，往頂欄塞東西會把那個值弄錯。 -->
+    <div class="plan-days-wrap" id="planDaysWrap">
+      <div class="plan-days" id="planDays"></div>
+    </div>
+
+    <!-- 日期：快捷鈕常駐，月曆預設收合。
+         懶人開了就該直接看到三套行程，月曆展開會把它們推到摺線下。 -->
+    <div class="plan-editonly">
+      <div class="plan-sec" style="padding-bottom:2px;border-bottom:0">
+        <div class="plan-quick" id="planQuick"></div>
+      </div>
+      <button class="fold-h" id="dateFold" aria-expanded="false">
+        <span id="dateFoldLb"></span>
+        <span class="cur" id="dateCur"></span>
+        <span class="caret"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </button>
+      <div class="fold-b" id="dateBody">
+        <div class="plan-sec">
+          <div class="cal-head">
+            <button class="cal-nav" id="calPrev">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <span class="mon" id="calMon"></span>
+            <button class="cal-nav" id="calNext">
+              <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <div class="cal" id="cal"></div>
+          <!-- 區間選擇的提示行。⚠️ 跨月時「維持天數」的那一格框在畫面外，
+               所以這裡要把日期寫出來，否則使用者不知道該往下個月翻。 -->
+          <div class="cal-hint" id="calHint" hidden></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 三套行程（懶人主路徑）-->
+    <div class="plan-sec plan-editonly" id="optSec">
+      <div class="plan-h">
+        <span id="optH"></span>
+        <button id="planShuffle" style="font-family:var(--f-num);letter-spacing:.06em;color:var(--ink-2)"></button>
+      </div>
+      <!-- 大區（單位 N，2026-09-03）：先選「在哪一帶玩」，再由既有的抽選在那一帶裡挑。
+           ⚠️ 捲動掛在**內層** .zone-scroll 上，不可掛在 #zoneRow：桌面版 .planbody 是 grid，
+              而捲動容器在區塊軸的自動最小尺寸是 0，那一格的軌道只會算到 padding，
+              整列會溢出去壓在下一段上（地雷 #25，單位 J 實際踩過）。
+           ⚠️ 只有一個大區時整列 hidden（renderPlan 決定），那時它不提供任何選擇。 -->
+      <div class="zone-row" id="zoneRow" hidden><div class="zone-scroll" id="zoneChips"></div></div>
+      <div class="pcards" id="pcards"></div>
+      <button class="plan-more" id="farToggle"></button>
+    </div>
+
+    <!-- 共用地圖：唯讀模式也看得到（收到分享連結的人更需要） -->
+    <div id="mapFoldWrap">
+      <button class="fold-h" id="mapFold" aria-expanded="false">
+        <span id="mapFoldLb"></span>
+        <span class="cur" id="mapCur"></span>
+        <span class="caret"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </button>
+      <div class="fold-b" id="mapBody"><div id="planMap"></div></div>
+    </div>
+
+    <div class="plan-sec">
+      <div class="plan-h"><span id="planListH"></span><span id="routeChips"></span></div>
+      <div id="planList"></div>
+    </div>
+
+    <!-- 加一頓飯（單位 I）。**至少有一站才出現**——一站都沒有時列任何餐廳都是亂猜，
+         而一顆按下去說「請先加一站」的鈕不如不要有（決策 21）。
+         ⚠️ **摺疊起來是為了那 76 KB**：`restaurants/_map.json` 壓縮後 76 KB＝首頁載入量
+         的 +45%，展開才載，行程裡沒有餐廳的人一個位元組都不必付。 -->
+    <div class="plan-editonly" id="foodSec" style="display:none">
+      <button class="fold-h" id="foodFold" aria-expanded="false">
+        <span id="foodFoldLb"></span>
+        <span class="cur" id="foodCur"></span>
+        <span class="caret"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </button>
+      <div class="fold-b" id="foodBody"><div class="plan-sec" id="foodList"></div></div>
+    </div>
+
+    <div class="plan-acts plan-editonly">
+      <button id="planImg"></button>
+      <button id="planShare" class="primary"></button>
+    </div>
+
+    <!-- 自己組：地區 → 據點 → 活動清單 -->
+    <div class="plan-editonly">
+      <button class="fold-h" id="selfFold" aria-expanded="false">
+        <span id="selfFoldLb"></span>
+        <span class="cur" id="selfCur"></span>
+        <span class="caret"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </button>
+      <div class="fold-b" id="selfBody">
+        <div class="plan-sec">
+          <div class="pick-row" id="areaPick"></div>
+          <div class="pick-sub" id="spotPick" style="display:none"></div>
+          <div class="fav-note" id="favNote" style="display:none"></div>
+        </div>
+        <div class="plan-sec">
+          <div class="plan-h"><span id="browseH"></span></div>
+          <div id="planBrowse"></div>
+        </div>
+        <!-- 常設景點（單位 H）。**與活動分成兩段**：上面那段照結束日由近到遠排序，
+             而景點沒有結束日，混排就得替它捏一個值——任何捏出來的值都是說謊。
+             整段的顯示與否由 plan-ui.js 的 buildSelf() 控制（沒選地區時不顯示）。 -->
+        <div class="plan-sec" id="placesSec" style="display:none">
+          <div class="plan-h"><span id="placesH"></span></div>
+          <div id="planPlaces"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="plan-cta" id="planCta" style="display:none">
+      <button id="planOwn"></button>
+    </div>
+  </div>
+  <!-- 行程列的照片預覽（2026-08-27）。桌機滑上去浮出、手機點一下彈出，**共用這一個節點**。
+       ⚠️ **刻意放在 .planview 裡面而不是外面**：關掉行程頁時它跟著整個覆蓋層一起
+       display:none，不必自己寫一行還原——而「離場忘了收」正是這種浮層最典型的壞法。
+       ⚠️ **但要在 .planbody 外面**：那裡面三個清單都是 innerHTML 整段重畫的，
+       放進去會在重畫的那一刻連同浮窗一起被清掉（點三套卡就會重畫）。 -->
+  <div class="plan-peek" id="planPeek" aria-hidden="true"></div>
+</div>
+<div class="plan-toast" id="planToast"></div>
+<!-- 加進行程前先問日期。**不可預設今天**——景點與餐廳哪天去都行，默默塞進今天
+     等於幫使用者決定，而且他不會發現（單位 H 決策、單位 I 決策 18）。
+     ⚠️ **2026-08-26 由 `#placesView` 裡面搬到最上層**：餐廳分頁也要用它，
+     而它原本躺在一個 `display:none` 的覆蓋層裡，從餐廳頁按下去會什麼都不出現。
+     CSS 也跟著由 `position:absolute` 改成 `fixed`。
+     id 沿用 `placesDate*`（散在 CSS 與 JS 裡，改名的收益只有好看）。 -->
+<div class="places-date" id="placesDate" hidden>
+  <div class="places-date-box">
+    <h3 id="placesDateH"></h3>
+    <div class="places-date-quick" id="placesDateQuick"></div>
+    <label class="places-date-other" for="placesDateInput">
+      <span id="placesDateOtherLb"></span>
+      <input type="date" id="placesDateInput">
+    </label>
+    <button class="places-date-cancel" id="placesDateCancel"></button>
+  </div>
+</div>
+
+<!-- 景點詳情卡（單位 M，2026-09-02）。**瀑布流的卡片點圖片才會開這張**。
+     ⚠️ 它與地圖彈窗是**同一份內容**（js/places.js 的 placeBodyHTML），只有照片大小
+     與外框不同——分兩份寫必然漂移，而兩處講的就是同一個景點。
+     class 帶 `places-pop` 是為了整套沿用彈窗的排版（營業時間、世界遺產、連結列）。 -->
+<div class="place-sheet" id="placeSheet" hidden>
+  <div class="place-sheet-box pop places-pop" id="placeSheetBox"></div>
+</div>
+
+<!-- 票券中轉小卡（單位 M）。**只有兩家以上平台有票時才會跳出來**，
+     一家的時候那顆鈕直接就是外連（js/tickets.js）。
+     ⚠️ 與日期小卡並列共用同一套遮罩與外框樣式，不複製第二份 CSS。 -->
+<div class="places-date ticket-sheet" id="ticketSheet" hidden>
+  <div class="places-date-box">
+    <h3 id="ticketH"></h3>
+    <!-- ⚠️⚠️ **站上唯一的廣告標示**（2026-09-02 起每一次按查票都會看到這張卡）。
+         **刻意排在選項之前**：排在後面的話，人可能在讀到它之前就已經按下去了。
+         由 AFF_DISCLOSURE 決定顯不顯示，而那個值是從 AFF_IDS 算出來的
+         ——沒有聯盟關係的連結不是廣告，標一個不存在的商業關係同樣是錯的。 -->
+    <div class="ticket-ad" id="ticketAd" hidden></div>
+    <div class="ticket-list" id="ticketList"></div>
+    <button class="places-date-cancel" id="ticketCancel"></button>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- 必須排在 leaflet.js 之後（它掛在 L 上）。載不到時 map.js 會退回原本的 layerGroup。 -->
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<!-- 進入點是 js/main.js，其餘模組由它的 import 鏈自動載入（順序由瀏覽器算，不必手動排）。
+     type="module" 會自動 defer，所以執行時 DOM 已解析完；Leaflet 是同步 script，
+     一定先於模組執行，故 L 全域變數在模組裡可以直接用。 -->
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

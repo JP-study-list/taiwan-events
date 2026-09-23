@@ -1,0 +1,79 @@
+name: Update Events
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 21 * * *"    # 每日 06:00 JST
+
+permissions:
+  models: read                # 只給備援 AI 這一項權限，其餘一律不給
+
+# 三支都推同一個私有 repo 的 main，撞車時沒有任何警訊。
+# ⚠️⚠️ **這支以前沒掛，是因為它以前碰不到另外兩支**：景點那輪只跑 37 分鐘
+# （19:30 → 20:07 UTC），21:00 這班一定在它之後。**2026-09-04 的單位 あ-1 把景點的
+# 時間預算設成 4 小時之後，那個前提就沒了**——景點會跑到 23:30 UTC，
+# 與這支重疊兩個多小時。（2026-09-09，單位 あ-2 查證時補上。）
+# ⚠️ `cancel-in-progress: false` 不可改成 true：那會讓後到的把正在跑的砍掉，
+# 而被砍的那一輪什麼都寫不出來（同 places.yml 那個 cancelled 是灰色的、不通知）。
+concurrency:
+  group: kanto-events-push
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: 取出私有 repo 的程式碼
+        uses: actions/checkout@v4
+        with:
+          repository: JP-study-list/kanto-events
+          token: ${{ secrets.KANTO_PAT }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 抓取（完整輸出寫進 run.log，不進公開紀錄）
+        id: fetch
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          JINA_API_KEY:   ${{ secrets.JINA_API_KEY }}
+          GROQ_API_KEY:   ${{ secrets.GROQ_API_KEY }}
+          GITHUB_TOKEN:   ${{ github.token }}
+        run: |
+          set +e
+          python fetch_events.py > run.log 2>&1
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: 安全摘要（只印統計，絕不印來源名稱）
+        if: always()
+        run: |
+          grep -E '^\[done\]|^\[ja\]|^\[stats\] 模型使用|^\[geo\] 資料庫整體' run.log \
+            || echo "(沒有摘要行，詳情請看私有 repo 的 run.log)"
+
+      - name: 把 events.json 與 run.log 推回私有 repo
+        if: always()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add events.json run.log
+          if git diff --cached --quiet; then
+            echo "無異動"
+            exit 0
+          fi
+          git commit -m "Update events $(date -u -d '+9 hours' '+%Y-%m-%d %H:%M JST')"
+          for i in 1 2 3; do
+            if git push; then
+              echo "已推回（第 $i 次嘗試）"
+              exit 0
+            fi
+            git pull --rebase origin main || { echo "rebase 失敗"; exit 1; }
+          done
+          exit 1
+
+      - name: 抓取若失敗，讓這次執行標紅
+        if: always() && steps.fetch.outputs.code != '0'
+        run: |
+          echo "結束碼 ${{ steps.fetch.outputs.code }}，詳情請看私有 repo 的 run.log"
+          exit 1

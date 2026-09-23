@@ -1,0 +1,8 @@
+# 寄道日和 https://events.rensakobo.com
+# ⚠️ 不要 Disallow /css/ 或 /js/：本站是單頁應用，內容全部由 JS 產生，
+#    擋掉它們等於讓 Google 渲染出一個空白頁。
+
+User-agent: *
+Allow: /
+
+Sitemap: https://events.rensakobo.com/sitemap.xml

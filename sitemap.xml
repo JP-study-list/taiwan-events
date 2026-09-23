@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 寄道日和的網站地圖。
+     ⚠️ 目前全站只有一個網址（單頁應用，沒有路由），所以這裡只有一條。
+     日後長出景點頁／餐廳頁／文章頁時，這個檔要改成由程式產生。 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://events.rensakobo.com/</loc>
+    <changefreq>daily</changefreq>
+  </url>
+</urlset>

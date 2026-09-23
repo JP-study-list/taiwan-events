@@ -1,0 +1,42 @@
+# Python 執行時產生的快取
+__pycache__/
+*.pyc
+
+# 本機環境變數（本專案金鑰走 GitHub Secrets，此處僅作防呆）
+.env
+.env.local
+
+# 內部規劃文件已於 2026-08-09 解禁，改為進版控。
+# 原本排除的理由是「repo 內任何檔案都會被 Cloudflare Pages 直接對外服務」，
+# 但拆分後 repo 已私有，且組建命令只複製六樣東西進 dist/，該理由不再成立。
+# 進版控才有版本紀錄與備份，換電腦或重新 clone 都不會遺失。
+# 若日後新增不想進版控的草稿，請用明確的檔名（例如 _draft-*.md）而非整類排除。
+_draft-*.md
+
+# 拆檔／分析用的暫存檔（不進 repo，也就不會被 Cloudflare 發布出去）
+_symuse.json
+_chk.js
+_baseline.html
+
+# 探測／驗證用的一次性腳本與報告（2026-08-09 起）。
+# 委派給 Codex 的沙箱只能寫 cwd 底下，寫不到 scratchpad，故在 repo 內開一個被忽略的資料夾。
+# 探測結果要經 Claude 審查後才寫進 progress.md，原始產出不進版控。
+_probe/
+_photodl/
+_photoin/
+
+# Klook 的 sitemap 快取（單位 M，2026-09-02）。
+# ⚠️ **與 `_geocache.json` 不同，這個刻意不進版控**：那份是 3 分半的限速查詢、
+# 弄丟要重跑；這份是一個網址、1 秒鐘就重抓得到，而它每次抓都整份換掉（約 1 MB），
+# 進版控只會讓 repo 每個月胖一次。重新 clone 之後跑一次 `klook_match.py fetch` 就有了。
+places_src/_klook_cache.json
+
+# macOS 的資料夾檢視設定檔。
+# ⚠️ **這不只是整潔問題**：Cloudflare 的組建命令是 `cp -r css js restaurants places dist/`，
+# 整個資料夾複製——一個 .DS_Store 掉進 `places/` 就會被發布到自家網域下（地雷 #14 同款）。
+.DS_Store
+
+# 日本版（私有 repo kanto-events）的唯讀參考資料（2026-09-23）。
+# ⚠️ 本 repo 會公開，這批是日本版的私有開發紀錄與計畫，**只留本機、絕不進版控**。
+# 換電腦時要自己從 kanto-events 複製過去。
+_ref-kanto/

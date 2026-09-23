@@ -1,0 +1,99 @@
+name: Update Restaurants
+
+# 餐廳資料管線。與 update.yml（活動）完全獨立，**不要把兩支合併**：
+#   活動 = 自動抓 64 個網站、每天變、要 LLM 與金鑰
+#   餐廳 = 人工放清單、不常變、只打国土地理院查座標、不需要任何金鑰
+#
+# ⚠️ 這支**做不到「放清單就自動產出」**。GitHub 的事件綁 repo，本公開 repo
+# 收不到私有 repo 的 push；而私有 repo 不能放 workflow（會燒每月 2000 分鐘的
+# 私有額度，那正是拆分要閃開的）。所以只能 cron 或手動觸發——
+# **放了新清單之後，請自己來按一次 Run workflow。**
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 每月 1 日 19:30 UTC ＝ 2 日 04:30 JST。
+    # 與活動那支（21:00 UTC 起跑、實測 24〜30 分鐘）錯開約 1.5 小時，
+    # 且避開 UTC 午夜（見 CLAUDE.md §6 的 cron 原則）。
+    - cron: "30 19 1 * *"
+
+# 這支不用 LLM、推送走 KANTO_PAT，所以一項權限都不需要。
+# （update.yml 要 models: read 是為了 GitHub Models 那層備援，此處沒有。）
+permissions: {}
+
+# 兩支 workflow 都推同一個私有 repo 的 main，撞車時沒有任何警訊。
+# 排程已錯開 1.5 小時、且下方 push 有 rebase 重試，所以實務上撞不到；
+# 要做到滴水不漏得讓 update.yml 也掛上同一個 group，但使用者暫時不動它。
+concurrency:
+  group: kanto-events-push
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # 2000 家規模、快取全冷時 GSI 限速 1 req/s ＝ 33 分鐘，留兩倍餘裕。
+    timeout-minutes: 60
+    steps:
+      - name: 取出私有 repo 的程式碼
+        uses: actions/checkout@v4
+        with:
+          repository: JP-study-list/kanto-events
+          token: ${{ secrets.KANTO_PAT }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 產生餐廳資料（完整輸出寫進 restaurants_run.log，不進公開紀錄）
+        id: build
+        run: |
+          set +e
+          python build_restaurants.py > restaurants_run.log 2>&1
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          # _probe/ 在私有 repo 是 gitignored，報告不併進 log 就會隨執行環境一起消失，
+          # 「需人工複查」的那份清單等於沒產出。
+          if [ -f _probe/restaurants_report.txt ]; then
+            {
+              echo
+              echo "===== _probe/restaurants_report.txt ====="
+              cat _probe/restaurants_report.txt
+            } >> restaurants_run.log
+          fi
+
+      - name: 安全摘要（白名單，只印統計數字）
+        if: always()
+        run: |
+          # 用白名單而非黑名單：build_restaurants.py 的 stdout 本身不含店名，
+          # 但 stderr（[warn] GSI 失敗 <地址前 20 字>）也併在同一個檔裡。
+          # 改動程式的統計文案時要同步改這裡——漏改只會讓摘要變空，不會洩漏。
+          grep -E '^(讀入 |── |  (與 GSI|由地址查到|已改寫|待查|無座標|沿用|GSI 查詢|合併前|落在顯示範圍|範圍外縣別|地區分布|⚠ (共用座標|地址不夠細|判不出地區)))' \
+            restaurants_run.log \
+            || echo "(沒有摘要行，詳情請看私有 repo 的 restaurants_run.log)"
+
+      - name: 把產出推回私有 repo
+        if: always()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # 逐項指定，不用 git add -A：repo 根目錄就是網站根目錄，
+          # 誤加的暫存檔會直接被發布到自家網域下（CLAUDE.md 地雷 #14）。
+          git add restaurants/ restaurants_src/_geocache.json restaurants_run.log
+          if git diff --cached --quiet; then
+            echo "無異動（清單沒變時這是正常結果，管線的產出是決定性的）"
+            exit 0
+          fi
+          git commit -m "Update restaurants $(date -u -d '+9 hours' '+%Y-%m-%d %H:%M JST')"
+          for i in 1 2 3; do
+            if git push; then
+              echo "已推回（第 $i 次嘗試）"
+              exit 0
+            fi
+            git pull --rebase origin main || { echo "rebase 失敗"; exit 1; }
+          done
+          exit 1
+
+      - name: 產生若失敗，讓這次執行標紅
+        if: always() && steps.build.outputs.code != '0'
+        run: |
+          echo "結束碼 ${{ steps.build.outputs.code }}，詳情請看私有 repo 的 restaurants_run.log"
+          exit 1
