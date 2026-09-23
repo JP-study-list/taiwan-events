@@ -94,7 +94,7 @@ SCHEMA_VERSION = 2
 #           （previous_still_ok）——少了後者，收嚴的守門會被保底原封不動填回去。
 #        ⚠️ 既有 precise 的重驗範圍見 needs_strict_recheck（本次新增 far_from_japan，
 #           命中 2 筆）。ai／area／uncertain 那批本來就每輪重試。
-GEO_VERSION = 11
+GEO_VERSION = 12   # 台灣版查詢邏輯（2026-09-24，單位 E-5）；日本版停在 11
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
@@ -1981,6 +1981,10 @@ GENERIC_WORDS = (
     "会館", "ホール", "センター", "ミュージアム", "ギャラリー", "スタジアム",
     "アリーナ", "劇場", "公園", "広場", "会場", "特設", "本館", "別館",
     "地区", "周辺", "一帯", "各地", "店", "駅", "ビル",
+    # 台灣版（2026-09-24）：中文場館的通用詞。**長的排前面**（replace 依序砍，短的先砍會把長的切壞）。
+    "文化創意產業園區", "藝術文化中心", "文化藝術中心", "藝術中心", "文化中心", "藝文中心",
+    "表演藝術中心", "演藝廳", "表演廳", "音樂廳", "展覽廳", "展示廳", "展覽館", "展示館",
+    "紀念館", "文化館", "藝文館", "園區", "中心", "會館", "廣場", "分館",
 )
 
 # 英文版的通用詞。用途與上面那份完全相同（比對前剝掉沒有識別力的字），
@@ -2512,6 +2516,23 @@ def _kana_confidence(q, f):
     return "strong" if _lcs_len(q, f) / min(len(q), len(f)) >= KANA_MATCH_MIN else ""
 
 
+_FACILITY_TAIL_RE = re.compile(r"(館|廳|店|院|區|中心|園|場|堂|站)$")
+
+
+def _sibling_facility(q, f):
+    """見 name_confidence 的說明。只看漢字名稱（英文另有 _latin_confidence）。"""
+    q, f = _PUNCT_RE.sub("", q), _PUNCT_RE.sub("", f)
+    n = 0
+    while n < min(len(q), len(f)) and q[n] == f[n]:
+        n += 1
+    tq, tf = q[n:], f[n:]
+    # 一邊的尾巴是另一邊尾巴的結尾＝中間多了修飾語，是同一個地方
+    # （「亞洲大學現代美術館」對「亞洲大學附屬現代美術館」，實測查對的那筆）。
+    if not tq or not tf or tq.endswith(tf) or tf.endswith(tq):
+        return False
+    return (n >= 2 and bool(_FACILITY_TAIL_RE.search(tq)) and bool(_FACILITY_TAIL_RE.search(tf)))
+
+
 def name_confidence(query, found):
     """
     比對查詢名與回傳地點名，回傳 'strong' / 'weak' / ''（不吻合）。
@@ -2528,7 +2549,15 @@ def name_confidence(query, found):
     `_kana_confidence`（比最長連續子串）**，其餘一律維持字元比對——
     含漢字的名字那條路一個字都沒動（漢字上千個，同一個門檻在那邊是有意義的）。
     """
-    q, f = _strip_generic(query).lower(), _strip_generic(found).lower()
+    # 台灣版（2026-09-24）：兩邊先統一「臺」——同一個場館在 OSM 與官方資料裡台／臺混用。
+    # ⚠️ **兄弟設施先擋**（剝通用詞之前做，因為「分館」「中心」會被剝掉）：扣掉共同開頭之後，
+    # 兩邊都還剩一截、而且都以設施字結尾且不相同 → 是同一系統的另一個點。實測
+    # 「高雄市立圖書館旗津分館」對「高雄市立圖書館總館」字元重疊 0.78 被判 strong、
+    # 「國立臺灣美術館」對「國立臺灣博物館」0.71 也是。只剩一邊有尾巴（「衛武營…中心音樂廳」
+    # 對「衛武營…中心」）是「館內的一個廳」，照常比對。
+    if _sibling_facility(norm_tai(query), norm_tai(found)):
+        return ""
+    q, f = _strip_generic(norm_tai(query)).lower(), _strip_generic(norm_tai(found)).lower()
     if not q or not f:
         return ""          # 剝完沒東西可比，無從判斷
     if len(q) >= 2 and (q in f or f in q):
@@ -2613,11 +2642,12 @@ def pref_gate(display_name, allowed):
     """
     if not allowed:
         return True
+    display_name = norm_tai(display_name)   # 台灣版：地標名常寫「台」、PREF_ALL 用「臺」
     found = [p for p in PREF_ALL if p in display_name]
     return not found or any(p in allowed for p in found)
 
 
-def geocode_osm(query, allowed_prefs=None):
+def geocode_osm(query, allowed_prefs=None, match=None):
     """OpenStreetMap 查座標，限關東範圍，須通過名稱比對與縣別守門。限速 1 req/s。"""
     lat_min, lng_min, lat_max, lng_max = GEO_BBOX
     # ⚠️ **`countrycodes=jp` 不是保險，是必要的**（2026-08-29 加）。
@@ -2631,7 +2661,7 @@ def geocode_osm(query, allowed_prefs=None):
     # ⚠️ 這是伺服器端的國別過濾，**日本境內的結果依定義完全不受影響**。
     url = (
         "https://nominatim.openstreetmap.org/search?format=json&limit=1"
-        "&countrycodes=jp"
+        "&countrycodes=tw"
         f"&viewbox={lng_min},{lat_max},{lng_max},{lat_min}&bounded=1"
         "&q=" + urllib.parse.quote(query)
     )
@@ -2660,7 +2690,7 @@ def geocode_osm(query, allowed_prefs=None):
     if not pref_gate(full, allowed_prefs):
         bump("osm_pref_rejected")
         return None
-    conf = name_confidence(query, full.split(",")[0])
+    conf = name_confidence(match or query, full.split(",")[0])
     if not conf:
         bump("osm_name_rejected")
         return None
@@ -2668,7 +2698,7 @@ def geocode_osm(query, allowed_prefs=None):
     return (lat, lng, conf)
 
 
-def geocode_photon(query, allowed_prefs=None):
+def geocode_photon(query, allowed_prefs=None, match=None):
     """
     Photon（komoot 提供的 OSM 搜尋）。**與 Nominatim 是同一份 OpenStreetMap 資料，
     差別在搜尋方式**：Nominatim 是地址解析器，餵它店名常常整個查不到；Photon 走全文檢索
@@ -2721,7 +2751,7 @@ def geocode_photon(query, allowed_prefs=None):
     # `GOODS展`（`OSAMU GOODS展` 的切分變體）回**韓國慶州**一家叫 `Goods` 的咖啡店，
     # 而 `Goods` 完整包含在 `goods展` 裡 → `name_confidence` 判 strong、
     # `pref_gate` 認不出韓文行政區名而放行，於是活動被釘到 **952km** 外。
-    if p.get("countrycode") != "JP":
+    if p.get("countrycode") != "TW":   # 台灣版（2026-09-24）；日本版是 "JP"
         bump("photon_out_of_range")
         return None
     # **東京的回傳沒有 state 欄位**（縣名被放在 city，例：city=東京都、district=渋谷区），
@@ -2736,7 +2766,7 @@ def geocode_photon(query, allowed_prefs=None):
     # **它一定會給你「最像的那個」**，於是 weak 常常只是碰巧字面沾邊。
     # 實測「ＣＲＥＶＩＡ ＢＡＳＥ Tokyo」（全形）判 weak，回到 38.5km 外的東京西部；
     # 同一場地的半形寫法判 strong，回到正確的文京區。收 weak 會比退回市中心更差。
-    conf = name_confidence(query, str(p.get("name", "")))
+    conf = name_confidence(match or query, str(p.get("name", "")))
     if conf != "strong":
         bump("photon_name_rejected")
         return None
@@ -2857,6 +2887,176 @@ def geocode(venue_ja, venue, area):
                 bump("stage_" + stage)
                 return (result[0], result[1], stage, result[2])
     return None
+
+
+# ============================================================
+# 台灣版查座標（單位 E-5，2026-09-24）
+# ============================================================
+# 實驗（2026-09-24，60 筆有官方座標的活動當標準答案，scratchpad 的 geo/exp.py）：
+#   Nominatim 結構化地址   命中 46/60，1km 內 39，中位誤差 40m   ← 最好
+#   Photon 場館名＋縣市     命中 38/60，1km 內 33
+#   Nominatim 場館名        命中 32/60
+#   Photon 整串地址         命中  2/60，而且兩筆都錯上百公里        ← 不能用
+#   先地址、再名稱：命中 54/60，1km 內 47。
+# ⚠️⚠️ **地址一定要帶「區」**：只給縣市時「臺南市中西區中正路1號」配到玉井區的中正路1號
+#   （玉井國小，差 30km）。⚠️ 但**不可以拿「查回來的區名要一致」當守門**：衛武營的地址寫
+#   鳳山區、OSM 登記在苓雅區（它橫跨交界），結果是對的。所以區名只放進查詢、守門只看縣市。
+# ⚠️ 只配到路名（沒配到門牌）時標 uncertain：一條路的中心可以離門牌好幾公里。
+
+OFFICIAL_AGREE_KM = 1.0   # 官方座標與地址門牌差超過這個就改用地址（見 main() 的說明）
+
+_ADDR_ZIP_RE = re.compile(r"^\d{3,6}")
+_ADDR_DIST_RE = re.compile(r"^(.{1,3}?[區鄉鎮市])")
+_ADDR_NO_RE = re.compile(r"(\d+(?:[-之]\d+)?)號")
+
+
+def parse_tw_addr(addr):
+    """
+    台灣地址 → (縣市, 區, 路段含巷弄, 門牌)，拆不出來的欄位回 None。
+    例「臺中市40453 臺中市北區館前路一號」「高雄市鳳山區三多一路1號」「內湖區瑞光路548巷15號5樓」。
+    """
+    a = norm_tai(addr or "")
+    a = re.sub(r"[（(][^）)]*[）)]", "", a)
+    a = re.split(r"[，,；;]", a)[0]           # 「中山南路21-1號，信義路側」
+    a = re.sub(r"\s+", "", a)
+    county = None
+    for _ in range(3):                         # 縣市與郵遞區號可能交錯重複出現
+        a = _ADDR_ZIP_RE.sub("", a)
+        hit = next((p for p in PREF_ALL if a.startswith(p)), None)
+        if not hit:
+            break
+        county, a = hit, a[len(hit):]
+    district = None
+    m = _ADDR_DIST_RE.match(a)
+    if m and not _ADDR_NO_RE.search(m.group(1)):
+        district, a = m.group(1), a[m.end():]
+    a = re.sub(r"^\S{1,3}?里(?=\S)", "", a) if re.match(r"^\S{1,3}?里\d+鄰", a) else a
+    a = re.sub(r"\d+鄰", "", a)
+    m = _ADDR_NO_RE.search(a)
+    if not m:
+        return county, district, (a or None), None
+    street = a[:m.start()] or None
+    return county, district, street, m.group(1)
+
+
+def geocode_addr_tw(addr, county_hint=None, allowed=None):
+    """Nominatim 結構化地址查詢。回 (lat, lng, 'strong'|'weak') 或 None。"""
+    county, district, street, number = parse_tw_addr(addr)
+    county = county or county_hint
+    if not (street and number and (district or county)):
+        bump("addr_unparsed")
+        return None
+    params = {"street": f"{number} {street}"}
+    if district:
+        params["city"] = district
+    if county:
+        params["state"] = county
+    key = ("addr", tuple(sorted(params.items())), allowed)
+    if key in GEO_CACHE:
+        return GEO_CACHE[key]
+    url = ("https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=tw&addressdetails=1&"
+           + urllib.parse.urlencode(params))
+    arr, result = None, None
+    try:
+        arr = json.loads(http_get(url, headers={"User-Agent": "taiwan-events/2.0 (github actions; +https://github.com/JP-study-list/taiwan-events)"}, timeout=30))
+    except (urllib.error.URLError, OSError, json.JSONDecodeError) as e:
+        print(f"    [geo] 地址查詢失敗（{addr}）：{e}")
+        bump("addr_error")
+    finally:
+        time.sleep(1.1)
+    if arr:
+        r = arr[0]
+        try:
+            lat, lng = round(float(r["lat"]), 6), round(float(r["lon"]), 6)
+        except (KeyError, TypeError, ValueError):
+            lat = lng = None
+        if lat is None or not in_bbox(lat, lng):
+            bump("addr_out_of_range")
+        elif not pref_gate(r.get("display_name", ""), allowed):
+            bump("addr_pref_rejected")
+        else:
+            street_only = r.get("class") == "highway" or not (r.get("address") or {}).get("house_number")
+            result = (lat, lng, "weak" if street_only else "strong")
+            bump("addr_hit_street" if street_only else "addr_hit")
+    elif arr is not None:
+        bump("addr_miss")
+    GEO_CACHE[key] = result
+    return result
+
+
+def geocode_district_tw(district, county):
+    """區（鄉鎮市）中心。退回用，誤差約幾公里，比縣市中心（約 30km）好。"""
+    if not district or not county:
+        return None
+    key = ("district", district, county)
+    if key in GEO_CACHE:
+        return GEO_CACHE[key]
+    url = ("https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=tw&"
+           + urllib.parse.urlencode({"city": district, "state": county}))
+    result = None
+    try:
+        arr = json.loads(http_get(url, headers={"User-Agent": "taiwan-events/2.0 (github actions; +https://github.com/JP-study-list/taiwan-events)"}, timeout=30))
+        if arr:
+            lat, lng = round(float(arr[0]["lat"]), 6), round(float(arr[0]["lon"]), 6)
+            if in_bbox(lat, lng) and county in norm_tai(arr[0].get("display_name", "")):
+                result = (lat, lng)
+    except (urllib.error.URLError, OSError, json.JSONDecodeError, KeyError, ValueError) as e:
+        print(f"    [geo] 區中心查詢失敗（{county}{district}）：{e}")
+    finally:
+        time.sleep(1.1)
+    GEO_CACHE[key] = result
+    return result
+
+
+def resolve_coords_tw(ev, county=None):
+    """
+    台灣版的座標解析（官方座標在 main() 已經先處理掉）。依序：
+      ① Nominatim 結構化地址（有地址才有；開放資料來源帶 `addr`）
+      ② Photon 場館名＋縣市（比對只看場館名）→ ③ Nominatim 場館名
+      ④ AI 給的座標（網站來源才有，已過距離守門）
+      ⑤ 區中心 → ⑥ 縣市中心 → ⑦ 桶中心
+    ①～③ 查到而 AI 也給了座標、兩者差超過 COORD_AGREE_KM 時降級成 uncertain（同日本版）。
+    """
+    area = ev.get("area", "")
+    allowed = AREA_PREF_OK.get(area)
+    addr = ev.get("addr") or ""
+    venue = ev.get("venue") or ""
+    county = county or county_of(addr, venue) or (AREA_ADMIN.get(area) or None)
+    ai = (ev.pop("ai_lat", 0), ev.pop("ai_lng", 0))
+    found = None
+    if addr:
+        r = geocode_addr_tw(addr, county, allowed)
+        if r:
+            found = (r[0], r[1], "precise" if r[2] == "strong" else "uncertain")
+    if not found and venue and not is_multi_site(venue):
+        q = venue + (" " + county if county else "")
+        r = geocode_photon(q, allowed, match=venue) or geocode_osm(venue, allowed)
+        if r:
+            found = (r[0], r[1], "precise" if r[2] == "strong" else "uncertain")
+    if found and ai[0] and haversine_km(found[:2], ai) > COORD_AGREE_KM:
+        found = (found[0], found[1], "uncertain")
+        bump("ai_disagree")
+    if found:
+        ev["lat"], ev["lng"], ev["geo"] = found
+        bump("tw_" + found[2])
+        return
+    if ai[0]:
+        ev["lat"], ev["lng"], ev["geo"] = ai[0], ai[1], "ai"
+        bump("tw_ai")
+        return
+    _, district, _, _ = parse_tw_addr(addr)
+    c = geocode_district_tw(district, county)
+    if c:
+        ev["lat"], ev["lng"], ev["geo"] = c[0], c[1], "area"
+        bump("fallback_district")
+        return
+    if county in PREF_CENTER:
+        ev["lat"], ev["lng"] = PREF_CENTER[county]
+        bump("fallback_pref")
+    else:
+        ev["lat"], ev["lng"] = AREA_CENTER.get(area, AREA_CENTER["其他"])
+        bump("fallback_area")
+    ev["geo"] = "area"
 
 
 def geocode_city(city, pref):
@@ -3741,11 +3941,28 @@ def main():
     for ev in merged:
         # 開放資料帶來的官方座標與縣市（單位 E-4）。兩個都是暫存欄位，**一律拿掉**、不寫進 events.json。
         given, county = ev.pop("_given", None), ev.pop("_county", None)
-        if given:
-            ev["lat"], ev["lng"], ev["geo"], ev["geo_v"] = given[0], given[1], "precise", GEO_VERSION
-            bump("geo_official")
-            continue
         cached = prev_coords.get(ev.get("id"))
+        if given and not (cached and cached[0]):
+            # ⚠️ **官方座標要跟地址交叉比對**（2026-09-24，單位 E-5）。實測抽 40 筆展覽，
+            # **4 筆官方座標偏 2.6～7km**（紅毛港文化園區、亞洲大學現代美術館、水里遊客中心、
+            # 旗津分館），反查官方座標都落在別條路上，而地址查到的門牌完全吻合；表演 20 筆則 0 筆。
+            # 錯的官方座標是**實心的精確圖釘**，看起來完全正常。
+            # 地址查到門牌（strong）且與官方差超過 OFFICIAL_AGREE_KM 才改用地址；只配到路名不算數。
+            # 只在第一次收錄時做（之後走上面的 cached 沿用），所以只有首次執行會多花時間。
+            lat, lng = given
+            if ev.get("addr"):
+                r = geocode_addr_tw(ev["addr"], county, AREA_PREF_OK.get(ev.get("area")))
+                if r and r[2] == "strong" and haversine_km(given, (r[0], r[1])) > OFFICIAL_AGREE_KM:
+                    lat, lng = r[0], r[1]
+                    bump("official_overridden")
+                elif r and r[2] == "strong":
+                    bump("official_confirmed")
+            ev["lat"], ev["lng"], ev["geo"], ev["geo_v"] = lat, lng, "precise", GEO_VERSION
+            ev.pop("ai_lat", None)
+            ev.pop("ai_lng", None)
+            bump("geo_official")
+            geo_new += 1
+            continue
         if cached and cached[0]:
             ev["lat"], ev["lng"], ev["geo"] = cached[0], cached[1], cached[2]
             ev["geo_v"] = GEO_VERSION
@@ -3753,24 +3970,12 @@ def main():
                 ev["geo_rv"] = cached[3]
             ev.pop("ai_lat", None)
             ev.pop("ai_lng", None)
-        elif county:
-            # ⚠️ 暫時做法（E-5 之前）：縣市政府座標、標成概略位置（geo=area，前端畫半透明圖釘）。
-            # 不走 resolve_coords——那套查詢還是為日文場館名調校的，拿台灣地址去打只會浪費請求。
-            ev["lat"], ev["lng"] = PREF_CENTER[county]
-            ev["geo"], ev["geo_v"] = "area", GEO_VERSION
-            bump("fallback_pref")
         else:
-            # 重查時把先前的紀錄傳進去當保底，確保結果只會變好不會變差。
-            # 唯一的例外是判定改嚴而要重驗的那幾筆——它們的舊座標正是不可信的那個，
-            # 保底會讓重驗完全失效（見 resolve_coords 的 trust_previous）。
-            prev_rec = prev_by_id.get(ev.get("id"))
-            strict = bool(prev_rec) and needs_strict_recheck(prev_rec)
-            resolve_coords(ev, prev_rec, trust_previous=not strict)
+            # 台灣版（2026-09-24，單位 E-5）：地址 → 場館名 → AI 座標 → 區中心 → 縣市中心。
+            # 日本版的 resolve_coords（国土地理院、日文場館名）不再使用，見 development-plan 單位 M。
+            resolve_coords_tw(ev, county)
+            ev["geo_v"] = GEO_VERSION
             geo_new += 1
-            if prev_rec:
-                geo_redo += 1
-            if strict:
-                geo_strict += 1
 
     # 反查複驗（單位 T-4）：座標都定案之後才驗，因為要驗的是「最終要寫出去的那一份」
     # ——沿用的與重查的都在裡面。放在寫檔之前，降級才會落地。
@@ -3838,6 +4043,16 @@ def print_report(merged, geo_new, geo_redo=0, geo_strict=0):
          "stage_ja+行政區", "stage_zh", "stage_zh簡化", "cache_hit"],
         ["日文名", "正規化", "日文名簡化", "切分", "日文名+市町村",
          "日文名+行政區", "繁中名", "繁中名簡化", "快取"]))
+    # 台灣版（2026-09-24，單位 E-5）。上面兩行（段位、日文名）是日本版的，台灣版恆為 0。
+    print(f"[geo] 台灣版 官方座標 → " + tally(
+        ["geo_official", "official_confirmed", "official_overridden"],
+        ["採用", "地址確認一致", "改用地址（官方偏差 >1km）"]))
+    print(f"[geo] 台灣版 解析 → " + tally(
+        ["tw_precise", "tw_uncertain", "tw_ai", "fallback_district"],
+        ["精確", "不確定", "僅AI", "區中心"]))
+    print(f"[geo] 台灣版 地址 → " + tally(
+        ["addr_hit", "addr_hit_street", "addr_miss", "addr_unparsed", "addr_pref_rejected", "addr_error"],
+        ["門牌", "只到路名", "查無", "拆不出", "縣市不符擋下", "錯誤"]))
     # 退回三段的分布。fallback_area 若居高不下，代表 PREF_CITIES 或 SOURCE_PREF 有缺口
     print(f"[geo] 退回粒度 → " + tally(
         ["fallback_city", "fallback_city_src", "fallback_pref", "fallback_area"],

@@ -75,13 +75,14 @@ index.html（Cloudflare Pages，組建命令只複製指定檔案進 dist/）
 | `klook_match.py`／`klook_scout.py` | Klook 商品候選比對（只讀 sitemap） | sitemap 範圍是日本商品 |
 | `codex_kit.py`＋`codex_kit/` | 與外部 Codex 資料夾同步 | `DEFAULT_KIT` 已改成 `None`（2026-09-23）：**`--kit` 必填**。台灣版是否接外部代理待單位 L |
 
-### 測試（五支，都不打網路；目前守的全是日本規則）
+### 測試（六支，都不打網路）
 
 | 檔案 | 守什麼 | 現況 |
 |---|---|---|
 | `test_areas.py` | 地區桶三份清單一致 | 通過（日本 26 桶） |
 | `test_osm_places.py` | OSM 補位守門 | 通過 |
 | `test_place_hours.py` | 營業時間分批 | 通過 |
+| `test_tw_geo.py` | **台灣版查座標**（2026-09-24，E-5）：地址拆解、台／臺、縣市守門、中文名稱比對與兄弟設施、圖片網址修復、地址查詢一定帶區（攔截網址不打網路） | 通過 |
 | `test_geo_gates.py` | 活動座標守門 | **失敗（缺 `events.json`，預期中）** |
 | `test_tickets.mjs` | Klook 連結規則（Node） | **失敗（缺 `places.json`，預期中）** |
 
