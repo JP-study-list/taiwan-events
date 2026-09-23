@@ -9,6 +9,26 @@
 
 ---
 
+## 2026-09-24（第一筆）
+
+- 類型：修正（**單位 E-1 時區、E-2 id、E-6 翻譯方向**）
+- 影響檔案：`fetch_events.py`、`development-plan.md`、本檔
+- 摘要：
+  - 前一天與使用者定案單位 E 的方向（20 桶＋五大區、七類、開放資料為主、全台），細節在 `development-plan.md` §7-E。
+  - E-1：`JST = ZoneInfo("Asia/Tokyo")` → `TW_TZ = ZoneInfo("Asia/Taipei")`（連同 `updated_at`）。
+  - E-6：給 AI 的欄位規則反過來——`title`／`venue` 照抄**中文原文**（臺／台都不換字），
+    `title_ja`／`venue_ja`／`desc_ja` 才翻成日文；範例換成台灣場館。
+  - E-2：`id_base = ev["title"]`（日本版是 `title_ja or title`）。刻意不退回 `title_ja`：
+    `title` 空的在前面已被丟掉。`SCHEMA_VERSION` 沿用 2（台灣版沒有舊資料可汰換），註解寫明語意已變。
+- 原因：台灣版原文是中文、日文才是會漂移的譯文（日本版地雷 #8 的反方向）。
+- 驗證：離線測試 8 項，**A/B 對照**：改動前 1 PASS／7 FAIL，改動後 8 PASS。
+  其中「TODAY 是台北的今天」兩邊都過（兩地只差一小時，那項本身沒有鑑別力，鑑別靠時區那一項）。
+  既有三支離線測試照樣全過。
+- 待辦/已知問題：⚠️ `geocode()` 仍以 `venue_ja` 為主查詢，E-6 之後那是 AI 譯文，併進 E-5 處理。
+  **目前還不能實跑管線**：地區桶、類型、來源都還是日本的（E-3／E-7／E-4）。
+
+---
+
 ## 2026-09-23（第六筆）
 
 - 類型：修正（**單位 D-1 站名、D-3 localStorage 前綴**）
