@@ -476,6 +476,26 @@
 | cron 時間 | 未定。⚠️ 要與日本版錯開（Gemini 免費額度若共用；三支 workflow 推同一 repo 會撞） |
 | 待辦來源 | `development-plan.md` |
 
+### 已知地雷（台灣版，2026-09-24 起）
+
+1. ⚠️⚠️ **Python 3.13+ 連台灣政府網站會憑證驗證失敗**（`Missing Subject Key Identifier`）。
+   **curl 連得上、Python 連不上**，失敗的樣子是「抓取失敗」「圖片查詢失敗」，看不出是憑證。
+   `fetch_events.py` 檔頭的 `GOV_SSL` 全域只拿掉 `VERIFY_X509_STRICT`（鏈與網域照驗）。
+   **不可改成不驗證**。Actions 目前是 3.12 所以不會發作，升版那天會。
+2. **文化部的 `imageUrl` 大半是兩段黏在一起**（`https://cloud.culture.twhttps://cloud.culture.tw/...`），
+   `_moc_img` 取最後一個 `http`。而且**圖片本來就不到 2%**（待辦 N）。
+3. **Nominatim 與 Photon 都查不到台灣的門牌地址**；Photon 用**名稱**查地標很準。
+   地址欄寫「臺」、地標名常寫「台」，比對縣市前先 `norm_tai`。查名稱也會回錯東西
+   （「臺北市政府」→政大附中、「桃園市政府」→觀音的鋼鐵廠），**查到的座標要核對**。
+4. **官方座標也會錯**（1,016 筆裡 3 筆，最遠離所屬縣市 296km）。錯的會變成實心的精確圖釘，
+   所以 `moc_convert` 對官方座標也做距離守門（`ai_max_km`）。
+5. **巡迴演出的幾個場地共用同一個網址**，用網址去重只會留下第一個場地——所以開放資料帶
+   `src_key`（UID＋場地），`url_dedup_key` 優先用它。同一天、不同場地的同一檔節目 `id` 會撞號，
+   只在撞號時把場地算進 `id`。
+6. 國土地理院（`reverify_coords`）只收日本，**暫時 `REVERIFY_PER_RUN = 0`**；E-5 換掉前不要打開，
+   否則會把台灣的正確座標誤判降級。
+7. 小事：zsh 的 `$UID` 是唯讀的系統變數，腳本裡別拿它當變數名（會報 `bad math expression`）。
+
 ### Secrets 指標（**值不寫進本檔**）
 
 - runner repo 要用的 PAT：**另申請一把只授權 `taiwan-events` 的**，存 runner repo 的 GitHub Secrets

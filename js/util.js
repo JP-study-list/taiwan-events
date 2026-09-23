@@ -99,15 +99,17 @@ function fld(ev,k){
 
 // Google 地圖查詢字串。**用場地名而非我們存的座標**——查不到座標的活動，
 // 存的其實是地區中心點（車站），用座標會指錯地方；而 Google 自己找得到那些場地。
-// 一律用日文名（日本地點的最佳查詢語言），與畫面顯示語言無關。
+// 台灣版（2026-09-24）：一律用**中文原名**（台灣地點的最佳查詢語言），與畫面顯示語言無關。
+// ⚠️ 日本版是 `venue_ja||venue`——那邊日文才是原文；台灣版的 venue_ja 是 AI 譯文，拿去查會查歪。
+// 景點與餐廳（plan-food.js／restaurants.js）的 venue 與 venue_ja 填的是同一個字串，不受影響。
 function mapQuery(ev){
-  var v=(ev.venue_ja||ev.venue||'')
+  var v=(ev.venue||ev.venue_ja||'')
     .replace(/[（(][^）)]*[）)]/g,'')                       // 括號附註對搜尋沒幫助
     .replace(/[Ａ-Ｚａ-ｚ０-９]/g,function(c){              // 全形英數轉半形
       return String.fromCharCode(c.charCodeAt(0)-0xFEE0);
     })
     .replace(/\s+/g,' ').trim();
-  if(v)return v+' '+(T.ja.areas[ev.area]||ev.area);
+  if(v)return v+' '+(T.zh.areas[ev.area]||ev.area);
   if(typeof ev.lat==='number'&&typeof ev.lng==='number')return ev.lat+','+ev.lng;
   return '';
 }

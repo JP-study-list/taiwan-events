@@ -60,7 +60,7 @@ index.html（Cloudflare Pages，組建命令只複製指定檔案進 dist/）
 
 | 檔案 | 職責 | 台灣版待改 |
 |---|---|---|
-| `fetch_events.py` | **活動抓取唯一進入點**（4,244 行）。Jina 抓頁 → LLM 抽取翻譯 → 清洗 → 累積合併 → 查座標 → 寫 `events.json` | 138 個日本來源、`JST = ZoneInfo("Asia/Tokyo")`（第 31 行）、国土地理院、日本 bbox／市町村清單。⚠️ **`id` 要改用中文標題算** |
+| `fetch_events.py` | **活動抓取唯一進入點**。兩條路：①**開放資料**（`kind: "moc"`，文化部藝文活動，`moc_events`／`moc_convert`，不經 AI 抽取）②網站＋AI 抽取（Jina → LLM → `clean_event`）。之後共用：累積合併（去重鍵優先用 `src_key`）→ 座標 → `fill_japanese`（補日文，先沿用）→ 寫 `events.json`。本機可跑 `python3 fetch_events.py --no-llm`（只跑開放資料、日文留空）。⚠️ 檔頭 `GOV_SSL` 全域放寬嚴格憑證格式（政府網站） | 138 個日本來源、`JST = ZoneInfo("Asia/Tokyo")`（第 31 行）、国土地理院、日本 bbox／市町村清單。⚠️ **`id` 要改用中文標題算** |
 | `build_restaurants.py` | 餐廳管線：`restaurants_src/` → `restaurants/` | 国土地理院（UA 已改 `taiwan-events-*`） |
 | `build_places.py` | 景點管線：`places_src/` → `places.json`（**import `build_restaurants`**，改那支簽章這支會炸） | 同上；地區桶 |
 | `build_photos.py` | 景點照片壓縮（本機跑） | `SRC_DEFAULT` 已改成 `None`（2026-09-23）：**`--src` 必填**，台灣原圖放哪待單位 H |

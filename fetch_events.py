@@ -18,12 +18,25 @@ import struct
 import sys
 import time
 import hashlib
+import ssl
 import urllib.request
 import urllib.error
 import urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, date
 from zoneinfo import ZoneInfo
+
+# ⚠️⚠️ **台灣政府網站的憑證**（2026-09-24 實測，單位 E-4）。Python 3.13 起預設開
+# `VERIFY_X509_STRICT`，而 cloud.culture.tw 的憑證缺 Subject Key Identifier，於是
+# `CERTIFICATE_VERIFY_FAILED: Missing Subject Key Identifier`——**curl 連得上、Python 連不上**，
+# 而且失敗的樣子是「這個來源今天抓取失敗」「這張圖查詢失敗」，**看不出是憑證的事**。
+# 這裡**只拿掉嚴格格式檢查**：憑證鏈與網域照樣驗（實測網域不符的站照樣被擋）。
+# **裝成全域**：政府網站普遍如此，之後的網站來源、驗圖（image_probe）都走 urlopen，逐處加會漏。
+# ⚠️ 不可以改成 `ssl._create_unverified_context()`，那是整個不驗。
+# Actions 目前是 Python 3.12（沒有這個旗標）所以暫時不會壞，但升到 3.13 那天就會整批抓不到。
+GOV_SSL = ssl.create_default_context()
+GOV_SSL.verify_flags &= ~getattr(ssl, "VERIFY_X509_STRICT", 0)
+urllib.request.install_opener(urllib.request.build_opener(urllib.request.HTTPSHandler(context=GOV_SSL)))
 
 # ============================================================
 # 設定
@@ -108,8 +121,15 @@ GROQ_MODELS = ["llama-3.3-70b-versatile"]
 _NORTH = ["台北", "新北", "基隆", "桃園", "新竹", "宜蘭"]
 _TAIPEI = ["台北", "新北"]   # 雙北
 
+# 文化部藝文活動的類別 → 本站類型（單位 E-4）。 → 本站類型。親子(4) 混著展覽與表演分不出來、講座／電影／研習不是本站的活動，都不收。
+MOC_CATEGORIES = {"1": "表演", "2": "表演", "3": "表演", "5": "表演", "17": "表演", "6": "展覽"}
+
 SOURCES = [
-    # ⚠️ 台灣版的活動來源清單（單位 E-4，尚未建立）。
+    # 開放資料（`kind` 有值＝不經 AI 抽取，見 moc_events）。`url` 只給去重時「排除列表頁」用。
+    {"name": "文化部藝文活動", "kind": "moc", "type": "自動",
+     "url": "https://cloud.culture.tw/frontsite/trans/SearchShowAction.do",
+     "categories": MOC_CATEGORIES},
+    # ⚠️ 網站＋AI 抽取的來源（單位 E-4 第二段，尚未建立）。
     # 日本版的 138 個來源已於 2026-09-23 清空：本 repo 會公開，而那份清單屬於日本版私有 repo。
     # 格式：{"name": ..., "type": ..., "url": ..., "areas": [...]}，欄位說明見上方註解。
 ]
@@ -739,7 +759,10 @@ PREF_BY_CODE = {
 
 # 反查複驗（單位 T-4）。每輪挑最久沒驗過的 N 筆，約 7 天輪完全站（現況母體 799 筆）。
 REVERIFY_URL = "https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress"
-REVERIFY_PER_RUN = 120      # 每輪驗幾筆（實測約 1.1 秒/筆，＝多花約 2.2 分鐘）
+# ⚠️⚠️ 台灣版暫時停用（2026-09-24）：複驗是拿国土地理院反查縣別，**国土地理院只收日本**，
+# 拿台灣座標去問會把文化部給的官方座標誤判成「縣別不符」而降級。E-5 換成台灣的反查之後再打開
+# （日本版是 120）。
+REVERIFY_PER_RUN = 0        # 每輪驗幾筆（日本版實測約 1.1 秒/筆）
 REVERIFY_BUDGET_SEC = 300   # 整輪時間預算：超過就停，剩下的下一輪再驗
 REVERIFY_WAIT = 1.0         # 對 GSI 的禮貌間隔
 
@@ -1688,6 +1711,246 @@ def clean_event(raw, source):
     id_base = ev["title"]
     ev["id"] = hashlib.md5((id_base + "|" + ev["date_start"]).encode("utf-8")).hexdigest()[:12]
     return ev
+
+
+# ============================================================
+# 開放資料來源：文化部藝文活動（單位 E-4，2026-09-24）
+# ============================================================
+# 不經 AI 抽取，直接把結構化資料轉成本站格式；AI 只負責翻日文（fill_japanese）。
+# 實測（2026-09-24）：音樂 496／戲劇 265／舞蹈 73／展覽 325／演唱會 12／獨立音樂 5 筆，
+# 表演類約 95% 附座標、展覽約 1/3；**圖片幾乎都沒有（不到 2%）**。
+MOC_URL = "https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category={}"
+MOC_DETAIL = "https://cloud.culture.tw/frontsite/inquiry/eventInquiryAction.do?method=showEventDetail&uid={}"
+# 類別對照表 MOC_CATEGORIES 在 SOURCES 前面（SOURCES 要用到它，放這裡會在載入時 NameError）。
+# 檔期長過這個的視為常設（實測有結束日寫到 2034、2035 年的常設展），那是景點不是活動。
+MOC_MAX_DAYS = 400
+
+# 政府網站的憑證問題見檔頭的 GOV_SSL（全域生效）。
+MOC_HEADERS = {"User-Agent": "taiwan-events/2.0 (+https://github.com/JP-study-list/taiwan-events)"}
+
+# 縣市（正式全名）→ 桶
+PREF_TO_AREA = {p: a for a, ps in AREA_PREF_OK.items() for p in ps}
+
+
+def norm_tai(s):
+    """「台」統一成「臺」再比對縣市名（地址欄多寫臺、地標名常寫台，實測兩種混用）。"""
+    return (s or "").replace("台", "臺")
+
+
+def county_of(*texts):
+    """
+    依序在各段文字裡找縣市，回正式全名；都找不到回 None。
+    同一段裡取**最早出現**的那個——地址開頭就是縣市，後面可能再出現別的地名
+    （例「臺中市40453 臺中市北區…」、「新北市板橋區…臺北市…」）。
+    """
+    for t in texts:
+        t = norm_tai(t)
+        hits = [(t.find(p), p) for p in PREF_ALL if p in t]
+        if hits:
+            return min(hits)[1]
+    return None
+
+
+def _moc_date(s):
+    try:
+        return datetime.strptime((s or "")[:10], "%Y/%m/%d").date()
+    except ValueError:
+        return None
+
+
+def _moc_img(u):
+    """
+    ⚠️ 文化部的 imageUrl 實測有一大半是**兩段黏在一起**的（2026-09-24，41 張裡 30 張）：
+    `https://cloud.culture.twhttps://cloud.culture.tw/e_new_upload/...`。
+    取最後一個 `http` 開始的那段；正常的網址只有一個 `http`，不受影響。
+    """
+    u = str(u or "").strip()
+    i = u.rfind("http")
+    return u[i:] if i > 0 else u
+
+
+def _moc_desc(html_text):
+    t = re.sub(r"<[^>]+>", " ", html_text or "")
+    t = re.sub(r"\s+", " ", t).strip()
+    first = re.split(r"(?<=[。！？!?])", t, maxsplit=1)[0]
+    return first[:60]
+
+
+def moc_convert(rec, ev_type):
+    """
+    一筆文化部活動 → 本站活動（可能多筆）。
+
+    ⚠️ **按場地拆**：巡迴演出（實測音樂 60 筆、戲劇 27 筆跨縣市）同一個 UID 底下有好幾個
+    場地、各自的日期。本站一筆活動只有一個場地，所以一個場地一筆，各自算起迄日。
+    ⚠️ 拆出來的幾筆**共用同一個網址**，所以帶 `src_key`（UID＋場地）給去重用——
+    見 `url_dedup_key`，少了它合併時只會留下第一個場地。
+    """
+    uid = rec.get("UID") or ""
+    title = strip_date_tail(str(rec.get("title", "")).strip())[:80]
+    if not uid or not title:
+        return [drop("標題空")]
+    if "常設展" in title:
+        return [drop("常設展（景點不是活動）")]
+    groups = {}
+    for si in rec.get("showInfo") or []:
+        venue = (si.get("locationName") or "").strip().rstrip("=").strip()
+        groups.setdefault((venue, (si.get("location") or "").strip()), []).append(si)
+    if not groups:
+        groups[("", "")] = []
+    url = (rec.get("sourceWebPromote") or rec.get("webSales") or "").strip()
+    if not url.startswith("http"):
+        url = MOC_DETAIL.format(uid)
+    out = []
+    for (venue, addr), sessions in groups.items():
+        venue = venue or str(rec.get("showUnit") or "").strip()
+        county = county_of(addr, venue)
+        if not county:
+            out.append(drop("地址認不出縣市"))
+            continue
+        starts = [d for d in (_moc_date(x.get("time")) for x in sessions) if d]
+        ends = [d for d in (_moc_date(x.get("endTime") or x.get("time")) for x in sessions) if d]
+        d_start = min(starts) if starts else _moc_date(rec.get("startDate"))
+        d_end = max(ends) if ends else _moc_date(rec.get("endDate"))
+        if not d_start or not d_end:
+            out.append(drop("日期不合格"))
+            continue
+        if d_end < d_start:
+            d_start, d_end = d_end, d_start
+        if d_end < TODAY:
+            out.append(drop("日期已過"))
+            continue
+        if (d_end - d_start).days > MOC_MAX_DAYS:
+            out.append(drop("檔期過長（常設）"))
+            continue
+        area = PREF_TO_AREA[county]
+        # ⚠️ 官方座標也會錯（2026-09-24 實測 3 筆：一筆高雄的活動座標離高雄 296km）。
+        # 錯的官方座標會被畫成**實心的精確圖釘**，看起來完全正常，所以同 parse_latlng 的距離守門：
+        # 離這個桶的中心超過 ai_max_km(area) 就不採信，退回縣市中心（概略位置）。
+        given = None
+        for x in sessions:
+            try:
+                lat, lng = float(x.get("latitude") or 0), float(x.get("longitude") or 0)
+            except (TypeError, ValueError):
+                continue
+            if not in_bbox(lat, lng):
+                continue
+            if haversine_km((lat, lng), AREA_CENTER[area]) > ai_max_km(area):
+                bump("moc_coord_far")
+                continue
+            given = (round(lat, 6), round(lng, 6))
+            break
+        ev = {
+            "title": title, "title_ja": "",
+            "type": ev_type,
+            "date_start": d_start.isoformat(), "date_end": d_end.isoformat(),
+            "area": area,
+            "venue": venue[:50], "venue_ja": "",
+            "desc": _moc_desc(rec.get("descriptionFilterHtml")), "desc_ja": "",
+            "url": url,
+            "img": clean_img_url(_moc_img(rec.get("imageUrl"))),
+            "source": "文化部藝文活動",
+            "addr": addr[:80],
+            "src_key": "moc:%s:%s" % (uid, venue),
+            "_given": given,        # 官方座標（有才有）；main() 用完就拿掉，不寫進 events.json
+            "_county": county,      # 沒有座標時退回縣市中心用；同上
+        }
+        ev["id"] = hashlib.md5((ev["title"] + "|" + ev["date_start"]).encode("utf-8")).hexdigest()[:12]
+        out.append(ev)
+    # ⚠️ 同一檔節目、**同一天、不同場地**會算出同一個 id（標題＋開始日），合併時只留一筆
+    # （實測：何日君再來劇團同一天在桃園火車站與富岡火車站）。**只在撞號時**把場地算進去——
+    # 平常維持 E-2 的規則，網站來源抓到同一檔演出時才能靠 id 去重。
+    # 撞號與否日後可能變，但 id 靠 src_key 由 inherit_ids 沿用第一次發下的號碼，不會漂移。
+    real = [e for e in out if e]
+    cnt = {}
+    for e in real:
+        cnt[e["id"]] = cnt.get(e["id"], 0) + 1
+    for e in real:
+        if cnt[e["id"]] > 1:
+            e["id"] = hashlib.md5((e["title"] + "|" + e["date_start"] + "|" + e["venue"]).encode("utf-8")).hexdigest()[:12]
+    return out
+
+
+def moc_events(source):
+    """抓 source["categories"] 的每一類並轉換。同一個 UID 出現在兩類時只收第一次。"""
+    events, seen = [], set()
+    for cat, ev_type in source["categories"].items():
+        try:
+            req = urllib.request.Request(MOC_URL.format(cat), headers=MOC_HEADERS)
+            with urllib.request.urlopen(req, timeout=60, context=GOV_SSL) as resp:
+                data = json.loads(resp.read().decode("utf-8", errors="replace").lstrip("﻿"))
+        except (urllib.error.URLError, OSError, ValueError) as e:
+            print(f"  [fail] 類別 {cat} 抓取失敗：{e}（既有資料由合併機制保留）")
+            continue
+        n = 0
+        for rec in data if isinstance(data, list) else []:
+            if not isinstance(rec, dict) or rec.get("UID") in seen:
+                continue
+            seen.add(rec.get("UID"))
+            got = [e for e in moc_convert(rec, ev_type) if e]
+            n += len(got)
+            events.extend(got)
+        print(f"  [moc] 類別 {cat}（{ev_type}）：{len(data)} 筆 → {n} 筆活動")
+        time.sleep(1)
+    return events
+
+
+# ============================================================
+# 日文翻譯（開放資料來源的活動沒有日文，單位 E-4／E-6）
+# ============================================================
+JA_BATCH = 40   # 一次請 AI 翻幾筆
+
+
+def fill_japanese(merged, previous, chain):
+    """
+    補上 title_ja／venue_ja／desc_ja。
+
+    ⚠️ **先沿用、再翻譯**：同一個 id 且中文標題與場地都沒變，就直接拿既有 events.json 的日文。
+    否則每天會把上千筆整批重翻一次——既浪費額度，而且譯文每天漂移（標題不影響 id，
+    但使用者看到的日文每天在變）。網站來源那條路 AI 抽取時已經順便翻好，這裡不動。
+    沒有 AI（`--no-llm` 或沒金鑰）時留空，前端會退回顯示中文（util.js 的 tf）。
+    """
+    prev = {e["id"]: e for e in previous if e.get("id")}
+    todo, reused = [], 0
+    for ev in merged:
+        if ev.get("title_ja"):
+            continue
+        p = prev.get(ev.get("id"))
+        if p and p.get("title_ja") and p.get("title") == ev.get("title") and p.get("venue") == ev.get("venue"):
+            for k in ("title_ja", "venue_ja", "desc_ja"):
+                ev[k] = p.get(k, "")
+            reused += 1
+            continue
+        todo.append(ev)
+    print(f"[ja] 沿用既有日文 {reused} 筆，待翻譯 {len(todo)} 筆")
+    if not todo or not chain:
+        if todo:
+            print("[ja] 沒有可用的 AI，日文留空（前端會顯示中文）")
+        return
+    done = 0
+    for i in range(0, len(todo), JA_BATCH):
+        batch = todo[i:i + JA_BATCH]
+        items = [{"i": n, "title": e["title"], "venue": e.get("venue", ""), "desc": e.get("desc", "")}
+                 for n, e in enumerate(batch)]
+        prompt = (
+            "把下列台灣活動資訊翻成日文，給日本旅客看。規則：\n"
+            "1. 固有名詞（人名、團體名、作品名、場館名）漢字照用，只把繁體字換成日文常用字形"
+            "（例「國立臺灣博物館」→「国立台湾博物館」），不要意譯。\n"
+            "2. 書名號《》、引號「」等記號保留。\n"
+            "3. 只輸出 JSON 陣列，每個元素是 {\"i\": 編號, \"title_ja\": ..., \"venue_ja\": ..., \"desc_ja\": ...}，"
+            "desc_ja 30 字以內；不要任何其他文字。\n\n"
+            + json.dumps(items, ensure_ascii=False)
+        )
+        for r in llm_extract(chain, prompt):
+            try:
+                ev = batch[int(r.get("i"))]
+            except (TypeError, ValueError, IndexError):
+                continue
+            ev["title_ja"] = str(r.get("title_ja", "")).strip()[:80]
+            ev["venue_ja"] = str(r.get("venue_ja", "")).strip()[:50]
+            ev["desc_ja"] = str(r.get("desc_ja", "")).strip()[:60]
+            done += 1
+        time.sleep(SOURCE_WAIT)
+    print(f"[ja] 翻譯完成 {done}／{len(todo)} 筆")
 
 
 # ============================================================
@@ -3036,6 +3299,10 @@ def url_dedup_key(ev, src_urls):
     活動專屬詳情頁網址。退回來源列表頁時回 None——那個網址整批共用，
     拿來當鍵會把同一來源的活動全部誤判成同一筆。
     """
+    # 開放資料的活動帶穩定的來源鍵（官方 UID＋場地），優先用它：巡迴演出的幾個場地
+    # **共用同一個網址**，拿網址去重會只留下第一個場地（2026-09-24，單位 E-4）。
+    if ev.get("src_key"):
+        return ev["src_key"]
     url = (ev.get("url") or "").strip()
     return url if url and url not in src_urls else None
 
@@ -3383,10 +3650,15 @@ def verify_images(merged, previous):
 # 主流程
 # ============================================================
 def main():
-    chain = build_provider_chain()
-    if not chain:
+    # `--no-llm`（2026-09-24）：本機沒有金鑰時也能實跑——只跑開放資料來源、日文留空。
+    # ⚠️ 排程上**不要加**：少了金鑰應該失敗（下面那個 exit），而不是安靜地產出沒有日文的資料。
+    no_llm = "--no-llm" in sys.argv
+    chain = [] if no_llm else build_provider_chain()
+    if not chain and not no_llm:
         print("[error] 沒有任何可用的 LLM 供應商（需要 GEMINI_API_KEY / GITHUB_TOKEN / GROQ_API_KEY 其中之一）")
         sys.exit(1)
+    if no_llm:
+        print("[provider] --no-llm：跳過網站來源與日文翻譯")
     for p in chain:
         print(f"[provider] {p['name']}：{' → '.join(p['models'])}")
     print(f"[geo] 查座標主要服務：{'Google' if GOOGLE_ENABLED else 'OpenStreetMap（未設定 GOOGLE_GEOCODING_KEY）'}")
@@ -3397,6 +3669,17 @@ def main():
     new_events = []
     for source in SOURCES:
         print(f"[source] {source['name']}")
+        if source.get("kind") == "moc":
+            DROP_REASONS.clear()
+            got = moc_events(source)
+            if DROP_REASONS:
+                print(f"  [drop] 丟棄 {sum(DROP_REASONS.values())} 筆：{drop_summary()}")
+            print(f"  [ok] 轉換 {len(got)} 筆")
+            new_events.extend(got)
+            continue
+        if not chain:
+            print("  [skip] 沒有 AI，跳過網站來源")
+            continue
         page_url = source["url"]
         if source.get("follow") == "pokemon_calendar":
             found = resolve_pokemon_calendar(page_url)
@@ -3456,6 +3739,12 @@ def main():
     prev_by_id = {ev["id"]: ev for ev in previous if ev.get("id")}
     geo_new, geo_redo, geo_strict = 0, 0, 0
     for ev in merged:
+        # 開放資料帶來的官方座標與縣市（單位 E-4）。兩個都是暫存欄位，**一律拿掉**、不寫進 events.json。
+        given, county = ev.pop("_given", None), ev.pop("_county", None)
+        if given:
+            ev["lat"], ev["lng"], ev["geo"], ev["geo_v"] = given[0], given[1], "precise", GEO_VERSION
+            bump("geo_official")
+            continue
         cached = prev_coords.get(ev.get("id"))
         if cached and cached[0]:
             ev["lat"], ev["lng"], ev["geo"] = cached[0], cached[1], cached[2]
@@ -3464,6 +3753,12 @@ def main():
                 ev["geo_rv"] = cached[3]
             ev.pop("ai_lat", None)
             ev.pop("ai_lng", None)
+        elif county:
+            # ⚠️ 暫時做法（E-5 之前）：縣市政府座標、標成概略位置（geo=area，前端畫半透明圖釘）。
+            # 不走 resolve_coords——那套查詢還是為日文場館名調校的，拿台灣地址去打只會浪費請求。
+            ev["lat"], ev["lng"] = PREF_CENTER[county]
+            ev["geo"], ev["geo_v"] = "area", GEO_VERSION
+            bump("fallback_pref")
         else:
             # 重查時把先前的紀錄傳進去當保底，確保結果只會變好不會變差。
             # 唯一的例外是判定改嚴而要重驗的那幾筆——它們的舊座標正是不可信的那個，
@@ -3480,6 +3775,7 @@ def main():
     # 反查複驗（單位 T-4）：座標都定案之後才驗，因為要驗的是「最終要寫出去的那一份」
     # ——沿用的與重查的都在裡面。放在寫檔之前，降級才會落地。
     reverify_coords(merged)
+    fill_japanese(merged, previous, chain)
 
     added = len(merged) - sum(
         1 for ev in previous
