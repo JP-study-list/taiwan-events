@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<title>寄道日和｜日本展覽、祭典、花火與景點地圖</title>
+<title>寄道日和・台灣｜台灣展覽、祭典與活動地圖</title>
 <!-- ⚠️⚠️ **這個 title 會被 `js/main.js` 的 applyLang() 蓋掉**（讀 `L.pageTitle`）。
      Google 看的是渲染之後的 DOM，所以**兩處要一起改，改一邊等於沒改**。
      目前中文那一份與這裡一字不差。 -->
@@ -16,11 +16,11 @@
      ⚠️ `og:image` 必須是絕對網址，相對路徑不會被抓。目前借用 apple-touch-icon
      （180×180，只夠 summary 這種小方圖）；日後要大張橫幅卡片得另外做一張 1200×630。
      ⚠️ 語言只有中文一份：Googlebot 與各家預覽機器人的 localStorage 是空的，
-     一律會落在中文，所以這裡刻意不跟著 `jpev_lang` 切。 -->
+     一律會落在中文，所以這裡刻意不跟著 `twev_lang` 切。 -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="寄道日和">
+<meta property="og:site_name" content="寄道日和・台灣">
 <meta property="og:url" content="https://events.rensakobo.com/">
-<meta property="og:title" content="寄道日和｜日本展覽、祭典、花火與景點地圖">
+<meta property="og:title" content="寄道日和・台灣｜台灣展覽、祭典與活動地圖">
 <meta property="og:description" content="每日自動彙整日本各地的展覽、祭典、花火、市集與動漫活動，另有 700 多個常設景點與各大美食指南推薦餐廳。可看地圖、收藏、排行程，中日雙語。">
 <meta property="og:image" content="https://events.rensakobo.com/apple-touch-icon.png">
 <meta property="og:locale" content="zh_TW">
@@ -34,7 +34,7 @@
 // 那正是地雷 #7 的老毛病，別走回頭路。
 (function(){
   var t=null;
-  try{t=localStorage.getItem('jpev_theme');}catch(e){}
+  try{t=localStorage.getItem('twev_theme');}catch(e){}
   if(t!=='light'&&t!=='dark'){
     t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';
   }
@@ -47,7 +47,7 @@
      圖案與 favicon 同一套，只是四周留白加大（18.75% → 23%），iOS 裁圓角時不會削到。 -->
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="寄道日和">
+<meta name="apple-mobile-web-app-title" content="寄道日和・台灣">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <!-- 全螢幕模式下最上面狀態列（時間、電量）的底色。這裡的值只是 JS 接手前的預設，
      實際由 syncThemeColor() 從 CSS 的 --paper 讀 —— 不在 JS 另存一份調色盤（地雷 #7）。 -->

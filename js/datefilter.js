@@ -29,7 +29,7 @@
 //
 // ⚠️ **刻意不寫 localStorage。** 日期是「我現在在想哪一天」而不是一項設定：
 //    記住的話，下次進站會對著一張莫名其妙少了一半圖釘的地圖，**而畫面上看不出為什麼**。
-//    （大區 `jpev_zone` 記住是對的——那是設定，性質不同。）
+//    （大區 `twev_zone` 記住是對的——那是設定，性質不同。）
 import { store } from './store.js';
 import { activeOn, esc, fmtDate, match, t, todayStr } from './util.js';
 

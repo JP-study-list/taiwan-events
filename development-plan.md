@@ -34,6 +34,8 @@
 | 單位 | 是什麼 | 完成 |
 |---|---|---|
 | **C** | 工具去日本化防呆：C-1 `codex_kit.py`／C-2 `build_photos.py`（連同 `pick_photos.py assign`）拿掉指向日本的預設路徑，沒指定就停下來說明；C-3 User-Agent 改成 `taiwan-events-*`，聯絡網址用 GitHub repo | 2026-09-23 |
+| **D-1** | 站名：中 `寄道日和・台灣`／日 `寄道日和・台湾`，副標沿用 `YORIMICHI BIYORI`；分頁標題「台灣展覽、祭典與活動地圖」 | 2026-09-23 |
+| **D-3** | localStorage 前綴 `jpev_` → `twev_` | 2026-09-23 |
 | **B-1** | 建**公開** repo `JP-study-list/taiwan-events`，從乾淨起點推上去（設計期間在這裡開發），見 §7-B | 2026-09-23 |
 
 ### ❌ 未完成
@@ -43,11 +45,11 @@
 | **A** | — | **網址憑證實測**（`events.tw.rensakobo.com` 兩層子網域） | **排在最後**：要先有 Cloudflare Pages 專案（F）。⚠️ **網址是最不可逆的決定，上線前定案** |
 | **B** | B-2 | 設計結束後拆分：私有 repo（程式＋資料）＋公開 runner repo（只放 workflow）；拆分時決定兩個的名稱 | 等設計結束 |
 | | B-3 | 另申請一把只授權台灣版私有 repo 的 PAT | 跟著 B-2；日本版的 `KANTO_PAT` 只授權 kanto-events |
-| **D** | D-1 | 站名改「寄道日和・台灣」（中日文案） | — |
-| | D-2 | canonical／OG／`robots.txt`／`sitemap.xml`、`fetch_events.py` 檢查圖片時送的 `Referer` 改指新網址；UA 的聯絡網址視情況改成網站 | 網址定案（A） |
-| | D-3 | localStorage 前綴 `jpev_` → `twev_` | 上線前做，上線後改就是收藏歸零 |
+| **D** | D-2 | canonical／OG 網址、`<meta name="description">` 與 `og:description`（還寫日本、700 個景點）、`robots.txt`／`sitemap.xml`、`fetch_events.py` 檢查圖片時送的 `Referer` 改指新網址；UA 的聯絡網址視情況改成網站 | 網址定案（A） |
 | | D-4 | 景點、餐廳分頁先藏起來 | 首發只做活動 |
 | | D-5 | 設定頁放「切換到日本版」連結 | 日本版那一側的連結要在日本版 repo 另做 |
+| | D-6 | 介面其餘寫著日本的文案（說明、網站資訊、我的位置、地區名等，約 36 行） | 地區名跟著 E-3；隱私權／廣告標示跟著 K |
+| | D-7 | 用 iPhone 實機確認主畫面名稱「寄道日和・台灣」（7 字）有沒有被截斷 | ⚠️ **上線前做**：一加到主畫面就寫死在使用者手機上。未實測 |
 | **E** | E-1 | 活動管線時區 `Asia/Tokyo` → `Asia/Taipei` | — |
 | | E-2 | 活動 `id` 改用**中文標題**算 | ⚠️ 上線後改＝收藏與分享連結失效，**首發前定案** |
 | | E-3 | 台灣的地區桶設計（取代日本 26 桶） | 前後端與測試三處要一致 |

@@ -21,7 +21,7 @@ import { refreshAll, renderAllIfOpen } from './mapall.js';
 import { startTour, tourStepCount } from './tour.js';
 
 'use strict';
-try{store.favs=JSON.parse(localStorage.getItem('jpev_favs')||'[]');}catch(e){store.favs=[];}
+try{store.favs=JSON.parse(localStorage.getItem('twev_favs')||'[]');}catch(e){store.favs=[];}
 initFavMeta();
 // 收藏的餐廳（單位 K）。**清單與備份是同一個 key**，所以讀進來就直接畫得出來，
 // 不必等 restaurants/_map.json（那 76 KB 只有真的要加進行程時才載）。

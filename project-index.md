@@ -48,10 +48,10 @@ index.html（Cloudflare Pages，組建命令只複製指定檔案進 dist/）
 
 | 檔案 | 職責 | 台灣版待改 |
 |---|---|---|
-| `index.html` | HTML 骨架（752 行） | canonical／OG 指向 `events.rensakobo.com`；站名、描述、隱私權與廣告標示文案照日本法規寫 |
+| `index.html` | HTML 骨架（752 行） | 站名、標題已改；canonical／OG 網址仍指 `events.rensakobo.com`、`description` 仍寫日本（D-2） |
 | `css/style.css` | 全站樣式（2,500 行） | 大致可沿用 |
 | `js/*.js` | 27 個 ES Modules，進入點 `js/main.js` | 見下 |
-| `js/config.js` | **設定與中日文案的集中處**（942 行）：`AREAS` 地區桶、分類、localStorage key、雙語字串 | ⚠️ localStorage 前綴 `jpev_` → 定案改 `twev_`（散在 14 支前端檔、37 處）；地區桶全是日本 26 桶；聯絡信箱 `events@rensakobo.com` |
+| `js/config.js` | **設定與中日文案的集中處**（942 行）：`AREAS` 地區桶、分類、localStorage key、雙語字串 | 站名已改（中 `寄道日和・台灣`／日 `寄道日和・台湾`）；localStorage 前綴已改 `twev_`（14 支前端檔、37 處，2026-09-23）；地區桶仍是日本 26 桶；聯絡信箱 `events@rensakobo.com`；說明與隱私權文案仍寫日本（D-6） |
 | `js/tickets.js` | Klook 票券聯盟連結組裝 | 台灣版要一組**固定**的不同標籤（例 `tw-popup`） |
 | `apple-touch-icon.png`、`robots.txt`、`sitemap.xml` | iOS 圖示、SEO | `robots.txt`／`sitemap.xml` 網址指向日本版 |
 

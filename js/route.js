@@ -44,7 +44,7 @@ function legUrl(a,b){
 }
 // 第 0 段（「從我現在的位置」模式才有）。**origin 整個不寫**——Google 的規則是
 // 「Defaults to most relevant starting location, such as device location」。
-// 這就是本模式的全部實作：**不讀 jpev_loc、不送任何座標出去**，
+// 這就是本模式的全部實作：**不讀 twev_loc、不送任何座標出去**，
 // 所以「我的位置永遠不離開裝置」那條硬規則完全不受影響（§1-A）。
 // 也因此**不能拿它當預設**：使用者人在台灣時，它會算出台灣→東京的荒謬路線，
 // 而且連結不會報錯，是靜默給錯答案。
@@ -101,7 +101,7 @@ function hopRowHTML(a,b){
     ?'<span class="d">'+esc(hopLabel(hav(a.lat,a.lng,b.lat,b.lng)))+'</span>':'';
   return '<div class="plan-hop">'+d+goLink(legUrl(a,b),t().routeGo)+'</div>';
 }
-// 第 0 段。**沒有距離**——我們不知道使用者在哪（那正是不碰 jpev_loc 換來的），
+// 第 0 段。**沒有距離**——我們不知道使用者在哪（那正是不碰 twev_loc 換來的），
 // 而沒有數字就是誠實地不知道（同 §1-A 決策 15）。左邊改放模式名稱，
 // 一來這一列上面沒有站、光一顆按鈕看不出從哪到哪，二來兼作「模式生效」的回饋。
 function meRowHTML(b){

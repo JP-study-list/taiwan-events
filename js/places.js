@@ -228,7 +228,7 @@ function placeBodyHTML(p,approx,big){
   // ⚠️ 傳的是**語義**不是 class（見 tickets.js 的 whereLabel）。
   links+=ticketBtnHTML(p,'',big?'sheet':'popup');
   // 導航沿用 route.js 的 `meUrl()`：**origin 整個留白**交給 Google 抓裝置定位，
-  // 所以這裡與「我的位置永遠不離開裝置」那條硬規則完全無關（不讀 jpev_loc、不送座標）。
+  // 所以這裡與「我的位置永遠不離開裝置」那條硬規則完全無關（不讀 twev_loc、不送座標）。
   links+='<a href="'+esc(meUrl(p))+'" target="_blank" rel="noopener">'+esc(L.routeGo)+'</a>';
   // ⚠️ 詳情卡的關閉鈕沿用既有的「關閉」字串（`aLocClose` 的值就是「關閉／閉じる」），
   // **不另開一組**——同景點切換器沿用 `restaurantList`／`restaurantMap` 的理由。

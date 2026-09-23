@@ -503,7 +503,7 @@ document.getElementById('cards').addEventListener('click',function(e){
   e.preventDefault();e.stopPropagation();
   var id=f.dataset.id,i=store.favs.indexOf(id);
   if(i>-1)store.favs.splice(i,1);else store.favs.push(id);
-  try{localStorage.setItem('jpev_favs',JSON.stringify(store.favs));}catch(err){}
+  try{localStorage.setItem('twev_favs',JSON.stringify(store.favs));}catch(err){}
   // 收藏的同時把標題與結束日留一份在本機。**趁活動還在的時候記**——
   // 等它從 events.json 被剔除就再也問不到了（見 expiring.js 開頭）。
   if(i>-1)forgetFav(id);else rememberFav(evById(id));

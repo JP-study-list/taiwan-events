@@ -16,7 +16,7 @@ var calYM=null;
 var pickArea='',pickSpot='';
 // ===== 月曆的區間選擇（訂飯店式，2026-08-27）=====
 // `rangeStart` 非空＝**正在等第二下**（已經標了起日，還沒決定結束日）。
-// ⚠️ 這是純畫面狀態，一個位元組都不寫進 `jpev_plan`——中途關掉分頁就沒了，
+// ⚠️ 這是純畫面狀態，一個位元組都不寫進 `twev_plan`——中途關掉分頁就沒了，
 //    那正是想要的：一個懸在半空的起日不值得跨 session 保留。
 var rangeStart='';
 // 縮短行程的再確認（同 removeLastDay 的 delArm）：存的是「哪一段」待確認。
@@ -797,7 +797,7 @@ function setPlanZone(z){
 //    （驗證記住的那個還有沒有存貨、以及拿站點座標猜最近的大區）。
 // ⚠️ **記住的大區若變空就退回首都圈**：活動會過期、景點會被移掉，
 //    不退的話使用者會對著一片空白的三張卡，而畫面上沒有任何地方說得出原因。
-// ⚠️ jpev_loc 只在這裡讀來比對距離，**座標不送出、畫面不出現地名**（硬規則不破例）。
+// ⚠️ twev_loc 只在這裡讀來比對距離，**座標不送出、畫面不出現地名**（硬規則不破例）。
 function initPlanZone(){
   var stock=zonesWithStock(),saved=null;
   try{saved=localStorage.getItem(ZONE_KEY);}catch(e){}

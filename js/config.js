@@ -77,16 +77,16 @@ var DATE_KEYS=['all','now','weekend','upcoming'];
 var SORT_KEYS=['default','ending','starting','near'];
 
 // ===== 語言 =====
-var LANG_KEY='jpev_lang';
+var LANG_KEY='twev_lang';
 var T={
   zh:{
     htmlLang:'zh-Hant', other:'日',
-    app:'寄道日和', region:'YORIMICHI BIYORI',
+    app:'寄道日和・台灣', region:'YORIMICHI BIYORI',
     // ⚠️ `pageTitle` 是**瀏覽器分頁與搜尋結果**上的標題，刻意比 `app` 長。
     //    `app` 仍然只有站名（頁首那一列與網站資訊都吃它）。
     //    ⚠️⚠️ 中文這一份要與 `index.html` 的 `<title>` 一字不差——JS 會蓋掉它，
     //    兩邊不同的話，分享預覽與實際頁面會各說一套。
-    pageTitle:'寄道日和｜日本展覽、祭典、花火與景點地圖',
+    pageTitle:'寄道日和・台灣｜台灣展覽、祭典與活動地圖',
     searchPh:'活動、地點、關鍵詞',
     // ⚠️ **`type`／`placesGenre`／`restaurantGenre` 三個是同一個詞，三張地圖各用一個**
     // （活動／景點／餐廳）。**值必須一致**——它同時出現在該頁的**篩選彈窗分段標題**與
@@ -393,8 +393,8 @@ var T={
   },
   ja:{
     htmlLang:'ja', other:'中',
-    app:'寄道日和', region:'YORIMICHI BIYORI',
-    pageTitle:'寄道日和｜日本のイベント・祭り・花火とスポット地図',
+    app:'寄道日和・台湾', region:'YORIMICHI BIYORI',
+    pageTitle:'寄道日和・台湾｜台湾の展覧会・祭り・イベント地図',
     searchPh:'イベント、場所、キーワード',
     type:'ジャンル', date:'期間', sort:'並び順', area:'エリア', updated:'データ更新', source:'データソース',
     sourceInfo:'毎日 06:00 自動更新<br>Walker+ / TokyoArtBeat / 各地観光公式 / ポケモン公式 など',
@@ -657,10 +657,10 @@ var T={
   }
 };
 // 行程狀態。**必須在 cardHTML 之前就存在**（卡片上的「＋」要讀 plan.ids 決定亮不亮）。
-// 第五個 localStorage key，與 jpev_favs 同一套做法。
-var PLAN_KEY='jpev_plan';
+// 第五個 localStorage key，與 twev_favs 同一套做法。
+var PLAN_KEY='twev_plan';
 // ===== 跨天行程（單位 J，2026-08-26）=====
-// `jpev_plan` 的格式版本。1＝單日的 `{date,ids}`（2026-08-26 之前）、2＝`{v,i,days}`。
+// `twev_plan` 的格式版本。1＝單日的 `{date,ids}`（2026-08-26 之前）、2＝`{v,i,days}`。
 // ⚠️ **新版讀得懂舊的，舊版讀不懂新的。** 這是本單位唯一不可逆的地方：一旦使用者的
 // localStorage 被寫成 v2，把程式 revert 回去會讓他存的行程被當成壞資料而歸零。
 var PLAN_VER=2;
@@ -688,7 +688,7 @@ var WAYPOINT_MAX=3;
 // 「我的位置」。**第六個 localStorage key**，存 {lat,lng}。
 // 硬規則：**這個值永遠不離開裝置**——不進 ?plan= 分享連結（那邊只編 {date,ids}），
 // 也不做反向地理編碼，畫面上永遠不出現地名（決策 11）。
-var LOC_KEY='jpev_loc';
+var LOC_KEY='twev_loc';
 // 選點地圖的開場視野。與全站地圖同一個開場，這樣就不必把 AREA_CENTER 複製進前端
 // （那會是第二個「兩邊要同步」的坑，SPOTS 已經是一個了）。已設定過就開在該點。
 var LOC_VIEW=[35.55,139.65];
@@ -711,18 +711,18 @@ var LOC_ACC_ZOOM=[[100,15],[2000,13],[Infinity,11]];
 // ⚠️ 這個判斷寫在 setDraft() 裡，**手動點到很遠的地方一樣會提示**，不是定位專用。
 var LOC_FAR_KM=300;
 // 行程路線的起點模式（單位 D）。**第七個 localStorage key**，只存 'first' 或 'me'。
-// ⚠️ **刻意不塞進 jpev_plan**：那個物件就是 ?plan= 分享連結編碼的來源，
+// ⚠️ **刻意不塞進 twev_plan**：那個物件就是 ?plan= 分享連結編碼的來源，
 // 多放一個欄位這個設定就會跟著連結跑到別人的裝置上。
-// 'me' 不讀 jpev_loc——它是「網址不寫 origin，交給 Google 抓裝置定位」，
+// 'me' 不讀 twev_loc——它是「網址不寫 origin，交給 Google 抓裝置定位」，
 // 所以「我的位置」那個座標永遠不離開裝置這條硬規則完全不受影響。
-var ROUTE_KEY='jpev_route';
+var ROUTE_KEY='twev_route';
 // ===== 新收錄（單位 C）=====
 // 存的是「造訪日」而不是時間戳：資料本來就一天只更新一次（06:00 JST），更細沒有意義。
 // **兩個日期**——last 是這次、prev 是上次，判定「新」一律拿 prev 比。
 // ⚠️ 同一天內重複進站**不推進**，否則使用者第一次進來看五秒就關掉，
 // 第二次進來「新的」歸零——壞掉但看起來完全正常。
-// ⚠️ 與 jpev_route 同一條：**不進 ?plan= 分享連結**，那是別人的裝置、別人的閱讀進度。
-var SEEN_KEY='jpev_seen';
+// ⚠️ 與 twev_route 同一條：**不進 ?plan= 分享連結**，那是別人的裝置、別人的閱讀進度。
+var SEEN_KEY='twev_seen';
 // ===== 收藏的時間性（快結束 chip ＋ 已結束的收藏）=====
 // 「剩幾天內算快結束」。刻意比卡片上那個「剩 N 天」的 30 天緊得多——
 // 卡片上那行是**看到了才知道**的資訊，這裡是**主動跳出來喊你**的門檻，
@@ -733,18 +733,18 @@ var EXPIRE_DAYS=7;
 // 存在理由：活動結束後 merge_events 會把它從 events.json 剔除，
 // 而收藏存的是 id——查無此人時那張卡片就**靜默消失**，
 // 使用者只會覺得「我明明收藏過」。留一份最小紀錄才說得出它去哪了。
-// ⚠️ 與 jpev_route／jpev_seen 同一條：**不進 ?plan= 分享連結**。
-var FAVMETA_KEY='jpev_favmeta';
+// ⚠️ 與 twev_route／twev_seen 同一條：**不進 ?plan= 分享連結**。
+var FAVMETA_KEY='twev_favmeta';
 // ===== 餐廳收藏（單位 K，2026-08-27）=====
 // **第九個 localStorage key**，形如 [{id, n:店名, g:類別, gj:類別日文, a:地區, s:據點, aw:徽章}]。
-// ⚠️ **刻意不與 jpev_favs 混存。** 現在有四處在遍歷 store.favs（match／isExpiring／
+// ⚠️ **刻意不與 twev_favs 混存。** 現在有四處在遍歷 store.favs（match／isExpiring／
 // goneList／三套行程的錨定），餐廳 id 混進去之後**每一處都要記得過濾**——而
 // `goneList()` 會把查不到的 id 當成「消失的活動」列出來，於是**收藏一家店就被誤報成
 // 「已結束」**。獨立一個 key 是零風險的那條路，且收藏本來就不進 ?plan= 分享連結。
 // ⚠️ **清單與備份合一**（活動那邊是 favs + favmeta 兩個 key，因為 favs 早就存在、
 // 備份是後來補的）。合一的好處是**收藏分頁不必為了顯示而載那 76 KB 的 _map.json**：
 // 收藏當下畫面上有的東西就一起存下來，那家店日後從榜單消失也還說得出它叫什麼。
-var FAVR_KEY='jpev_favr';
+var FAVR_KEY='twev_favr';
 // ===== 圖片：換大圖 + 縮圖代理 =====
 // 模糊的根因是來源給的多半是「列表用的縮圖」而非原圖。實測 268 張中：
 // Walker+ 81 張長邊只有 264px、神奈川觀光與熱海 43 張只有 640px、コラボカフェ 24 張 486px。
@@ -759,7 +759,7 @@ var AR_MAX=1.38;   // 最長：寬 1 : 高 1.38
 // ===== 晝夜切換 =====
 // data-theme 已由 <head> 那段 script 在繪製前決定；這裡只負責翻面與記住。
 // 一旦手動選過就固定，不再跟隨系統（清瀏覽器資料即可回到自動）。
-var THEME_KEY='jpev_theme';
+var THEME_KEY='twev_theme';
 
 // ===== 行程排程 =====
 // 概念（2026-08-02 使用者重新定義）：**懶人只選一個日子，系統直接給三套排好的行程。**
@@ -803,9 +803,9 @@ var PLAN_ZONES={
 // 再切一次市區／郊外只會把本來就不多的候選切成兩半。
 var HOME_ZONE='首都圈';
 // 大區的選擇。**第十個 localStorage key**，只存大區名。
-// ⚠️ **刻意不塞進 jpev_plan**：那個物件就是 ?plan= 分享連結編碼的來源，
+// ⚠️ **刻意不塞進 twev_plan**：那個物件就是 ?plan= 分享連結編碼的來源，
 // 放進去這個設定就會跟著連結跑到別人的裝置上（同 ROUTE_KEY 獨立的理由）。
-var ZONE_KEY='jpev_zone';
+var ZONE_KEY='twev_zone';
 // 東京23區的主要據點。名稱沿用 fetch_events.py 抽取指令裡那份「常見地名」，
 // 座標是各站／地標中心。實測 147 筆 23 區活動中有 135 筆（92%）落在某個據點 1.8km 內，
 // 落單的 12 筆是世田谷文學館、杉並動畫博物館這類外圍場館。

@@ -34,7 +34,7 @@ export const store = {
   // 「開行程頁時載」：今天行為一樣，等單位 K（餐廳收藏）上線時一個字都不用改。
   // 裡面放的是**轉接過的**記錄（id 帶 rs- 前綴、type 是 '餐廳'），不是 _map.json 的原始形狀。
   restaurants: [],
-  // 「比這一天更晚收錄的算新」。由 whatsnew.js 在初始化時從 jpev_seen 算出來，
+  // 「比這一天更晚收錄的算新」。由 whatsnew.js 在初始化時從 twev_seen 算出來，
   // 之後整個 session 不再變動（同一天內重複進站不推進，見 config.js 的 SEEN_KEY）。
   // 放進 store 是為了讓 util 的 match() 讀得到而**不必 import whatsnew**——
   // whatsnew 需要 util 的 t()／esc()，反過來 import 會成環。
@@ -82,7 +82,7 @@ export const store = {
   // ⚠️ **切大區時一定要把 planFar 一起歸零**（plan-ui 的 setPlanZone 就是這麼做的）：
   //    planFar 也是全域狀態，帶著 true 切過去會拿到一個與使用者預期無關的池子，
   //    **而畫面上完全看不出來**（單位 J 的 A/B 就是被它弄髒的）。
-  // 初值由 main.js 在資料到齊後決定（讀 jpev_zone，第一次進站才用 jpev_loc 猜）。
+  // 初值由 main.js 在資料到齊後決定（讀 twev_zone，第一次進站才用 twev_loc 猜）。
   planZone: HOME_ZONE,
   planOpts: [],
   planSel: -1,

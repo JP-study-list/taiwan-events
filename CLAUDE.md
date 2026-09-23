@@ -185,7 +185,7 @@
 |---|---|---|
 | 專案路徑 | `/Users/rensa/Projects/taiwan-events`（2026-09-23 確認） | ⚠️ **台灣版尚未在 Windows 建立**（日本版是 `c:\kanto-events`）；第一次在那台開時實查並填回這格 |
 | **跑 Python** | `python3`（3.14.6，走 Homebrew） | **`py`（3.10.5）**。`python` 是 3.7.3，**跑不動 `fetch_events.py`**（需要 3.9+ 的 `zoneinfo`） |
-| 起本機 server | `python3 -m http.server 8899` | `python -m http.server 8899` |
+| 起本機 server | ⚠️ **本專案用 8931 埠＋下方那行指令**（2026-09-23，理由見表下兩條） | 日本版是 `python -m http.server 8899`；台灣版在 Windows 尚未實測 |
 | **起 Chrome headless** | **Bash 工具直接起就行**，執行檔在 `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome` | **Bash 工具下起不來**（exit 21，無 stderr），要改用 **PowerShell 的 `Start-Process`** |
 | 關掉自己起的 Chrome | `pkill -f "<user-data-dir 的標籤>"` | 比對 CommandLine 找出含該標籤的程序 |
 | 抓線上檔案 | `curl` 或 `node -e` + `fetch` 皆可 | **只能用 `node -e` + `fetch`**，見下方編碼坑 |
@@ -206,6 +206,21 @@
 - **`--user-data-dir` 一律指到 scratchpad 底下並帶專案標籤**（例如 `chrome-kanto-test`）。
   關的時候**只比對這個標籤**，不要用程序名或 PID 差集去殺——曾因此把使用者正在用的 Chrome 全部關掉。
 - **測完記得把 Chrome 與 server 都收掉。**
+- ⚠️⚠️ **本機測試的埠要用本專案專用的：server `8931`、Chrome 除錯埠 `9241`**（2026-09-23 台灣版 D-1／D-3 踩到）。
+  這台 mac 上**別的專案也在用 8899**，而 `python3 -m http.server` 綁的是 IPv6 的 `*`，
+  別人綁 IPv4 的 `127.0.0.1:8899` 照樣綁得上，**兩個伺服器同時存在、瀏覽器打 127.0.0.1 會被導到對方那邊**。
+  症狀是 localStorage 裡冒出別的專案的鍵（當時是 `poke-change/v1`）、語言讀到 `en`，
+  **五項斷言失敗、而且看起來完全像產品壞了**。一律**明確綁 `127.0.0.1`**：被佔用時會直接報錯，不會悄悄共用。
+- ⚠️⚠️ **`python3 -m http.server` 會隨機讓頁面 JS 整個沒跑**（2026-09-23 同一輪）。它的連線等候佇列只有 5，
+  本站一次載入約 30 個 ES module，偶發 `ERR_CONNECTION_RESET`，某個模組沒到＝整頁 JS 不跑，
+  `lang` 停在 HTML 寫死的 `zh-Hant`。**約 1/8 的載入會中**，所以「單獨重跑就過」。
+  分辨方法是接 `Network.loadingFailed` 看有沒有被重設的請求。**起 server 用這行（在專案根目錄）**：
+  ```
+  python3 -c "import http.server as h,functools as f;S=type('S',(h.ThreadingHTTPServer,),{'request_queue_size':128});S(('127.0.0.1',8931),f.partial(h.SimpleHTTPRequestHandler,directory='.')).serve_forever()"
+  ```
+  收掉用 `pkill -f "request_queue_size':128"`。
+- 📌 同一輪還有第三個：**`load()` 等 300ms 就開始檢查，讀到的是「上一頁」**。導航前先在舊頁設
+  `window.__stale=1`，等它消失才算新頁到了。
 
 ### 不分平台都成立的事
 
@@ -446,7 +461,7 @@
 
 | 項目 | 值 |
 |---|---|
-| 站名 | **寄道日和・台灣**（日本版是「寄道日和」） |
+| 站名 | 中文 **寄道日和・台灣**、日文 **寄道日和・台湾**，副標 `YORIMICHI BIYORI`（與日本版共用；320px 手機上餘 50px，加 `· TAIWAN` 會被截掉 12px）。日本版是「寄道日和」 |
 | 網址 | `events.tw.rensakobo.com`（⚠️ 憑證未驗證，見 `development-plan.md` 單位 A） |
 | **設計期間的 repo** | **公開** `JP-study-list/taiwan-events`（2026-09-23 起）。⚠️ **推上去的東西＝公開**，拆分後也收不回來 |
 | 拆分後（設計結束） | 私有 repo（程式＋資料）＋公開 runner repo（只放 workflow，範本在 `_runner-template/`）；名稱拆分時定 |
@@ -454,7 +469,7 @@
 | 本機舊歷史 | 分支 `local-history`（含日本版私有內容），**只留本機、絕不 push** |
 | `_ref-kanto/` | **只在本機**（`.gitignore`），換電腦要自己從 kanto-events 複製 |
 | 時區 | `Asia/Taipei`（UTC+8） |
-| localStorage 前綴 | `twev_`（**尚未改**，程式裡還是 `jpev_`） |
+| localStorage 前綴 | `twev_`（2026-09-23 已改，單位 D-3）。§6b 教訓裡的 `jpev_*` 在本專案對應 `twev_*` |
 | 首發範圍 | **只有活動**；景點、餐廳分頁先藏起來，飯店更後面 |
 | cron 時間 | 未定。⚠️ 要與日本版錯開（Gemini 免費額度若共用；三支 workflow 推同一 repo 會撞） |
 | 待辦來源 | `development-plan.md` |

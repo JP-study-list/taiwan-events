@@ -153,7 +153,7 @@ function zonesWithStock(){
 //    為了同一個理由拒絕把 AREA_CENTER 複製進前端（見 LOC_VIEW 的註解）。
 //    資料自己就是座標來源——找離使用者最近的那一個站點，看它在哪個大區。
 //    好處是**新地區開通後自動生效**，而且天生只會猜到「真的有存貨」的大區。
-// ⚠️ 座標只在裝置上比對，**不送出、不反查地名**（jpev_loc 的硬規則不破例）。
+// ⚠️ 座標只在裝置上比對，**不送出、不反查地名**（twev_loc 的硬規則不破例）。
 function nearestZone(lat,lng){
   var best=null,bd=Infinity,i,z,d,arr=[store.events,store.places],k,list;
   for(k=0;k<arr.length;k++){

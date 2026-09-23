@@ -1,4 +1,4 @@
-// 收藏的時間性。兩件事，共用同一份隨身備份（jpev_favmeta）：
+// 收藏的時間性。兩件事，共用同一份隨身備份（twev_favmeta）：
 //
 //   ①「快結束」chip —— 收藏的活動剩 EXPIRE_DAYS 天內就要結束，主動喊一聲。
 //      卡片上本來就有「剩 N 天」（30 天內顯示），但那是**看到了才知道**的資訊，
@@ -149,7 +149,7 @@ function dropFav(id){
   forgetFav(id);
 }
 function persistFavs(){
-  try{localStorage.setItem('jpev_favs',JSON.stringify(store.favs));}catch(e){}
+  try{localStorage.setItem('twev_favs',JSON.stringify(store.favs));}catch(e){}
   store.planOpts=[];     // 行程一會優先錨定收藏，收藏變了就重新產生
 }
 

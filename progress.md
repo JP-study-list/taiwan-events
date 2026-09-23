@@ -9,6 +9,35 @@
 
 ---
 
+## 2026-09-23（第六筆）
+
+- 類型：修正（**單位 D-1 站名、D-3 localStorage 前綴**）
+- 影響檔案：`index.html`、`js/config.js`、`js/tour.js`、`css/style.css`（註解）、`js/` 共 14 支（前綴）、
+  `CLAUDE.md` §6b §8、`development-plan.md`、`project-index.md`、本檔
+- 摘要：
+  - D-3：`jpev_` → `twev_`，10 種鍵、37 處，全是寫死的完整鍵名（沒有拼接），逐字替換。
+    台灣版沒有使用者，不需要搬舊資料。
+  - D-1（使用者 2026-09-23 看對照圖決定）：中文 `寄道日和・台灣`、日文 `寄道日和・台湾`；
+    副標沿用 `YORIMICHI BIYORI`；分頁標題「寄道日和・台灣｜台灣展覽、祭典與活動地圖」
+    （日文「…｜台湾の展覧会・祭り・イベント地図」）。改了 config 中日兩組、`<title>`、`og:title`、
+    `og:site_name`、iOS 主畫面名、導覽第一步的標題與那一句說明。
+  - 量測（320px）：站名 169.7px／可用 292px，不換行；副標 `YORIMICHI BIYORI` 餘 50px，
+    `· TAIWAN` 缺 12px、`YORIMICHI BIYORI TAIWAN` 缺 3px（不採用）。對照圖在 `_probe/d1-compare.png`（不進版控）。
+  - 新開 D-6（其餘寫著日本的介面文案，約 36 行）、D-7（iPhone 實機確認主畫面名稱會不會被截斷）；
+    `description` 文案併進 D-2。
+- 驗證（Chrome headless＋CDP，假資料放 scratchpad）：
+  - D-3 共 10 項：寫入的鍵全是 `twev_`、沒有 `jpev_`；系統固定深色時存 `twev_theme=light`
+    會變淺、存 `twev_lang` 會切語言；**對照組**只存舊的 `jpev_` 鍵則完全沒效果。
+  - D-1 共 20 項：靜態 HTML 四處、中日兩語的分頁標題／頂欄／副標／導覽標題，320px 不換行不截斷，JS 錯誤 0。
+  - ⚠️ **測試自己錯了三次，三次都長得像產品壞了**（已補進 CLAUDE.md §6b）：
+    ① `load()` 只等 300ms，讀到上一頁；② **別的專案也在用 8899 埠**，瀏覽器被導到對方的伺服器
+    （localStorage 冒出 `poke-change/v1`）；③ `python3 -m http.server` 等候佇列只有 5，
+    約 1/8 的載入有模組被 `ERR_CONNECTION_RESET`、整頁 JS 不跑。改用專用埠 8931／9241、
+    綁 127.0.0.1、佇列 128 的伺服器之後才全過。
+- 待辦/已知問題：D-2、D-4～D-7 見 `development-plan.md`。
+
+---
+
 ## 2026-09-23（第五筆）
 
 - 類型：修正（**單位 C：工具去日本化防呆**）
