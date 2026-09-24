@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" class="no-places no-restaurants">
+<!-- ⚠️ 功能開關（台灣版 2026-09-24，單位 D-4）：首發只有活動，景點與餐廳整個藏起來。
+     **開關只有這一處**：CSS 靠這兩個 class 藏入口、JS（config.js 的 FEATURES）也是讀這裡。
+     放在 <html> 上而不是由 JS 加，是為了第一次繪製就藏好（JS 加會先閃一下）。
+     要上線景點／餐廳時拿掉對應的 class 即可。 -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">

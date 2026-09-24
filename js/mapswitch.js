@@ -10,6 +10,7 @@
 //    一行都不必在這裡重寫。
 // ⚠️ **捲動位置走 store.overlayScroll ＋ store.mapSwitching**（見 store.js 那段）：
 //    切換的中途重存會存到 0，最後關掉地圖就回到清單最頂端，而畫面上看不出是壞的。
+import { FEATURES } from './config.js';
 import { store } from './store.js';
 import { esc, t } from './util.js';
 import { closeMapView, openMapView } from './map.js';
@@ -73,9 +74,16 @@ function go(k){
   finally{ store.mapSwitching=false; } // 中途丟例外也要收乾淨，否則捲動位置從此不再存
 }
 
+// 功能開關（單位 D-4）：只畫開著的圖層。「全部」要至少還有景點或餐廳其中一種才有意義。
+function enabled(v){
+  if(v.k==='pl')return FEATURES.places;
+  if(v.k==='rs')return FEATURES.restaurants;
+  if(v.k==='all')return FEATURES.places||FEATURES.restaurants;
+  return true;
+}
 function segHTML(active){
   var lb=t().mapSwitch;
-  return VIEWS.map(function(v){
+  return VIEWS.filter(enabled).map(function(v){
     var on=v.k===active;
     return '<button type="button" class="mapswitch-seg'+(on?' on':'')+'" data-k="'+v.k+'"'
       +(on?' aria-current="true"':'')+'>'
@@ -89,6 +97,10 @@ function buildMapSwitch(){
   VIEWS.forEach(function(v){
     var box=document.getElementById(v.box);
     if(!box)return;
+    // 只剩活動一張時整個切換器不畫（一顆按鈕的切換器沒有意義）。用 style 不用 [hidden]：
+    // .mapswitch 是 display:flex，會蓋過 [hidden]（日本版地雷，見 _ref-kanto/CLAUDE-kanto.md）。
+    if(VIEWS.filter(enabled).length<2){box.innerHTML='';box.style.display='none';return;}
+    box.style.display='';
     box.setAttribute('role','group');
     box.setAttribute('aria-label',t().aMapSwitch);
     box.innerHTML=segHTML(v.k);

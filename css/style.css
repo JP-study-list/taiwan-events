@@ -2515,3 +2515,14 @@ body.loc-open #favFood, body.plan-open #favFood{display:none;}
   font-family:var(--f-ttl);font-weight:var(--ttl-w);font-size:15px;line-height:1.45;
 }
 .place-card .wh-tag{margin-left:5px;}
+
+/* ===== 功能開關（台灣版 2026-09-24，單位 D-4）=====
+   首發只有活動。開關在 index.html 的 <html class>，這裡把景點／餐廳的入口藏起來。
+   ⚠️ 一律 !important：#foodSec 由 JS 寫 inline style 開關、.tab 是 display:flex，
+   不加的話會被蓋過（同日本版「[hidden] 藏不掉」那類地雷）。 */
+html.no-restaurants #tabRestaurant,
+html.no-restaurants #favFood,
+html.no-restaurants #foodSec,
+html.no-places #tabPlaces,
+html.no-places #lbCredits,
+html.no-places #creditsBtn{display:none!important;}   /* 圖片出處只列景點照片（places/_credits.json） */

@@ -11,6 +11,11 @@ var TYPES=['展覽','表演','祭典','煙火','市集','動漫','點燈','運�
 // 景點不在 store.events 裡，放進去會多一顆永遠篩不到東西的 chip。
 // 但它與 TYPES 共用同一組 CSS 變數（--c-景點／--pin-景點）與 icons.js 的 EVENT_ICON，
 // 所以新增這個值時那三處要一起加，規則與新增活動分類完全相同。
+// 功能開關（單位 D-4）：**讀 index.html 的 <html class>**，開關只有那一處（見該處註解）。
+var FEATURES={
+  places:!document.documentElement.classList.contains('no-places'),
+  restaurants:!document.documentElement.classList.contains('no-restaurants')
+};
 var PLACE_TYPE='景點';
 // 餐廳進行程（單位 I）的分類值。**與 PLACE_TYPE 同一條規則**：不進 TYPES（餐廳不在
 // store.events 裡，放進去會多一顆永遠篩不到東西的 chip），但共用 --c-餐廳／--pin-餐廳。
@@ -916,4 +921,4 @@ var AFF_REDIRECT=true;
 // 三個頁面（v3 §3）。那是給人看的東西，程式生不出來。
 var AFF_DISCLOSURE=Object.keys(AFF_IDS).some(function(k){return !!AFF_IDS[k];});
 
-export { AFF_DISCLOSURE, AFF_IDS, AFF_REDIRECT, AREAS, AREA_GROUPS, AR_MAX, AR_MIN, CORE_AREAS, HOME_ZONE, PLAN_ZONES, SPOT_AREAS, ZONE_KEY, DATE_KEYS, EXPIRE_DAYS, FAVMETA_KEY, FAVR_KEY, FOOD_MAX, FOOD_NEAR_KM, FOOD_PAGE, FOOD_TYPE, IMG_W, IMG_W_THUMB, LANG_KEY, LOC_ACC_ZOOM, LOC_FAR_KM, LOC_GEO_OPTS, LOC_KEY, LOC_VIEW, LOC_VIEW_ZOOM, LOC_ZOOM, LOC_ZOOM_SET, OTHER_SPOT, PACES, PLACE_DIR, PLACE_GENRES, PLACE_TYPE, PLATFORMS, PLAN_KEY, PLAN_MAX, PLAN_VER, REC_MAX_KM, RESTAURANT_LIST, ROUTE_KEY, SEEN_KEY, SORT_KEYS, SPOTS, SPOT_R, T, THEME_KEY, TRIP_MAX_DAYS, TYPES, WALK_KM, WAYPOINT_MAX };
+export { FEATURES, AFF_DISCLOSURE, AFF_IDS, AFF_REDIRECT, AREAS, AREA_GROUPS, AR_MAX, AR_MIN, CORE_AREAS, HOME_ZONE, PLAN_ZONES, SPOT_AREAS, ZONE_KEY, DATE_KEYS, EXPIRE_DAYS, FAVMETA_KEY, FAVR_KEY, FOOD_MAX, FOOD_NEAR_KM, FOOD_PAGE, FOOD_TYPE, IMG_W, IMG_W_THUMB, LANG_KEY, LOC_ACC_ZOOM, LOC_FAR_KM, LOC_GEO_OPTS, LOC_KEY, LOC_VIEW, LOC_VIEW_ZOOM, LOC_ZOOM, LOC_ZOOM_SET, OTHER_SPOT, PACES, PLACE_DIR, PLACE_GENRES, PLACE_TYPE, PLATFORMS, PLAN_KEY, PLAN_MAX, PLAN_VER, REC_MAX_KM, RESTAURANT_LIST, ROUTE_KEY, SEEN_KEY, SORT_KEYS, SPOTS, SPOT_R, T, THEME_KEY, TRIP_MAX_DAYS, TYPES, WALK_KM, WAYPOINT_MAX };

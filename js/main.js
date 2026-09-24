@@ -1,6 +1,6 @@
 // 進入點：跨模組的事件接線與初始化。
 // 只有「會同時碰到兩個以上模組」的綁定放這裡，其餘留在各自模組。
-import { LANG_KEY, PLAN_KEY, THEME_KEY } from './config.js';
+import { FEATURES, LANG_KEY, PLAN_KEY, THEME_KEY } from './config.js';
 import { store } from './store.js';
 import { resetStyleCache, syncThemeColor, t } from './util.js';
 import { buildAreaSel, buildSideChips, colCount, curCols, render, setMapRepaint, tabAll, tabFav, tabPlan } from './cards.js';
@@ -242,7 +242,8 @@ render();
 var evP=fetch('events.json?t='+Date.now()).then(function(r){return r.json();});
 // 景點是附加內容、活動才是本體：**它失敗不可以卡住全站**，
 // store.places 留空即可（畫面上就是沒有景點段，活動一切照常）。
-var plP=fetch('places.json?t='+Date.now())
+// 景點功能關閉時（單位 D-4）不抓 places.json——檔案本來就不存在，抓了只是多一個 404。
+var plP=!FEATURES.places?Promise.resolve(null):fetch('places.json?t='+Date.now())
   .then(function(r){return r.ok?r.json():null;})
   .catch(function(){return null;});
 
