@@ -18,7 +18,9 @@ import struct
 import sys
 import time
 import hashlib
+import io
 import ssl
+import zipfile
 import urllib.request
 import urllib.error
 import urllib.parse
@@ -129,7 +131,18 @@ SOURCES = [
     {"name": "文化部藝文活動", "kind": "moc", "type": "自動",
      "url": "https://cloud.culture.tw/frontsite/trans/SearchShowAction.do",
      "categories": MOC_CATEGORIES},
-    # ⚠️ 網站＋AI 抽取的來源（單位 E-4 第二段，尚未建立）。
+    {"name": "觀光署活動", "kind": "tb", "type": "自動",
+     "url": "https://media.taiwan.net.tw/XMLReleaseAll_public/v2.0/Zh_tw/Event-json.zip"},
+    # ⚠️ 網站＋AI 抽取的來源（單位 E-4 第二段）。
+    # 動漫（2026-09-24，文化部與觀光署都沒有）。全部用管線的 fetch_page_text 實測過抓得到。
+    # 刻意沒收：漫展場次一覽 shonm32.com、臺北旅遊網 API——都被 Cloudflare 機器人驗證擋住，**不繞過**。
+    # 綜合型（一頁混著快閃店、特展、市集）用「自動」讓 AI 逐筆分類；動漫展官網固定「動漫」。
+    {"name": "萌朧動漫情報網 活動新訊", "type": "自動",
+     "url": "https://www.moelong.com/moelongnews/archives/category/%E6%B4%BB%E5%8B%95%E6%96%B0%E8%A8%8A-%E5%A0%B1%E5%B0%8E/eventnews"},
+    {"name": "輕旅行 全台快閃店與展覽", "type": "自動", "url": "https://travel.yam.com/article/137691"},
+    {"name": "CWT 台灣同人誌販售會", "type": "動漫", "url": "https://www.comicworld.com.tw/"},
+    {"name": "開拓動漫祭 FF", "type": "動漫", "url": "https://www.f-2.com.tw/"},
+    {"name": "台北國際動漫節", "type": "動漫", "url": "https://www.ccpa.org.tw/tica/"},
     # 日本版的 138 個來源已於 2026-09-23 清空：本 repo 會公開，而那份清單屬於日本版私有 repo。
     # 格式：{"name": ..., "type": ..., "url": ..., "areas": [...]}，欄位說明見上方註解。
 ]
@@ -194,7 +207,8 @@ OUT_OF_SCOPE_VENUE = ()
 # **上線那天全站的分類分布都會變一次**（收藏不受影響，那綁的是 id 不是分類）。
 # ⚠️ 台灣版（2026-09-24，單位 E-7）：拿掉「寶可夢」、加「表演」（音樂、戲劇、舞蹈、演唱會併一類）。
 # 「表演」在前端**接手寶可夢的色位**（css/style.css 的 --c-表演）。順序＝前端分類列的順序。
-TYPES = ["展覽", "表演", "祭典", "煙火", "市集", "動漫", "點燈"]
+# 台灣版（2026-09-24，單位 E-10）：加第八類「運動」（只收賽事，遊程不收；使用者決定）。
+TYPES = ["展覽", "表演", "祭典", "煙火", "市集", "動漫", "點燈", "運動"]
 
 # 各地區桶的涵蓋範圍說明，給 LLM 判斷 area 用。原本寫死在 build_prompt 的字串裡，
 # 2026-08-05 抽成資料，好讓 prompt 能**只列出該來源可能出現的地區**（見 SOURCES 的 areas）。
@@ -1428,6 +1442,8 @@ def build_prompt(page_text, source):
         季節慶典、花季活動 → 「祭典」
      6. 煙火秀、煙火節（例如澎湖花火節、大稻埕煙火） → 「煙火」
      7. 市集、快閃店、跳蚤市場、農夫市集、物產展、美食節、古董市 → 「市集」
+     8. 馬拉松、路跑、自行車活動、衝浪、鐵人三項、健行大會等運動賽事或大型參與型運動活動 → 「運動」
+        （導覽遊程、小旅行、生態體驗**不是活動**，不要輸出）
    - date_start：開始日期，格式 YYYY-MM-DD；只知道月份時用該月 1 日。
      **注意分辨「發布日」與「舉辦日」**：頁面若同時出現「公開日」「掲載日」（發布日）與
      「初回開催日」（開始舉辦日），一律採用開催日；標題裡寫的日期（例如
@@ -1445,6 +1461,7 @@ def build_prompt(page_text, source):
      寧可少抽一筆，也不要標錯地區。
    - venue：場地名稱的**中文原文**，照抄網頁用字。此欄用來查詢地圖座標，寫錯會導致地圖定位失敗，務必精確
    - venue_ja：場地名稱的日文寫法；漢字照用，不要意譯（例「國立臺灣博物館」→「国立台湾博物館」）
+   - addr：場地地址，**網頁上有寫才填、照抄原文**（例「臺北市大安區羅斯福路四段1號」）；沒寫就填 ""，不要自己查或猜
    - desc：一句繁體中文簡介（30 字以內），可直接取用網頁原文的說明句
    - desc_ja：desc 的日文翻譯（30 字以內）
    - url：該活動的詳情頁網址；抽不到時填 "{source['url']}"
@@ -1679,7 +1696,7 @@ def clean_event(raw, source):
         ev_type = source["type"]
     else:
         # 自動分類來源但 AI 給了無效類型，捨棄
-        return drop("分類不在七類內")
+        return drop("分類不在八類內")
     url = str(raw.get("url", "")).strip()
     if not url.startswith("http"):
         url = source["url"]
@@ -1698,6 +1715,8 @@ def clean_event(raw, source):
         "venue_ja": venue_ja,
         "desc": str(raw.get("desc", "")).strip()[:60],
         "desc_ja": str(raw.get("desc_ja", "")).strip()[:60],
+        # 網頁上寫的場地地址（E-4 第二段）。有的話 resolve_coords_tw 先走結構化地址查詢，準很多。
+        "addr": str(raw.get("addr", "")).strip()[:80],
         "url": url,
         "img": img,
         "source": source["name"],
@@ -1892,6 +1911,149 @@ def moc_events(source):
         print(f"  [moc] 類別 {cat}（{ev_type}）：{len(data)} 筆 → {n} 筆活動")
         time.sleep(1)
     return events
+
+
+# ============================================================
+# 開放資料來源：交通部觀光署 觀光資訊資料庫「活動」（單位 E-4 第二段，2026-09-24）
+# ============================================================
+# data.gov.tw 資料集 7778，每日更新。舊網址 XMLReleaseALL_public/activity_C_f.json 已 404。
+# 實測（2026-09-24）：1,088 筆、未結束 268 筆，**全部有座標、圖片、縣市與區**；只有 56 筆有活動網址。
+# ⚠️ 它的 EventClasses 對不上本站分類（代碼 2 裡混著市集、農遊、APP 活動），名稱關鍵字分類 37% 分不出來，
+# 而且混著不是活動的東西（航空登機證優惠、住宿抽獎、伴手禮專區）→ 交給 AI 分類，每筆只分一次。
+TB_URL = "https://media.taiwan.net.tw/XMLReleaseAll_public/v2.0/Zh_tw/Event-json.zip"
+TB_SKIP = "不收"
+TB_CLASS = {}      # EventID → 類型或 TB_SKIP；load_previous 讀、main 寫回 events.json 的 tb_class
+TB_SEEN = set()    # 今天來源裡出現過的 EventID（寫回時只留這些）
+# 同一組座標被這麼多筆共用＝代表點（例：5 筆不相干的活動都掛在桃園市政府，其中一筆在復興區），不採信
+TB_SHARED_PT = 3
+TB_CLASSIFY_BATCH = 30
+
+
+def _tb_desc(t):
+    t = re.sub(r"\s+", " ", str(t or "")).strip()
+    return re.split(r"(?<=[。！？!?])", t, maxsplit=1)[0][:60]
+
+
+def tb_classify(items, chain):
+    """AI 分類：[(EventID, 名稱, 簡介)] → {EventID: 類型或 TB_SKIP}。沒有 AI 回空 dict。"""
+    out = {}
+    if not chain:
+        return out
+    types = "、".join(TYPES)
+    for i in range(0, len(items), TB_CLASSIFY_BATCH):
+        batch = items[i:i + TB_CLASSIFY_BATCH]
+        prompt = (
+            f"以下是台灣觀光署公告的活動。把每一筆分到「{types}」其中一類，或填「{TB_SKIP}」。規則：\n"
+            f"1. 「{TB_SKIP}」：不是一個可以去參加的活動——優惠、抽獎、集點、住宿補助、乘車優惠、伴手禮專區、"
+            "APP 推廣、徵件、講座、課程；以及**導覽遊程、小旅行、走讀、夜訪、生態體驗**這類行程。\n"
+            "2. 「運動」：馬拉松、路跑、自行車活動、衝浪、鐵人三項、健行大會等運動賽事或大型參與型運動活動。\n"
+            "3. 燈會、燈節、光雕、耶誕城 → 點燈；煙火、花火 → 煙火；音樂會、演唱會、戲劇、舞蹈 → 表演；"
+            "展覽、特展、博覽會 → 展覽；市集、美食節、物產展 → 市集；廟會、遶境、傳統節慶、原住民祭典、季節慶典 → 祭典；"
+            "動漫、遊戲、角色相關 → 動漫。\n"
+            "4. 只輸出 JSON 陣列，每個元素是 {\"i\": 編號, \"type\": 類別}，不要任何其他文字。\n\n"
+            + json.dumps([{"i": n, "name": nm, "desc": ds} for n, (_, nm, ds) in enumerate(batch)], ensure_ascii=False)
+        )
+        for r in llm_extract(chain, prompt):
+            try:
+                eid = batch[int(r.get("i"))][0]
+            except (TypeError, ValueError, IndexError):
+                continue
+            t = str(r.get("type", "")).strip()
+            if t in TYPES or t == TB_SKIP:
+                out[eid] = t
+        time.sleep(SOURCE_WAIT)
+    return out
+
+
+def tb_events(source, chain):
+    """觀光署活動 → 本站活動。類型沿用 TB_CLASS，沒分過的才請 AI 分。"""
+    try:
+        req = urllib.request.Request(TB_URL, headers=MOC_HEADERS)
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            z = zipfile.ZipFile(io.BytesIO(resp.read()))
+        name = next(n for n in z.namelist() if n.lower().endswith(".json"))
+        data = json.loads(z.read(name).decode("utf-8-sig"))
+    except (urllib.error.URLError, OSError, ValueError, StopIteration, zipfile.BadZipFile) as e:
+        print(f"  [fail] 觀光署資料抓取失敗：{e}（既有資料由合併機制保留）")
+        return []
+    recs = [r for r in (data.get("Events") or []) if isinstance(r, dict) and r.get("EventID")]
+    live = []
+    for r in recs:
+        d_end = valid_date((r.get("EndDateTime") or "")[:10])
+        if d_end and d_end >= TODAY:
+            live.append(r)
+            TB_SEEN.add(r["EventID"])
+    pt = {}
+    for r in live:
+        k = (round(float(r.get("PositionLat") or 0), 4), round(float(r.get("PositionLon") or 0), 4))
+        pt[k] = pt.get(k, 0) + 1
+    todo = [(r["EventID"], str(r.get("EventName", "")).strip(), _tb_desc(r.get("Description")))
+            for r in live if r["EventID"] not in TB_CLASS]
+    got = tb_classify(todo, chain)
+    TB_CLASS.update(got)
+    print(f"  [tb] 未結束 {len(live)} 筆；分類沿用 {len(live) - len(todo)}、本次 AI 分類 {len(got)}／{len(todo)}")
+    out = []
+    for r in live:
+        t = TB_CLASS.get(r["EventID"])
+        if t is None:
+            out.append(drop("觀光署：未分類（沒有 AI）"))
+            continue
+        if t == TB_SKIP:
+            out.append(drop("觀光署：不是活動或是遊程"))
+            continue
+        title = strip_date_tail(str(r.get("EventName", "")).strip())[:80]
+        d_start = valid_date((r.get("StartDateTime") or "")[:10])
+        d_end = valid_date((r.get("EndDateTime") or "")[:10])
+        if not title or not d_start or not d_end:
+            out.append(drop("日期不合格"))
+            continue
+        if (d_end - d_start).days > MOC_MAX_DAYS:
+            out.append(drop("檔期過長（常設）"))
+            continue
+        pa = r.get("PostalAddress") or {}
+        county = county_of(pa.get("City", ""))
+        if not county:
+            out.append(drop("地址認不出縣市"))
+            continue
+        area = PREF_TO_AREA[county]
+        town, street = str(pa.get("Town") or ""), str(pa.get("StreetAddress") or "").strip()
+        # StreetAddress 有時是門牌、有時只是地名（「農業試驗所」）：有「號」才當地址，否則當場地名
+        is_addr = bool(_ADDR_NO_RE.search(street))
+        venue = (street if street and not is_addr else town) or county
+        given = None
+        try:
+            lat, lng = float(r.get("PositionLat") or 0), float(r.get("PositionLon") or 0)
+        except (TypeError, ValueError):
+            lat = lng = 0
+        if in_bbox(lat, lng):
+            if pt.get((round(lat, 4), round(lng, 4)), 0) >= TB_SHARED_PT:
+                bump("tb_shared_point")
+            elif haversine_km((lat, lng), AREA_CENTER[area]) > ai_max_km(area):
+                bump("moc_coord_far")
+            else:
+                given = (round(lat, 6), round(lng, 6))
+        imgs = r.get("Images") or []
+        url = str(r.get("WebsiteURL") or "").strip()
+        if not url.startswith("http"):
+            url = "https://www.google.com/search?q=" + urllib.parse.quote(title)
+        ev = {
+            "title": title, "title_ja": "",
+            "type": t,
+            "date_start": d_start.isoformat(), "date_end": d_end.isoformat(),
+            "area": area,
+            "venue": venue[:50], "venue_ja": "",
+            "desc": _tb_desc(r.get("Description")), "desc_ja": "",
+            "url": url,
+            "img": clean_img_url(str((imgs[0] or {}).get("URL") or "").strip()) if imgs else "",
+            "source": "觀光署活動",
+            "addr": (county + town + street)[:80] if is_addr else (county + town)[:80],
+            "src_key": "tb:" + r["EventID"],
+            "_given": given,
+            "_county": county,
+        }
+        ev["id"] = hashlib.md5((ev["title"] + "|" + ev["date_start"]).encode("utf-8")).hexdigest()[:12]
+        out.append(ev)
+    return out
 
 
 # ============================================================
@@ -3488,6 +3650,8 @@ def load_previous():
 
     version = data.get("schema_version", 1)
     events = data.get("events", [])
+    # 觀光署活動的 AI 分類紀錄（含「不收」），見 tb_events。版本不符時一起作廢。
+    TB_CLASS.update(data.get("tb_class") or {} if version == SCHEMA_VERSION else {})
     if version != SCHEMA_VERSION:
         print(f"[db] 資料格式 v{version} → v{SCHEMA_VERSION}，既有 {len(events)} 筆不相容，整批汰換重建")
         return []
@@ -3869,9 +4033,9 @@ def main():
     new_events = []
     for source in SOURCES:
         print(f"[source] {source['name']}")
-        if source.get("kind") == "moc":
+        if source.get("kind") in ("moc", "tb"):
             DROP_REASONS.clear()
-            got = moc_events(source)
+            got = moc_events(source) if source["kind"] == "moc" else tb_events(source, chain)
             if DROP_REASONS:
                 print(f"  [drop] 丟棄 {sum(DROP_REASONS.values())} 筆：{drop_summary()}")
             print(f"  [ok] 轉換 {len(got)} 筆")
@@ -3992,6 +4156,8 @@ def main():
         "updated_at": datetime.now(TW_TZ).strftime("%Y-%m-%d %H:%M"),
         "count": len(merged),
         "events": merged,
+        # 觀光署活動的 AI 分類紀錄（EventID → 類型或「不收」）。只留今天來源裡還在的，免得無限長大。
+        "tb_class": {k: v for k, v in TB_CLASS.items() if k in TB_SEEN},
     }
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=1)
