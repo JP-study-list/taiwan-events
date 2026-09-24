@@ -95,6 +95,14 @@ finally:
     fe.http_get, fe.time.sleep = real_get, real_sleep
 chk('国土地理院複驗維持停用（E-5 換成台灣的反查之前）', fe.REVERIFY_PER_RUN, 0)
 
+print('[5b] 場館名的查詢寫法 venue_variants_tw（Photon 對寫法很挑）')
+vv = fe.venue_variants_tw
+chk('剝樓層（「一樓廣場玻璃屋」）', vv('台北三創生活園區一樓廣場玻璃屋')[-1], '三創生活園區')
+chk('拿掉館內的廳（衛武營…音樂廳 → 衛武營…中心）', '衛武營國家藝術文化中心' in vv('衛武營國家藝術文化中心音樂廳'), True)
+chk('文化創意產業園區 → 文創園區／華山1914', {'華山1914文創園區', '華山1914'} <= set(vv('台北華山1914文化創意產業園區')), True)
+chk('⚠️ 原名一定排第一（「臺中」是館名的一部分）', vv('臺中國家歌劇院大劇院')[0], '臺中國家歌劇院大劇院')
+chk('⚠️ 「臺南美術館」不可以剝成「美術館」（剝完不到 4 字不試）', vv('臺南美術館'), ['臺南美術館'])
+
 print('[6] 跨來源去重 dedupe_events（2026-09-24，Actions 實跑 1,441 筆裡 26 組可疑）')
 def E(title, src, venue, d0, d1, lat=25.0, lng=121.5, area='台北', **kw):
     return dict(title=title, source=src, venue=venue, date_start=d0, date_end=d1, lat=lat, lng=lng, area=area,

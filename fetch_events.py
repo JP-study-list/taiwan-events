@@ -3247,6 +3247,51 @@ def geocode_district_tw(district, county):
     return result
 
 
+_VENUE_CITY_RE = re.compile(r"^(臺北市?|新北市?|臺中市?|臺南市?|高雄市?|桃園市?|基隆市?|新竹[市縣]?|嘉義[市縣]?)(?=\S)")
+_VENUE_FLOOR_RE = re.compile(r"\s*(B?\d+F|B\d+|\d+樓|[一二三四五六七八九十]+樓).*$")
+_VENUE_HALL_RE = re.compile(r"(音樂廳|表演廳|演藝廳|展覽廳|展示廳|大劇院|中劇院|小劇場|實驗劇場|多功能廳)$")
+
+
+def venue_variants_tw(venue):
+    """
+    場館名的查詢寫法，依序試（2026-09-24 實測 Photon 對寫法很挑）：
+      「台北華山1914文化創意產業園區」查無，OSM 登記的是「華山文創園區」；
+      「衛武營國家藝術文化中心音樂廳」查無，拿掉「音樂廳」就有；
+      「台北三創生活園區一樓廣場玻璃屋」「LaLaport 南港 B1F」剝掉城市與樓層才查得到。
+    每一種都照樣過縣市守門與名稱比對（比對用的就是那個寫法，兄弟設施規則照樣擋——
+    實測「新光三越南西店」Photon 回的是左營店，被擋下）。
+    """
+    v = norm_tai(venue or "")
+    v = re.sub(r"[（(][^）)]*[）)]", "", v)
+    v = _VENUE_FLOOR_RE.sub("", v).strip(" -—_")
+    out = [v]
+    # ⚠️ 剝開頭城市名**只當額外寫法、原名先試**，而且剝完至少 4 個字：「臺中國家歌劇院」的「臺中」
+    # 是館名的一部分，「臺南美術館」剝成「美術館」會配到任何一間美術館（2026-09-24 實測差點這樣寫）。
+    nocity = _VENUE_CITY_RE.sub("", v)
+    if nocity != v and len(nocity) >= 4:
+        out.append(nocity)
+    for x in list(out):
+        hall = _VENUE_HALL_RE.sub("", x)
+        if hall != x and len(hall) >= 4:
+            out.append(hall)
+    for x in list(out):
+        if "文化創意產業園區" in x:
+            out.append(x.replace("文化創意產業園區", "文創園區"))
+    # 最後一招：拿掉通用詞（「華山1914文化創意產業園區」→「華山1914」，Photon 實測查得到）
+    for x in list(out):
+        core = x
+        for w in ("文化創意產業園區", "文創園區", "藝術文化中心", "文化中心", "藝文中心"):
+            core = core.replace(w, "")
+        if core != x and len(core) >= 4:
+            out.append(core)
+    seen, res = set(), []
+    for x in out:
+        if x and len(x) >= 2 and x not in seen:
+            seen.add(x)
+            res.append(x)
+    return res
+
+
 def resolve_coords_tw(ev, county=None):
     """
     台灣版的座標解析（官方座標在 main() 已經先處理掉）。依序：
@@ -3268,10 +3313,17 @@ def resolve_coords_tw(ev, county=None):
         if r:
             found = (r[0], r[1], "precise" if r[2] == "strong" else "uncertain")
     if not found and venue and not is_multi_site(venue):
-        q = venue + (" " + county if county else "")
-        r = geocode_photon(q, allowed, match=venue) or geocode_osm(venue, allowed)
-        if r:
-            found = (r[0], r[1], "precise" if r[2] == "strong" else "uncertain")
+        # 第一種寫法問三處（Photon＋縣市／Photon／Nominatim），其餘只問 Photon＋縣市，最多 4 種寫法——
+        # 查詢都限速 1.1 秒，不收斂的話一個查不到的場館要 20 秒，首次執行會多半小時以上。
+        for n, v in enumerate(venue_variants_tw(venue)[:4]):
+            q = v + (" " + county if county else "")
+            r = geocode_photon(q, allowed, match=v)
+            if not r and n == 0:
+                r = geocode_photon(v, allowed, match=v) or geocode_osm(v, allowed)
+            if r:
+                found = (r[0], r[1], "precise" if r[2] == "strong" else "uncertain")
+                bump("tw_venue_variant_%d" % n)
+                break
     if found and ai[0] and haversine_km(found[:2], ai) > COORD_AGREE_KM:
         found = (found[0], found[1], "uncertain")
         bump("ai_disagree")
