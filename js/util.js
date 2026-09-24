@@ -192,16 +192,19 @@ function proxied(u,w){
 
 // 候選網址鏈，前面的失敗就換下一個，全部失敗才換成色塊。
 // 這樣網址換算猜錯（實測約 3 張）或代理服務掛掉時，最壞也只是退回原網址。
+// ⚠️ 台灣版（2026-09-24，單位 P）：`ev.img_direct` 為真時**跳過代理、直接載原圖**。
+//   代理（images.weserv.nl）抓不到部分台灣政府網站的圖（觀光署、台南、宜蘭、雲嘉南濱海），
+//   每張白等 6～16 秒回 404 才退回原圖。哪些網站抓不到由管線每次實測後標記（fetch_events.py 的 mark_proxy_failures）。
+//   其餘仍然「代理先」：實測原圖先雖然快（第 8 秒 24 張對 16 張），但一個畫面的流量從 11MB 變 41MB（使用者選了省流量）。
+//   代理第一次載入仍要 1～7 秒，在歐洲預熱對台灣的香港節點無效（實測）；根本解法是上線時改用 Cloudflare 在亞洲縮圖（單位 F）。
 function imgChain(ev,w){
   var u=ev.img;
   if(!u)return [];
+  if(ev.img_direct)return [u];
   var big=bigImgUrl(u);
   return big?[proxied(big,w),big,u]:[proxied(u,w),u];
 }
 
-// 「上次來之後才收錄的」。first_seen 是管線發下的首次收錄日，發下就不再重算。
-// **沒有 first_seen 一律不算新**（回填之前的舊資料、或管線那邊留空的），
-// 失敗方向是安全的——寧可漏標，不要讓一整批舊活動假裝是新的。
 function isNew(ev){
   return !!(store.newSince&&ev.first_seen&&ev.first_seen>store.newSince);
 }

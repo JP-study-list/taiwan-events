@@ -1505,6 +1505,10 @@ def clean_img_url(img):
     """
     if not img.startswith("http"):
         return ""
+    # 台灣版（2026-09-24）：主機名稱不是公開網域的不採用。實測文化部資料有 `http://data-service/api/...`
+    # 這種**對方系統的內部主機名稱**，外面連不到（直連、代理都不行），前端只會在那裡等到失敗。
+    if "." not in urllib.parse.urlparse(img).netloc:
+        return ""
     # 常見縮圖路徑/檔名標記 → 提升為大圖
     replacements = [
         ("/thumb/", "/"), ("/thumbs/", "/"), ("/small/", "/large/"),
@@ -2221,6 +2225,51 @@ def fill_og_images(merged, previous):
                 n_ok += 1
     print(f"[og] 待補 {len(todo)} 筆（{len(by_url)} 個頁面）；抓了 {len(got)} 頁、補到 {n_ok} 筆；"
           f"網站橫幅擋下 {len(generic)} 張：{[g[:60] for g in generic][:3]}")
+
+
+# ============================================================
+# 標記「縮圖代理抓不到」的圖片網站（單位 P，2026-09-24）
+# ============================================================
+# 前端預設經 images.weserv.nl 縮圖（省流量），但它抓不到部分台灣政府網站的圖
+# （實測觀光署、台南、宜蘭、雲嘉南濱海：每張白等 6～16 秒回 404，前端才退回原圖）。
+# 每個圖片網站抽 PROXY_PROBE_PER_HOST 張、都失敗才標記整站——單張圖壞掉不算網站的問題。
+# 被標記的網站，活動帶 `img_direct: true`，前端 imgChain 就直接載原圖。
+# ⚠️ 這裡只問「代理抓不抓得到這個來源」，所以用最小寬度（w=64）問，**不複製前端的縮圖參數**
+#   （同一條規則寫兩份是這個專案吃過很多次的虧）；抓取失敗與寬度無關。
+PROXY_BASE = "https://images.weserv.nl/?url="
+PROXY_PROBE_PER_HOST = 2
+PROXY_PROBE_TIMEOUT = 25
+
+
+def _proxy_ok(img):
+    url = PROXY_BASE + urllib.parse.quote(re.sub(r"^https?://", "", img), safe="") + "&w=64"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": OG_BOT_UA})
+        with urllib.request.urlopen(req, timeout=PROXY_PROBE_TIMEOUT) as resp:
+            return resp.status == 200
+    except (urllib.error.URLError, OSError, ValueError):
+        return False
+
+
+def mark_proxy_failures(merged):
+    from concurrent.futures import ThreadPoolExecutor
+    by_host = {}
+    for ev in merged:
+        ev.pop("img_direct", None)          # 每輪重測，網站修好了就自動恢復走代理
+        if ev.get("img"):
+            by_host.setdefault(urllib.parse.urlparse(ev["img"]).netloc.lower(), []).append(ev)
+    probes = {h: sorted({e["img"] for e in evs})[:PROXY_PROBE_PER_HOST] for h, evs in by_host.items()}
+    jobs = [(h, u) for h, us in probes.items() for u in us]
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        results = list(pool.map(lambda hu: (hu[0], _proxy_ok(hu[1])), jobs))
+    ok_hosts = {h for h, ok in results if ok}
+    bad = sorted(h for h in probes if h not in ok_hosts)
+    n = 0
+    for h in bad:
+        for ev in by_host[h]:
+            ev["img_direct"] = True
+            n += 1
+    print(f"[proxy] 測了 {len(probes)} 個圖片網站；代理抓不到 {len(bad)} 個 → {n} 張改直連：{bad}")
 
 
 # ============================================================
@@ -4316,6 +4365,7 @@ def main():
 
     fill_og_images(merged, previous)   # 補宣傳圖（單位 N），必須在 verify_images 之前，抓來的圖才會被驗
     verify_images(merged, previous)
+    mark_proxy_failures(merged)        # 單位 P：驗完圖之後才測，測的是最終要寫出去的那些
 
     # ⚠️ **`geo_rv` 跟著座標一起沿用**（單位 T-4）：座標沒變，之前那次反查複驗的結果
     # 就仍然有效。少了它，每天重新抽到的活動都會變成「沒驗過」而塞滿複驗佇列

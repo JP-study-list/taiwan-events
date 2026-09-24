@@ -72,6 +72,8 @@ chk('圖片網址兩段黏在一起 → 取後段',
     fe._moc_img('https://cloud.culture.twhttps://cloud.culture.tw/e_new_upload/a.jpg'),
     'https://cloud.culture.tw/e_new_upload/a.jpg')
 chk('正常的圖片網址不動', fe._moc_img('https://cloud.culture.tw/b.jpg'), 'https://cloud.culture.tw/b.jpg')
+chk('內部主機名稱的圖片網址（http://data-service/…）不採用', fe.clean_img_url('http://data-service/api/collection/image/x?uid=1'), '')
+chk('  公開網域的照常', fe.clean_img_url('https://kinmen.travel/image/44541/640x480'), 'https://kinmen.travel/image/44541/640x480')
 # 只比對**會生效的寫法**（說明文字裡提到 countrycodes=jp 不算）
 src = open(os.path.join(ROOT, 'fetch_events.py'), encoding='utf-8').read()
 chk('程式碼裡沒有日本的國別過濾', [x for x in ('"&countrycodes=jp"', '!= "JP"') if x in src], [])
