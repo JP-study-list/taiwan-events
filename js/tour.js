@@ -19,6 +19,7 @@
 //    「收藏星」那一步就沒有東西可以指。篩選不寫進裝置，所以還原很單純。
 // ④ **行程示範全程不寫 localStorage**（store.sandbox）。做成「不寫」而不是
 //    「離場再還原」是刻意的：使用者中途關掉分頁時沒有任何程式在跑，還原救不了他。
+import { FEATURES } from './config.js';
 import { store } from './store.js';
 import { clearGeo } from './geofilter.js';
 import { t, todayStr } from './util.js';
@@ -50,6 +51,16 @@ var btnEnd=document.getElementById('tourEnd');
 // （開場與結尾兩張卡片）。
 // `scene` 是這一步要站在哪個畫面上（list／sheet／map／plan），換場由 SCENES 負責。
 // `act` 在進入這一步時跑一次，用來讓畫面真的動（採用一套行程、展開自己組）。
+// 分頁列那一步的文字：**依 FEATURES 算有幾塊**，開關一改文字自動跟上。
+function tabbarText(lang){
+  var zh=['活動','收藏','行程'],ja=['イベント','お気に入り','プラン'];
+  if(FEATURES.restaurants){zh.push('餐廳');ja.push('レストラン');}
+  if(FEATURES.places){zh.push('景點');ja.push('スポット');}
+  var n=zh.length,num=['','一','二','三','四','五'][n];
+  return lang==='zh'
+    ?{h:'這個網站分'+num+'塊',p:'由左至右：'+zh.join('、')+'。'}
+    :{h:'サイトは '+n+' つ',p:'左から、'+ja.join('・')+'。'};
+}
 var STEPS=[
   { sel:null,
     zh:{h:'歡迎使用寄道日和・台灣',
@@ -57,9 +68,8 @@ var STEPS=[
     ja:{h:'寄道日和・台湾へようこそ',
         p:'台湾の展覧会・祭り・イベントが探せて、一日のプランまで組めます。1 分ほどでご案内します。'} },
 
-  { sel:['.tabbar'],
-    zh:{h:'這個網站分五塊', p:'由左至右：活動、收藏、行程、餐廳、景點。'},
-    ja:{h:'サイトは 5 つ', p:'左から、イベント・お気に入り・プラン・レストラン・スポット。'} },
+  // 分頁數跟著功能開關算（台灣版 2026-09-24，單位 D-4／D-6）：首發藏了餐廳與景點，寫死「五塊」會對不上畫面。
+  { sel:['.tabbar'], zh:tabbarText('zh'), ja:tabbarText('ja') },
 
   { sel:['.searchbar','.typebar'],
     zh:{h:'找到你想看的',
