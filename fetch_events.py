@@ -19,6 +19,7 @@ import sys
 import time
 import hashlib
 import io
+import unicodedata
 import ssl
 import zipfile
 import urllib.request
@@ -2063,6 +2064,76 @@ def tb_events(source, chain):
 
 
 # ============================================================
+# 跨來源去重（2026-09-24，單位 E-4 第二段）
+# ============================================================
+# 同一個活動會被**不同機關各登一次**（觀光署裡「2026日月潭花火音樂嘉年華」與「2026 日月潭花火…」、
+# 文化部與觀光署各一筆「楊麗花歌仔戲特展」），或被**拆成兩段**（奇美《埃及之王》一筆到 12/31、
+# 另一筆從隔年 1/1 起）。標題差一個空格就是不同 id，merge_events 的 id／網址去重攔不住。
+# 實測 1,441 筆裡 26 組可疑，其中「同一節目在不同場地、不同日期」（百老匯 10/1 國家音樂廳、10/8 中山堂）
+# 是**兩場真的不同的演出**，不可以合併——所以要日期與場地都對得上才算同一個。
+SOURCE_RANK = {"文化部藝文活動": 0, "觀光署活動": 1}   # 其餘（網站＋AI）排後面；保留順序要固定，id 才穩定
+
+
+def _norm_title(t):
+    t = unicodedata.normalize("NFKC", t or "").lower()
+    t = re.sub(r"^(20\d\d|1\d\d年)\s*", "", t)        # 開頭的年份（2026、115年）
+    return re.sub(r"[\s\W_]+", "", t)
+
+
+def _district_only(v):
+    """場地只寫到鄉鎮區（觀光署常見：「五結鄉」「魚池鄉」「三芝區」）。"""
+    v = re.sub(r"[（(].*?[）)]", "", v or "").strip()
+    return bool(re.fullmatch(r".{1,3}[區鄉鎮市]", v))
+
+
+def _same_place(a, b):
+    va, vb = _norm_title(a.get("venue")), _norm_title(b.get("venue"))
+    if va and vb and (va in vb or vb in va):
+        return True
+    if _district_only(a.get("venue")) or _district_only(b.get("venue")):
+        return True
+    try:
+        return haversine_km((a["lat"], a["lng"]), (b["lat"], b["lng"])) <= 1.0
+    except (KeyError, TypeError):
+        return False
+
+
+def _dates_touch(a, b):
+    """日期重疊或只差一天（被拆成兩段的展期）。"""
+    a0, a1 = date.fromisoformat(a["date_start"]), date.fromisoformat(a["date_end"])
+    b0, b1 = date.fromisoformat(b["date_start"]), date.fromisoformat(b["date_end"])
+    return (a0 - b1).days <= 1 and (b0 - a1).days <= 1
+
+
+def dedupe_events(events):
+    """同桶、標題正規化後相同、日期碰得到、場地對得上 → 合成一筆。回傳 (去重後清單, 合併筆數)。"""
+    def rank(e):
+        return (SOURCE_RANK.get(e.get("source"), 9), 0 if e.get("_given") else 1, e["date_start"], e.get("id", ""))
+    groups = {}
+    for e in events:
+        groups.setdefault((_norm_title(e.get("title")), e.get("area")), []).append(e)
+    out, merged = [], 0
+    for key, g in groups.items():
+        g.sort(key=rank)
+        kept = []
+        for e in g:
+            host = next((k for k in kept if _dates_touch(k, e) and _same_place(k, e)), None) if key[0] else None
+            if host is None:
+                kept.append(e)
+                continue
+            merged += 1
+            host["date_start"] = min(host["date_start"], e["date_start"])
+            host["date_end"] = max(host["date_end"], e["date_end"])
+            for f in ("img", "desc", "addr"):
+                if not host.get(f) and e.get(f):
+                    host[f] = e[f]
+            if "google.com/search" in (host.get("url") or "") and "google.com/search" not in (e.get("url") or ""):
+                host["url"] = e["url"]
+        out.extend(kept)
+    return out, merged
+
+
+# ============================================================
 # 日文翻譯（開放資料來源的活動沒有日文，單位 E-4／E-6）
 # ============================================================
 JA_BATCH = 40   # 一次請 AI 翻幾筆
@@ -4092,6 +4163,9 @@ def main():
         new_events.extend(cleaned)
         time.sleep(SOURCE_WAIT)
 
+    new_events, n_dup = dedupe_events(new_events)
+    if n_dup:
+        print(f"[dedupe] 跨來源／拆段的同一活動合併 {n_dup} 筆")
     merged = merge_events(new_events, previous)
     fresh = stamp_first_seen(merged, previous)
     # 獨立一行印出，**刻意不併進 [done]**：公開 repo 的摘要是拿文案字串 grep 的，
