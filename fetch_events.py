@@ -1317,8 +1317,12 @@ def build_provider_chain():
         gm = detect_gemini_models()
         if gm:
             chain.append({"name": "gemini", "models": gm, "call": call_gemini})
-    if GITHUB_TOKEN:
-        chain.append({"name": "github", "models": GITHUB_MODELS, "call": call_github})
+    # ⚠️⚠️ **GitHub Models 已於 2026-07-30 全面停止服務**（2026-09-24 實測＋官方 changelog）。
+    # 它不會回錯誤碼：`models.github.ai` 任何路徑都回 HTTP 200、text/plain「OK」，於是 llm_extract
+    # 把它當成「回應解析失敗」→ 每次呼叫重試 RETRY 次、各等 RETRY_WAIT 秒，**而且永遠不會被淘汰**
+    # （只有 HTTP 404/400/401/403 才淘汰）。Gemini 額度一用完，每個來源都白卡一分鐘。
+    # 所以不再放進供應商鏈；`call_github` 留著只是日後要換別的 OpenAI 相容服務時參考。
+    # 日本版（kanto-events）的管線應有同樣的問題，本 repo 不改它。
     if GROQ_API_KEY:
         chain.append({"name": "groq", "models": GROQ_MODELS, "call": call_groq})
     return chain

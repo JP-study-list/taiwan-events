@@ -510,6 +510,11 @@
 10. **背景跑的實驗要確認只有一支在跑**：2026-09-24 用 `nohup … &` 重起實驗，舊的那支沒停掉，
     兩支同時打 Nominatim（限速 1 req/s）、寫同一個 log，進度交錯看起來像「一筆卡兩分鐘」。
     長時間的腳本改用 Bash 的 `run_in_background`（工具會追蹤），起之前先 `ps` 確認沒有殘留。
+11. ⚠️⚠️ **GitHub Models 已於 2026-07-30 全面停止服務**（2026-09-24 實測＋官方 changelog）。
+    `models.github.ai` 任何路徑都回 **HTTP 200、text/plain「OK」**——不是錯誤碼，所以管線不會淘汰它，
+    只會一直「回應解析失敗」重試。台灣版已從供應商鏈拿掉（`build_provider_chain`），**現在 AI 只剩 Gemini 一家**
+    （Groq 從未設定），見待辦 O。⚠️ **日本版的管線應有同樣的問題**（本 repo 不改它，已告知使用者）。
+    ⚠️ 本機驗證 AI 那段**只能用 Gemini 金鑰**（放 `.env`，已在 `.gitignore`）；`gh auth token` 那條路已經不通。
 
 ### Secrets 指標（**值不寫進本檔**）
 
