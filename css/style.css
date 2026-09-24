@@ -16,6 +16,7 @@
    的單一來源」完全保住。要改配色仍然只動這兩個區塊。 */
 :root, .theme-light{
   --paper:#FBFAF7;
+  --block-tint:9%;          /* 沒圖卡片的分類色濃度（單位 N） */
   --surface:#FFFFFF;
   --ink:#1A1917;
   --ink-2:#6E6A63;      /* 所有次要文字與圖示一律用這層（紙底上 5.15，過 AA） */
@@ -189,6 +190,7 @@
 :root[data-theme="dark"]{
   color-scheme:dark;
   --paper:#141311;
+  --block-tint:14%;
   --surface:#1D1B18;
   --ink:#EFEBE3;
   --ink-2:#A09A8F;
@@ -745,11 +747,16 @@ body.tour-on .sheet{background:transparent;}
    改成中性面板 + 分類色只上在文字，六色在 --surface 上都過 AA
    （若用 --line 當底，祭典 3.84、煙火 3.93 會不合格）。 */
 .ph .block{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);
+  position:absolute;inset:0;display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;
+  background:var(--surface);
+  /* 台灣版（2026-09-24，單位 N）：底色帶一點分類色（淺 9%／深 14%，--block-tint），加分類圖示。
+     color-mix 不支援的舊瀏覽器退回上一行的純 --surface（就是原本的樣子）。 */
+  background:color-mix(in srgb, currentColor var(--block-tint), var(--surface));
+  box-shadow:inset 0 0 0 1px var(--line);
   font-family:var(--f-ttl);font-weight:var(--ttl-w);
-  font-size:clamp(15px,2.6vw,24px);letter-spacing:.14em;
+  font-size:clamp(13px,2.2vw,17px);letter-spacing:.14em;
 }
+.ph .block .gi{width:clamp(28px,9vw,44px);height:auto;stroke-width:1.5;}
 
 /* ===== 卡片文字：分類＋日期 → 標題 → 地點 ===== */
 .body{position:relative;padding:8px 0 2px;display:flex;flex-direction:column;gap:3px;}

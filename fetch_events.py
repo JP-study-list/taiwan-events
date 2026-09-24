@@ -2134,6 +2134,96 @@ def dedupe_events(events):
 
 
 # ============================================================
+# 補宣傳圖（單位 N，2026-09-24）
+# ============================================================
+# 文化部 1,205 筆只有 21 筆附圖。它們的連結 76% 是 OPENTIX 節目頁（913 筆）、54 筆年代售票，
+# 這些頁面都有分享預覽圖（og:image），實測就是節目主視覺 → 沒圖的活動去官方頁抓它。
+# 一律用誠實標示的爬蟲 UA（OPENTIX 的 robots.txt 是 `User-agent: * / Allow: /`，實測 5／5 抓得到）。
+# ⚠️⚠️ 2026-09-24 曾誤判「OPENTIX 只給瀏覽器看」而差點改用瀏覽器 UA——**根因是測試網址被截短了**：
+#   列印時把網址切到 40 字（節目編號實際 19 位數），再拿印出來的短網址去測，當然 404；Jina 拿到「通用頁」也是同一個原因。
+#   同一批完整網址重測，爬蟲 UA 與瀏覽器 UA 都是 200＋有圖（CLAUDE.md §8 地雷 16）。
+# ⚠️ 文化部自己的活動頁（cloud.culture.tw）og:image 是整站同一張橫幅 → 同一張圖被 ≥OG_GENERIC 個不同頁共用就不採用。
+OG_BOT_UA = "Mozilla/5.0 (compatible; taiwan-events/2.0; +https://github.com/JP-study-list/taiwan-events)"
+OG_SKIP_HOSTS = ("facebook.com", "instagram.com", "google.com", "line.me", "youtube.com", "youtu.be")
+OG_GENERIC = 3            # 同一張圖被這麼多個不同頁面共用＝網站橫幅
+OG_RETRY_DAYS = 14        # 抓過（不論成敗）多久內不重抓
+OG_TIME_BUDGET_S = 1500   # 整段時間上限；沒抓完的下一輪繼續
+OG_WAIT = 1.0
+_OG_RE = (re.compile(r'<meta[^>]+(?:property|name)=["\'](?:og:image|twitter:image)["\'][^>]*content=["\']([^"\']+)', re.I),
+          re.compile(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]*(?:property|name)=["\'](?:og:image|twitter:image)["\']', re.I))
+
+
+def _og_image(url):
+    """官方頁的分享預覽圖網址；抓不到回 None。"""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": OG_BOT_UA, "Accept-Language": "zh-TW,zh;q=0.9"})
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            html_text = resp.read(400000).decode("utf-8", errors="replace")
+            final = resp.geturl()
+    except (urllib.error.URLError, OSError, ValueError):
+        bump("og_error")
+        return None
+    for rx in _OG_RE:
+        m = rx.search(html_text)
+        if m:
+            img = urllib.parse.urljoin(final, m.group(1).strip())
+            return img if img.startswith("http") else None
+    bump("og_none")
+    return None
+
+
+def fill_og_images(merged, previous):
+    """
+    沒圖的活動去官方頁抓 og:image。抓過的記 `og_tried`（日期），OG_RETRY_DAYS 內不重抓——
+    ⚠️ 否則 verify_images 清掉一張小圖之後，隔天又會抓回同一張、再清一次，每天做白工。
+    新抽到的活動身上沒有這兩個欄位，要從既有資料繼承（同 verify_images 的 img_checked）。
+    """
+    prev = {e["id"]: e for e in previous if e.get("id")}
+    todo = []
+    for ev in merged:
+        if ev.get("img"):
+            continue
+        p = prev.get(ev.get("id")) or {}
+        if p.get("og_tried"):
+            ev["og_tried"] = p["og_tried"]
+            if p.get("img") and p.get("img_src") == "og":
+                ev["img"], ev["img_src"] = p["img"], "og"
+                continue
+            d = valid_date(p["og_tried"])
+            if d and (TODAY - d).days < OG_RETRY_DAYS:
+                continue
+        url = ev.get("url") or ""
+        host = urllib.parse.urlparse(url).netloc.lower()
+        if not url.startswith("http") or any(h in host for h in OG_SKIP_HOSTS):
+            continue
+        todo.append(ev)
+    by_url = {}
+    for ev in todo:
+        by_url.setdefault(ev["url"], []).append(ev)
+    t0, got = time.time(), {}
+    for url in by_url:
+        if time.time() - t0 > OG_TIME_BUDGET_S:
+            print(f"[og] 時間到（{OG_TIME_BUDGET_S} 秒），剩下的下一輪再抓")
+            break
+        got[url] = _og_image(url)
+        time.sleep(OG_WAIT)
+    uses = {}
+    for url, img in got.items():
+        if img:
+            uses.setdefault(img, set()).add(url)
+    generic = {img for img, urls in uses.items() if len(urls) >= OG_GENERIC}
+    n_ok = 0
+    for url, img in got.items():
+        for ev in by_url[url]:
+            ev["og_tried"] = TODAY.isoformat()
+            if img and img not in generic and not is_placeholder_img(img):
+                ev["img"], ev["img_src"] = clean_img_url(img), "og"
+                n_ok += 1
+    print(f"[og] 待補 {len(todo)} 筆（{len(by_url)} 個頁面）；抓了 {len(got)} 頁、補到 {n_ok} 筆；"
+          f"網站橫幅擋下 {len(generic)} 張：{[g[:60] for g in generic][:3]}")
+
+
+# ============================================================
 # 日文翻譯（開放資料來源的活動沒有日文，單位 E-4／E-6）
 # ============================================================
 JA_BATCH = 40   # 一次請 AI 翻幾筆
@@ -4224,6 +4314,7 @@ def main():
     # 改動既有那幾行會讓摘要靜默少一行（地雷 #19）。新增的行只進 run.log，安全。
     print(f"[new] 今天首次收錄 {fresh} 筆")
 
+    fill_og_images(merged, previous)   # 補宣傳圖（單位 N），必須在 verify_images 之前，抓來的圖才會被驗
     verify_images(merged, previous)
 
     # ⚠️ **`geo_rv` 跟著座標一起沿用**（單位 T-4）：座標沒變，之前那次反查複驗的結果

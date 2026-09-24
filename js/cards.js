@@ -9,6 +9,7 @@ import { clearDay, syncDateBtns } from './datefilter.js';
 import { clearGeo, geoActive, geoChipsHTML, geoLabels, handleGeoClick } from './geofilter.js';
 import { distKm, distLabel, distSink, hasLoc, openLocPicker } from './mylocation.js';
 import { newChipHTML, toggleNew } from './whatsnew.js';
+import { typeIconHTML } from './icons.js';
 import { expiredHTML, forgetFav, handleExpiredClick, rememberFav, soonChipHTML, toggleSoon } from './expiring.js';
 import { favFoodHTML, handleFavFoodClick, setFavFoodRepaint } from './favfood.js';
 
@@ -205,7 +206,7 @@ function cardHTML(ev){
     media='<img src="'+esc(chain[0])+'" alt="" loading="lazy" referrerpolicy="no-referrer"'
       +' data-type="'+esc(ev.type)+'" data-fb="'+esc(chain.slice(1).join(' '))+'">';
   }else{
-    media='<div class="block" style="color:var(--c-'+ev.type+')">'+esc(typeLabel(ev.type))+'</div>';
+    media=blockHTML(ev.type);
   }
   var dl=daysLeft(ev.date_end);
   var soon='';
@@ -251,17 +252,23 @@ function cardHTML(ev){
     +'</div></a>';
 }
 
+// 沒圖時的分類色塊（台灣版 2026-09-24，單位 N）：淡色底＋分類圖示＋分類名。
+// 使用者看 _probe/n-noimg.png 對照圖選的 C 案。底色只帶一點分類色（CSS 的 --block-tint），
+// 仍守著原本「不要整片分類色、免得比真照片搶眼」的原則。**兩個入口共用這一支**（無圖、破圖退回）。
+function blockHTML(ty){
+  return '<div class="block" style="color:var(--c-'+esc(ty)+')">'+typeIconHTML(ty,40)
+    +'<span>'+esc(typeLabel(ty))+'</span></div>';
+}
+
 // 把 <img> 換成分類色塊（來源把圖刪了，或抓到的其實是網站 logo）
 function showBlock(img){
   var ph=img.parentNode;
   if(!ph)return;
   var ty=img.getAttribute('data-type')||'';
   ph.style.aspectRatio='1.39';          // 無圖時退回固定比例
-  var d=document.createElement('div');
-  d.className='block';
-  d.style.color='var(--c-'+ty+')';
-  d.textContent=typeLabel(ty);
-  ph.replaceChild(d,img);
+  var tmp=document.createElement('div');
+  tmp.innerHTML=blockHTML(ty);
+  ph.replaceChild(tmp.firstChild,img);
 }
 
 function wireImage(img){
