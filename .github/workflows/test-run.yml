@@ -1,0 +1,44 @@
+# 測試用：手動觸發跑一次活動管線，結果存成下載檔（artifact），**不 commit 回 repo**。
+# 2026-09-24 建立，用來在沒有電腦的情況下驗證 AI 那段（觀光署分類、動漫網站抽取、日文翻譯）。
+# ⚠️ 只有 workflow_dispatch，沒有 schedule——**不會定時自動跑**。正式排程是單位 F（拆 repo 之後、放 runner repo）。
+# 需要 repo secret：GEMINI_API_KEY（GitHub Models 已於 2026-07-30 停止服務，見 CLAUDE.md §8 地雷 11）。
+name: Test Run (manual)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 跑活動管線（完整輸出寫進 run.log）
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          set +e
+          python fetch_events.py > run.log 2>&1
+          code=$?
+          echo "結束碼 $code"
+          grep -E '^\[(done|ja|stats|geo\] 台灣版|geo\] 資料庫整體|error)|\[tb\]|\[ok\]|\[drop\]' run.log || true
+          exit $code
+
+      - name: 存成下載檔
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-run-output
+          path: |
+            events.json
+            run.log
+          if-no-files-found: warn
+          retention-days: 7

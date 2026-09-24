@@ -102,6 +102,7 @@ index.html（Cloudflare Pages，組建命令只複製指定檔案進 dist/）
 | `progress.md` | 本專案開發歷史（反向時間序） |
 | `development-plan.md` | ⭐ **唯一的待辦來源**：§0-D 工作單位總表（從 A 起編）＋ §7 各單位細節 |
 | `AGENTS.md` | 外部代理護欄。⚠️ **內容仍是日本版**（路徑、分檔、筆數） |
+| `.github/workflows/test-run.yml` | **測試用、只能手動觸發**（2026-09-24）：在 Actions 上跑一次活動管線，`events.json` 與 `run.log` 存成下載檔（7 天），**不 commit 回 repo、沒有 schedule**。需要 repo secret `GEMINI_API_KEY`。正式排程是單位 F |
 | `_runner-template/` | 公開 runner repo 三支 workflow 的範本（`update.yml`／`restaurants.yml`／`places.yml`）。只有 secret 名稱無金鑰；**刻意不放 `.github/`** 以免被當排程跑。內容仍指向 `JP-study-list/kanto-events`、`KANTO_PAT`、JST |
 | `_ref-kanto/` | ⚠️ **只在本機（`.gitignore`，不進公開 repo）**。**日本版唯讀參考**：`CLAUDE-kanto.md`（含 §8 前端地雷）、`project-index-kanto.md`、`progress-kanto.md`、`development-plan-v3/v4-kanto.md`（飯店＝單位 F、SEO＝單位 Z 的規劃可參考）。**不是本專案的待辦或進度** |
 
