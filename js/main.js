@@ -61,6 +61,8 @@ function applyLang(){
   // ⚠️ 同 tourBtn／creditsBtn：siteinfoBtn 是入口卡，**不可以 set('siteinfoBtn',…)**
   set('lbSiteinfo',L.siteinfo); set('siteinfoBtnT',L.siteinfoStart);
   set('siteinfoBtnS',L.siteinfoSub); set('siteinfoTitle',L.siteinfoTitle);
+  // 切換到日本版（單位 D-5）。⚠️ 同 siteinfoBtn：標題與副標各自一個 id，不可以 set 整張卡片
+  set('lbOtherSite',L.otherSite); set('otherSiteT',L.otherSiteT); set('otherSiteS',L.otherSiteS);
   document.getElementById('siteinfoClose').setAttribute('aria-label',L.aSiteinfoClose);
   repaintSiteinfo();         // 同上：它開著的時候換語言，整頁要重畫
   set('mapTitle',L.mapTitle);

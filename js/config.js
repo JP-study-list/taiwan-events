@@ -184,6 +184,7 @@ var T={
     //    而那個值是從 AFF_IDS 算出來的——填了 ID 這句話自己就會換掉。
     //    **刻意不留第二個開關**：「填了 ID 卻忘了改文案」會是一個違法、
     //    但畫面上完全正常的狀態，而本專案最貴的教訓全部是這一族。
+    otherSite:'日本版', otherSiteT:'寄道日和（日本）', otherSiteS:'日本各地的展覽、祭典、景點與餐廳',
     siteinfo:'網站資訊', siteinfoStart:'關於本站',
     siteinfoSub:'資料來源、隱私權政策與聯絡方式',
     siteinfoTitle:'網站資訊', aSiteinfoClose:'關閉網站資訊',
@@ -443,6 +444,7 @@ var T={
     aCreditsClose:'画像クレジットを閉じる',
 
     // 日本語版。⚠️ 内容は中国語版と一対一で対応させること（片方だけ直すと食い違う）。
+    otherSite:'日本版', otherSiteT:'寄道日和（日本）', otherSiteS:'日本各地の展覧会・祭り・スポット・レストラン',
     siteinfo:'サイト情報', siteinfoStart:'このサイトについて',
     siteinfoSub:'データの出所・プライバシー・お問い合わせ',
     siteinfoTitle:'サイト情報', aSiteinfoClose:'サイト情報を閉じる',

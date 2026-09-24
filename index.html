@@ -277,6 +277,15 @@
       <span class="tx"><span class="tt" id="siteinfoBtnT"></span><span class="sb" id="siteinfoBtnS"></span></span>
       <span class="cv"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
     </button>
+    <!-- 切換到日本版（台灣版 2026-09-24，單位 D-5）。**是連結不是切換鈕**：兩站各自一個網域，
+         共用網址會讓 SEO 與 localStorage 打架（見 progress.md 2026-09-23 第一筆）。
+         開新分頁、右邊用「外部連結」圖示，讓人知道會離開本站。日本版那一側的連結要回日本版 repo 做。 -->
+    <h3 id="lbOtherSite"></h3>
+    <a class="tour-card" id="otherSiteBtn" href="https://events.rensakobo.com/" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M3.6 9h16.8"/><path d="M3.6 15h16.8"/><path d="M11.5 3a17 17 0 0 0 0 18"/><path d="M12.5 3a17 17 0 0 1 0 18"/></svg></span>
+      <span class="tx"><span class="tt" id="otherSiteT"></span><span class="sb" id="otherSiteS"></span></span>
+      <span class="cv"><svg viewBox="0 0 24 24"><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"/><path d="M11 13l9 -9"/><path d="M15 4h5v5"/></svg></span>
+    </a>
     <div class="sheet-btns">
       <button class="sheet-done" id="settingsDone"></button>
     </div>
