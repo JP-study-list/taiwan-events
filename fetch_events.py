@@ -2057,7 +2057,9 @@ def tb_events(source, chain):
         }
         ev["id"] = hashlib.md5((ev["title"] + "|" + ev["date_start"]).encode("utf-8")).hexdigest()[:12]
         out.append(ev)
-    return out
+    # ⚠️ drop() 回 None，**只回真正的活動**（2026-09-24：漏了這一行，Actions 上 merge 撞到 None 整支中止；
+    # 離線測試沒抓到，因為測試腳本自己先 `if e` 濾掉了——測試替程式把錯藏起來）。
+    return [e for e in out if e]
 
 
 # ============================================================
@@ -4040,6 +4042,7 @@ def main():
         if source.get("kind") in ("moc", "tb"):
             DROP_REASONS.clear()
             got = moc_events(source) if source["kind"] == "moc" else tb_events(source, chain)
+            got = [e for e in got if isinstance(e, dict)]   # 第二道：任何來源都不可以把 None 傳進 merge
             if DROP_REASONS:
                 print(f"  [drop] 丟棄 {sum(DROP_REASONS.values())} 筆：{drop_summary()}")
             print(f"  [ok] 轉換 {len(got)} 筆")
