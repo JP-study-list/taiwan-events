@@ -105,6 +105,26 @@ chk('文化創意產業園區 → 文創園區／華山1914', {'華山1914文創
 chk('⚠️ 原名一定排第一（「臺中」是館名的一部分）', vv('臺中國家歌劇院大劇院')[0], '臺中國家歌劇院大劇院')
 chk('⚠️ 「臺南美術館」不可以剝成「美術館」（剝完不到 4 字不試）', vv('臺南美術館'), ['臺南美術館'])
 
+print('[5c] 文化部場地名修補 moc_venue（E-8；「是否在別處」換成假查詢，不打網路）')
+real_fe = fe._found_elsewhere
+FAKE = {('高雄市立歷史博物館', '左營區'): (True, None),        # 館在鹽埕區，展在左營區 → 不採用
+        ('郵政博物館', '三民區'): (False, '郵政博物館高雄館')}   # 本區查到更具體的名稱 → 用它
+fe._found_elsewhere = lambda name, town, county: FAKE.get((name, town), (False, None))
+try:
+    mv = fe.moc_venue
+    chk('只寫鄉鎮＋演出單位是場館 → 換成館名', mv('鹿港鎮（彰化縣）=', {'showUnit': '(中華民國)吳肇勳書法館', 'masterUnit': ['彰化縣文化局']}), '吳肇勳書法館')
+    chk('只寫鄉鎮＋演出單位是機關 → 乾淨的鄉鎮名', mv('北斗鎮（彰化縣）=', {'showUnit': '(中華民國)彰化縣文化局', 'masterUnit': []}), '北斗鎮')
+    chk('⚠️ 志工團不是場地', mv('信義鄉（南投縣）=', {'showUnit': '玉山國家公園管理處志工', 'masterUnit': []}), '信義鄉')
+    # ↑ 那筆同時命中「管理處」，**單獨考驗不到「志工」**（突變測試抓到）；這筆只能靠「志工」擋
+    chk('⚠️ 「…博物館志工隊」帶館字但不是場地', mv('中正區（臺北市）=', {'showUnit': '國立臺灣博物館志工隊', 'masterUnit': []}), '中正區')
+    chk('⚠️ 主辦的館在別區 → 不採用', mv('左營區（高雄市）=', {'showUnit': '高雄市立歷史博物館', 'masterUnit': []}), '左營區')
+    chk('本區查到更具體的名稱 → 用它', mv('三民區（高雄市）=', {'showUnit': '郵政博物館', 'masterUnit': []}), '郵政博物館高雄館')
+    chk('只寫館內空間 → 館名（空間）', mv('人類文化廳二樓', {'showUnit': '國立自然科學博物館', 'masterUnit': []}), '國立自然科學博物館（人類文化廳二樓）')
+    chk('正常的館名不動', mv('三義木雕博物館', {'showUnit': '(中華民國)苗栗縣政府文化觀光局', 'masterUnit': []}), '三義木雕博物館')
+    chk('館名裡帶「1展廳」的不當成只寫空間', mv('中正紀念堂1展廳', {'showUnit': 'x', 'masterUnit': []}), '中正紀念堂1展廳')
+finally:
+    fe._found_elsewhere = real_fe
+
 print('[6] 跨來源去重 dedupe_events（2026-09-24，Actions 實跑 1,441 筆裡 26 組可疑）')
 def E(title, src, venue, d0, d1, lat=25.0, lng=121.5, area='台北', **kw):
     return dict(title=title, source=src, venue=venue, date_start=d0, date_end=d1, lat=lat, lng=lng, area=area,

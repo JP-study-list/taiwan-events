@@ -1797,6 +1797,83 @@ def _moc_img(u):
     return u[i:] if i > 0 else u
 
 
+# 場地名的修補（單位 E-8，2026-09-24）。文化部展覽 224 筆裡：
+#   **34 筆只寫到鄉鎮**，而且格式是「鹿港鎮（彰化縣）=」；
+#   少數只寫館內空間（「第3展覽廳」「第1、2展覽廳」「人類文化廳二樓」），看不出是哪一館。
+# 館名常藏在「演出單位」或「主辦單位」裡（「(中華民國)羅厝天主堂文物館」），但那兩欄也常是機關或人名
+# （「(中華民國)彰化縣文化局」「葉逸驊」）——所以要**像場館、而且不像機關**才採用，否則維持鄉鎮名。
+_MOC_DIST_RE = re.compile(r"^(.{1,3}[區鄉鎮市])（.{2,3}[市縣]）=?$")
+_MOC_ROOM_RE = re.compile(r"^(第?[\d０-９、,，及與&]+\s*(展覽廳|展廳|展示廳|展覽室|特展室|號廳)|.{1,6}(展覽廳|展示廳|文化廳|特展室)[一二三四五六七八九十\d]*樓?)$")
+_PLACE_LIKE_RE = re.compile(r"館|中心|美術|博物|園區|劇場|劇院|書院|廟|宮|寺|教會|醫院|圖書|公園|紀念|故居|古厝|工作室|畫廊|藝廊|藝術村|文創")
+_AGENCY_RE = re.compile(r"公所|政府|文化局|戶政|警察|事務所|處$|管理處|協會|學會|基金會|公司|樂團|劇團|無實體|委員會|志工|團隊")
+
+
+def _place_like(*cands):
+    """從演出／主辦單位裡挑第一個「像場館、不像機關」的名字；都不像回 None。"""
+    for c in cands:
+        c = re.sub(r"^\(中華民國\)", "", str(c or "").split(";")[0]).strip()
+        if 2 <= len(c) <= 30 and _PLACE_LIKE_RE.search(c) and not _AGENCY_RE.search(c):
+            return c
+    return None
+
+
+_ELSEWHERE_CACHE = {}
+
+
+def _found_elsewhere(name, town, county):
+    """
+    ⚠️ **主辦單位不等於場地**（2026-09-24 實測）：「郵政博物館」（台北）主辦、展在高雄三民區；
+    「高雄市立歷史博物館」（鹽埕區）主辦、展在左營區——照抄館名等於告訴使用者展覽在博物館裡。
+    所以挑出館名之後用 Photon 查它在哪：**明確查到在別的鄉鎮區才否決**；查不到（小場館 OSM 沒收）照樣採用，
+    因為沒有證據說它在別處。
+    回 (在別處?, 在本區找到的具體名稱或 None)——例：「郵政博物館」在三民區查到的是「郵政博物館高雄館」，
+    用那個名字比較不會讓人以為是台北那間（2026-09-24 實測）。
+    """
+    key = (name, town, county)
+    if key in _ELSEWHERE_CACHE:
+        return _ELSEWHERE_CACHE[key]
+    url = ("https://photon.komoot.io/api/?limit=5&lang=default&bbox={1},{0},{3},{2}&q=".format(*GEO_BBOX)
+           # ⚠️ **不加縣市**：要問的是「它在哪」，加了縣市 Photon 只會在那一帶找，
+           # 於是台北的「郵政博物館」在高雄查不到、被當成「查不到＝放行」（2026-09-24 實測）。
+           + urllib.parse.quote(name))
+    result = (False, None)
+    try:
+        feats = json.loads(http_get(url, headers={"User-Agent": OG_BOT_UA}, timeout=30)).get("features") or []
+        hits = [f.get("properties", {}) for f in feats
+                if name_confidence(name, str(f.get("properties", {}).get("name", ""))) == "strong"]
+        if hits:
+            local = [p for p in hits
+                     if town in norm_tai(" ".join(str(p.get(k, "")) for k in ("district", "city", "locality", "county", "name")))]
+            result = (not local, str(local[0].get("name")) if local else None)
+    except (urllib.error.URLError, OSError, ValueError):
+        pass
+    finally:
+        time.sleep(PHOTON_WAIT)
+    _ELSEWHERE_CACHE[key] = result
+    if result[0]:
+        bump("moc_venue_elsewhere")
+    return result
+
+
+def moc_venue(raw, rec, county=None):
+    """文化部的場地名修補：只寫鄉鎮 → 換成館名（查證不在別處）或乾淨的鄉鎮名；只寫館內空間 → 館名（空間）。"""
+    raw = (raw or "").strip().rstrip("=").strip()
+    units = (rec.get("showUnit"), *(rec.get("masterUnit") or []))
+    m = _MOC_DIST_RE.match(raw + "=") or _MOC_DIST_RE.match(raw)
+    if m:
+        town = norm_tai(m.group(1))
+        cand = _place_like(*units)
+        if cand:
+            elsewhere, local_name = _found_elsewhere(cand, town, county)
+            if not elsewhere:
+                return local_name or cand
+        return m.group(1)
+    if _MOC_ROOM_RE.match(raw):
+        inst = _place_like(*units)
+        return f"{inst}（{raw}）" if inst else raw
+    return raw
+
+
 def _moc_desc(html_text):
     t = re.sub(r"<[^>]+>", " ", html_text or "")
     t = re.sub(r"\s+", " ", t).strip()
@@ -1830,7 +1907,7 @@ def moc_convert(rec, ev_type):
         url = MOC_DETAIL.format(uid)
     out = []
     for (venue, addr), sessions in groups.items():
-        venue = venue or str(rec.get("showUnit") or "").strip()
+        venue = moc_venue(venue, rec, county_of(addr, venue)) or str(rec.get("showUnit") or "").strip()
         county = county_of(addr, venue)
         if not county:
             out.append(drop("地址認不出縣市"))
