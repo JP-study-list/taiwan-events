@@ -515,6 +515,17 @@
     只會一直「回應解析失敗」重試。台灣版已從供應商鏈拿掉（`build_provider_chain`），**現在 AI 只剩 Gemini 一家**
     （Groq 從未設定），見待辦 O。⚠️ **日本版的管線應有同樣的問題**（本 repo 不改它，已告知使用者）。
     ⚠️ 本機驗證 AI 那段**只能用 Gemini 金鑰**（放 `.env`，已在 `.gitignore`）；`gh auth token` 那條路已經不通。
+    ✅ 也可以在 Actions 上跑：repo secret `GEMINI_API_KEY`（2026-09-24 設好）＋ 手動觸發 `.github/workflows/test-run.yml`，
+    結果在 artifact（`gh run download <id> -n test-run-output`）。
+12. **Actions 的 secret 要加在「Actions」那一區**：使用者第一次加到了 **Codespaces** secrets（同一頁的另一個選項），
+    Actions 讀不到、`gh secret list` 也看不到，監看等了 30 分鐘才發現。手機版直接開
+    `github.com/<repo>/settings/secrets/actions` 最不會走錯。
+13. **測試替程式把錯藏起來**（2026-09-24）：觀光署轉換回傳的清單混著 `drop()` 的 None，離線測試**自己先 `if e` 濾掉了**，
+    於是 Actions 上 merge 撞到 None 整支中止。**驗「回傳值」的測試不可以先加工回傳值。**
+14. 地雷 8 的補充：同一天下午 3 點抓，文化部音樂類是 500 筆（凌晨 2:40 只有 23）——支持「深夜回部分資料」的推測。
+15. **Photon 對場館名的寫法很挑**：「台北華山1914文化創意產業園區」查無（OSM 登記「華山文創園區」，「華山1914」也查得到）、
+    「衛武營…中心音樂廳」查無而拿掉「音樂廳」就有。`venue_variants_tw` 依序試幾種寫法；
+    ⚠️ 剝開頭城市名只當**額外**寫法、剝完至少 4 字——「臺中國家歌劇院」的臺中是館名、「臺南美術館」剝成「美術館」會亂配。
 
 ### Secrets 指標（**值不寫進本檔**）
 
