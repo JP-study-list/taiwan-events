@@ -160,7 +160,8 @@ Cloudflare 免費 Universal SSL 只蓋一層（`*.rensakobo.com`），`events.tw
 
 **其他縣市（2026-09-25 進行中）**：**門檻一律 3 分以上收**（使用者 2026-09-25 定；原本提的「滿分的 27%」在北部三縣剛好也是 3 分）。新北、基隆、桃園照單全收。
 抽文章清單的做法：抓文章的小標題（h2～h4），推薦文幾乎都把每個景點當小標題；KKday、Klook、4travel、波比看世界會擋自動讀取。
-新北 17／基隆 6／桃園 20 筆已定（claude.ai/artifact/CMUZtBqgStsfj5yV76PJYH）。**其餘 16 區 2026-09-25 算完、待使用者圈選**（claude.ai/artifact/BSr8YbPKaTFCssYwiD7yYh）：新竹 29、宜蘭 8、台中 18、苗栗 18、彰化 15、南投 12、雲林 8、嘉義 16、台南 40、高雄 35、屏東 16、花蓮 15、台東 9、澎湖 5、金門 10、馬祖 2。全台合計約 330 筆。**使用者改在圈選頁逐筆按「收／不收」**（claude.ai/artifact/UezTtUdRysd9bK4jk1zv6S，含全部 20 區、646 個候選）：改動存在該頁的資料庫 `picks/c00`～`c19`（每區一份，`ov` 只記跟預設不同的：景點名稱→true/false），用 ArtifactData 讀回來套用。**計票底稿存在 `places_src/_vote-2026-09-25.json`**（底線開頭，`build_places.py` 會跳過）。
+新北 17／基隆 6／桃園 20 筆已定（claude.ai/artifact/CMUZtBqgStsfj5yV76PJYH）。**其餘 16 區 2026-09-25 算完、待使用者圈選**（claude.ai/artifact/BSr8YbPKaTFCssYwiD7yYh）：新竹 29、宜蘭 8、台中 18、苗栗 18、彰化 15、南投 12、雲林 8、嘉義 16、台南 40、高雄 35、屏東 16、花蓮 15、台東 9、澎湖 5、金門 10、馬祖 2。全台合計約 330 筆。**使用者改在圈選頁逐筆按「收／不收」**（claude.ai/artifact/UezTtUdRysd9bK4jk1zv6S，含全部 20 區、646 個候選）：改動存在該頁的資料庫 `picks/c00`～`c19`（每區一份，`ov` 只記跟預設不同的：景點名稱→true/false），用 ArtifactData 讀回來套用。
+**✅ 2026-09-25 使用者圈完：最終 363 筆**（預設 331 筆全留，再加 32 筆，沒有劃掉任何一筆），存在 `places_src/_picked-2026-09-25.json`。下一步：H 的實作提案（對到觀光署資料取座標／介紹／照片、區域型景點選代表點、分類與圖示、前端開關打開）。**計票底稿存在 `places_src/_vote-2026-09-25.json`**（底線開頭，`build_places.py` 會跳過）。
 日本那邊小縣市常常只有 4travel 的口碑排行一份（它的排行偏寺廟）；馬祖找不到日文介紹。屏東的 fullfenblog、bunnyann 各有屏東、墾丁兩篇，同一作者只算一票。
 ⚠️ 桃園偏多：兩篇台灣文章收錄重疊度高，門檻對它比較鬆。
 
