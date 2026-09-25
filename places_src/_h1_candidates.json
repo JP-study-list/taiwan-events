@@ -1,0 +1,12352 @@
+{
+"genres": [
+"動物園水族館",
+"樂園",
+"觀光工廠",
+"農場牧場",
+"老街夜市",
+"溫泉",
+"美術館",
+"博物館",
+"古蹟老屋",
+"寺廟宮廟",
+"地標展望",
+"自然景觀",
+"公園"
+],
+"rows": [
+{
+"area": "台北",
+"name": "台北101",
+"genre": "地標展望",
+"cands": [
+{
+"id": "Attraction_379000000A_000217",
+"name": "台北101",
+"city": "臺北市",
+"town": "信義區",
+"addr": "臺北市信義區",
+"lat": 25.03361,
+"lng": 121.56476,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "台北101",
+"id": "pl-taibei101"
+},
+{
+"area": "台北",
+"name": "大稻埕・迪化街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_379000000A_000099",
+"name": "大稻埕辜宅",
+"city": "臺北市",
+"town": "大同區",
+"addr": "臺北市大同區",
+"lat": 25.05876,
+"lng": 121.50874,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_379000000A_000347",
+"name": "大稻埕戲苑",
+"city": "臺北市",
+"town": "大同區",
+"addr": "臺北市大同區",
+"lat": 25.05482,
+"lng": 121.51047,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_379000000A_002638",
+"name": "大稻埕公園",
+"city": "臺北市",
+"town": "大同區",
+"addr": "臺北市大同區",
+"lat": 25.05861,
+"lng": 121.510346,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_379000000A_000418",
+"name": "大稻埕慈聖宮",
+"city": "臺北市",
+"town": "大同區",
+"addr": "臺北市大同區",
+"lat": 25.06025,
+"lng": 121.51218,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_379000000A_000420",
+"name": "臺北迪化街郵局",
+"city": "臺北市",
+"town": "大同區",
+"addr": "臺北市大同區",
+"lat": 25.05479,
+"lng": 121.50999,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "迪化街",
+"addr": "臺北市 大同區 民生西路",
+"lat": 25.056961,
+"lng": 121.511057,
+"score": 86,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "大稻埕259",
+"addr": "台北市 大同區 迪化街一段",
+"lat": 25.060849,
+"lng": 121.509468,
+"score": 22,
+"kind": "shop=farm"
+},
+{
+"src": "osm",
+"name": "迪化街224巷",
+"addr": "臺北市 大同區 ",
+"lat": 25.059502,
+"lng": 121.508979,
+"score": 20,
+"kind": "highway=service"
+},
+{
+"src": "osm",
+"name": "迪化街32巷口米粉湯",
+"addr": "臺北市 大同區 民樂街",
+"lat": 25.056224,
+"lng": 121.510975,
+"score": 15,
+"kind": "amenity=restaurant"
+}
+],
+"ja": "大稲埕",
+"id": "pl-dadaocheng-dihuajie"
+},
+{
+"area": "台北",
+"name": "國立故宮博物院",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_379000000A_000019",
+"name": "國立故宮博物院",
+"city": "臺北市",
+"town": "士林區",
+"addr": "臺北市士林區",
+"lat": 25.10236,
+"lng": 121.54849,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "国立故宮博物院",
+"id": "pl-guoligugongbowuyuan"
+},
+{
+"area": "台北",
+"name": "艋舺龍山寺",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_379000000A_000068",
+"name": "艋舺龍山寺",
+"city": "臺北市",
+"town": "萬華區",
+"addr": "臺北市萬華區",
+"lat": 25.037316,
+"lng": 121.499863,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "艋舺龍山寺",
+"id": "pl-mengxialongshansi"
+},
+{
+"area": "台北",
+"name": "中正紀念堂",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_379000000A_000023",
+"name": "國立中正紀念堂",
+"city": "臺北市",
+"town": "中正區",
+"addr": "臺北市中正區",
+"lat": 25.03619,
+"lng": 121.51868,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "中正紀念堂",
+"id": "pl-zhongzhengjiniantang"
+},
+{
+"area": "台北",
+"name": "北投溫泉・地熱谷",
+"genre": "溫泉",
+"cands": [
+{
+"id": "Attraction_379000000A_000011",
+"name": "新北投溫泉商圈",
+"city": "臺北市",
+"town": "北投區",
+"addr": "臺北市北投區",
+"lat": 25.137,
+"lng": 121.50853,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_379000000A_000033",
+"name": "北投溫泉博物館",
+"city": "臺北市",
+"town": "北投區",
+"addr": "臺北市北投區",
+"lat": 25.13658,
+"lng": 121.50715,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_379000000A_000210",
+"name": "地熱谷_地獄谷_鬼湖",
+"city": "臺北市",
+"town": "北投區",
+"addr": "臺北市北投區",
+"lat": 25.13776,
+"lng": 121.51162,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 80
+},
+{
+"src": "osm",
+"name": "地熱谷",
+"addr": "臺北市 北投區 光明路",
+"lat": 25.136686,
+"lng": 121.510335,
+"score": 83,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "北投溫泉博物館",
+"addr": "臺北市 北投區 中山路",
+"lat": 25.136579,
+"lng": 121.50719,
+"score": 30,
+"kind": "tourism=museum"
+},
+{
+"src": "osm",
+"name": "地熱口",
+"addr": "臺北市 ",
+"lat": 25.172405,
+"lng": 121.549223,
+"score": 13,
+"kind": "natural=volcano"
+},
+{
+"src": "osm",
+"name": "地熱口",
+"addr": "臺北市 ",
+"lat": 25.171229,
+"lng": 121.548979,
+"score": 13,
+"kind": "natural=volcano"
+},
+{
+"src": "osm",
+"name": "地熱口",
+"addr": "臺北市 ",
+"lat": 25.144283,
+"lng": 121.529224,
+"score": 13,
+"kind": "natural=volcano"
+}
+],
+"ja": "北投温泉",
+"id": "pl-beitouwenquan-diregu"
+},
+{
+"area": "台北",
+"name": "西門町",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_379000000A_001572",
+"name": "西門町",
+"city": "臺北市",
+"town": "萬華區",
+"addr": "臺北市萬華區",
+"lat": 25.04458,
+"lng": 121.50753,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "西門町",
+"id": "pl-ximenting"
+},
+{
+"area": "台北",
+"name": "臺北市立動物園",
+"genre": "動物園水族館",
+"cands": [
+{
+"id": "Attraction_379000000A_000211",
+"name": "臺北市立動物園",
+"city": "臺北市",
+"town": "文山區",
+"addr": "臺北市文山區",
+"lat": 24.99886,
+"lng": 121.58106,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "台北市立動物園",
+"id": "pl-taibeishilidongwuyuan"
+},
+{
+"area": "台北",
+"name": "士林夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_379000000A_001536",
+"name": "士林觀光夜市",
+"city": "臺北市",
+"town": "士林區",
+"addr": "臺北市士林區",
+"lat": 25.08787,
+"lng": 121.52408,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "士林夜市",
+"id": "pl-shilinyeshi"
+},
+{
+"area": "台北",
+"name": "陽明山",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_379000000A_000269",
+"name": "陽明山夜景",
+"city": "臺北市",
+"town": "士林區",
+"addr": "臺北市士林區",
+"lat": 25.13351,
+"lng": 121.5381,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_379000000A_000026",
+"name": "陽明山中山樓",
+"city": "臺北市",
+"town": "北投區",
+"addr": "臺北市北投區",
+"lat": 25.15563,
+"lng": 121.55265,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_379000000A_000189",
+"name": "陽明山國家公園",
+"city": "臺北市",
+"town": "北投區",
+"addr": "臺北市北投區",
+"lat": 25.15574,
+"lng": 121.54762,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_379000000A_000100",
+"name": "陽明山辛亥光復樓",
+"city": "臺北市",
+"town": "北投區",
+"addr": "臺北市北投區",
+"lat": 25.15959,
+"lng": 121.53978,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 80
+},
+{
+"id": "Attraction_379000000A_000010",
+"name": "陽明山溫泉區_小油坑",
+"city": "臺北市",
+"town": "北投區",
+"addr": "臺北市北投區",
+"lat": 25.17669,
+"lng": 121.54683,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+},
+{
+"src": "osm",
+"name": "陽明山",
+"addr": "臺北市 ",
+"lat": 25.15273,
+"lng": 121.549104,
+"score": 100,
+"kind": "place=village"
+},
+{
+"src": "osm",
+"name": "陽明山",
+"addr": "臺北市 北投區 湖山路一段",
+"lat": 25.152374,
+"lng": 121.547376,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "想 陽明山",
+"addr": "台北市 士林區 光華路",
+"lat": 25.136929,
+"lng": 121.542199,
+"score": 92,
+"kind": "amenity=cafe"
+},
+{
+"src": "osm",
+"name": "陽明山 山藥之家",
+"addr": "臺北市 北投區 中興路",
+"lat": 25.159351,
+"lng": 121.53894,
+"score": 83,
+"kind": "amenity=restaurant"
+}
+],
+"ja": "陽明山",
+"id": "pl-yangmingshan"
+},
+{
+"area": "台北",
+"name": "寧夏夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_379000000A_001560",
+"name": "寧夏觀光夜市",
+"city": "臺北市",
+"town": "大同區",
+"addr": "臺北市大同區",
+"lat": 25.056681,
+"lng": 121.515364,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "寧夏路夜市",
+"id": "pl-ningxiayeshi"
+},
+{
+"area": "台北",
+"name": "兒童新樂園",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_379000000A_000351",
+"name": "臺北市立兒童新樂園",
+"city": "臺北市",
+"town": "士林區",
+"addr": "臺北市士林區",
+"lat": 25.097239,
+"lng": 121.514947,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-ertongxinleyuan"
+},
+{
+"area": "台北",
+"name": "行天宮",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_379000000A_000065",
+"name": "行天宮",
+"city": "臺北市",
+"town": "中山區",
+"addr": "臺北市中山區",
+"lat": 25.06308,
+"lng": 121.5339,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_379000000A_000192",
+"name": "行天宮北投分宮_忠義廟",
+"city": "臺北市",
+"town": "北投區",
+"addr": "臺北市北投區",
+"lat": 25.13701,
+"lng": 121.47757,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 74
+}
+],
+"ja": "行天宮",
+"id": "pl-xingtiangong"
+},
+{
+"area": "台北",
+"name": "貓空",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_379000000A_000422",
+"name": "貓空纜車",
+"city": "臺北市",
+"town": "文山區",
+"addr": "臺北市文山區",
+"lat": 24.99634,
+"lng": 121.57635,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_379000000A_002168",
+"name": "貓空樟樹步道",
+"city": "臺北市",
+"town": "文山區",
+"addr": "臺北市文山區",
+"lat": 24.967289,
+"lng": 121.587401,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "貓空",
+"addr": "臺北市 文山區 指南路三段38巷",
+"lat": 24.969139,
+"lng": 121.588171,
+"score": 100,
+"kind": "aerialway=station"
+},
+{
+"src": "osm",
+"name": "貓空",
+"addr": "臺北市 文山區 ",
+"lat": 24.967347,
+"lng": 121.586816,
+"score": 100,
+"kind": "place=hamlet"
+},
+{
+"src": "osm",
+"name": "貓空",
+"addr": "臺北市 文山區 ",
+"lat": 24.966727,
+"lng": 121.597939,
+"score": 100,
+"kind": "place=hamlet"
+}
+],
+"ja": "猫空",
+"id": "pl-maokong"
+},
+{
+"area": "台北",
+"name": "剝皮寮",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_379000000A_000087",
+"name": "臺北市鄉土教育中心_剝皮寮歷史街區",
+"city": "臺北市",
+"town": "萬華區",
+"addr": "臺北市萬華區",
+"lat": 25.03666,
+"lng": 121.50327,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 70
+},
+{
+"src": "osm",
+"name": "龍山寺(剝皮寮)",
+"addr": "臺北市 萬華區 康定路",
+"lat": 25.036888,
+"lng": 121.501578,
+"score": 86,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "",
+"id": "pl-bopiliao"
+},
+{
+"area": "台北",
+"name": "象山",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_379000000A_000380",
+"name": "象山公園",
+"city": "臺北市",
+"town": "信義區",
+"addr": "臺北市信義區",
+"lat": 25.03042,
+"lng": 121.57011,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_379000000A_000185",
+"name": "南港山系_象山親山步道",
+"city": "臺北市",
+"town": "信義區",
+"addr": "臺北市信義區",
+"lat": 25.027381,
+"lng": 121.570952,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 71
+},
+{
+"src": "osm",
+"name": "象山",
+"addr": "臺北市 信義區 信義路五段",
+"lat": 25.032868,
+"lng": 121.569758,
+"score": 100,
+"kind": "railway=station"
+},
+{
+"src": "osm",
+"name": "象山",
+"addr": "臺北市 信義區 信義路五段",
+"lat": 25.03292,
+"lng": 121.569769,
+"score": 100,
+"kind": "railway=stop"
+},
+{
+"src": "osm",
+"name": "象山",
+"addr": "臺北市 信義區 信義路五段",
+"lat": 25.032761,
+"lng": 121.569749,
+"score": 100,
+"kind": "railway=stop"
+},
+{
+"src": "osm",
+"name": "象山",
+"addr": "臺北市 ",
+"lat": 25.026541,
+"lng": 121.575542,
+"score": 100,
+"kind": "natural=peak"
+},
+{
+"src": "osm",
+"name": "四獸山 象山",
+"addr": "臺北市 信義區 象山自然步道(主線)",
+"lat": 25.027486,
+"lng": 121.57142,
+"score": 86,
+"kind": "information=board"
+}
+],
+"ja": "象山",
+"id": "pl-xiangshan"
+},
+{
+"area": "台北",
+"name": "國立臺灣科學教育館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_379000000A_000021",
+"name": "國立臺灣科學教育館",
+"city": "臺北市",
+"town": "士林區",
+"addr": "臺北市士林區",
+"lat": 25.095592,
+"lng": 121.516643,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_379000000A_000041",
+"name": "臺北市立天文科學教育館",
+"city": "臺北市",
+"town": "士林區",
+"addr": "臺北市士林區",
+"lat": 25.09583,
+"lng": 121.5183,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 45
+}
+],
+"ja": "",
+"id": "pl-guolitaiwankexuejiaoyuguan"
+},
+{
+"area": "台北",
+"name": "榕錦時光生活園區",
+"genre": "公園",
+"cands": [
+{
+"src": "osm",
+"name": "榕錦時光生活園區",
+"addr": "臺北市 大安區 ",
+"lat": 25.030655,
+"lng": 121.525281,
+"score": 100,
+"kind": "landuse=commercial"
+}
+],
+"ja": "",
+"id": "pl-rongjinshiguangshenghuoyuanqu"
+},
+{
+"area": "台北",
+"name": "國家鐵道博物館",
+"genre": "博物館",
+"cands": [
+{
+"src": "osm",
+"name": "國家鐵道博物館",
+"addr": "臺北市 信義區 市民大道五段",
+"lat": 25.04728,
+"lng": 121.56337,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "國家鐵道博物館籌備處",
+"addr": "臺北市 信義區 市民大道五段",
+"lat": 25.047401,
+"lng": 121.564133,
+"score": 86,
+"kind": "office=government"
+},
+{
+"src": "osm",
+"name": "國家鐵道博物館籌備處",
+"addr": "臺北市 信義區 市民大道五段",
+"lat": 25.047401,
+"lng": 121.564133,
+"score": 86,
+"kind": "tourism=museum"
+}
+],
+"ja": "",
+"id": "pl-guojiatiedaobowuguan"
+},
+{
+"area": "台北",
+"name": "臺北市立美術館",
+"genre": "美術館",
+"cands": [
+{
+"id": "Attraction_379000000A_000030",
+"name": "臺北市立美術館",
+"city": "臺北市",
+"town": "中山區",
+"addr": "臺北市中山區",
+"lat": 25.07196,
+"lng": 121.52437,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_379000000A_002340",
+"name": "忠泰美術館",
+"city": "臺北市",
+"town": "大安區",
+"addr": "臺北市大安區",
+"lat": 25.044295,
+"lng": 121.537315,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_379000000A_002342",
+"name": "楊英風美術館",
+"city": "臺北市",
+"town": "中正區",
+"addr": "臺北市中正區",
+"lat": 25.032131,
+"lng": 121.514497,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_379000000A_002641",
+"name": "順益台灣原住民博物館_美術分館",
+"city": "臺北市",
+"town": "中正區",
+"addr": "臺北市中正區",
+"lat": 25.046377,
+"lng": 121.510951,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 63
+}
+],
+"ja": "",
+"id": "pl-taibeishilimeishuguan"
+},
+{
+"area": "台北",
+"name": "霞海城隍廟",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_379000000A_000069",
+"name": "台北霞海城隍廟",
+"city": "臺北市",
+"town": "大同區",
+"addr": "臺北市大同區",
+"lat": 25.0556,
+"lng": 121.51017,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "霞海城隍廟",
+"addr": "臺北市 大同區 迪化街一段",
+"lat": 25.055626,
+"lng": 121.51021,
+"score": 100,
+"kind": "amenity=place_of_worship"
+},
+{
+"src": "osm",
+"name": "霞海城隍廟",
+"addr": "臺北市 松山區 八德路四段",
+"lat": 25.049885,
+"lng": 121.57022,
+"score": 100,
+"kind": "amenity=place_of_worship"
+}
+],
+"ja": "",
+"id": "pl-xiahaichenghuangmiao"
+},
+{
+"area": "台北",
+"name": "民生社區・富錦街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_379000000A_001581",
+"name": "富錦街",
+"city": "臺北市",
+"town": "松山區",
+"addr": "臺北市松山區",
+"lat": 25.06063,
+"lng": 121.55911,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-minshengshequ-fujinjie"
+},
+{
+"area": "台北",
+"name": "永康街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_379000000A_001587",
+"name": "永康街區",
+"city": "臺北市",
+"town": "大安區",
+"addr": "臺北市大安區",
+"lat": 25.033267,
+"lng": 121.529883,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 92
+}
+],
+"ja": "",
+"id": "pl-yongkangjie"
+},
+{
+"area": "台北",
+"name": "饒河街夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_379000000A_001538",
+"name": "饒河街觀光夜市",
+"city": "臺北市",
+"town": "松山區",
+"addr": "臺北市松山區",
+"lat": 25.05091,
+"lng": 121.57754,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "饒河街観光夜市",
+"id": "pl-raohejieyeshi"
+},
+{
+"area": "台北",
+"name": "天文科學教育館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_379000000A_000041",
+"name": "臺北市立天文科學教育館",
+"city": "臺北市",
+"town": "士林區",
+"addr": "臺北市士林區",
+"lat": 25.09583,
+"lng": 121.5183,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_379000000A_000021",
+"name": "國立臺灣科學教育館",
+"city": "臺北市",
+"town": "士林區",
+"addr": "臺北市士林區",
+"lat": 25.095592,
+"lng": 121.516643,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 45
+}
+],
+"ja": "",
+"id": "pl-tianwenkexuejiaoyuguan"
+},
+{
+"area": "台北",
+"name": "國立臺灣博物館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_379000000A_000022",
+"name": "國立臺灣博物館",
+"city": "臺北市",
+"town": "中正區",
+"addr": "臺北市中正區",
+"lat": 25.04276,
+"lng": 121.51503,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_379000000A_001736",
+"name": "國立臺灣博物館_南門館",
+"city": "臺北市",
+"town": "中正區",
+"addr": "臺北市中正區",
+"lat": 25.0332,
+"lng": 121.51596,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_379000000A_000257",
+"name": "國立臺灣博物館_古生物館",
+"city": "臺北市",
+"town": "中正區",
+"addr": "臺北市中正區",
+"lat": 25.04356,
+"lng": 121.51436,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_379000000A_002346",
+"name": "臺灣股票博物館",
+"city": "臺北市",
+"town": "松山區",
+"addr": "臺北市松山區",
+"lat": 25.061075,
+"lng": 121.544522,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 81
+},
+{
+"id": "Attraction_379000000A_002576",
+"name": "國立臺灣博物館_鐵道部園區",
+"city": "臺北市",
+"town": "大同區",
+"addr": "臺北市大同區",
+"lat": 25.048834,
+"lng": 121.511383,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 80
+}
+],
+"ja": "国立台湾博物館",
+"id": "pl-guolitaiwanbowuguan"
+},
+{
+"area": "台北",
+"name": "華山1914文創園區",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_379000000A_001592",
+"name": "華山1914文化創意產業園區",
+"city": "臺北市",
+"town": "中正區",
+"addr": "臺北市中正區",
+"lat": 25.04413,
+"lng": 121.5294,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+}
+],
+"ja": "華山1914文化創意産業園区",
+"id": "pl-huashan1914wenchuangyuanqu"
+},
+{
+"area": "台北",
+"name": "松山文創園區",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_379000000A_000229",
+"name": "松山文創園區",
+"city": "臺北市",
+"town": "信義區",
+"addr": "臺北市信義區",
+"lat": 25.043839,
+"lng": 121.560631,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_379000000A_001809",
+"name": "松山文創園區_松菸風格店家",
+"city": "臺北市",
+"town": "信義區",
+"addr": "臺北市信義區",
+"lat": 25.04385,
+"lng": 121.56064,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+}
+],
+"ja": "台湾総督府専売局松山煙草工場",
+"id": "pl-songshanwenchuangyuanqu"
+},
+{
+"area": "台北",
+"name": "台北當代藝術館",
+"genre": "美術館",
+"cands": [
+{
+"id": "Attraction_379000000A_000032",
+"name": "台北當代藝術館",
+"city": "臺北市",
+"town": "大同區",
+"addr": "臺北市大同區",
+"lat": 25.05072,
+"lng": 121.51892,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "台北当代芸術館",
+"id": "pl-taibeidangdaiyishuguan"
+},
+{
+"area": "台北",
+"name": "南機場夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_379000000A_001564",
+"name": "南機場夜市",
+"city": "臺北市",
+"town": "中正區",
+"addr": "臺北市中正區",
+"lat": 25.02916,
+"lng": 121.50591,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-nanjichangyeshi"
+},
+{
+"area": "台北",
+"name": "松山飛機巷",
+"genre": "老街夜市",
+"cands": [
+{
+"src": "web",
+"name": "松山飛機巷",
+"addr": "臺北市中山區濱江街180巷（只到鄉鎮中心（要自己看地圖））",
+"lat": 25.064361,
+"lng": 121.533468,
+"score": 80,
+"ref": "https://yogiiilovestea.com/taipei-airplane-lane/",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-songshanfeijixiang"
+},
+{
+"area": "台北",
+"name": "師大夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"src": "osm",
+"name": "師大商圈",
+"addr": "臺北市 大安區 泰順街39巷",
+"lat": 25.024156,
+"lng": 121.529142,
+"score": 18,
+"kind": "tourism=attraction"
+}
+],
+"ja": "",
+"id": "pl-shidayeshi"
+},
+{
+"area": "台北",
+"name": "公館夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"src": "osm",
+"name": "公館夜市",
+"addr": "臺北市 中正區 羅斯福路四段",
+"lat": 25.01331,
+"lng": 121.534652,
+"score": 100,
+"kind": "amenity=marketplace"
+}
+],
+"ja": "",
+"id": "pl-gongguanyeshi"
+},
+{
+"area": "新北",
+"name": "烏來老街・溫泉",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_382000000A_110660",
+"name": "烏來老街",
+"city": "新北市",
+"town": "烏來區",
+"addr": "新北市烏來區烏來街",
+"lat": 24.86414,
+"lng": 121.55162,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_382000000A_109666",
+"name": "烏來溫泉",
+"city": "新北市",
+"town": "烏來區",
+"addr": "新北市烏來區烏來街、溫泉街與環山路一帶",
+"lat": 24.8634,
+"lng": 121.55034,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_382000000A_403288",
+"name": "中山溫泉公園",
+"city": "新北市",
+"town": "金山區",
+"addr": "新北市金山區溫泉路2巷10號",
+"lat": 25.22198,
+"lng": 121.63998,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_A15011000H_000188",
+"name": "金山萬里溫泉區",
+"city": "新北市",
+"town": "金山區",
+"addr": "新北市金山區",
+"lat": 25.21478,
+"lng": 121.6422,
+"url": "https://www.northguan-nsa.gov.tw/user/Article.aspx?Lang=1&SNo=04005472",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 80
+}
+],
+"ja": "",
+"id": "pl-wulailaojie-wenquan"
+},
+{
+"area": "新北",
+"name": "十分瀑布・平溪老街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_382000000A_110030",
+"name": "平溪老街",
+"city": "新北市",
+"town": "平溪區",
+"addr": "新北市平溪區平溪街",
+"lat": 25.02533,
+"lng": 121.73882,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_382000000A_109612",
+"name": "十分瀑布公園",
+"city": "新北市",
+"town": "平溪區",
+"addr": "新北市平溪區乾坑10號",
+"lat": 25.04897,
+"lng": 121.78746,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_382000000A_110037",
+"name": "十分老街",
+"city": "新北市",
+"town": "平溪區",
+"addr": "新北市平溪區十分老街",
+"lat": 25.04269,
+"lng": 121.77667,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+},
+{
+"id": "Attraction_382000000A_110833",
+"name": "雙溪老街",
+"city": "新北市",
+"town": "雙溪區",
+"addr": "新北市雙溪區長安街15號",
+"lat": 25.03461,
+"lng": 121.86448,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 45
+}
+],
+"ja": "十分瀑布",
+"id": "pl-shifenpubu-pingxilaojie"
+},
+{
+"area": "新北",
+"name": "淡水老街・漁人碼頭",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_382000000A_109658",
+"name": "淡水老街",
+"city": "新北市",
+"town": "淡水區",
+"addr": "新北市淡水區中正路、重建街、清水街一帶",
+"lat": 25.17103,
+"lng": 121.43855,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_382000000A_109659",
+"name": "淡水漁人碼頭(淡二漁港)",
+"city": "新北市",
+"town": "淡水區",
+"addr": "新北市淡水區觀海路199號",
+"lat": 25.18339,
+"lng": 121.41147,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+}
+],
+"ja": "",
+"id": "pl-danshuilaojie-yurenmatou"
+},
+{
+"area": "新北",
+"name": "金瓜石・黃金博物館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_382000000A_109620",
+"name": "新北市立黃金博物館",
+"city": "新北市",
+"town": "瑞芳區",
+"addr": "新北市瑞芳區金瓜石金光路8號",
+"lat": 25.10796,
+"lng": 121.85766,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15011300H_000008",
+"name": "新北市立黃金博物館",
+"city": "新北市",
+"town": "瑞芳區",
+"addr": "新北市瑞芳區金瓜石金光路8號",
+"lat": 25.10841,
+"lng": 121.8562,
+"url": "https://www.gep.ntpc.gov.tw/",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_382000000A_110309",
+"name": "金瓜石神社(黃金神社)",
+"city": "新北市",
+"town": "瑞芳區",
+"addr": "新北市瑞芳區金瓜石金光路8號(黃金博物館園區)",
+"lat": 25.1048,
+"lng": 121.85883,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+},
+{
+"id": "Attraction_382000000A_110857",
+"name": "祈堂老街(金瓜石老街)",
+"city": "新北市",
+"town": "瑞芳區",
+"addr": "新北市瑞芳區金瓜石祈堂路",
+"lat": 25.10966,
+"lng": 121.85853,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+},
+{
+"id": "Attraction_382000000A_111421",
+"name": "金瓜石地質公園 (本山礦體)",
+"city": "新北市",
+"town": "瑞芳區",
+"addr": "新北市瑞芳區102縣道18公里處",
+"lat": 25.10166,
+"lng": 121.85878,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 71
+}
+],
+"ja": "金瓜石鉱山",
+"id": "pl-jinguashi-huangjinbowuguan"
+},
+{
+"area": "新北",
+"name": "九份老街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_382000000A_109990",
+"name": "九份老街",
+"city": "新北市",
+"town": "瑞芳區",
+"addr": "新北市瑞芳區基山街(九份老街)",
+"lat": 25.10987,
+"lng": 121.84518,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-jiufenlaojie"
+},
+{
+"area": "新北",
+"name": "野柳地質公園",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_382000000A_109735",
+"name": "野柳地質公園",
+"city": "新北市",
+"town": "萬里區",
+"addr": "新北市萬里區野柳村港東路167-1號",
+"lat": 25.2064,
+"lng": 121.69047,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15011000H_000040",
+"name": "野柳地質公園",
+"city": "新北市",
+"town": "萬里區",
+"addr": "新北市萬里區野柳里港東路167-1號",
+"lat": 25.20529,
+"lng": 121.6899,
+"url": "https://www.ylgeopark.org.tw/?language=TW",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "野柳風景特定区",
+"id": "pl-yeliudizhigongyuan"
+},
+{
+"area": "新北",
+"name": "碧潭",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_382000000A_403691",
+"name": "碧潭堰",
+"city": "新北市",
+"town": "新店區",
+"addr": "新北市新店區環河路",
+"lat": 24.96206,
+"lng": 121.53656,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 92
+},
+{
+"id": "Attraction_382000000A_110096",
+"name": "碧潭吊橋",
+"city": "新北市",
+"town": "新店區",
+"addr": "新北市新店區碧潭吊橋",
+"lat": 24.95632,
+"lng": 121.53611,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_382000000A_109613",
+"name": "碧潭風景區",
+"city": "新北市",
+"town": "新店區",
+"addr": "新北市新店區新店路",
+"lat": 24.95599,
+"lng": 121.5365,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_382000000A_403764",
+"name": "新店大碧潭商圈（光明街商圈）",
+"city": "新北市",
+"town": "新店區",
+"addr": "新北市新店區光明街",
+"lat": 24.9593,
+"lng": 121.53846,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 70
+}
+],
+"ja": "",
+"id": "pl-bitan"
+},
+{
+"area": "新北",
+"name": "鶯歌老街・陶瓷博物館",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_382000000A_110661",
+"name": "鶯歌老街",
+"city": "新北市",
+"town": "鶯歌區",
+"addr": "新北市鶯歌區陶瓷街、尖山埔路",
+"lat": 24.95221,
+"lng": 121.34734,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_382000000A_109616",
+"name": "新北市立鶯歌陶瓷博物館",
+"city": "新北市",
+"town": "鶯歌區",
+"addr": "新北市鶯歌區文化路200號",
+"lat": 24.94925,
+"lng": 121.35203,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_382000000A_110761",
+"name": "許新旺陶瓷紀念博物館",
+"city": "新北市",
+"town": "鶯歌區",
+"addr": "新北市鶯歌區尖山埔路81號",
+"lat": 24.9509,
+"lng": 121.3478,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 75
+},
+{
+"id": "Attraction_A13020000G_000048",
+"name": "新北：許新旺陶瓷紀念博物館",
+"city": "新北市",
+"town": "鶯歌區",
+"addr": "新北市鶯歌區尖山埔路81號",
+"lat": 24.9509574576297,
+"lng": 121.347689626984,
+"url": "https://www.shuspottery.com/",
+"status": 1,
+"imgs": 7,
+"src": "tb",
+"score": 69
+}
+],
+"ja": "",
+"id": "pl-yinggelaojie-taocibowuguan"
+},
+{
+"area": "新北",
+"name": "八里左岸",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_382000000A_403427",
+"name": "八里左岸公園",
+"city": "新北市",
+"town": "八里區",
+"addr": "新北市八里區觀海大道36號",
+"lat": 25.16083,
+"lng": 121.43001,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_382000000A_110132",
+"name": "八里左岸漫步廣場",
+"city": "新北市",
+"town": "八里區",
+"addr": "新北市八里區觀海大道",
+"lat": 25.16227,
+"lng": 121.42683,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_382000000A_110618",
+"name": "八里左岸自行車道",
+"city": "新北市",
+"town": "八里區",
+"addr": "新北市八里區左岸",
+"lat": 25.15135,
+"lng": 121.44295,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "八里左岸公園",
+"addr": "新北市 八里區 ",
+"lat": 25.161875,
+"lng": 121.428322,
+"score": 89,
+"kind": "leisure=park"
+},
+{
+"src": "osm",
+"name": "八里左岸自行車道",
+"addr": "新北市 八里區 ",
+"lat": 25.15913,
+"lng": 121.434753,
+"score": 83,
+"kind": "highway=pedestrian"
+},
+{
+"src": "osm",
+"name": "八里左岸自行車道",
+"addr": "新北市 八里區 ",
+"lat": 25.148831,
+"lng": 121.444643,
+"score": 83,
+"kind": "highway=cycleway"
+},
+{
+"src": "osm",
+"name": "八里左岸自行車道",
+"addr": "新北市 八里區 ",
+"lat": 25.156836,
+"lng": 121.437267,
+"score": 83,
+"kind": "highway=cycleway"
+},
+{
+"src": "osm",
+"name": "八里左岸自行車道",
+"addr": "新北市 八里區 ",
+"lat": 25.132382,
+"lng": 121.452405,
+"score": 83,
+"kind": "highway=cycleway"
+}
+],
+"ja": "",
+"id": "pl-balizuoan"
+},
+{
+"area": "新北",
+"name": "深坑老街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_382000000A_109911",
+"name": "深坑老街",
+"city": "新北市",
+"town": "深坑區",
+"addr": "新北市深坑區深坑街",
+"lat": 25.00169,
+"lng": 121.61474,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-shenkenglaojie"
+},
+{
+"area": "新北",
+"name": "三峽老街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_382000000A_109664",
+"name": "三峽老街",
+"city": "新北市",
+"town": "三峽區",
+"addr": "新北市三峽區民權街37-147號",
+"lat": 24.93377,
+"lng": 121.36981,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-sanxialaojie"
+},
+{
+"area": "新北",
+"name": "金山老街・溫泉",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_382000000A_109666",
+"name": "烏來溫泉",
+"city": "新北市",
+"town": "烏來區",
+"addr": "新北市烏來區烏來街、溫泉街與環山路一帶",
+"lat": 24.8634,
+"lng": 121.55034,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_382000000A_403288",
+"name": "中山溫泉公園",
+"city": "新北市",
+"town": "金山區",
+"addr": "新北市金山區溫泉路2巷10號",
+"lat": 25.22198,
+"lng": 121.63998,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_382000000A_109769",
+"name": "金山老街(金包里老街)",
+"city": "新北市",
+"town": "金山區",
+"addr": "新北市金山區金包里街",
+"lat": 25.22183,
+"lng": 121.63827,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 80
+},
+{
+"id": "Attraction_A15011000H_000188",
+"name": "金山萬里溫泉區",
+"city": "新北市",
+"town": "金山區",
+"addr": "新北市金山區",
+"lat": 25.21478,
+"lng": 121.6422,
+"url": "https://www.northguan-nsa.gov.tw/user/Article.aspx?Lang=1&SNo=04005472",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 80
+},
+{
+"src": "osm",
+"name": "金山老街",
+"addr": "新北市 金山區 金包里街",
+"lat": 25.220503,
+"lng": 121.640404,
+"score": 89,
+"kind": "tourism=viewpoint"
+}
+],
+"ja": "烏来温泉",
+"id": "pl-jinshanlaojie-wenquan"
+},
+{
+"area": "新北",
+"name": "新平溪煤礦博物園區",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_A25000000E_000089",
+"name": "新平溪煤礦博物園區",
+"city": "新北市",
+"town": "平溪區",
+"addr": "新北市平溪區頂寮子5          5號",
+"lat": 25.05245,
+"lng": 121.77325,
+"url": "",
+"status": 1,
+"imgs": 6,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_382000000A_110748",
+"name": "猴硐煤礦博物園區",
+"city": "新北市",
+"town": "瑞芳區",
+"addr": "新北市瑞芳區猴硐柴寮路42號(猴硐火車站正對面)",
+"lat": 25.08687,
+"lng": 121.82785,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 45
+}
+],
+"ja": "",
+"id": "pl-xinpingximeikuangbowuyuanqu"
+},
+{
+"area": "新北",
+"name": "熊空茶園",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "osm",
+"name": "熊空茶園",
+"addr": "新北市 三峽區 ",
+"lat": 24.87797,
+"lng": 121.464533,
+"score": 100,
+"kind": "landuse=farmland"
+}
+],
+"ja": "",
+"id": "pl-xiongkongchayuan"
+},
+{
+"area": "新北",
+"name": "紅毛城（淡水古蹟博物館）",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_382000000A_110071",
+"name": "小白宮(新北市立淡水古蹟博物館)",
+"city": "新北市",
+"town": "淡水區",
+"addr": "新北市淡水區真理街15號",
+"lat": 25.1742,
+"lng": 121.43627,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 74
+},
+{
+"id": "Attraction_382000000A_109672",
+"name": "紅毛城園區(新北市立淡水古蹟博物館)",
+"city": "新北市",
+"town": "淡水區",
+"addr": "新北市淡水區中正路28巷1號",
+"lat": 25.17543,
+"lng": 121.43294,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 73
+},
+{
+"id": "Attraction_382000000A_110398",
+"name": "滬尾礮臺(新北市立淡水古蹟博物館)",
+"city": "新北市",
+"town": "淡水區",
+"addr": "新北市淡水區中正路一段6巷34號",
+"lat": 25.17922,
+"lng": 121.42937,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 71
+},
+{
+"src": "osm",
+"name": "紅毛城 (真理大學)",
+"addr": "新北市 淡水區 中正路",
+"lat": 25.174191,
+"lng": 121.434296,
+"score": 14,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "紅毛城",
+"id": "pl-hongmaocheng"
+},
+{
+"area": "新北",
+"name": "猴硐貓村",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_382000000A_110802",
+"name": "猴硐貓村",
+"city": "新北市",
+"town": "瑞芳區",
+"addr": "新北市瑞芳區光復里",
+"lat": 25.0872,
+"lng": 121.8268,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_382000000A_403332",
+"name": "猴硐",
+"city": "新北市",
+"town": "瑞芳區",
+"addr": "新北市瑞芳區猴硐柴寮路70號(猴硐車站)",
+"lat": 25.08701,
+"lng": 121.82742,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_382000000A_112430",
+"name": "猴硐貓橋",
+"city": "新北市",
+"town": "瑞芳區",
+"addr": "新北市瑞芳區柴寮路70號",
+"lat": 25.08696,
+"lng": 121.82722,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 45
+}
+],
+"ja": "猴ドウ猫村",
+"id": "pl-houdongmaocun"
+},
+{
+"area": "新北",
+"name": "林本源園邸（林家花園）",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_382000000A_109673",
+"name": "林本源園邸",
+"city": "新北市",
+"town": "板橋區",
+"addr": "新北市板橋區西門街9號",
+"lat": 25.01113,
+"lng": 121.45459,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "林本源園邸",
+"id": "pl-linbenyuanyuandi"
+},
+{
+"area": "新北",
+"name": "鼻頭角步道",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_A15011300H_000021",
+"name": "鼻頭角步道",
+"city": "新北市",
+"town": "瑞芳區",
+"addr": "新北市瑞芳區鼻頭路臺2線約84K處鼻頭漁港旁",
+"lat": 25.12528,
+"lng": 121.9214,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-bitoujiaobudao"
+},
+{
+"area": "新北",
+"name": "深澳鐵道自行車",
+"genre": "博物館",
+"cands": [
+{
+"src": "osm",
+"name": "深澳鐵道自行車",
+"addr": "新北市 瑞芳區 1",
+"lat": 25.134574,
+"lng": 121.804577,
+"score": 100,
+"kind": "tourism=attraction"
+},
+{
+"src": "osm",
+"name": "深澳鐵道自行車八斗子站",
+"addr": "新北市 瑞芳區 建基路二段",
+"lat": 25.13417,
+"lng": 121.80548,
+"score": 83,
+"kind": "amenity=bicycle_rental"
+}
+],
+"ja": "",
+"id": "pl-shenaotiedaozixingche"
+},
+{
+"area": "基隆",
+"name": "和平島公園",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376570000A_000059",
+"name": "和平島地質公園",
+"city": "基隆市",
+"town": "中正區",
+"addr": "基隆市中正區平一路360號",
+"lat": 25.1617376,
+"lng": 121.7644664,
+"url": "https://www.hpigeopark.org/",
+"status": 1,
+"imgs": 4,
+"src": "tb",
+"score": 81
+},
+{
+"id": "Attraction_A15011000H_000155",
+"name": "和平島地質公園",
+"city": "基隆市",
+"town": "中正區",
+"addr": "基隆市中正區平一路360號",
+"lat": 25.16079,
+"lng": 121.7638,
+"url": "https://www.hpigeopark.org/",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 81
+},
+{
+"src": "osm",
+"name": "和平島公園",
+"addr": "台灣省  基隆市 中正區 平一路",
+"lat": 25.160296,
+"lng": 121.769503,
+"score": 100,
+"kind": "landuse=recreation_ground"
+},
+{
+"src": "osm",
+"name": "和平島公園",
+"addr": "基隆市 中正區 平一路",
+"lat": 25.156326,
+"lng": 121.764813,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "和平島公園售票口",
+"addr": "基隆市 中正區 平一路",
+"lat": 25.160591,
+"lng": 121.763612,
+"score": 86,
+"kind": "building=yes"
+}
+],
+"ja": "",
+"id": "pl-hepingdaogongyuan"
+},
+{
+"area": "基隆",
+"name": "基隆廟口夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"src": "osm",
+"name": "廟口夜市",
+"addr": "基隆市 仁愛區 ",
+"lat": 25.129061,
+"lng": 121.74391,
+"score": 89,
+"kind": "landuse=commercial"
+}
+],
+"ja": "",
+"id": "pl-jilongmiaokouyeshi"
+},
+{
+"area": "基隆",
+"name": "正濱漁港彩色屋",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "osm",
+"name": "正濱漁港彩虹屋",
+"addr": "基隆市 中正區 中正路",
+"lat": 25.152504,
+"lng": 121.768994,
+"score": 45,
+"kind": "tourism=attraction"
+}
+],
+"ja": "",
+"id": "pl-zhengbinyugangcaisewu"
+},
+{
+"area": "基隆",
+"name": "國立海洋科技博物館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_376570000A_000395",
+"name": "國立海洋科技博物館",
+"city": "基隆市",
+"town": "中正區",
+"addr": "基隆市中正區北寧路367號",
+"lat": 25.1400236,
+"lng": 121.7985672,
+"url": "https://www.nmmst.gov.tw/",
+"status": 1,
+"imgs": 4,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15011000H_000157",
+"name": "國立海洋科技博物館",
+"city": "基隆市",
+"town": "中正區",
+"addr": "基隆市中正區北寧路367號",
+"lat": 25.13959,
+"lng": 121.7932,
+"url": "http://www.northguan-nsa.gov.tw/user/Article.aspx?Lang=1&SNo=04005330",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "国立海洋科技博物館",
+"id": "pl-guolihaiyangkejibowuguan"
+},
+{
+"area": "基隆",
+"name": "基隆塔",
+"genre": "地標展望",
+"cands": [
+{
+"id": "Attraction_376570000A_000056",
+"name": "基隆塔",
+"city": "基隆市",
+"town": "中正區",
+"addr": "基隆市中正區正義里義二路128號",
+"lat": 25.1328033,
+"lng": 121.7470181,
+"url": "",
+"status": 1,
+"imgs": 4,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376570000A_000575",
+"name": "基隆燈塔",
+"city": "基隆市",
+"town": "中山區",
+"addr": "基隆市中山區光華路51號",
+"lat": 25.1552779,
+"lng": 121.7476166,
+"url": "",
+"status": 1,
+"imgs": 4,
+"src": "tb",
+"score": 83
+}
+],
+"ja": "",
+"id": "pl-jilongta"
+},
+{
+"area": "基隆",
+"name": "阿根納造船廠遺址",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376570000A_000055",
+"name": "阿根納造船廠",
+"city": "基隆市",
+"town": "中正區",
+"addr": "基隆市中正區正濱路 116 巷 75 號(造船廠內部空間禁止進入)",
+"lat": 25.1538926,
+"lng": 121.7695873,
+"url": "",
+"status": 1,
+"imgs": 4,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "阿根納造船廠遺址",
+"addr": "基隆市 中正區 正濱路116巷",
+"lat": 25.153973,
+"lng": 121.769698,
+"score": 100,
+"kind": "historic=ruins"
+}
+],
+"ja": "",
+"id": "pl-agennazaochuanchangyizhi"
+},
+{
+"area": "基隆",
+"name": "潮境公園・智能海洋館",
+"genre": "動物園水族館",
+"cands": [
+{
+"id": "Attraction_376570000A_000392",
+"name": "潮境公園",
+"city": "基隆市",
+"town": "中正區",
+"addr": "基隆市中正區北寧路369巷61號",
+"lat": 25.1434517,
+"lng": 121.8034149,
+"url": "",
+"status": 1,
+"imgs": 4,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15011000H_000158",
+"name": "潮境公園",
+"city": "基隆市",
+"town": "中正區",
+"addr": "基隆市中正區北寧路369巷",
+"lat": 25.14254,
+"lng": 121.8025,
+"url": "http://www.northguan-nsa.gov.tw/user/Article.aspx?Lang=1&SNo=04005331",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376570000A_000393",
+"name": "潮境智能海洋館",
+"city": "基隆市",
+"town": "中正區",
+"addr": "基隆市中正區北寧路369巷61號",
+"lat": 25.1445086,
+"lng": 121.8028952,
+"url": "https://iocean.nmmst.gov.tw/ioceanC/index",
+"status": 1,
+"imgs": 4,
+"src": "tb",
+"score": 89
+}
+],
+"ja": "八斗子",
+"id": "pl-chaojinggongyuan-zhinenghaiyangguan"
+},
+{
+"area": "桃園",
+"name": "大溪老街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_376430000A_000414",
+"name": "大溪老街",
+"city": "桃園市",
+"town": "大溪區",
+"addr": "桃園市大溪區和平路、中山路",
+"lat": 24.8847,
+"lng": 121.28867,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-daxilaojie"
+},
+{
+"area": "桃園",
+"name": "Xpark 水族館",
+"genre": "動物園水族館",
+"cands": [
+{
+"id": "Attraction_376430000A_001576",
+"name": "Xpark 八景島水族館",
+"city": "桃園市",
+"town": "中壢區",
+"addr": "桃園市中壢區春德路105號",
+"lat": 25.01723,
+"lng": 121.21427,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 79
+},
+{
+"src": "osm",
+"name": "Xpark",
+"addr": "桃園市 青山里 春德路",
+"lat": 25.017191,
+"lng": 121.214072,
+"score": 86,
+"kind": "tourism=aquarium"
+}
+],
+"ja": "",
+"id": "pl-xpark-shuizuguan"
+},
+{
+"area": "桃園",
+"name": "小人國主題樂園",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_376430000A_000347",
+"name": "小人國",
+"city": "桃園市",
+"town": "龍潭區",
+"addr": "桃園市龍潭區高原里高原路891號",
+"lat": 24.83195,
+"lng": 121.18711,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "小人國主題樂園",
+"addr": "桃園市 高原里 高原路",
+"lat": 24.834216,
+"lng": 121.181726,
+"score": 100,
+"kind": "tourism=theme_park"
+}
+],
+"ja": "",
+"id": "pl-xiaorenguozhutileyuan"
+},
+{
+"area": "桃園",
+"name": "桃園市立圖書館新總館",
+"genre": "博物館",
+"cands": [
+{
+"src": "osm",
+"name": "桃園市立圖書館新總館地下停車場",
+"addr": "桃園市 莊敬里 新埔八街",
+"lat": 25.017751,
+"lng": 121.300154,
+"score": 80,
+"kind": "amenity=parking"
+}
+],
+"ja": "",
+"id": "pl-taoyuanshilitushuguanxinzongguan"
+},
+{
+"area": "桃園",
+"name": "桃園神社（忠烈祠）",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_376430000A_000012",
+"name": "桃園忠烈祠暨神社文化園區",
+"city": "桃園市",
+"town": "桃園區",
+"addr": "桃園市桃園區成功路三段200號",
+"lat": 25.00629,
+"lng": 121.32528,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 70
+},
+{
+"src": "osm",
+"name": "桃園神社",
+"addr": "桃園市 三元里 成功路三段",
+"lat": 25.006079,
+"lng": 121.325149,
+"score": 86,
+"kind": "amenity=place_of_worship"
+}
+],
+"ja": "桃園神社",
+"id": "pl-taoyuanshenshe"
+},
+{
+"area": "桃園",
+"name": "石門水庫",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376430000A_000351",
+"name": "石門水庫",
+"city": "桃園市",
+"town": "大溪區",
+"addr": "桃園市大溪區復興里環湖路一段68號",
+"lat": 24.81323,
+"lng": 121.24589,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376430000A_001272",
+"name": "石門水庫步道",
+"city": "桃園市",
+"town": "大溪區",
+"addr": "桃園市大溪區環湖公路",
+"lat": 24.81365,
+"lng": 121.23844,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+}
+],
+"ja": "",
+"id": "pl-shimenshuiku"
+},
+{
+"area": "桃園",
+"name": "竹圍漁港",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376430000A_000188",
+"name": "竹圍漁港",
+"city": "桃園市",
+"town": "大園區",
+"addr": "桃園市大園區沙崙里1鄰漁港路451巷25號",
+"lat": 25.11686,
+"lng": 121.24416,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-zhuweiyugang"
+},
+{
+"area": "桃園",
+"name": "虎頭山環保公園",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376430000A_000971",
+"name": "虎頭山環保公園",
+"city": "桃園市",
+"town": "桃園區",
+"addr": "桃園市桃園區成功路三段",
+"lat": 25.01204,
+"lng": 121.32837,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376430000A_001009",
+"name": "虎頭山公園",
+"city": "桃園市",
+"town": "桃園區",
+"addr": "桃園市桃園區公園路42號",
+"lat": 25.00167,
+"lng": 121.3343,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 81
+}
+],
+"ja": "",
+"id": "pl-hutoushanhuanbaogongyuan"
+},
+{
+"area": "桃園",
+"name": "華泰名品城",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376430000A_001118",
+"name": "華泰名品城",
+"city": "桃園市",
+"town": "中壢區",
+"addr": "桃園市中壢區春德路189號",
+"lat": 25.01366,
+"lng": 121.21264,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "グロリア・アウトレット",
+"id": "pl-huataimingpincheng"
+},
+{
+"area": "桃園",
+"name": "臺灣客家茶文化館",
+"genre": "觀光工廠",
+"cands": [
+{
+"src": "osm",
+"name": "臺灣客家茶文化館",
+"addr": "桃園市 高原里 ",
+"lat": 24.831632,
+"lng": 121.190492,
+"score": 100,
+"kind": "leisure=park"
+},
+{
+"src": "osm",
+"name": "臺灣客家茶文化館",
+"addr": "桃園市 高原里 高原路",
+"lat": 24.831106,
+"lng": 121.191485,
+"score": 100,
+"kind": "tourism=museum"
+},
+{
+"src": "osm",
+"name": "臺灣客家茶文化館",
+"addr": "桃園市 高原里 渴望路81巷",
+"lat": 24.831454,
+"lng": 121.190165,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "臺灣客家茶文化館停車場",
+"addr": "桃園市 高原里 ",
+"lat": 24.831386,
+"lng": 121.189419,
+"score": 86,
+"kind": "leisure=park"
+},
+{
+"src": "osm",
+"name": "臺灣客家茶文化館停車場",
+"addr": "桃園市 高原里 福源路136巷82弄",
+"lat": 24.831606,
+"lng": 121.189042,
+"score": 86,
+"kind": "amenity=parking"
+}
+],
+"ja": "",
+"id": "pl-taiwankejiachawenhuaguan"
+},
+{
+"area": "桃園",
+"name": "桃園市立兒童美術館",
+"genre": "美術館",
+"cands": [
+{
+"src": "osm",
+"name": "桃園市立兒童美術館",
+"addr": "桃園市 大智里 大智路",
+"lat": 24.964869,
+"lng": 121.29954,
+"score": 100,
+"kind": "tourism=museum"
+}
+],
+"ja": "",
+"id": "pl-taoyuanshiliertongmeishuguan"
+},
+{
+"area": "桃園",
+"name": "國巨洋傘觀光工廠",
+"genre": "觀光工廠",
+"cands": [
+{
+"src": "web",
+"name": "國巨洋傘觀光工廠",
+"addr": "桃園市大園區國際路一段105巷18號（門牌）",
+"lat": 25.067972,
+"lng": 121.187382,
+"score": 80,
+"ref": "https://travel.tycg.gov.tw/zh-tw/travel/attraction/1650",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-guojuyangsanguanguanggongchang"
+},
+{
+"area": "桃園",
+"name": "馬祖新村眷村文創園區",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_376430000A_000964",
+"name": "馬祖新村眷村文創園區",
+"city": "桃園市",
+"town": "中壢區",
+"addr": "桃園市中壢區龍吉二街155號",
+"lat": 24.9356,
+"lng": 121.23779,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-mazuxincunjuancunwenchuangyuanqu"
+},
+{
+"area": "桃園",
+"name": "手信霧隱城",
+"genre": "觀光工廠",
+"cands": [
+{
+"id": "Attraction_376430000A_001601",
+"name": "手信霧隱城",
+"city": "桃園市",
+"town": "龍潭區",
+"addr": "桃園市龍潭區民豐一街99號",
+"lat": 24.8803,
+"lng": 121.24265,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A13020000G_000199",
+"name": "桃園：手信霧隱城",
+"city": "桃園市",
+"town": "龍潭區",
+"addr": "桃園市龍潭區民豐一街99號",
+"lat": 24.88031,
+"lng": 121.24262,
+"url": "https://www.sswyc.com.tw",
+"status": 1,
+"imgs": 7,
+"src": "tb",
+"score": 86
+}
+],
+"ja": "",
+"id": "pl-shouxinwuyincheng"
+},
+{
+"area": "桃園",
+"name": "橫山書法藝術館",
+"genre": "美術館",
+"cands": [
+{
+"src": "osm",
+"name": "橫山書法藝術館",
+"addr": "桃園市 青峰里 大仁路",
+"lat": 25.020976,
+"lng": 121.218509,
+"score": 100,
+"kind": "tourism=museum"
+},
+{
+"src": "osm",
+"name": "大園尖山考古展示館",
+"addr": "桃園市 青峰里 大仁路",
+"lat": 25.021155,
+"lng": 121.218694,
+"score": 0,
+"kind": "tourism=museum"
+}
+],
+"ja": "",
+"id": "pl-hengshanshufayishuguan"
+},
+{
+"area": "桃園",
+"name": "舊百吉隧道",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376430000A_001177",
+"name": "舊百吉隧道",
+"city": "桃園市",
+"town": "大溪區",
+"addr": "桃園市大溪區北橫公路，過慈湖，約台七線5公里處",
+"lat": 24.83544,
+"lng": 121.30218,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-jiubaijisuidao"
+},
+{
+"area": "桃園",
+"name": "77 巧克力共和國",
+"genre": "觀光工廠",
+"cands": [
+{
+"id": "Attraction_376430000A_000600",
+"name": "77巧克力共和國",
+"city": "桃園市",
+"town": "八德區",
+"addr": "桃園市八德區巧克力街177號",
+"lat": 24.94174,
+"lng": 121.29292,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A13020000G_000066",
+"name": "桃園：77巧克力共和國",
+"city": "桃園市",
+"town": "八德區",
+"addr": "桃園市八德區瑞興里4鄰巧克力街177號",
+"lat": 24.943325,
+"lng": 121.297187,
+"url": "http://www.republicofchocolate.com.tw",
+"status": 1,
+"imgs": 7,
+"src": "tb",
+"score": 86
+}
+],
+"ja": "",
+"id": "pl-77-qiaokeligongheguo"
+},
+{
+"area": "桃園",
+"name": "桃園觀光夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_376430000A_000969",
+"name": "桃園觀光夜市",
+"city": "桃園市",
+"town": "桃園區",
+"addr": "桃園市桃園區中正路與北埔路口",
+"lat": 25.00271,
+"lng": 121.30599,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-taoyuanguanguangyeshi"
+},
+{
+"area": "桃園",
+"name": "龍潭大池",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376430000A_000332",
+"name": "龍潭觀光大池",
+"city": "桃園市",
+"town": "龍潭區",
+"addr": "桃園市龍潭區上林里中豐路上林段115巷11號",
+"lat": 24.86356,
+"lng": 121.20944,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-longtandachi"
+},
+{
+"area": "桃園",
+"name": "月眉濕地生態公園",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "osm",
+"name": "月眉人工濕地生態公園",
+"addr": "桃園市 月眉里 月湖路",
+"lat": 24.898858,
+"lng": 121.299423,
+"score": 54,
+"kind": "leisure=park"
+}
+],
+"ja": "",
+"id": "pl-yuemeishidishengtaigongyuan"
+},
+{
+"area": "桃園",
+"name": "八德落羽松森林",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376430000A_001490",
+"name": "南興落羽松（原 八德落羽松森林）",
+"city": "桃園市",
+"town": "大溪區",
+"addr": "桃園市大溪區浮筧街158之1號",
+"lat": 24.91719,
+"lng": 121.26243,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+}
+],
+"ja": "",
+"id": "pl-badeluoyusongsenlin"
+},
+{
+"area": "新竹",
+"name": "新竹市立動物園",
+"genre": "動物園水族館",
+"cands": [
+{
+"id": "Attraction_376580000A_000055",
+"name": "新竹市立動物園",
+"city": "新竹市",
+"town": "東區",
+"addr": "新竹市東區新竹市東區食品路66號",
+"lat": 24.80015607796872,
+"lng": 120.97734687604826,
+"url": "https://tourism.hccg.gov.tw/chtravel/app/travel/view?id=25&serno=0ce0b819-3b19-4983-a82e-65b29e9341f1&module=travel",
+"status": 1,
+"imgs": 4,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-xinzhushilidongwuyuan"
+},
+{
+"area": "新竹",
+"name": "內灣老街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_376440000A_000323",
+"name": "內灣老街",
+"city": "新竹縣",
+"town": "橫山鄉",
+"addr": "新竹縣橫山鄉中正路",
+"lat": 24.705262155412,
+"lng": 121.182268567956,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-neiwanlaojie"
+},
+{
+"area": "新竹",
+"name": "北埔老街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_376440000A_000221",
+"name": "北埔老街",
+"city": "新竹縣",
+"town": "北埔鄉",
+"addr": "新竹縣北埔鄉北埔街",
+"lat": 24.6998246073078,
+"lng": 121.057219606147,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010700H_000008",
+"name": "北埔老街",
+"city": "新竹縣",
+"town": "北埔鄉",
+"addr": "新竹縣北埔鄉北埔街",
+"lat": 24.69982,
+"lng": 121.05722,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376440000A_000488",
+"name": "新埔老街",
+"city": "新竹縣",
+"town": "新埔鎮",
+"addr": "新竹縣新埔鎮和平街、中正路、成功路",
+"lat": 24.8271288010056,
+"lng": 121.075692219264,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 45
+}
+],
+"ja": "",
+"id": "pl-beipulaojie"
+},
+{
+"area": "新竹",
+"name": "六福村主題遊樂園",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_376440000A_000038",
+"name": "六福村主題遊樂園",
+"city": "新竹縣",
+"town": "關西鎮",
+"addr": "新竹縣關西鎮仁安里拱子溝60號",
+"lat": 24.8253091698669,
+"lng": 121.180648497943,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-liufucunzhutiyouleyuan"
+},
+{
+"area": "新竹",
+"name": "南寮漁港",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "osm",
+"name": "南寮漁港直銷中心",
+"addr": "新竹市 南寮里 新港三路",
+"lat": 24.848925,
+"lng": 120.925873,
+"score": 83,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "南寮舊漁港",
+"addr": "新竹市 南寮里 ",
+"lat": 24.848948,
+"lng": 120.929863,
+"score": 36,
+"kind": "natural=water"
+}
+],
+"ja": "",
+"id": "pl-nanliaoyugang"
+},
+{
+"area": "新竹",
+"name": "新竹都城隍廟",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_376580000A_000030",
+"name": "新竹都城隍廟",
+"city": "新竹市",
+"town": "北區",
+"addr": "新竹市北區新竹市北區中山路75號",
+"lat": 24.80450434749329,
+"lng": 120.96294047592836,
+"url": "https://tourism.hccg.gov.tw/chtravel/app/travel/view?id=26&serno=89b26b65-4418-45c0-aefe-db5f6f7d84bb&module=travel",
+"status": 1,
+"imgs": 4,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-xinzhuduchenghuangmiao"
+},
+{
+"area": "新竹",
+"name": "青蛙石天空步道",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "osm",
+"name": "青蛙石天空步道",
+"addr": "新竹縣 尖石鄉 那羅一 ",
+"lat": 24.686244,
+"lng": 121.229184,
+"score": 100,
+"kind": "highway=footway"
+},
+{
+"src": "osm",
+"name": "青蛙石天空步道售票處",
+"addr": "新竹縣 尖石鄉 那羅一 錦屏道路",
+"lat": 24.680094,
+"lng": 121.240436,
+"score": 86,
+"kind": "shop=ticket"
+}
+],
+"ja": "",
+"id": "pl-qingwashitiankongbudao"
+},
+{
+"area": "新竹",
+"name": "峨眉湖",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_A15010700H_000006",
+"name": "峨眉湖",
+"city": "新竹縣",
+"town": "峨眉鄉",
+"addr": "新竹縣峨眉鄉",
+"lat": 24.6794,
+"lng": 120.98532,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376440000A_000230",
+"name": "峨眉湖遊艇碼頭",
+"city": "新竹縣",
+"town": "峨眉鄉",
+"addr": "新竹縣峨眉鄉太平街8巷(Google導航：峨眉湖遊艇碼頭)",
+"lat": 24.6836219579725,
+"lng": 120.989426064968,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_376440000A_000231",
+"name": "峨眉湖環湖步道",
+"city": "新竹縣",
+"town": "峨眉鄉",
+"addr": "新竹縣峨眉鄉西河排11-10號(環湖驛棧美食旁)",
+"lat": 24.6822912813814,
+"lng": 120.981902653158,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_376440000A_000604",
+"name": "參山多元路線_獅頭山、峨眉湖(竹縣段)",
+"city": "新竹縣",
+"town": "峨眉鄉",
+"addr": "新竹縣峨眉鄉峨眉湖步道(第二入口)",
+"lat": 24.6809322118504,
+"lng": 120.980081522041,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 70
+}
+],
+"ja": "",
+"id": "pl-emeihu"
+},
+{
+"area": "新竹",
+"name": "廢物媽媽育兒農場",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "web",
+"name": "廢物媽媽育兒農場",
+"addr": "新竹市香山區海埔路518巷75弄85之1號（只到鄉鎮中心（要自己看地圖））",
+"lat": 24.797201,
+"lng": 120.942528,
+"score": 80,
+"ref": "https://www.taiwantravelmap.com/taiwantravelmap/travel-10623",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-feiwumamayuernongchang"
+},
+{
+"area": "新竹",
+"name": "山上人家森林農場",
+"genre": "農場牧場",
+"cands": [
+{
+"id": "Attraction_376440000A_000159",
+"name": "山上人家森林農場",
+"city": "新竹縣",
+"town": "五峰鄉",
+"addr": "新竹縣五峰鄉大隘村23鄰468-5號",
+"lat": 24.6048501036106,
+"lng": 121.089155140066,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-shanshangrenjiasenlinnongchang"
+},
+{
+"area": "新竹",
+"name": "新竹市美術館",
+"genre": "美術館",
+"cands": [
+{
+"id": "Attraction_376580000A_000010",
+"name": "新竹市美術館",
+"city": "新竹市",
+"town": "東區",
+"addr": "新竹市東區新竹市東區中央路116號",
+"lat": 24.814075877959464,
+"lng": 120.9641509760486,
+"url": "https://tourism.hccg.gov.tw/chtravel/app/travel/view?id=27&serno=8d673bf5-a68d-45c8-aae5-609ded9e3bfe&module=travel",
+"status": 1,
+"imgs": 3,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "新竹市役所",
+"id": "pl-xinzhushimeishuguan"
+},
+{
+"area": "新竹",
+"name": "北埔冷泉",
+"genre": "溫泉",
+"cands": [
+{
+"id": "Attraction_A15010700H_000017",
+"name": "北埔冷泉",
+"city": "新竹縣",
+"town": "北埔鄉",
+"addr": "新竹縣北埔鄉",
+"lat": 24.66299,
+"lng": 121.07243,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-beipulengquan"
+},
+{
+"area": "新竹",
+"name": "青青草原",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376580000A_000047",
+"name": "青青草原",
+"city": "新竹市",
+"town": "香山區",
+"addr": "新竹市香山區新竹市香山區草原路",
+"lat": 24.772654099999993,
+"lng": 120.78128554335937,
+"url": "https://tourism.hccg.gov.tw/chtravel/app/travel/view?id=25&serno=41e9df82-6f8f-4eea-a2bb-44cd878afc7d&module=travel",
+"status": 1,
+"imgs": 4,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-qingqingcaoyuan"
+},
+{
+"area": "新竹",
+"name": "香山濕地賞蟹步道",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376580000A_000050",
+"name": "香山濕地賞蟹步道",
+"city": "新竹市",
+"town": "香山區",
+"addr": "新竹市香山區新竹市香山區中華路五段320巷35號",
+"lat": 24.783172200000006,
+"lng": 120.91173687934567,
+"url": "https://tourism.hccg.gov.tw/chtravel/app/travel/view?id=25&serno=fde27852-2673-4ef5-bacd-e72855b3d49a&module=travel",
+"status": 1,
+"imgs": 5,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376580000A_000061",
+"name": "賞蟹步道",
+"city": "新竹市",
+"town": "香山區",
+"addr": "新竹市香山區新竹市香山區西濱路三段500巷17號",
+"lat": 24.785703277978214,
+"lng": 120.91266577604797,
+"url": "https://tourism.hccg.gov.tw/chtravel/app/travel/view?id=25&serno=67dd54f9-7e6b-46f6-9dbc-df4da9ce9f7c&module=travel",
+"status": 1,
+"imgs": 4,
+"src": "tb",
+"score": 83
+}
+],
+"ja": "",
+"id": "pl-xiangshanshidishangxiebudao"
+},
+{
+"area": "新竹",
+"name": "小叮噹科學主題樂園",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_376440000A_000200",
+"name": "小叮噹科學主題樂園",
+"city": "新竹縣",
+"town": "新豐鄉",
+"addr": "新竹縣新豐鄉康和路199號",
+"lat": 24.86938689,
+"lng": 120.9800678,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-xiaodingdangkexuezhutileyuan"
+},
+{
+"area": "新竹",
+"name": "新瓦屋客家文化保存區",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376440000A_000017",
+"name": "新瓦屋客家文化保存區",
+"city": "新竹縣",
+"town": "竹北市",
+"addr": "新竹縣竹北市文興路一段123號",
+"lat": 24.8118644520741,
+"lng": 121.027055349512,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-xinwawukejiawenhuabaocunqu"
+},
+{
+"area": "新竹",
+"name": "湖口好客文創園區",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_376440000A_000305",
+"name": "湖口好客文創園區",
+"city": "新竹縣",
+"town": "湖口鄉",
+"addr": "新竹縣湖口鄉中平路一段510號",
+"lat": 24.8966179973593,
+"lng": 121.062504141786,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-hukouhaokewenchuangyuanqu"
+},
+{
+"area": "新竹",
+"name": "綠世界生態農場",
+"genre": "農場牧場",
+"cands": [
+{
+"id": "Attraction_376440000A_000144",
+"name": "綠世界生態農場",
+"city": "新竹縣",
+"town": "北埔鄉",
+"addr": "新竹縣北埔鄉大湖村7鄰尾隘子20號",
+"lat": 24.6988184595992,
+"lng": 121.071098630078,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010700H_000026",
+"name": "綠世界生態農場",
+"city": "新竹縣",
+"town": "北埔鄉",
+"addr": "新竹縣北埔鄉大湖村尾隘子7鄰20號",
+"lat": 24.69881,
+"lng": 121.0711,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-lvshijieshengtainongchang"
+},
+{
+"area": "新竹",
+"name": "司馬庫斯",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376440000A_000189",
+"name": "司馬庫斯",
+"city": "新竹縣",
+"town": "尖石鄉",
+"addr": "新竹縣尖石鄉玉峰村14鄰斯馬庫斯2號",
+"lat": 24.57890565,
+"lng": 121.3344552,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376440000A_000055",
+"name": "司馬庫斯巨木群步道",
+"city": "新竹縣",
+"town": "尖石鄉",
+"addr": "新竹縣尖石鄉玉峰村14鄰司馬庫斯2號",
+"lat": 24.579045936348,
+"lng": 121.34068180172,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 80
+}
+],
+"ja": "",
+"id": "pl-simakusi"
+},
+{
+"area": "新竹",
+"name": "豐鄉瀑布",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376440000A_000415",
+"name": "豐鄉瀑布",
+"city": "新竹縣",
+"town": "橫山鄉",
+"addr": "新竹縣橫山鄉竹35鄉道旁號",
+"lat": 24.6929640146599,
+"lng": 121.143806352822,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-fengxiangpubu"
+},
+{
+"area": "新竹",
+"name": "合興車站",
+"genre": "地標展望",
+"cands": [
+{
+"src": "osm",
+"name": "合興車站",
+"addr": "新竹縣 橫山鄉 合興 十分寮橋",
+"lat": 24.716645,
+"lng": 121.154509,
+"score": 100,
+"kind": "building=yes"
+}
+],
+"ja": "合興駅",
+"id": "pl-hexingchezhan"
+},
+{
+"area": "新竹",
+"name": "馬武督探索森林",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376440000A_000011",
+"name": "馬武督探索森林(綠光小學)",
+"city": "新竹縣",
+"town": "關西鎮",
+"addr": "新竹縣關西鎮錦山里12鄰錦山138-3號",
+"lat": 24.7678696053961,
+"lng": 121.281360209972,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "馬武督探索森林",
+"addr": "新竹縣 關西鎮 錦山里 楓林大道",
+"lat": 24.767969,
+"lng": 121.281423,
+"score": 100,
+"kind": "information=office"
+}
+],
+"ja": "",
+"id": "pl-mawudutansuosenlin"
+},
+{
+"area": "新竹",
+"name": "東安古橋",
+"genre": "地標展望",
+"cands": [
+{
+"id": "Attraction_376440000A_000128",
+"name": "關西東安古橋",
+"city": "新竹縣",
+"town": "關西鎮",
+"addr": "新竹縣關西鎮 東安里中山東路牛欄河畔",
+"lat": 24.7908665093294,
+"lng": 121.179809613184,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "東安古橋",
+"addr": "新竹縣 關西鎮 北斗里 中山東路",
+"lat": 24.791221,
+"lng": 121.17891,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "東安橋",
+"addr": "新竹縣 關西鎮 下三屯 ",
+"lat": 24.790906,
+"lng": 121.179862,
+"score": 22,
+"kind": "highway=tertiary"
+}
+],
+"ja": "",
+"id": "pl-donganguqiao"
+},
+{
+"area": "新竹",
+"name": "蕭如松藝術園區",
+"genre": "美術館",
+"cands": [
+{
+"id": "Attraction_376440000A_000205",
+"name": "蕭如松藝術園區",
+"city": "新竹縣",
+"town": "竹東鎮",
+"addr": "新竹縣竹東鎮三民街60號",
+"lat": 24.7398665369279,
+"lng": 121.088114368306,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A25000000E_000015",
+"name": "蕭如松藝術園區",
+"city": "新竹縣",
+"town": "竹東鎮",
+"addr": "新竹縣竹東鎮三民街60號",
+"lat": 24.73984,
+"lng": 121.08813,
+"url": "",
+"status": 1,
+"imgs": 10,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-xiaorusongyishuyuanqu"
+},
+{
+"area": "新竹",
+"name": "竹東觀光夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"src": "osm",
+"name": "竹東夜市",
+"addr": "台灣省 新竹縣 新竹縣 楓樹下 沿河街",
+"lat": 24.737274,
+"lng": 121.096977,
+"score": 100,
+"kind": "amenity=marketplace"
+},
+{
+"src": "osm",
+"name": "竹東鎮觀光市集",
+"addr": "台灣省 新竹縣 新竹縣 楓樹下 東林路",
+"lat": 24.737125,
+"lng": 121.090424,
+"score": 15,
+"kind": "amenity=marketplace"
+}
+],
+"ja": "",
+"id": "pl-zhudongguanguangyeshi"
+},
+{
+"area": "新竹",
+"name": "新埔柿餅教育農園",
+"genre": "公園",
+"cands": [
+{
+"src": "web",
+"name": "新埔柿餅教育農園",
+"addr": "新竹縣新埔鎮旱坑路一段501號（門牌）",
+"lat": 24.844078,
+"lng": 121.078266,
+"score": 80,
+"ref": "https://ezgo.ardswc.gov.tw/zh-tw/spot/6443/",
+"note": "名單是金漢、味衛佳兩家合併；這是金漢柿餅教育農園"
+}
+],
+"ja": "",
+"id": "pl-xinpushibingjiaoyunongyuan"
+},
+{
+"area": "新竹",
+"name": "福祥仙人掌園",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376440000A_000176",
+"name": "福祥仙人掌園",
+"city": "新竹縣",
+"town": "新埔鎮",
+"addr": "新竹縣新埔鎮北平里4鄰大平窩38號",
+"lat": 24.8570593858421,
+"lng": 121.094126673615,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-fuxiangxianrenzhangyuan"
+},
+{
+"area": "新竹",
+"name": "新豐紅樹林",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376440000A_000312",
+"name": "新豐紅樹林",
+"city": "新竹縣",
+"town": "新豐鄉",
+"addr": "新竹縣新豐鄉池府路156號",
+"lat": 24.9091297196432,
+"lng": 120.969238230425,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-xinfenghongshulin"
+},
+{
+"area": "新竹",
+"name": "東門市場",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_A25000000E_000040",
+"name": "新竹東門市場",
+"city": "新竹市",
+"town": "東區",
+"addr": "新竹市東區大同路86號",
+"lat": 24.80502,
+"lng": 120.96882,
+"url": "",
+"status": 1,
+"imgs": 10,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "東門市場",
+"addr": "新竹市 中正里 中正路",
+"lat": 24.805508,
+"lng": 120.969341,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "東門市場",
+"addr": "台灣省  新竹市 東門里 大同路",
+"lat": 24.805145,
+"lng": 120.968927,
+"score": 100,
+"kind": "amenity=marketplace"
+},
+{
+"src": "osm",
+"name": "東門市場4.8坪",
+"addr": "台灣省  新竹市 東門里 大同路",
+"lat": 24.804907,
+"lng": 120.96862,
+"score": 86,
+"kind": "amenity=restaurant"
+},
+{
+"src": "osm",
+"name": "享來點 東門市場店",
+"addr": "台灣省  新竹市 中正里 中央路102巷",
+"lat": 24.80534,
+"lng": 120.96914,
+"score": 83,
+"kind": "amenity=restaurant"
+},
+{
+"src": "osm",
+"name": "喜然 熟成咖哩 - 東門市場",
+"addr": "台灣省  新竹市 東門里 大同路",
+"lat": 24.804813,
+"lng": 120.969054,
+"score": 77,
+"kind": "amenity=restaurant"
+}
+],
+"ja": "",
+"id": "pl-dongmenshichang"
+},
+{
+"area": "宜蘭",
+"name": "龜山島",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376420000A_000348",
+"name": "龜山島",
+"city": "宜蘭縣",
+"town": "頭城鎮",
+"addr": "宜蘭縣頭城鎮海岸以東約10公里處",
+"lat": 24.84241,
+"lng": 121.95014,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15011300H_010073",
+"name": "龜山島",
+"city": "宜蘭縣",
+"town": "頭城鎮",
+"addr": "宜蘭縣頭城鎮烏石港(遊艇區搭船處)",
+"lat": 24.86948,
+"lng": 121.8401,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "亀山島",
+"id": "pl-guishandao"
+},
+{
+"area": "宜蘭",
+"name": "礁溪溫泉",
+"genre": "溫泉",
+"cands": [
+{
+"id": "Attraction_376420000A_000090",
+"name": "礁溪溫泉廣場",
+"city": "宜蘭縣",
+"town": "礁溪鄉",
+"addr": "宜蘭縣礁溪鄉礁溪路五段與溫泉路交接口",
+"lat": 24.8288,
+"lng": 121.77366,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_376420000A_000097",
+"name": "礁溪溫泉公園",
+"city": "宜蘭縣",
+"town": "礁溪鄉",
+"addr": "宜蘭縣礁溪鄉玉石村公園路70巷60號",
+"lat": 24.8326,
+"lng": 121.77668,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_376420000A_000091",
+"name": "礁溪溫泉地景廣場",
+"city": "宜蘭縣",
+"town": "礁溪鄉",
+"addr": "宜蘭縣礁溪鄉礁溪路五段與中山路二段交接口",
+"lat": 24.82853,
+"lng": 121.77565,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "礁溪溫泉公園",
+"addr": "宜蘭縣 礁溪鄉 玉石 ",
+"lat": 24.831333,
+"lng": 121.776524,
+"score": 89,
+"kind": "leisure=park"
+},
+{
+"src": "osm",
+"name": "礁溪溫泉廣場",
+"addr": "宜蘭縣 礁溪鄉 德陽村 ",
+"lat": 24.828919,
+"lng": 121.773566,
+"score": 89,
+"kind": "leisure=park"
+},
+{
+"src": "osm",
+"name": "礁溪溫泉公園",
+"addr": "宜蘭縣 礁溪鄉 玉石 公園路18巷",
+"lat": 24.83107,
+"lng": 121.776312,
+"score": 89,
+"kind": "amenity=public_bath"
+},
+{
+"src": "osm",
+"name": "礁溪溫泉公園",
+"addr": "宜蘭縣 礁溪鄉 玉石 健康路",
+"lat": 24.830897,
+"lng": 121.775469,
+"score": 89,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "礁溪溫泉游泳池",
+"addr": "宜蘭縣 礁溪鄉 玉石 公園路18巷",
+"lat": 24.831645,
+"lng": 121.777032,
+"score": 86,
+"kind": "leisure=swimming_pool"
+}
+],
+"ja": "礁渓温泉",
+"id": "pl-jiaoxiwenquan"
+},
+{
+"area": "宜蘭",
+"name": "國立傳統藝術中心",
+"genre": "美術館",
+"cands": [
+{
+"id": "Attraction_A15011300H_010087",
+"name": "國立傳統藝術中心宜蘭傳藝園區",
+"city": "宜蘭縣",
+"town": "五結鄉",
+"addr": "宜蘭縣五結鄉季新村五濱路二段201號",
+"lat": 24.68558,
+"lng": 121.8241,
+"url": "http://www.px-sunmake.org.tw/index/index.html",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+},
+{
+"src": "osm",
+"name": "國立傳統藝術中心",
+"addr": "台灣省 宜蘭縣 宜蘭縣 社尾 五濱路二段",
+"lat": 24.685456,
+"lng": 121.823746,
+"score": 100,
+"kind": "tourism=theme_park"
+},
+{
+"src": "osm",
+"name": "國立傳統藝術中心",
+"addr": "宜蘭縣 五結鄉 社尾 五濱路二段",
+"lat": 24.686285,
+"lng": 121.82426,
+"score": 100,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "",
+"id": "pl-guolichuantongyishuzhongxin"
+},
+{
+"area": "宜蘭",
+"name": "太平山國家森林遊樂區",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_345040000G_000001",
+"name": "太平山國家森林遊樂區",
+"city": "宜蘭縣",
+"town": "大同鄉",
+"addr": "宜蘭縣大同鄉太平巷58之1號",
+"lat": 24.5574676798311,
+"lng": 121.49949962026885,
+"url": "https://recreation.forest.gov.tw/Forest/RA?typ_id=0100001",
+"status": 1,
+"imgs": 16,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376420000A_000367",
+"name": "太平山國家森林遊樂區",
+"city": "宜蘭縣",
+"town": "大同鄉",
+"addr": "宜蘭縣大同鄉太平村太平巷58-1號",
+"lat": 24.55703,
+"lng": 121.49996,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-taipingshanguojiasenlinyoulequ"
+},
+{
+"area": "宜蘭",
+"name": "蘭陽博物館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_376420000A_000321",
+"name": "蘭陽博物館",
+"city": "宜蘭縣",
+"town": "頭城鎮",
+"addr": "宜蘭縣頭城鎮青雲路三段750號",
+"lat": 24.86866,
+"lng": 121.83274,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-lanyangbowuguan"
+},
+{
+"area": "宜蘭",
+"name": "蘭陽動植物王國",
+"genre": "公園",
+"cands": [
+{
+"src": "osm",
+"name": "蘭陽動植物王國",
+"addr": "宜蘭縣 壯圍鄉 番社 紅葉路",
+"lat": 24.734952,
+"lng": 121.811407,
+"score": 100,
+"kind": "tourism=zoo"
+}
+],
+"ja": "",
+"id": "pl-lanyangdongzhiwuwangguo"
+},
+{
+"area": "宜蘭",
+"name": "蘇澳冷泉",
+"genre": "溫泉",
+"cands": [
+{
+"id": "Attraction_A15011300H_010084",
+"name": "蘇澳冷泉",
+"city": "宜蘭縣",
+"town": "蘇澳鎮",
+"addr": "宜蘭縣蘇澳鎮冷泉路6-4號",
+"lat": 24.59932,
+"lng": 121.8499,
+"url": "https://www.facebook.com/people/%E8%98%87%E6%BE%B3%E5%86%B7%E6%B3%89%E5%9C%92%E5%8D%80/6155864802307",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376420000A_000001",
+"name": "蘇澳冷泉公園",
+"city": "宜蘭縣",
+"town": "蘇澳鎮",
+"addr": "宜蘭縣蘇澳鎮冷泉路6-4號",
+"lat": 24.59731,
+"lng": 121.8507,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+}
+],
+"ja": "蘇澳冷泉",
+"id": "pl-suaolengquan"
+},
+{
+"area": "宜蘭",
+"name": "大福觀海平台",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "web",
+"name": "大福觀海平台",
+"addr": "宜蘭縣壯圍鄉壯濱路六段228巷（只到鄉鎮中心（要自己看地圖））",
+"lat": 24.746824,
+"lng": 121.785972,
+"score": 80,
+"ref": "https://www.necoast-nsa.gov.tw/Attraction-Content.aspx?a=3392&l=1",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-dafuguanhaipingtai"
+},
+{
+"area": "宜蘭",
+"name": "羅東夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_376420000A_000246",
+"name": "羅東觀光夜市",
+"city": "宜蘭縣",
+"town": "羅東鎮",
+"addr": "宜蘭縣羅東鎮興東路與民權路口",
+"lat": 24.67704,
+"lng": 121.76931,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-luodongyeshi"
+},
+{
+"area": "宜蘭",
+"name": "張美阿嬤農場",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "osm",
+"name": "張美阿嬤農場",
+"addr": "宜蘭縣 三星鄉 廣洲仔 ",
+"lat": 24.674632,
+"lng": 121.676009,
+"score": 100,
+"kind": "landuse=farmyard"
+},
+{
+"src": "osm",
+"name": "張美阿嬤農場停車場",
+"addr": "宜蘭縣 三星鄉 廣洲仔 行健溪一路二段",
+"lat": 24.674111,
+"lng": 121.675184,
+"score": 86,
+"kind": "amenity=parking"
+}
+],
+"ja": "",
+"id": "pl-zhangmeiamanongchang"
+},
+{
+"area": "宜蘭",
+"name": "虎牌米粉觀光工廠",
+"genre": "觀光工廠",
+"cands": [
+{
+"id": "Attraction_A13020000G_000188",
+"name": "宜蘭：宜蘭虎牌米粉那個年代觀光工廠",
+"city": "宜蘭縣",
+"town": "五結鄉",
+"addr": "宜蘭縣五結鄉利興三路5號",
+"lat": 24.66284,
+"lng": 121.82975,
+"url": "https://www.tigerfood.com.tw/#picCategory",
+"status": 1,
+"imgs": 7,
+"src": "tb",
+"score": 67
+}
+],
+"ja": "",
+"id": "pl-hupaimifenguanguanggongchang"
+},
+{
+"area": "宜蘭",
+"name": "宜蘭酒廠",
+"genre": "觀光工廠",
+"cands": [
+{
+"id": "Attraction_A13020000G_000069",
+"name": "宜蘭：噶瑪蘭酒廠",
+"city": "宜蘭縣",
+"town": "員山鄉",
+"addr": "宜蘭縣員山鄉員山路二段326號",
+"lat": 24.713691,
+"lng": 121.69179,
+"url": "http://www.kavalanwhisky.com",
+"status": 1,
+"imgs": 9,
+"src": "tb",
+"score": 77
+},
+{
+"id": "Attraction_376420000A_000316",
+"name": "宜蘭酒廠(甲子蘭酒文物館)",
+"city": "宜蘭縣",
+"town": "宜蘭市",
+"addr": "宜蘭縣宜蘭市舊城西路3號",
+"lat": 24.7563,
+"lng": 121.74941,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 74
+},
+{
+"id": "Attraction_A13020000G_000072",
+"name": "宜蘭：臺灣菸酒(股)公司宜蘭酒廠觀光工廠",
+"city": "宜蘭縣",
+"town": "宜蘭市",
+"addr": "宜蘭縣宜蘭市舊城西路3號",
+"lat": 24.75695,
+"lng": 121.749523,
+"url": "http://www.ttl.com.tw",
+"status": 1,
+"imgs": 9,
+"src": "tb",
+"score": 70
+},
+{
+"src": "osm",
+"name": "宜蘭酒廠",
+"addr": "台灣省 宜蘭縣 宜蘭縣 中山里 舊城西路",
+"lat": 24.757034,
+"lng": 121.748349,
+"score": 100,
+"kind": "craft=brewery"
+},
+{
+"src": "osm",
+"name": "新月廣場(宜蘭酒廠)",
+"addr": "宜蘭縣 宜蘭市 南門里 舊城南路",
+"lat": 24.754695,
+"lng": 121.751104,
+"score": 83,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "",
+"id": "pl-yilanjiuchang"
+},
+{
+"area": "宜蘭",
+"name": "金車噶瑪蘭威士忌酒廠",
+"genre": "觀光工廠",
+"cands": [
+{
+"id": "Attraction_376420000A_000442",
+"name": "金車噶瑪蘭威士忌酒廠",
+"city": "宜蘭縣",
+"town": "員山鄉",
+"addr": "宜蘭縣員山鄉員山路二段326號",
+"lat": 24.71384,
+"lng": 121.6918,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-jinchegamalanweishijijiuchang"
+},
+{
+"area": "苗栗",
+"name": "苗栗火車頭園區",
+"genre": "公園",
+"cands": [
+{
+"src": "osm",
+"name": "苗栗火車頭園區",
+"addr": "苗栗縣 苗栗市 社寮岡 自治路2巷",
+"lat": 24.567808,
+"lng": 120.821954,
+"score": 100,
+"kind": "tourism=museum"
+},
+{
+"src": "osm",
+"name": "苗栗火車頭園區願景館",
+"addr": "苗栗縣 苗栗市 社寮岡 英才路",
+"lat": 24.568606,
+"lng": 120.821289,
+"score": 86,
+"kind": "tourism=museum"
+}
+],
+"ja": "苗栗鉄道文物展示館",
+"id": "pl-miaolihuochetouyuanqu"
+},
+{
+"area": "苗栗",
+"name": "崎頂子母隧道",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376450000A_000050",
+"name": "崎頂隧道",
+"city": "苗栗縣",
+"town": "竹南鎮",
+"addr": "苗栗縣竹南鎮崎頂隧道",
+"lat": 24.72125,
+"lng": 120.8703,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 81
+},
+{
+"src": "osm",
+"name": "崎頂二號隧道(子母隧道)",
+"addr": "苗栗縣 竹南鎮 崎頂 ",
+"lat": 24.72611,
+"lng": 120.874342,
+"score": 40,
+"kind": "highway=footway"
+},
+{
+"src": "osm",
+"name": "崎頂一號隧道(子母隧道)",
+"addr": "苗栗縣 竹南鎮 清天泉 ",
+"lat": 24.727562,
+"lng": 120.876159,
+"score": 40,
+"kind": "highway=footway"
+},
+{
+"src": "osm",
+"name": "崎頂隧道",
+"addr": "苗栗縣 竹南鎮 崎頂 ",
+"lat": 24.721273,
+"lng": 120.870319,
+"score": 30,
+"kind": "highway=tertiary"
+}
+],
+"ja": "",
+"id": "pl-qidingzimusuidao"
+},
+{
+"area": "苗栗",
+"name": "雅聞七里香玫瑰森林",
+"genre": "農場牧場",
+"cands": [
+{
+"id": "Attraction_376450000A_000996",
+"name": "雅聞七里香玫瑰森林",
+"city": "苗栗縣",
+"town": "頭屋鄉",
+"addr": "苗栗縣頭屋鄉明德路226號",
+"lat": 24.60008,
+"lng": 120.8852,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A13020000G_000153",
+"name": "苗栗：雅聞七里香玫瑰森林",
+"city": "苗栗縣",
+"town": "頭屋鄉",
+"addr": "苗栗縣頭屋鄉明德村明德路226號",
+"lat": 24.60029,
+"lng": 120.88518,
+"url": "https://www.facebook.com/arwin.touwu",
+"status": 1,
+"imgs": 9,
+"src": "tb",
+"score": 86
+}
+],
+"ja": "",
+"id": "pl-yawenqilixiangmeiguisenlin"
+},
+{
+"area": "苗栗",
+"name": "橙香森林",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "web",
+"name": "橙香森林",
+"addr": "苗栗縣頭屋鄉明德路6號（門牌）",
+"lat": 24.584388,
+"lng": 120.884875,
+"score": 80,
+"ref": "https://chenxiangorangeforest.linker.tw/",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-chengxiangsenlin"
+},
+{
+"area": "苗栗",
+"name": "卓也小屋",
+"genre": "農場牧場",
+"cands": [
+{
+"id": "Attraction_A25000000E_000049",
+"name": "卓也小屋",
+"city": "苗栗縣",
+"town": "三義鄉",
+"addr": "苗栗縣三義鄉雙潭村崩山下1-9號",
+"lat": 24.39228,
+"lng": 120.79546,
+"url": "",
+"status": 1,
+"imgs": 10,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376450000A_000934",
+"name": "卓也小屋手工坊",
+"city": "苗栗縣",
+"town": "三義鄉",
+"addr": "苗栗縣三義鄉雙潭村崩山下1-9號",
+"lat": 24.39103,
+"lng": 120.7956,
+"url": "https://www.joye.com.tw",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+}
+],
+"ja": "",
+"id": "pl-zhuoyexiaowu"
+},
+{
+"area": "苗栗",
+"name": "飛牛牧場",
+"genre": "農場牧場",
+"cands": [
+{
+"id": "Attraction_376450000A_000062",
+"name": "飛牛牧場",
+"city": "苗栗縣",
+"town": "通霄鎮",
+"addr": "苗栗縣通霄鎮南和里166號",
+"lat": 24.44127,
+"lng": 120.7413,
+"url": "https://www.flyingcow.com.tw/",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-feiniumuchang"
+},
+{
+"area": "苗栗",
+"name": "巧克力雲莊",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376450000A_000935",
+"name": "巧克力雲莊",
+"city": "苗栗縣",
+"town": "大湖鄉",
+"addr": "苗栗縣大湖鄉富興村水尾坪49-2號",
+"lat": 24.44859,
+"lng": 120.877,
+"url": "http://www.schokolake.com.tw/",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-qiaokeliyunzhuang"
+},
+{
+"area": "苗栗",
+"name": "莫內秘密花園",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "osm",
+"name": "莫內秘密花園",
+"addr": "苗栗縣 銅鑼鄉 串寮坑 ",
+"lat": 24.417371,
+"lng": 120.798276,
+"score": 100,
+"kind": "landuse=commercial"
+},
+{
+"src": "osm",
+"name": "莫內秘密花園停車場",
+"addr": "苗栗縣 銅鑼鄉 串寮坑 ",
+"lat": 24.416767,
+"lng": 120.799002,
+"score": 86,
+"kind": "amenity=parking"
+}
+],
+"ja": "",
+"id": "pl-moneimimihuayuan"
+},
+{
+"area": "苗栗",
+"name": "蓬萊溪護魚步道",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376450000A_000146",
+"name": "蓬萊溪護魚步道",
+"city": "苗栗縣",
+"town": "南庄鄉",
+"addr": "苗栗縣南庄鄉蓬萊溪自然生態園區",
+"lat": 24.55117,
+"lng": 120.9726,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-penglaixihuyubudao"
+},
+{
+"area": "苗栗",
+"name": "綠意山莊",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "osm",
+"name": "綠意山莊",
+"addr": "苗栗縣 苑裡鎮 大埔 ",
+"lat": 24.413739,
+"lng": 120.717307,
+"score": 100,
+"kind": "tourism=hotel"
+},
+{
+"src": "osm",
+"name": "綠意山莊",
+"addr": "苗栗縣 苑裡鎮 大埔 ",
+"lat": 24.414117,
+"lng": 120.711078,
+"score": 100,
+"kind": "tourism=guest_house"
+},
+{
+"src": "osm",
+"name": "綠意山莊 民宿露營區",
+"addr": "苗栗縣 苑裡鎮 大埔 ",
+"lat": 24.413962,
+"lng": 120.711101,
+"score": 80,
+"kind": "tourism=camp_site"
+}
+],
+"ja": "",
+"id": "pl-lvyishanzhuang"
+},
+{
+"area": "苗栗",
+"name": "華陶窯",
+"genre": "公園",
+"cands": [
+{
+"src": "osm",
+"name": "華陶窯",
+"addr": "苗栗縣 苑裡鎮 陳厝前 ",
+"lat": 24.37759,
+"lng": 120.70653,
+"score": 100,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "",
+"id": "pl-huataoyao"
+},
+{
+"area": "苗栗",
+"name": "天空之城",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "osm",
+"name": "天空之城",
+"addr": "苗栗縣 大湖鄉 三十二分 ",
+"lat": 24.346519,
+"lng": 120.777688,
+"score": 100,
+"kind": "amenity=restaurant"
+}
+],
+"ja": "天空の城ラピュタ",
+"id": "pl-tiankongzhicheng"
+},
+{
+"area": "苗栗",
+"name": "天仁茶文化館",
+"genre": "觀光工廠",
+"cands": [
+{
+"id": "Attraction_376450000A_000067",
+"name": "天仁茶文化館",
+"city": "苗栗縣",
+"town": "竹南鎮",
+"addr": "苗栗縣竹南鎮中華路422號",
+"lat": 24.71549,
+"lng": 120.9211,
+"url": "https://www.facebook.com/tenrenmuseum/",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-tianrenchawenhuaguan"
+},
+{
+"area": "苗栗",
+"name": "南庄老街・桂花巷",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_376450000A_000637",
+"name": "南庄老街(桂花巷)",
+"city": "苗栗縣",
+"town": "南庄鄉",
+"addr": "苗栗縣南庄鄉桂花巷 ",
+"lat": 24.59889,
+"lng": 120.9988,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010700H_000021",
+"name": "南庄老街 (桂花巷、康濟吊橋、南庄水岸公園)",
+"city": "苗栗縣",
+"town": "南庄鄉",
+"addr": "苗栗縣南庄鄉文化路",
+"lat": 24.59932,
+"lng": 120.99928,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 70
+}
+],
+"ja": "",
+"id": "pl-nanzhuanglaojie-guihuaxiang"
+},
+{
+"area": "苗栗",
+"name": "龍鳳漁港",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376450000A_000025",
+"name": "竹南龍鳳漁港",
+"city": "苗栗縣",
+"town": "竹南鎮",
+"addr": "苗栗縣竹南鎮龍鳳里21鄰龍江街369巷15號",
+"lat": 24.69975,
+"lng": 120.8583,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "龍鳳漁港",
+"addr": "苗栗縣 竹南鎮 大坵園 ",
+"lat": 24.699862,
+"lng": 120.857063,
+"score": 100,
+"kind": "natural=water"
+},
+{
+"src": "osm",
+"name": "龍鳳漁港",
+"addr": "苗栗縣 竹南鎮 大坵園 龍江街359巷59弄",
+"lat": 24.699862,
+"lng": 120.857063,
+"score": 100,
+"kind": "leisure=marina"
+},
+{
+"src": "osm",
+"name": "龍鳳漁港",
+"addr": "苗栗縣 竹南鎮 大坵園 龍江街",
+"lat": 24.70028,
+"lng": 120.85963,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "龍鳳漁港",
+"addr": "苗栗縣 竹南鎮 大坵園 龍江街",
+"lat": 24.700344,
+"lng": 120.859905,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "龍鳳漁港",
+"addr": "苗栗縣 竹南鎮 大坵園 龍江街",
+"lat": 24.700278,
+"lng": 120.85967,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+}
+],
+"ja": "",
+"id": "pl-longfengyugang"
+},
+{
+"area": "苗栗",
+"name": "白沙屯拱天宮",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_376450000A_000063",
+"name": "白沙屯拱天宮",
+"city": "苗栗縣",
+"town": "通霄鎮",
+"addr": "苗栗縣通霄鎮白東里8號",
+"lat": 24.57147,
+"lng": 120.7091,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-baishatungongtiangong"
+},
+{
+"area": "苗栗",
+"name": "三義木雕老街・博物館",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_376450000A_000032",
+"name": "三義木雕博物館",
+"city": "苗栗縣",
+"town": "三義鄉",
+"addr": "苗栗縣三義鄉廣盛村廣聲新城88號",
+"lat": 24.40592,
+"lng": 120.7612,
+"url": "https://wood.mlc.gov.tw/",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_376450000A_000045",
+"name": "竹南蛇窯古窯生態博物館",
+"city": "苗栗縣",
+"town": "竹南鎮",
+"addr": "苗栗縣竹南鎮公館里7鄰大埔頂7號  ",
+"lat": 24.65764,
+"lng": 120.8734,
+"url": "https://www.skiln.com.tw/",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 71
+},
+{
+"src": "osm",
+"name": "三義木雕博物館",
+"addr": "苗栗縣 三義鄉 二十分 廣聲新城",
+"lat": 24.405931,
+"lng": 120.761024,
+"score": 50,
+"kind": "tourism=museum"
+},
+{
+"src": "osm",
+"name": "三義木雕博物館",
+"addr": "苗栗縣 三義鄉 二十分 廣聲新城",
+"lat": 24.405801,
+"lng": 120.761348,
+"score": 50,
+"kind": "tourism=attraction"
+},
+{
+"src": "osm",
+"name": "三義木雕藝術村",
+"addr": "苗栗縣 三義鄉 二十分 八股路館前5巷",
+"lat": 24.405169,
+"lng": 120.762483,
+"score": 25,
+"kind": "amenity=arts_centre"
+}
+],
+"ja": "",
+"id": "pl-sanyimudiaolaojie-bowuguan"
+},
+{
+"area": "苗栗",
+"name": "大湖草莓文化館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_376450000A_000074",
+"name": "大湖草莓文化館",
+"city": "苗栗縣",
+"town": "大湖鄉",
+"addr": "苗栗縣大湖鄉富興村八寮灣2-4號",
+"lat": 24.42892,
+"lng": 120.8681,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-dahucaomeiwenhuaguan"
+},
+{
+"area": "台中",
+"name": "高美濕地",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_387000000A_001150",
+"name": "高美濕地景觀橋",
+"city": "臺中市",
+"town": "清水區",
+"addr": "臺中市清水區高美路789號",
+"lat": 24.30842,
+"lng": 120.54964,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_387000000A_001416",
+"name": "高美濕地遊客服務中心",
+"city": "臺中市",
+"town": "清水區",
+"addr": "臺中市清水區美堤街8號",
+"lat": 24.30529,
+"lng": 120.54761,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+},
+{
+"id": "Attraction_387000000A_000054",
+"name": "高美濕地_高美野生動物保護區",
+"city": "臺中市",
+"town": "清水區",
+"addr": "臺中市清水區大甲溪出海口高美濕地",
+"lat": 24.31195,
+"lng": 120.54981,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 70
+},
+{
+"src": "osm",
+"name": "高美濕地",
+"addr": "臺中市 清水區 高美路",
+"lat": 24.311886,
+"lng": 120.551313,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "高美濕地",
+"addr": "臺中市 清水區 美堤街",
+"lat": 24.31034,
+"lng": 120.55019,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "高美濕地(三順路)",
+"addr": "臺中市 清水區 三順路",
+"lat": 24.299302,
+"lng": 120.547233,
+"score": 86,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "高美湿地",
+"id": "pl-gaomeishidi"
+},
+{
+"area": "台中",
+"name": "臺中國家歌劇院",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_387000000A_000942",
+"name": "臺中國家歌劇院",
+"city": "臺中市",
+"town": "西屯區",
+"addr": "臺中市西屯區惠來路二段101號",
+"lat": 24.16265,
+"lng": 120.6403,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "台中国家歌劇院",
+"id": "pl-taizhongguojiagejuyuan"
+},
+{
+"area": "台中",
+"name": "彩虹眷村",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_387000000A_000574",
+"name": "彩虹村",
+"city": "臺中市",
+"town": "南屯區",
+"addr": "臺中市南屯區春安路56巷25號(入口位於嶺東南路)",
+"lat": 24.13368,
+"lng": 120.60983,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "彩虹眷村",
+"addr": "臺中市 南屯區 嶺東南路",
+"lat": 24.13386,
+"lng": 120.609972,
+"score": 100,
+"kind": "tourism=theme_park"
+},
+{
+"src": "osm",
+"name": "彩虹眷村",
+"addr": "臺中市 南屯區 嶺東南路",
+"lat": 24.134417,
+"lng": 120.610244,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "彩虹眷村(忠勇路)",
+"addr": "臺中市 南屯區 忠勇路",
+"lat": 24.133869,
+"lng": 120.611345,
+"score": 86,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "彩虹眷村(嶺東南路)",
+"addr": "臺中市 南屯區 嶺東南路",
+"lat": 24.134087,
+"lng": 120.610377,
+"score": 83,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "彩虹眷村",
+"id": "pl-caihongjuancun"
+},
+{
+"area": "台中",
+"name": "宮原眼科",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_387000000A_000793",
+"name": "宮原眼科",
+"city": "臺中市",
+"town": "中區",
+"addr": "臺中市中區中山路20號",
+"lat": 24.13784,
+"lng": 120.68356,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-gongyuanyanke"
+},
+{
+"area": "台中",
+"name": "國立自然科學博物館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_387000000A_000418",
+"name": "國立自然科學博物館",
+"city": "臺中市",
+"town": "北區",
+"addr": "臺中市北區館前路一號",
+"lat": 24.15724,
+"lng": 120.66606,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_387000000A_000158",
+"name": "國立自然科學博物館之植物園",
+"city": "臺中市",
+"town": "北區",
+"addr": "臺中市北區館前路1號",
+"lat": 24.15812,
+"lng": 120.66817,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_387000000A_000045",
+"name": "國立自然科學博物館921地震教育園區",
+"city": "臺中市",
+"town": "霧峰區",
+"addr": "臺中市霧峰區坑口里新生路192號",
+"lat": 24.0429,
+"lng": 120.70022,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 70
+}
+],
+"ja": "国立自然科学博物館",
+"id": "pl-guolizirankexuebowuguan"
+},
+{
+"area": "台中",
+"name": "逢甲夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_387000000A_000039",
+"name": "逢甲觀光夜市",
+"city": "臺中市",
+"town": "西屯區",
+"addr": "臺中市西屯區文華路",
+"lat": 24.17951,
+"lng": 120.64632,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "逢甲夜市",
+"id": "pl-fengjiayeshi"
+},
+{
+"area": "台中",
+"name": "審計新村",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_387000000A_001139",
+"name": "審計新村",
+"city": "臺中市",
+"town": "西區",
+"addr": "臺中市西區民生路368巷",
+"lat": 24.14493,
+"lng": 120.66261,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-shenjixincun"
+},
+{
+"area": "台中",
+"name": "寶覺寺",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_387000000A_000278",
+"name": "寶覺寺",
+"city": "臺中市",
+"town": "北區",
+"addr": "臺中市北區健行路140號",
+"lat": 24.15917,
+"lng": 120.68771,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "宝覚寺",
+"id": "pl-baojuesi"
+},
+{
+"area": "台中",
+"name": "麗寶樂園",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_387000000A_000048",
+"name": "麗寶樂園渡假區",
+"city": "臺中市",
+"town": "后里區",
+"addr": "臺中市后里區福容路8號",
+"lat": 24.32306,
+"lng": 120.69552,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"src": "osm",
+"name": "麗寶樂園",
+"addr": "臺中市 后里區 麗寶休息站廣場",
+"lat": 24.322193,
+"lng": 120.697248,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "麗寶樂園",
+"addr": "臺中市 后里區 麗寶休息站廣場",
+"lat": 24.322946,
+"lng": 120.69763,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+}
+],
+"ja": "",
+"id": "pl-libaoleyuan"
+},
+{
+"area": "台中",
+"name": "大甲鎮瀾宮",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_387000000A_000609",
+"name": "大甲鎮瀾宮",
+"city": "臺中市",
+"town": "大甲區",
+"addr": "臺中市大甲區順天路158號",
+"lat": 24.34523,
+"lng": 120.62357,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-dajiazhenlangong"
+},
+{
+"area": "台中",
+"name": "綠川水岸廊道",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_387000000A_001260",
+"name": "新盛綠川水岸廊道",
+"city": "臺中市",
+"town": "中區",
+"addr": "臺中市中區綠川西街135號",
+"lat": 24.139,
+"lng": 120.68451,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+}
+],
+"ja": "",
+"id": "pl-lvchuanshuianlangdao"
+},
+{
+"area": "台中",
+"name": "中央公園",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_387000000A_001458",
+"name": "中央公園",
+"city": "臺中市",
+"town": "西屯區",
+"addr": "臺中市西屯區中科路2966號",
+"lat": 24.18006,
+"lng": 120.65601,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "セントラル・パーク",
+"id": "pl-zhongyanggongyuan"
+},
+{
+"area": "台中",
+"name": "新社薰衣草森林",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_387000000A_000372",
+"name": "薰衣草森林 台中新社店",
+"city": "臺中市",
+"town": "新社區",
+"addr": "臺中市新社區中興街20號",
+"lat": 24.12848,
+"lng": 120.84135,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 45
+}
+],
+"ja": "",
+"id": "pl-xinshexunyicaosenlin"
+},
+{
+"area": "台中",
+"name": "台中海洋館",
+"genre": "動物園水族館",
+"cands": [
+{
+"id": "Attraction_387000000A_001906",
+"name": "台中海洋館",
+"city": "臺中市",
+"town": "清水區",
+"addr": "臺中市清水區海洋路168號",
+"lat": 24.29675,
+"lng": 120.51964,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-taizhonghaiyangguan"
+},
+{
+"area": "台中",
+"name": "寶熊漁樂碼頭",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_387000000A_000844",
+"name": "寶熊漁樂碼頭",
+"city": "臺中市",
+"town": "潭子區",
+"addr": "臺中市潭子區中山路三段11號",
+"lat": 24.22024,
+"lng": 120.70609,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A13020000G_000047",
+"name": "台中：寶熊漁樂碼頭",
+"city": "臺中市",
+"town": "潭子區",
+"addr": "臺中市潭子區中山路三段11號",
+"lat": 24.22029,
+"lng": 120.706,
+"url": "https://www.okumacenter.com.tw/",
+"status": 1,
+"imgs": 9,
+"src": "tb",
+"score": 86
+}
+],
+"ja": "",
+"id": "pl-baoxiongyulematou"
+},
+{
+"area": "台中",
+"name": "臺中公園",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_387000000A_000028",
+"name": "臺中公園",
+"city": "臺中市",
+"town": "北區",
+"addr": "臺中市北區雙十路一段65號",
+"lat": 24.14431,
+"lng": 120.68571,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_387000000A_000071",
+"name": "臺中都會公園",
+"city": "臺中市",
+"town": "西屯區",
+"addr": "臺中市西屯區都會園路1215巷140號",
+"lat": 24.20787,
+"lng": 120.59852,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 81
+},
+{
+"id": "Attraction_387000000A_001407",
+"name": "台中港區運動公園",
+"city": "臺中市",
+"town": "沙鹿區",
+"addr": "臺中市沙鹿區自強路301號",
+"lat": 24.20565,
+"lng": 120.57665,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+}
+],
+"ja": "台中公園",
+"id": "pl-taizhonggongyuan"
+},
+{
+"area": "台中",
+"name": "臺中驛鐵道文化園區",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_387000000A_001837",
+"name": "臺中驛鐵道文化園區",
+"city": "臺中市",
+"town": "中區",
+"addr": "臺中市中區台灣大道一段1段1號",
+"lat": 24.13678,
+"lng": 120.68501,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_387000000A_000819",
+"name": "泰安鐵道文化園區",
+"city": "臺中市",
+"town": "后里區",
+"addr": "臺中市后里區福興路52號",
+"lat": 24.32318,
+"lng": 120.75012,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 45
+}
+],
+"ja": "",
+"id": "pl-taizhongyitiedaowenhuayuanqu"
+},
+{
+"area": "台中",
+"name": "后豐鐵馬道",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_387000000A_000089",
+"name": "后豐鐵馬道",
+"city": "臺中市",
+"town": "豐原區",
+"addr": "臺中市豐原區國豐路三段",
+"lat": 24.27231,
+"lng": 120.74082,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-houfengtiemadao"
+},
+{
+"area": "台中",
+"name": "臺中綠美圖",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_387000000A_001957",
+"name": "臺中綠美圖(臺中市立美術館與臺中市立圖書館)",
+"city": "臺中市",
+"town": "西屯區",
+"addr": "臺中市西屯區中科路2201號",
+"lat": 24.1927,
+"lng": 120.65507,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 70
+},
+{
+"src": "osm",
+"name": "臺中綠美圖",
+"addr": "臺中市 西屯區 ",
+"lat": 24.192885,
+"lng": 120.654509,
+"score": 100,
+"kind": "leisure=park"
+}
+],
+"ja": "",
+"id": "pl-taizhonglvmeitu"
+},
+{
+"area": "台中",
+"name": "第二市場",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_387000000A_000070",
+"name": "第二市場",
+"city": "臺中市",
+"town": "中區",
+"addr": "臺中市中區三民路二段87號",
+"lat": 24.14236,
+"lng": 120.67882,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "台中市第二市場",
+"id": "pl-diershichang"
+},
+{
+"area": "台中",
+"name": "鹿雅森林",
+"genre": "公園",
+"cands": [
+{
+"src": "web",
+"name": "鹿雅森林",
+"addr": "臺中市沙鹿區臺灣大道七段346巷302號（只到路名）",
+"lat": 24.22988,
+"lng": 120.580767,
+"score": 80,
+"ref": "https://ifoodie.tw/restaurant/62a346557cc7fc46ca39b6e0",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-luyasenlin"
+},
+{
+"area": "台中",
+"name": "一中街",
+"genre": "老街夜市",
+"cands": [
+{
+"src": "osm",
+"name": "一中街",
+"addr": "臺中市 北區 ",
+"lat": 24.149791,
+"lng": 120.685245,
+"score": 100,
+"kind": "highway=tertiary"
+},
+{
+"src": "osm",
+"name": "一中街",
+"addr": "臺中市 北區 ",
+"lat": 24.153746,
+"lng": 120.686863,
+"score": 100,
+"kind": "highway=pedestrian"
+},
+{
+"src": "osm",
+"name": "一中街",
+"addr": "臺中市 北區 ",
+"lat": 24.146319,
+"lng": 120.683837,
+"score": 100,
+"kind": "highway=residential"
+},
+{
+"src": "osm",
+"name": "一中街147巷",
+"addr": "臺中市 北區 ",
+"lat": 24.151383,
+"lng": 120.685381,
+"score": 83,
+"kind": "highway=service"
+},
+{
+"src": "osm",
+"name": "一中街116巷",
+"addr": "臺中市 北區 ",
+"lat": 24.152606,
+"lng": 120.687077,
+"score": 83,
+"kind": "highway=pedestrian"
+}
+],
+"ja": "一中商圈",
+"id": "pl-yizhongjie"
+},
+{
+"area": "台中",
+"name": "國立台灣美術館",
+"genre": "美術館",
+"cands": [
+{
+"id": "Attraction_387000000A_000143",
+"name": "國立台灣美術館",
+"city": "臺中市",
+"town": "西區",
+"addr": "臺中市西區五權西路一段2號",
+"lat": 24.14119,
+"lng": 120.66263,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "国立台湾美術館",
+"id": "pl-guolitaiwanmeishuguan"
+},
+{
+"area": "台中",
+"name": "霧峰林家宮保第園區",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_387000000A_000935",
+"name": "霧峰林家宮保第園區",
+"city": "臺中市",
+"town": "霧峰區",
+"addr": "臺中市霧峰區民生路26號",
+"lat": 24.06284,
+"lng": 120.70081,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A25000000E_000012",
+"name": "霧峰林家宮保第園區",
+"city": "臺中市",
+"town": "霧峰區",
+"addr": "臺中市霧峰區民生路26號",
+"lat": 24.06306,
+"lng": 120.70079,
+"url": "",
+"status": 1,
+"imgs": 2,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "霧峰林家宅園",
+"id": "pl-wufenglinjiagongbaodiyuanqu"
+},
+{
+"area": "台中",
+"name": "草悟道",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_387000000A_000786",
+"name": "草悟道",
+"city": "臺中市",
+"town": "西區",
+"addr": "臺中市西區向上北路",
+"lat": 24.14841,
+"lng": 120.66478,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-caowudao"
+},
+{
+"area": "台中",
+"name": "帝國糖廠・LaLaport",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_387000000A_001423",
+"name": "帝國製糖廠臺中營業所",
+"city": "臺中市",
+"town": "東區",
+"addr": "臺中市東區樂業路30號",
+"lat": 24.13778,
+"lng": 120.69221,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 73
+},
+{
+"id": "Attraction_387000000A_001640",
+"name": "Mitsui Shopping Park LaLaport 台中",
+"city": "臺中市",
+"town": "東區",
+"addr": "臺中市東區進德路600號",
+"lat": 24.13488,
+"lng": 120.69282,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 70
+},
+{
+"src": "osm",
+"name": "LaLaport 台中",
+"addr": "臺中市 東區 ",
+"lat": 24.134838,
+"lng": 120.69211,
+"score": 45,
+"kind": "landuse=retail"
+},
+{
+"src": "osm",
+"name": "帝國製糖廠",
+"addr": "臺中市 東區 進德路",
+"lat": 24.138643,
+"lng": 120.692487,
+"score": 15,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "帝國製糖廠",
+"addr": "臺中市 東區 進德路",
+"lat": 24.137425,
+"lng": 120.692916,
+"score": 15,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "帝國製糖廠臺中營業所",
+"addr": "台中市 東區 樂業路",
+"lat": 24.137767,
+"lng": 120.692216,
+"score": 11,
+"kind": "tourism=museum"
+},
+{
+"src": "osm",
+"name": "帝國製糖廠(復興東路)",
+"addr": "臺中市 東區 復興東路",
+"lat": 24.13835,
+"lng": 120.69013,
+"score": 11,
+"kind": "amenity=bicycle_rental"
+}
+],
+"ja": "",
+"id": "pl-diguotangchang-lalaport"
+},
+{
+"area": "彰化",
+"name": "扇形車庫",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_376470000A_000017",
+"name": "扇形車庫",
+"city": "彰化縣",
+"town": "彰化市",
+"addr": "彰化縣彰化市彰化縣彰化市彰美路一段1號",
+"lat": 24.08442,
+"lng": 120.5359,
+"url": "",
+"status": 1,
+"imgs": 20,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "扇形庫",
+"id": "pl-shanxingcheku"
+},
+{
+"area": "彰化",
+"name": "溪湖糖廠",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_376470000A_000018",
+"name": "溪湖糖廠",
+"city": "彰化縣",
+"town": "溪湖鎮",
+"addr": "彰化縣溪湖鎮彰化縣溪湖鎮彰水路二段762號",
+"lat": 23.95141,
+"lng": 120.4807,
+"url": "",
+"status": 1,
+"imgs": 16,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "渓湖糖廠",
+"id": "pl-xihutangchang"
+},
+{
+"area": "彰化",
+"name": "八卦山大佛",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376470000A_000004",
+"name": "八卦山大佛風景區",
+"city": "彰化縣",
+"town": "彰化市",
+"addr": "彰化縣彰化市彰化縣彰化市溫泉路31號",
+"lat": 24.07848,
+"lng": 120.5488,
+"url": "",
+"status": 1,
+"imgs": 38,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_A15010700H_000091",
+"name": "八卦山大佛風景區",
+"city": "彰化縣",
+"town": "彰化市",
+"addr": "彰化縣彰化市溫泉路31號",
+"lat": 24.07849,
+"lng": 120.54882,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"src": "osm",
+"name": "八卦山大佛",
+"addr": "彰化縣 彰化市 中山庄 1號入口",
+"lat": 24.07858,
+"lng": 120.548868,
+"score": 100,
+"kind": "tourism=artwork"
+},
+{
+"src": "osm",
+"name": "八卦山大佛",
+"addr": "彰化縣 彰化市 中山庄 1號入口",
+"lat": 24.07857,
+"lng": 120.548869,
+"score": 100,
+"kind": "tourism=attraction"
+},
+{
+"src": "osm",
+"name": "八卦山大佛牌樓",
+"addr": "彰化縣 彰化市 中山庄 卦山路",
+"lat": 24.077136,
+"lng": 120.548948,
+"score": 89,
+"kind": "building=yes"
+},
+{
+"src": "osm",
+"name": "八卦山大佛風景區",
+"addr": "彰化縣 彰化市 中山庄 卦山路",
+"lat": 24.078015,
+"lng": 120.546611,
+"score": 86,
+"kind": "information=board"
+},
+{
+"src": "osm",
+"name": "八卦山大佛風景區觀光導覽地圖",
+"addr": "彰化縣 彰化市 中山庄 溫泉路",
+"lat": 24.079002,
+"lng": 120.548496,
+"score": 74,
+"kind": "information=map"
+}
+],
+"ja": "八卦山大仏",
+"id": "pl-baguashandafu"
+},
+{
+"area": "彰化",
+"name": "八卦山天空步道",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "osm",
+"name": "八卦山天空步道",
+"addr": "彰化縣 彰化市 卦山里 ",
+"lat": 24.077998,
+"lng": 120.553486,
+"score": 100,
+"kind": "highway=footway"
+},
+{
+"src": "osm",
+"name": "八卦山天空步道二期",
+"addr": "彰化縣 彰化市 卦山里 3號入口",
+"lat": 24.078755,
+"lng": 120.551498,
+"score": 89,
+"kind": "highway=proposed"
+},
+{
+"src": "osm",
+"name": "八卦山天空步道二期",
+"addr": "彰化縣 彰化市 龍山里 彰師大後山步道",
+"lat": 24.08187,
+"lng": 120.550161,
+"score": 89,
+"kind": "highway=proposed"
+}
+],
+"ja": "",
+"id": "pl-baguashantiankongbudao"
+},
+{
+"area": "彰化",
+"name": "戶羽機關車園區",
+"genre": "公園",
+"cands": [
+{
+"src": "osm",
+"name": "戶羽機關車園區",
+"addr": "彰化縣 彰化市 忠孝里 彰美路一段3巷",
+"lat": 24.08516,
+"lng": 120.539245,
+"score": 100,
+"kind": "tourism=viewpoint"
+}
+],
+"ja": "",
+"id": "pl-huyujiguancheyuanqu"
+},
+{
+"area": "彰化",
+"name": "萬景藝苑",
+"genre": "美術館",
+"cands": [
+{
+"id": "Attraction_376470000A_000302",
+"name": "萬景藝苑",
+"city": "彰化縣",
+"town": "溪州鄉",
+"addr": "彰化縣溪州鄉彰化縣溪州鄉中山路4段68號",
+"lat": 23.85984,
+"lng": 120.5054,
+"url": "",
+"status": 1,
+"imgs": 13,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-wanjingyiyuan"
+},
+{
+"area": "彰化",
+"name": "埔鹽順澤宮",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_376470000A_000409",
+"name": "埔鹽順澤宮",
+"city": "彰化縣",
+"town": "大村鄉",
+"addr": "彰化縣大村鄉彰化縣埔鹽鄉中正路55號",
+"lat": 23.99662,
+"lng": 120.4749,
+"url": "",
+"status": 1,
+"imgs": 2,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-puyanshunzegong"
+},
+{
+"area": "彰化",
+"name": "好田森林",
+"genre": "公園",
+"cands": [
+{
+"src": "osm",
+"name": "好田森林",
+"addr": "彰化縣 田尾鄉 曾厝崙 ",
+"lat": 23.89398,
+"lng": 120.534757,
+"score": 100,
+"kind": "leisure=park"
+}
+],
+"ja": "",
+"id": "pl-haotiansenlin"
+},
+{
+"area": "彰化",
+"name": "長頸鹿休閒農場",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "web",
+"name": "長頸鹿休閒農場",
+"addr": "彰化縣埔鹽鄉新生路建471號（只到鄉鎮中心（要自己看地圖））",
+"lat": 24.000083,
+"lng": 120.463583,
+"score": 80,
+"ref": "https://ezgo.ardswc.gov.tw/zh-tw/farm/7110/",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-zhangjingluxiuxiannongchang"
+},
+{
+"area": "彰化",
+"name": "成美文化園",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376470000A_000412",
+"name": "成美文化園",
+"city": "彰化縣",
+"town": "永靖鄉",
+"addr": "彰化縣永靖鄉彰化縣永靖鄉中山路二段60號",
+"lat": 23.92015,
+"lng": 120.5482,
+"url": "",
+"status": 1,
+"imgs": 22,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-chengmeiwenhuayuan"
+},
+{
+"area": "彰化",
+"name": "菁芳園",
+"genre": "公園",
+"cands": [
+{
+"src": "web",
+"name": "菁芳園",
+"addr": "彰化縣田尾鄉張厝巷73-1號（只到路名）",
+"lat": 23.906171,
+"lng": 120.535099,
+"score": 80,
+"ref": "https://tourism.chcg.gov.tw/FoodContent.aspx?id=500&l=TW",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-jingfangyuan"
+},
+{
+"area": "彰化",
+"name": "台灣優格餅乾學院",
+"genre": "觀光工廠",
+"cands": [
+{
+"src": "web",
+"name": "台灣優格餅乾學院",
+"addr": "彰化縣線西鄉草豐路501巷5號（只到鄉鎮中心（要自己看地圖））",
+"lat": 24.130833,
+"lng": 120.470867,
+"score": 80,
+"ref": "https://www.cookieschool.com.tw/",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-taiwanyougebingqianxueyuan"
+},
+{
+"area": "彰化",
+"name": "百果山探索樂園",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_A15010700H_000903",
+"name": "百果山探索樂園",
+"city": "彰化縣",
+"town": "員林市",
+"addr": "彰化縣員林市出水巷12-36號",
+"lat": 23.94592,
+"lng": 120.60506,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-baiguoshantansuoleyuan"
+},
+{
+"area": "彰化",
+"name": "芳苑濕地海空步道",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376470000A_000450",
+"name": "芳苑海空步道",
+"city": "彰化縣",
+"town": "芳苑鄉",
+"addr": "彰化縣芳苑鄉528彰化縣芳苑鄉芳漢路158號二段161巷臨",
+"lat": 23.9278,
+"lng": 120.3144,
+"url": "",
+"status": 1,
+"imgs": 16,
+"src": "tb",
+"score": 81
+}
+],
+"ja": "",
+"id": "pl-fangyuanshidihaikongbudao"
+},
+{
+"area": "彰化",
+"name": "鹿港老街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_376470000A_000139",
+"name": "鹿港老街",
+"city": "彰化縣",
+"town": "鹿港鎮",
+"addr": "彰化縣鹿港鎮彰化縣鹿港鎮瑤林街",
+"lat": 24.05592,
+"lng": 120.4328,
+"url": "",
+"status": 1,
+"imgs": 67,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-luganglaojie"
+},
+{
+"area": "彰化",
+"name": "鹿港龍山寺",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_376470000A_000079",
+"name": "鹿港龍山寺",
+"city": "彰化縣",
+"town": "鹿港鎮",
+"addr": "彰化縣鹿港鎮彰化縣鹿港鎮龍山街100號",
+"lat": 24.05038,
+"lng": 120.4349,
+"url": "https://goo.gl/I8fM6p",
+"status": 1,
+"imgs": 19,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-luganglongshansi"
+},
+{
+"area": "彰化",
+"name": "鹿港天后宮",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_376470000A_000091",
+"name": "鹿港天后宮",
+"city": "彰化縣",
+"town": "鹿港鎮",
+"addr": "彰化縣鹿港鎮彰化縣鹿港鎮中山路430號",
+"lat": 24.05937,
+"lng": 120.4315,
+"url": "https://goo.gl/HBkLGk",
+"status": 1,
+"imgs": 14,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-lugangtianhougong"
+},
+{
+"area": "南投",
+"name": "日月潭",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_A15010600H_000058",
+"name": "日月潭纜車站",
+"city": "南投縣",
+"town": "魚池鄉",
+"addr": "南投縣魚池鄉日月村中正路102號",
+"lat": 23.85208,
+"lng": 120.93486,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_A15010600H_000097",
+"name": "日月潭耶穌堂",
+"city": "南投縣",
+"town": "魚池鄉",
+"addr": "南投縣魚池鄉中興路146號",
+"lat": 23.86355,
+"lng": 120.91019,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_376480000A_000382",
+"name": "日月潭伊達邵碼頭商圈",
+"city": "南投縣",
+"town": "魚池鄉",
+"addr": "南投縣魚池鄉義勇街",
+"lat": 23.84974,
+"lng": 120.92967,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 74
+},
+{
+"id": "Attraction_A15010600H_000018",
+"name": "日月潭自行車道-向山段",
+"city": "南投縣",
+"town": "魚池鄉",
+"addr": "南投縣魚池鄉中山路",
+"lat": 23.85293,
+"lng": 120.90173,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 74
+},
+{
+"id": "Attraction_A15010600H_000052",
+"name": "日月潭自行車道-月潭段",
+"city": "南投縣",
+"town": "魚池鄉",
+"addr": "南投縣魚池鄉月潭自行車道",
+"lat": 23.84063,
+"lng": 120.90737,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 74
+},
+{
+"src": "osm",
+"name": "日月潭",
+"addr": "南投縣 魚池鄉 日月村 ",
+"lat": 23.852328,
+"lng": 120.928607,
+"score": 100,
+"kind": "water=reservoir"
+},
+{
+"src": "osm",
+"name": "日月潭",
+"addr": "南投縣 魚池鄉 水社 中山路",
+"lat": 23.86652,
+"lng": 120.911337,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "日月潭 水舍",
+"addr": "南投縣 魚池鄉 水尾 中興路12巷",
+"lat": 23.865672,
+"lng": 120.908383,
+"score": 89,
+"kind": "tourism=apartment"
+},
+{
+"src": "osm",
+"name": "台灣地方特色產品館 日月潭",
+"addr": "南投縣 魚池鄉 水社 名勝街",
+"lat": 23.864966,
+"lng": 120.911282,
+"score": 70,
+"kind": "building=retail"
+}
+],
+"ja": "日月潭",
+"id": "pl-riyuetan"
+},
+{
+"area": "南投",
+"name": "九族文化村",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_376480000A_000312",
+"name": "九族文化村",
+"city": "南投縣",
+"town": "魚池鄉",
+"addr": "南投縣魚池鄉金天巷45號",
+"lat": 23.86532,
+"lng": 120.94818,
+"url": "http://www.nine.com.tw/",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010600H_000013",
+"name": "九族文化村",
+"city": "南投縣",
+"town": "魚池鄉",
+"addr": "南投縣魚池鄉大林村金天巷45號",
+"lat": 23.86911,
+"lng": 120.94786,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "九族文化村",
+"id": "pl-jiuzuwenhuacun"
+},
+{
+"area": "南投",
+"name": "溪頭（自然教育園區・妖怪村）",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376480000A_000301",
+"name": "溪頭自然教育園區",
+"city": "南投縣",
+"town": "鹿谷鄉",
+"addr": "南投縣鹿谷鄉森林巷9號",
+"lat": 23.67451,
+"lng": 120.79725,
+"url": "https://www.exfo.ntu.edu.tw/xitou/",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "溪頭",
+"addr": "南投縣 鹿谷鄉 ",
+"lat": 23.677649,
+"lng": 120.793642,
+"score": 70,
+"kind": "place=village"
+},
+{
+"src": "osm",
+"name": "溪頭",
+"addr": "南投縣 鹿谷鄉 觀音樹湖 興產路",
+"lat": 23.673064,
+"lng": 120.795529,
+"score": 70,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "溪頭",
+"addr": "南投縣 鹿谷鄉 觀音樹湖 興產路",
+"lat": 23.67306,
+"lng": 120.795476,
+"score": 70,
+"kind": "amenity=bus_station"
+}
+],
+"ja": "",
+"id": "pl-xitou"
+},
+{
+"area": "南投",
+"name": "向山遊客中心",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_A15010600H_000078",
+"name": "向山行政暨遊客中心",
+"city": "南投縣",
+"town": "魚池鄉",
+"addr": "南投縣魚池鄉中山路599號",
+"lat": 23.85114,
+"lng": 120.90212,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 79
+},
+{
+"src": "osm",
+"name": "向山遊客中心",
+"addr": "台灣省 南投縣 南投縣 向山 中山路",
+"lat": 23.852045,
+"lng": 120.90212,
+"score": 100,
+"kind": "information=office"
+}
+],
+"ja": "",
+"id": "pl-xiangshanyoukezhongxin"
+},
+{
+"area": "南投",
+"name": "水里蛇窯陶藝文化園區",
+"genre": "美術館",
+"cands": [
+{
+"id": "Attraction_A15010600H_000087",
+"name": "水里蛇窯陶藝文化園區",
+"city": "南投縣",
+"town": "水里鄉",
+"addr": "南投縣水里鄉頂崁村回窯路16號",
+"lat": 23.801,
+"lng": 120.86459,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A13020000G_000035",
+"name": "南投：水里蛇窯陶藝文化園區",
+"city": "南投縣",
+"town": "水里鄉",
+"addr": "南投縣水里鄉頂崁村水信路一段512巷21號",
+"lat": 23.801734,
+"lng": 120.865386,
+"url": "http://www.snakekiln.com.tw",
+"status": 1,
+"imgs": 7,
+"src": "tb",
+"score": 86
+}
+],
+"ja": "",
+"id": "pl-shuilisheyaotaoyiwenhuayuanqu"
+},
+{
+"area": "南投",
+"name": "春秋山林",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "web",
+"name": "春秋山林",
+"addr": "南投縣國姓鄉北原路30-16號（只到路名）",
+"lat": 24.060173,
+"lng": 120.940542,
+"score": 80,
+"ref": "https://smiletaiwan.cw.com.tw/article/8535",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-chunqiushanlin"
+},
+{
+"area": "南投",
+"name": "九九峰動物樂園",
+"genre": "動物園水族館",
+"cands": [
+{
+"src": "osm",
+"name": "九九峰動物樂園",
+"addr": "台灣省 南投縣 南投縣 匏子寮 富頂路一段726巷",
+"lat": 23.960607,
+"lng": 120.70463,
+"score": 100,
+"kind": "tourism=zoo"
+}
+],
+"ja": "",
+"id": "pl-jiujiufengdongwuleyuan"
+},
+{
+"area": "南投",
+"name": "瑞龍瀑布園區",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376480000A_000379",
+"name": "瑞龍瀑布園區",
+"city": "南投縣",
+"town": "竹山鎮",
+"addr": "南投縣竹山鎮坪頂路",
+"lat": 23.66468,
+"lng": 120.68882,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-ruilongpubuyuanqu"
+},
+{
+"area": "南投",
+"name": "雙龍瀑布七彩吊橋",
+"genre": "地標展望",
+"cands": [
+{
+"id": "Attraction_376480000A_000299",
+"name": "雙龍瀑布七彩吊橋",
+"city": "南投縣",
+"town": "信義鄉",
+"addr": "南投縣信義鄉光復巷",
+"lat": 23.78169,
+"lng": 120.94512,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-shuanglongpubuqicaidiaoqiao"
+},
+{
+"area": "南投",
+"name": "清境農場",
+"genre": "農場牧場",
+"cands": [
+{
+"id": "Attraction_376480000A_000253",
+"name": "清境農場",
+"city": "南投縣",
+"town": "仁愛鄉",
+"addr": "南投縣仁愛鄉仁和路170號",
+"lat": 24.05851,
+"lng": 121.16282,
+"url": "http://www.cingjing.gov.tw/",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-qingjingnongchang"
+},
+{
+"area": "南投",
+"name": "妮娜巧克力夢想城堡",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_A15010600H_000160",
+"name": "妮娜巧克力夢想城堡觀光工廠",
+"city": "南投縣",
+"town": "埔里鎮",
+"addr": "南投縣埔里鎮桃米路32號",
+"lat": 23.94332,
+"lng": 120.92694,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_A13020000G_000173",
+"name": "南投：Cona's妮娜巧克力夢想城堡",
+"city": "南投縣",
+"town": "埔里鎮",
+"addr": "南投縣埔里鎮桃米路32號",
+"lat": 23.94333,
+"lng": 120.92951,
+"url": "https://www.conas-choc.com",
+"status": 1,
+"imgs": 8,
+"src": "tb",
+"score": 70
+},
+{
+"src": "osm",
+"name": "妮娜巧克力夢想城堡",
+"addr": "台灣省 南投縣 南投縣 紙寮坑 桃米路",
+"lat": 23.943881,
+"lng": 120.929795,
+"score": 100,
+"kind": "tourism=attraction"
+}
+],
+"ja": "",
+"id": "pl-ninaqiaokelimengxiangchengbao"
+},
+{
+"area": "南投",
+"name": "車埕",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376480000A_000319",
+"name": "車埕火車站",
+"city": "南投縣",
+"town": "水里鄉",
+"addr": "南投縣水里鄉民權巷2號",
+"lat": 23.83262,
+"lng": 120.86086,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_A15010600H_000038",
+"name": "車埕遊憩區",
+"city": "南投縣",
+"town": "水里鄉",
+"addr": "南投縣水里鄉車埕村民權巷127號",
+"lat": 23.83352,
+"lng": 120.86648,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_A15010600H_000113",
+"name": "車埕火車站",
+"city": "南投縣",
+"town": "水里鄉",
+"addr": "南投縣水里鄉民權巷2號",
+"lat": 23.83268,
+"lng": 120.86572,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_A15010600H_000114",
+"name": "車埕貯木池",
+"city": "南投縣",
+"town": "水里鄉",
+"addr": "南投縣水里鄉民權巷110-2號",
+"lat": 23.83348,
+"lng": 120.8658,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_A15010600H_000083",
+"name": "車埕遊客中心",
+"city": "南投縣",
+"town": "水里鄉",
+"addr": "南投縣水里鄉車埕村民權巷127號",
+"lat": 23.83207,
+"lng": 120.86606,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "車埕",
+"addr": "台灣省 南投縣 南投縣 車埕 民權巷",
+"lat": 23.832783,
+"lng": 120.866327,
+"score": 100,
+"kind": "railway=station"
+},
+{
+"src": "osm",
+"name": "車埕",
+"addr": "南投縣 水里鄉 ",
+"lat": 23.833897,
+"lng": 120.864839,
+"score": 100,
+"kind": "place=suburb"
+},
+{
+"src": "osm",
+"name": "車埕-明潭水庫步道",
+"addr": "南投縣 水里鄉 車埕 ",
+"lat": 23.834413,
+"lng": 120.864149,
+"score": 77,
+"kind": "highway=footway"
+},
+{
+"src": "osm",
+"name": "車埕-明潭水庫步道",
+"addr": "南投縣 水里鄉 車埕 ",
+"lat": 23.835115,
+"lng": 120.864207,
+"score": 77,
+"kind": "highway=steps"
+}
+],
+"ja": "",
+"id": "pl-checheng"
+},
+{
+"area": "雲林",
+"name": "千巧谷牛樂園牧場",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_376490000A_000177",
+"name": "千巧谷牛樂園牧場",
+"city": "雲林縣",
+"town": "崙背鄉",
+"addr": "雲林縣崙背鄉雲林縣崙背鄉東興路182之32號",
+"lat": 23.76108,
+"lng": 120.36595,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-qianqiaoguniuleyuanmuchang"
+},
+{
+"area": "雲林",
+"name": "劍湖山世界",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_376490000A_000191",
+"name": "劍湖山世界主題樂園",
+"city": "雲林縣",
+"town": "古坑鄉",
+"addr": "雲林縣古坑鄉雲林縣古坑鄉永光村大湖口67號",
+"lat": 23.61598,
+"lng": 120.57945,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "劍湖山世界",
+"addr": "雲林縣 古坑鄉 焿子頭 雲212",
+"lat": 23.614711,
+"lng": 120.577402,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "劍湖山世界主題樂園",
+"addr": "台灣省 雲林縣 雲林縣 大湖口 大湖口",
+"lat": 23.6186,
+"lng": 120.577244,
+"score": 83,
+"kind": "tourism=theme_park"
+}
+],
+"ja": "",
+"id": "pl-jianhushanshijie"
+},
+{
+"area": "雲林",
+"name": "雲嶺之丘",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376490000A_000109",
+"name": "雲嶺之丘",
+"city": "雲林縣",
+"town": "古坑鄉",
+"addr": "雲林縣古坑鄉雲林縣古坑鄉草嶺村",
+"lat": 23.627974,
+"lng": 120.711456,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-yunlingzhiqiu"
+},
+{
+"area": "雲林",
+"name": "土庫驛可可莊園",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "osm",
+"name": "土庫驛可可莊園",
+"addr": "台灣省 雲林縣 雲林縣 過港 大同路",
+"lat": 23.674985,
+"lng": 120.398667,
+"score": 100,
+"kind": "shop=agrarian"
+}
+],
+"ja": "",
+"id": "pl-tukuyikekezhuangyuan"
+},
+{
+"area": "雲林",
+"name": "鵝童樂園",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_376490000A_000172",
+"name": "鵝媽媽鵝童樂園",
+"city": "雲林縣",
+"town": "斗六市",
+"addr": "雲林縣斗六市斗六市嘉新路222號",
+"lat": 23.68109,
+"lng": 120.55236,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+}
+],
+"ja": "",
+"id": "pl-etongleyuan"
+},
+{
+"area": "雲林",
+"name": "雅聞峇里海岸",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376490000A_000031",
+"name": "雅聞峇里海岸觀光工廠",
+"city": "雲林縣",
+"town": "斗六市",
+"addr": "雲林縣斗六市雲林縣斗六市中興路333號",
+"lat": 23.72978,
+"lng": 120.56959,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_A13020000G_000190",
+"name": "雲林：雅聞峇里海岸觀光工廠",
+"city": "雲林縣",
+"town": "斗六市",
+"addr": "雲林縣斗六市中興路333號",
+"lat": 23.729811,
+"lng": 120.569794,
+"url": "https://www.arwin.com/",
+"status": 1,
+"imgs": 7,
+"src": "tb",
+"score": 80
+}
+],
+"ja": "",
+"id": "pl-yawenbalihaian"
+},
+{
+"area": "雲林",
+"name": "古坑綠色隧道",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376490000A_000015",
+"name": "古坑綠色隧道",
+"city": "雲林縣",
+"town": "古坑鄉",
+"addr": "雲林縣古坑鄉雲林縣古坑鄉湳仔村湳仔路",
+"lat": 23.659304,
+"lng": 120.540999,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-gukenglvsesuidao"
+},
+{
+"area": "雲林",
+"name": "北港朝天宮",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_376490000A_000002",
+"name": "北港朝天宮",
+"city": "雲林縣",
+"town": "北港鎮",
+"addr": "雲林縣北港鎮雲林縣北港鎮中山路178號",
+"lat": 23.56809,
+"lng": 120.30476,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "北港朝天宮",
+"id": "pl-beigangchaotiangong"
+},
+{
+"area": "雲林",
+"name": "大同醬油黑金釀造館",
+"genre": "觀光工廠",
+"cands": [
+{
+"id": "Attraction_376490000A_000051",
+"name": "大同醬油黑金釀造館",
+"city": "雲林縣",
+"town": "斗六市",
+"addr": "雲林縣斗六市雲林縣斗六市工業區斗工二路39號",
+"lat": 23.71974,
+"lng": 120.59889,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A13020000G_000081",
+"name": "雲林：大同醬油黑金釀造館",
+"city": "雲林縣",
+"town": "斗六市",
+"addr": "雲林縣斗六市斗工二路39號",
+"lat": 23.719425,
+"lng": 120.597991,
+"url": "https://www.tatungcan.com.tw/info.php",
+"status": 1,
+"imgs": 7,
+"src": "tb",
+"score": 86
+}
+],
+"ja": "",
+"id": "pl-datongjiangyouheijinniangzaoguan"
+},
+{
+"area": "嘉義",
+"name": "阿里山國家森林遊樂區",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_345040000G_000012",
+"name": "阿里山國家森林遊樂區",
+"city": "嘉義縣",
+"town": "阿里山鄉",
+"addr": "嘉義縣阿里山鄉中正村59號",
+"lat": 23.50881989610119,
+"lng": 120.80199592702066,
+"url": "https://recreation.forest.gov.tw/Forest/RA?typ_id=0500001",
+"status": 1,
+"imgs": 30,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-alishanguojiasenlinyoulequ"
+},
+{
+"area": "嘉義",
+"name": "檜意森活村",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376600000A_000015",
+"name": "檜意森活村",
+"city": "嘉義市",
+"town": "東區",
+"addr": "嘉義市東區共和路370號",
+"lat": 23.48619,
+"lng": 120.45406,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_345040000G_100034",
+"name": "阿里山林業村暨檜意森活村",
+"city": "嘉義市",
+"town": "東區",
+"addr": "嘉義市東區共和路370號",
+"lat": 23.48623555134025,
+"lng": 120.4539392888454,
+"url": "https://recreation.forest.gov.tw/Forestry/CP?typ_id=0900021",
+"status": 1,
+"imgs": 13,
+"src": "tb",
+"score": 74
+}
+],
+"ja": "",
+"id": "pl-guiyisenhuocun"
+},
+{
+"area": "嘉義",
+"name": "國立故宮博物院南部院區",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_376500000A_000025",
+"name": "國立故宮博物院南部院區",
+"city": "嘉義縣",
+"town": "太保市",
+"addr": "嘉義縣太保市嘉義縣太保市故宮大道888號",
+"lat": 23.47278,
+"lng": 120.2927,
+"url": "",
+"status": 0,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15011100H_000490",
+"name": "故宮博物院-南部院區",
+"city": "嘉義縣",
+"town": "太保市",
+"addr": "嘉義縣太保市故宮大道888號",
+"lat": 23.47313,
+"lng": 120.29272,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "故宮博物院南部院区",
+"id": "pl-guoligugongbowuyuannanbuyuanqu"
+},
+{
+"area": "嘉義",
+"name": "嘉義公園・射日塔",
+"genre": "地標展望",
+"cands": [
+{
+"id": "Attraction_376600000A_000020",
+"name": "射日塔",
+"city": "嘉義市",
+"town": "東區",
+"addr": "嘉義市東區公園街46號",
+"lat": 23.48131,
+"lng": 120.46906,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376600000A_000025",
+"name": "嘉義公園",
+"city": "嘉義市",
+"town": "東區",
+"addr": "嘉義市東區啟明路264號",
+"lat": 23.48331,
+"lng": 120.46519,
+"url": "",
+"status": 1,
+"imgs": 3,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "嘉義公園",
+"id": "pl-jiayigongyuan-sherita"
+},
+{
+"area": "嘉義",
+"name": "北回歸線太陽館",
+"genre": "博物館",
+"cands": [
+{
+"src": "osm",
+"name": "北回歸線太陽館",
+"addr": "嘉義縣 水上鄉 鴿溪寮 中山路三段",
+"lat": 23.4548,
+"lng": 120.4173,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "北回歸線太陽館",
+"addr": "嘉義縣 水上鄉 回歸村 中山路三段",
+"lat": 23.453383,
+"lng": 120.41646,
+"score": 100,
+"kind": "tourism=museum"
+}
+],
+"ja": "嘉義北回帰線標誌",
+"id": "pl-beihuiguixiantaiyangguan"
+},
+{
+"area": "嘉義",
+"name": "嘉義市立博物館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_376600000A_000019",
+"name": "嘉義市立博物館",
+"city": "嘉義市",
+"town": "東區",
+"addr": "嘉義市東區忠孝路275-1號",
+"lat": 23.48719,
+"lng": 120.45169,
+"url": "",
+"status": 1,
+"imgs": 3,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-jiayishilibowuguan"
+},
+{
+"area": "嘉義",
+"name": "達娜伊谷",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_A15010800H_000180",
+"name": "達娜伊谷自然生態公園",
+"city": "嘉義縣",
+"town": "阿里山鄉",
+"addr": "嘉義縣阿里山鄉山美村3鄰51號",
+"lat": 23.37831,
+"lng": 120.67797,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+},
+{
+"src": "osm",
+"name": "達娜伊谷溪",
+"addr": "嘉義縣 阿里山鄉 山美村 ",
+"lat": 23.370239,
+"lng": 120.717751,
+"score": 92,
+"kind": "waterway=stream"
+},
+{
+"src": "osm",
+"name": "達娜伊谷涼亭",
+"addr": "嘉義縣 阿里山鄉 山美 Saviki ",
+"lat": 23.377553,
+"lng": 120.675585,
+"score": 89,
+"kind": "amenity=shelter"
+},
+{
+"src": "osm",
+"name": "達娜伊谷生態公園",
+"addr": "嘉義縣 阿里山鄉 閘閘部古 sasango 輔助道路",
+"lat": 23.379386,
+"lng": 120.678617,
+"score": 83,
+"kind": "tourism=attraction"
+}
+],
+"ja": "",
+"id": "pl-danayigu"
+},
+{
+"area": "嘉義",
+"name": "太平雲梯",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_A15010800H_000197",
+"name": "太平雲梯",
+"city": "嘉義縣",
+"town": "梅山鄉",
+"addr": "嘉義縣梅山鄉太平村下坑仔5號",
+"lat": 23.55971,
+"lng": 120.60088,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-taipingyunti"
+},
+{
+"area": "嘉義",
+"name": "歐樂沃築夢城堡",
+"genre": "公園",
+"cands": [
+{
+"src": "osm",
+"name": "歐樂沃築夢城堡",
+"addr": "嘉義縣 大林鎮 大美里 ",
+"lat": 23.589411,
+"lng": 120.525716,
+"score": 100,
+"kind": "landuse=industrial"
+}
+],
+"ja": "",
+"id": "pl-oulewozhumengchengbao"
+},
+{
+"area": "嘉義",
+"name": "白人牙膏觀光工廠",
+"genre": "觀光工廠",
+"cands": [
+{
+"src": "osm",
+"name": "白人牙膏觀光工廠",
+"addr": "嘉義縣 水上鄉 十一指厝 ",
+"lat": 23.424631,
+"lng": 120.391612,
+"score": 100,
+"kind": "landuse=industrial"
+}
+],
+"ja": "",
+"id": "pl-bairenyagaoguanguanggongchang"
+},
+{
+"area": "嘉義",
+"name": "歡喜財神廟",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"src": "web",
+"name": "歡喜財神廟",
+"addr": "嘉義縣中埔鄉下庄仔19號（門牌）",
+"lat": 23.430135,
+"lng": 120.524197,
+"score": 80,
+"ref": "https://052536858.com/about",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-huanxicaishenmiao"
+},
+{
+"area": "嘉義",
+"name": "旺萊山愛情大草原",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "web",
+"name": "旺萊山愛情大草原",
+"addr": "嘉義縣番路鄉車埕15號（只到鄉鎮中心（要自己看地圖））",
+"lat": 23.465348,
+"lng": 120.555,
+"score": 80,
+"ref": "https://www.hsinhotel.com.tw/spot-detail/52/",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-wanglaishanaiqingdacaoyuan"
+},
+{
+"area": "嘉義",
+"name": "咩咩上樹萌寵樂園",
+"genre": "樂園",
+"cands": [
+{
+"src": "osm",
+"name": "咩咩上樹萌寵樂園",
+"addr": "台灣省 嘉義縣 嘉義縣 東勢寮 故宮大道",
+"lat": 23.469666,
+"lng": 120.296671,
+"score": 100,
+"kind": "tourism=theme_park"
+}
+],
+"ja": "",
+"id": "pl-miemieshangshumengchongleyuan"
+},
+{
+"area": "嘉義",
+"name": "蓋婭莊園",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "osm",
+"name": "蓋婭莊園",
+"addr": "嘉義縣 大林鎮 大美里 ",
+"lat": 23.5932,
+"lng": 120.525717,
+"score": 100,
+"kind": "landuse=industrial"
+},
+{
+"src": "osm",
+"name": "蓋婭莊園",
+"addr": "嘉義縣 大林鎮 大美里 大埔美園區七路",
+"lat": 23.591642,
+"lng": 120.523374,
+"score": 100,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "",
+"id": "pl-gaiyazhuangyuan"
+},
+{
+"area": "嘉義",
+"name": "佐登妮絲城堡",
+"genre": "公園",
+"cands": [
+{
+"src": "osm",
+"name": "佐登妮絲城堡",
+"addr": "台灣省 嘉義縣 嘉義縣 半廍子 大埔美園區三路",
+"lat": 23.584469,
+"lng": 120.507262,
+"score": 100,
+"kind": "historic=castle"
+},
+{
+"src": "osm",
+"name": "佐登妮絲城堡",
+"addr": "嘉義縣 大林鎮 半廍子 大埔美園區三路",
+"lat": 23.586911,
+"lng": 120.509202,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "佐登妮絲城堡生技園區",
+"addr": "嘉義縣 大林鎮 後壁坑 ",
+"lat": 23.584669,
+"lng": 120.506845,
+"score": 83,
+"kind": "landuse=industrial"
+},
+{
+"src": "osm",
+"name": "佐登妮絲城堡生技園區",
+"addr": "台灣省 嘉義縣 嘉義縣 半廍子 大埔美園區三路",
+"lat": 23.584556,
+"lng": 120.507156,
+"score": 83,
+"kind": "man_made=works"
+},
+{
+"src": "osm",
+"name": "佐登妮絲城堡生技園區",
+"addr": "台灣省 嘉義縣 嘉義縣 半廍子 大埔美園區三路",
+"lat": 23.584556,
+"lng": 120.507156,
+"score": 83,
+"kind": "shop=cosmetics"
+}
+],
+"ja": "",
+"id": "pl-zuodengnisichengbao"
+},
+{
+"area": "嘉義",
+"name": "新嘉大昆蟲館",
+"genre": "動物園水族館",
+"cands": [
+{
+"src": "web",
+"name": "新嘉大昆蟲館",
+"addr": "嘉義市東區學府路300號（門牌）",
+"lat": 23.468743,
+"lng": 120.484454,
+"score": 80,
+"ref": "https://www.facebook.com/NCYU300/",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-xinjiadakunchongguan"
+},
+{
+"area": "嘉義",
+"name": "奮起湖",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_A15010800H_000514",
+"name": "奮起湖",
+"city": "嘉義縣",
+"town": "竹崎鄉",
+"addr": "嘉義縣竹崎鄉中和村奮起湖",
+"lat": 23.50478,
+"lng": 120.69593,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010800H_000157",
+"name": "奮起湖老街",
+"city": "嘉義縣",
+"town": "竹崎鄉",
+"addr": "嘉義縣竹崎鄉中和村奮起湖",
+"lat": 23.50511,
+"lng": 120.69495,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_A15010800H_000086",
+"name": "奮起湖(南側)杉林棧道",
+"city": "嘉義縣",
+"town": "竹崎鄉",
+"addr": "嘉義縣竹崎鄉",
+"lat": 23.50349,
+"lng": 120.69329,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+},
+{
+"id": "Attraction_A15010800H_000499",
+"name": "奮起湖老老街（下腳店仔）",
+"city": "嘉義縣",
+"town": "竹崎鄉",
+"addr": "嘉義縣竹崎鄉",
+"lat": 23.50211,
+"lng": 120.69675,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 74
+}
+],
+"ja": "",
+"id": "pl-fenqihu"
+},
+{
+"area": "嘉義",
+"name": "嘉義舊監獄",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376600000A_000058",
+"name": "國定古蹟嘉義舊監獄",
+"city": "嘉義市",
+"town": "東區",
+"addr": "嘉義市東區維新路140號",
+"lat": 23.48619,
+"lng": 120.45869,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "嘉義監獄",
+"addr": "嘉義縣 嘉義縣 平鎮 維新新村",
+"lat": 23.431981,
+"lng": 120.285579,
+"score": 36,
+"kind": "amenity=prison"
+},
+{
+"src": "osm",
+"name": "嘉義監獄",
+"addr": "嘉義縣 鹿草鄉 平鎮 ",
+"lat": 23.431375,
+"lng": 120.28361,
+"score": 36,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "",
+"id": "pl-jiayijiujianyu"
+},
+{
+"area": "嘉義",
+"name": "嘉義城隍廟",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_376600000A_000053",
+"name": "國定古蹟嘉義城隍廟",
+"city": "嘉義市",
+"town": "東區",
+"addr": "嘉義市東區吳鳳北路168號",
+"lat": 23.47844,
+"lng": 120.45406,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "嘉邑城隍廟",
+"addr": "嘉義市 東區 忠孝路",
+"lat": 23.478414,
+"lng": 120.454231,
+"score": 30,
+"kind": "amenity=place_of_worship"
+}
+],
+"ja": "",
+"id": "pl-jiayichenghuangmiao"
+},
+{
+"area": "嘉義",
+"name": "文化路夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_376600000A_000032",
+"name": "文化路夜市",
+"city": "嘉義市",
+"town": "西區",
+"addr": "嘉義市西區文化路",
+"lat": 23.47956,
+"lng": 120.44969,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "文化路夜市",
+"id": "pl-wenhualuyeshi"
+},
+{
+"area": "台南",
+"name": "奇美博物館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_395000000A_000572",
+"name": "奇美博物館",
+"city": "臺南市",
+"town": "仁德區",
+"addr": "臺南市仁德區文華路二段66號",
+"lat": 22.93482,
+"lng": 120.22619,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "奇美博物館",
+"id": "pl-qimeibowuguan"
+},
+{
+"area": "台南",
+"name": "林百貨",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_395000000A_000739",
+"name": "原林百貨",
+"city": "臺南市",
+"town": "中西區",
+"addr": "臺南市中西區忠義路二段63號",
+"lat": 22.99234,
+"lng": 120.20239,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 92
+},
+{
+"id": "Attraction_A25000000E_000052",
+"name": "台南林百貨",
+"city": "臺南市",
+"town": "中西區",
+"addr": "臺南市中西區忠義路2段63號",
+"lat": 22.99179,
+"lng": 120.20252,
+"url": "",
+"status": 1,
+"imgs": 5,
+"src": "tb",
+"score": 89
+}
+],
+"ja": "ハヤシ百貨店",
+"id": "pl-linbaihuo"
+},
+{
+"area": "台南",
+"name": "四草綠色隧道",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_395000000A_001324",
+"name": "四草綠色隧道",
+"city": "臺南市",
+"town": "安南區",
+"addr": "臺南市安南區大眾路(四草大眾廟旁)",
+"lat": 23.01978,
+"lng": 120.13577,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15011100H_000300",
+"name": "四草綠色隧道",
+"city": "臺南市",
+"town": "安南區",
+"addr": "臺南市安南區大眾路360號",
+"lat": 23.01964,
+"lng": 120.13615,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-sicaolvsesuidao"
+},
+{
+"area": "台南",
+"name": "神農街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_395000000A_001351",
+"name": "神農街",
+"city": "臺南市",
+"town": "中西區",
+"addr": "臺南市中西區神農街",
+"lat": 22.99757,
+"lng": 120.19655,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-shennongjie"
+},
+{
+"area": "台南",
+"name": "安平樹屋・德記洋行",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_395000000A_000806",
+"name": "安平樹屋",
+"city": "臺南市",
+"town": "安平區",
+"addr": "臺南市安平區古堡街108號旁",
+"lat": 23.00331,
+"lng": 120.15956,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_395000000A_000687",
+"name": "原英商德記洋行",
+"city": "臺南市",
+"town": "安平區",
+"addr": "臺南市安平區古堡街108號",
+"lat": 23.00336,
+"lng": 120.15981,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+}
+],
+"ja": "",
+"id": "pl-anpingshuwu-dejiyanghang"
+},
+{
+"area": "台南",
+"name": "安平古堡",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_395000000A_000671",
+"name": "安平古堡",
+"city": "臺南市",
+"town": "安平區",
+"addr": "臺南市安平區國勝路82號",
+"lat": 23.00092,
+"lng": 120.16062,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_395000000A_000729",
+"name": "臺灣城殘蹟(安平古堡內牆)",
+"city": "臺南市",
+"town": "安平區",
+"addr": "臺南市安平區國勝路82號",
+"lat": 23.0019,
+"lng": 120.1607,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 74
+}
+],
+"ja": "安平古堡",
+"id": "pl-anpinggubao"
+},
+{
+"area": "台南",
+"name": "台南孔廟",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_395000000A_000800",
+"name": "孔廟文化園區「臺南孔子廟」",
+"city": "臺南市",
+"town": "中西區",
+"addr": "臺南市中西區南門路2號",
+"lat": 22.99055,
+"lng": 120.20409,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 67
+}
+],
+"ja": "台南孔子廟",
+"id": "pl-tainankongmiao"
+},
+{
+"area": "台南",
+"name": "臺南市美術館",
+"genre": "美術館",
+"cands": [
+{
+"id": "Attraction_395000000A_000753",
+"name": "臺南市美術館(原台南市警察局/原日治時台南警察署)",
+"city": "臺南市",
+"town": "中西區",
+"addr": "臺南市中西區南門路37號",
+"lat": 22.99107,
+"lng": 120.20503,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 70
+},
+{
+"src": "osm",
+"name": "臺南市美術館1館",
+"addr": "臺南市 中西區 南門路",
+"lat": 22.991291,
+"lng": 120.205573,
+"score": 89,
+"kind": "tourism=museum"
+},
+{
+"src": "osm",
+"name": "臺南市美術館1館",
+"addr": "臺南市 中西區 南門路",
+"lat": 22.991352,
+"lng": 120.205354,
+"score": 89,
+"kind": "landuse=village_green"
+},
+{
+"src": "osm",
+"name": "臺南市美術館二館(永福)",
+"addr": "臺南市 中西區 永福路二段",
+"lat": 22.99013,
+"lng": 120.20049,
+"score": 83,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "臺南市美術館二館(友愛)",
+"addr": "臺南市 中西區 友愛街",
+"lat": 22.99093,
+"lng": 120.20199,
+"score": 83,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "孔廟(台灣文學館、臺南市美術館1館)",
+"addr": "臺南市 中西區 南門路",
+"lat": 22.991257,
+"lng": 120.204813,
+"score": 70,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "台南市美術館",
+"id": "pl-tainanshimeishuguan"
+},
+{
+"area": "台南",
+"name": "左鎮化石園區",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_395000000A_000566",
+"name": "臺南左鎮化石園區",
+"city": "臺南市",
+"town": "左鎮區",
+"addr": "臺南市左鎮區榮和里61之23號",
+"lat": 23.06418,
+"lng": 120.38925,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_A15011200H_000022",
+"name": "臺南左鎮化石園區",
+"city": "臺南市",
+"town": "左鎮區",
+"addr": "臺南市左鎮區榮和里61-23號",
+"lat": 23.06425,
+"lng": 120.38915,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "左鎮化石園區",
+"addr": "臺南市 榮和里 南部橫貫公路",
+"lat": 23.06361,
+"lng": 120.38913,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "左鎮化石園區",
+"addr": "臺南市 榮和里 南部橫貫公路",
+"lat": 23.062982,
+"lng": 120.389616,
+"score": 100,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "",
+"id": "pl-zuozhenhuashiyuanqu"
+},
+{
+"area": "台南",
+"name": "赤崁樓",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_395000000A_000674",
+"name": "赤崁樓",
+"city": "臺南市",
+"town": "中西區",
+"addr": "臺南市中西區民族路二段212號",
+"lat": 22.99722,
+"lng": 120.20242,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "赤崁楼",
+"id": "pl-chikanlou"
+},
+{
+"area": "台南",
+"name": "花園夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"src": "osm",
+"name": "花園夜市",
+"addr": "台南市 北區 海安路三段",
+"lat": 23.010394,
+"lng": 120.199572,
+"score": 100,
+"kind": "amenity=marketplace"
+},
+{
+"src": "osm",
+"name": "花園夜市",
+"addr": "台南市 北區 海安路三段",
+"lat": 23.01131,
+"lng": 120.2004,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "花園夜市(和緯路)",
+"addr": "臺南市 北區 和緯路二段",
+"lat": 23.012135,
+"lng": 120.202258,
+"score": 86,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "花園夜市(海安路)",
+"addr": "臺南市 北區 海安路三段",
+"lat": 23.008975,
+"lng": 120.199789,
+"score": 86,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "花園夜市",
+"id": "pl-huayuanyeshi"
+},
+{
+"area": "台南",
+"name": "漁光島",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "osm",
+"name": "漁光島",
+"addr": "臺南市 上鯤鯓 ",
+"lat": 22.978395,
+"lng": 120.158944,
+"score": 100,
+"kind": "place=islet"
+},
+{
+"src": "osm",
+"name": "漁光島",
+"addr": "臺南市 安平區 健康路三段",
+"lat": 22.98143,
+"lng": 120.15642,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+}
+],
+"ja": "",
+"id": "pl-yuguangdao"
+},
+{
+"area": "台南",
+"name": "十鼓文創園區",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_395000000A_000816",
+"name": "十鼓文創園區",
+"city": "臺南市",
+"town": "仁德區",
+"addr": "臺南市仁德區文華路二段326號",
+"lat": 22.93936,
+"lng": 120.23,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-shiguwenchuangyuanqu"
+},
+{
+"area": "台南",
+"name": "井仔腳瓦盤鹽田",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_395000000A_000587",
+"name": "井仔腳瓦盤鹽田",
+"city": "臺南市",
+"town": "北門區",
+"addr": "臺南市北門區永華里井仔腳興安宮旁",
+"lat": 23.25958,
+"lng": 120.10819,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15011100H_000369",
+"name": "井仔腳瓦盤鹽田",
+"city": "臺南市",
+"town": "北門區",
+"addr": "臺南市北門區復育鹽田西南郊",
+"lat": 23.25883,
+"lng": 120.10757,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-jingzaijiaowapanyantian"
+},
+{
+"area": "台南",
+"name": "頑皮世界野生動物園",
+"genre": "動物園水族館",
+"cands": [
+{
+"id": "Attraction_395000000A_000476",
+"name": "頑皮世界野生動物園",
+"city": "臺南市",
+"town": "學甲區",
+"addr": "臺南市學甲區頂州里75-25號",
+"lat": 23.2809,
+"lng": 120.20947,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "頑皮世界野生動物園",
+"id": "pl-wanpishijieyeshengdongwuyuan"
+},
+{
+"area": "台南",
+"name": "深緣及水安平航海城",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "web",
+"name": "深緣及水安平航海城",
+"addr": "臺南市安平區湖內一街99巷33號（只到鄉鎮中心（要自己看地圖））",
+"lat": 22.995114,
+"lng": 120.167979,
+"score": 80,
+"ref": "https://www.twtainan.net/zh-tw/shop/consume/9477/",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-shenyuanjishuianpinghanghaicheng"
+},
+{
+"area": "台南",
+"name": "水交社文化園區",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_395000000A_000766",
+"name": "水交社文化園區",
+"city": "臺南市",
+"town": "南區",
+"addr": "臺南市南區興中街118號",
+"lat": 22.97765,
+"lng": 120.20157,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-shuijiaoshewenhuayuanqu"
+},
+{
+"area": "台南",
+"name": "老塘湖藝術村",
+"genre": "美術館",
+"cands": [
+{
+"src": "osm",
+"name": "老塘湖藝術村",
+"addr": "台南市 豐和里 美豐",
+"lat": 23.218433,
+"lng": 120.205906,
+"score": 100,
+"kind": "tourism=theme_park"
+}
+],
+"ja": "老塘湖芸術村",
+"id": "pl-laotanghuyishucun"
+},
+{
+"area": "台南",
+"name": "台江國家公園遊客中心",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "osm",
+"name": "台江國家公園遊客中心",
+"addr": "臺南市 四草里 廣場",
+"lat": 23.00254,
+"lng": 120.13935,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "台江國家公園遊客中心",
+"addr": "臺南市 四草里 四草大道",
+"lat": 23.002625,
+"lng": 120.138787,
+"score": 100,
+"kind": "tourism=information"
+}
+],
+"ja": "",
+"id": "pl-taijiangguojiagongyuanyoukezhongxin"
+},
+{
+"area": "台南",
+"name": "藏金閣",
+"genre": "公園",
+"cands": [
+{
+"src": "web",
+"name": "藏金閣",
+"addr": "臺南市中西區府前路二段370號（門牌）",
+"lat": 22.992607,
+"lng": 120.188431,
+"score": 80,
+"ref": "https://www.tainan.gov.tw/News_Content.aspx?n=13370&s=8224754",
+"note": "部落客推薦的是藏金閣 2 館（移民署舊址）"
+}
+],
+"ja": "",
+"id": "pl-cangjinge"
+},
+{
+"area": "台南",
+"name": "麻豆代天府",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_395000000A_000479",
+"name": "麻豆代天府",
+"city": "臺南市",
+"town": "麻豆區",
+"addr": "臺南市麻豆區南勢里關帝廟60號",
+"lat": 23.19034,
+"lng": 120.26109,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-madoudaitianfu"
+},
+{
+"area": "台南",
+"name": "祀典武廟",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_395000000A_000678",
+"name": "臺灣祀典武廟",
+"city": "臺南市",
+"town": "中西區",
+"addr": "臺南市中西區永福路二段229號",
+"lat": 22.99635,
+"lng": 120.20213,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "祀典武廟",
+"addr": "台南市 中西區 永福路二段",
+"lat": 22.996524,
+"lng": 120.202167,
+"score": 100,
+"kind": "amenity=place_of_worship"
+}
+],
+"ja": "",
+"id": "pl-sidianwumiao"
+},
+{
+"area": "台南",
+"name": "七股鹽山",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_395000000A_000471",
+"name": "七股鹽山",
+"city": "臺南市",
+"town": "七股區",
+"addr": "臺南市七股區鹽埕里66號",
+"lat": 23.15427,
+"lng": 120.10026,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15011100H_000059",
+"name": "七股鹽山園區",
+"city": "臺南市",
+"town": "七股區",
+"addr": "臺南市七股區鹽埕里66號",
+"lat": 23.15426,
+"lng": 120.10017,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+}
+],
+"ja": "",
+"id": "pl-qiguyanshan"
+},
+{
+"area": "台南",
+"name": "七股遊客中心",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_A15011100H_000511",
+"name": "七股遊客中心",
+"city": "臺南市",
+"town": "七股區",
+"addr": "臺南市七股區塩埕里塩埕102-8號",
+"lat": 23.1539,
+"lng": 120.10364,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-qiguyoukezhongxin"
+},
+{
+"area": "台南",
+"name": "雅聞湖濱療癒森林",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_A13020000G_000212",
+"name": "台南：雅聞湖濱療癒森林",
+"city": "臺南市",
+"town": "後壁區",
+"addr": "臺南市後壁區臺南市後壁區上茄苳里12-66號",
+"lat": 23.396156,
+"lng": 120.38037,
+"url": "",
+"status": 1,
+"imgs": 7,
+"src": "tb",
+"score": 86
+},
+{
+"src": "osm",
+"name": "雅聞湖濱療癒森林",
+"addr": "臺南市 上茄苳里 縱貫公路",
+"lat": 23.395841,
+"lng": 120.379433,
+"score": 100,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "",
+"id": "pl-yawenhubinliaoyusenlin"
+},
+{
+"area": "台南",
+"name": "南埕衖事",
+"genre": "古蹟老屋",
+"cands": [
+{
+"src": "osm",
+"name": "南埕衖事",
+"addr": "臺南市 中西區 忠義路二段",
+"lat": 22.993014,
+"lng": 120.202634,
+"score": 100,
+"kind": "tourism=attraction"
+}
+],
+"ja": "",
+"id": "pl-nanchengxiangshi"
+},
+{
+"area": "台南",
+"name": "武聖夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"src": "osm",
+"name": "武聖夜市",
+"addr": "臺南市 中西區 武聖路69巷40弄",
+"lat": 23.004041,
+"lng": 120.190511,
+"score": 100,
+"kind": "tourism=attraction"
+}
+],
+"ja": "武聖夜市",
+"id": "pl-wushengyeshi"
+},
+{
+"area": "台南",
+"name": "樹谷農場",
+"genre": "農場牧場",
+"cands": [
+{
+"id": "Attraction_395000000A_004277",
+"name": "樹谷農場",
+"city": "臺南市",
+"town": "新市區",
+"addr": "臺南市新市區中心東路12號",
+"lat": 23.10425,
+"lng": 120.26259,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-shugunongchang"
+},
+{
+"area": "台南",
+"name": "德元埤荷蘭村",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_395000000A_000520",
+"name": "德元埤荷蘭村",
+"city": "臺南市",
+"town": "柳營區",
+"addr": "臺南市柳營區神農里新厝100號",
+"lat": 23.26403,
+"lng": 120.34135,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-deyuanpihelancun"
+},
+{
+"area": "台南",
+"name": "龜丹溫泉體驗池",
+"genre": "溫泉",
+"cands": [
+{
+"id": "Attraction_395000000A_000853",
+"name": "龜丹溫泉體驗池",
+"city": "臺南市",
+"town": "楠西區",
+"addr": "臺南市楠西區龜丹里南186線2.8k支路內之龜丹溪畔",
+"lat": 23.13689,
+"lng": 120.50845,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15011200H_000098",
+"name": "龜丹溫泉體驗池",
+"city": "臺南市",
+"town": "楠西區",
+"addr": "臺南市楠西區龜丹里58之38號",
+"lat": 23.13637,
+"lng": 120.50856,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-guidanwenquantiyanchi"
+},
+{
+"area": "台南",
+"name": "河樂廣場",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_395000000A_005996",
+"name": "河樂廣場(原中國城)",
+"city": "臺南市",
+"town": "中西區",
+"addr": "臺南市中西區中正路343號",
+"lat": 22.9936,
+"lng": 120.19398,
+"url": "",
+"status": 3,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "河樂廣場",
+"addr": "臺南市 中西區 中正路",
+"lat": 22.993691,
+"lng": 120.194427,
+"score": 100,
+"kind": "highway=pedestrian"
+},
+{
+"src": "osm",
+"name": "河樂廣場(金華路)",
+"addr": "臺南市 中西區 河樂廣場",
+"lat": 22.99374,
+"lng": 120.19335,
+"score": 86,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "河樂廣場(金華路)",
+"addr": "臺南市 中西區 金華路三段",
+"lat": 22.99436,
+"lng": 120.193611,
+"score": 86,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "河樂廣場(康樂街)",
+"addr": "臺南市 中西區 中正路",
+"lat": 22.99327,
+"lng": 120.19438,
+"score": 86,
+"kind": "amenity=bicycle_rental"
+}
+],
+"ja": "",
+"id": "pl-heleguangchang"
+},
+{
+"area": "台南",
+"name": "山上花園水道博物館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_395000000A_005816",
+"name": "台南山上花園水道博物館",
+"city": "臺南市",
+"town": "山上區",
+"addr": "臺南市山上區山上里山上16號",
+"lat": 23.09681,
+"lng": 120.36,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_A15011200H_000160",
+"name": "臺南山上花園水道博物館",
+"city": "臺南市",
+"town": "山上區",
+"addr": "臺南市山上區山上里16 號",
+"lat": 23.09666,
+"lng": 120.36015,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+}
+],
+"ja": "旧台南水道",
+"id": "pl-shanshanghuayuanshuidaobowuguan"
+},
+{
+"area": "台南",
+"name": "頂頭額沙洲",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_395000000A_000921",
+"name": "頂頭額沙洲",
+"city": "臺南市",
+"town": "七股區",
+"addr": "臺南市七股區鹽埕里68號",
+"lat": 23.10503,
+"lng": 120.03719,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-dingtoueshazhou"
+},
+{
+"area": "台南",
+"name": "樹谷生活科學館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_395000000A_001383",
+"name": "樹谷生活科學館",
+"city": "臺南市",
+"town": "新市區",
+"addr": "臺南市新市區中心東路12號",
+"lat": 23.10348,
+"lng": 120.26241,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-shugushenghuokexueguan"
+},
+{
+"area": "台南",
+"name": "隆田文化資產教育園區",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_A15011200H_000147",
+"name": "隆田chacha文化資產教育園區",
+"city": "臺南市",
+"town": "官田區",
+"addr": "臺南市官田區新生街43號",
+"lat": 23.19096,
+"lng": 120.31904,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 73
+},
+{
+"src": "osm",
+"name": "隆田文化資產教育園區",
+"addr": "台南市 隆田里 ",
+"lat": 23.189536,
+"lng": 120.319326,
+"score": 100,
+"kind": "leisure=park"
+},
+{
+"src": "osm",
+"name": "隆田文化資產教育園區入口",
+"addr": "臺南市 隆田里 新生街",
+"lat": 23.190641,
+"lng": 120.319092,
+"score": 89,
+"kind": "tourism=museum"
+},
+{
+"src": "osm",
+"name": "隆田文化資產教育園區之出口",
+"addr": "臺南市 隆田里 新生街",
+"lat": 23.191337,
+"lng": 120.319274,
+"score": 86,
+"kind": "building=warehouse"
+}
+],
+"ja": "",
+"id": "pl-longtianwenhuazichanjiaoyuyuanqu"
+},
+{
+"area": "台南",
+"name": "黑橋牌香腸博物館",
+"genre": "觀光工廠",
+"cands": [
+{
+"id": "Attraction_395000000A_000916",
+"name": "黑橋牌香腸博物館",
+"city": "臺南市",
+"town": "南區",
+"addr": "臺南市南區新忠路2號",
+"lat": 22.97969,
+"lng": 120.18463,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A13020000G_000121",
+"name": "台南：黑橋牌香腸博物館",
+"city": "臺南市",
+"town": "南區",
+"addr": "臺南市南區新忠路2號",
+"lat": 22.979627,
+"lng": 120.184633,
+"url": "https://www.blackbridge.com.tw/things/64",
+"status": 1,
+"imgs": 9,
+"src": "tb",
+"score": 86
+}
+],
+"ja": "",
+"id": "pl-heiqiaopaixiangchangbowuguan"
+},
+{
+"area": "台南",
+"name": "臺南市立圖書館新總館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_395000000A_006003",
+"name": "臺南市立圖書館總館",
+"city": "臺南市",
+"town": "永康區",
+"addr": "臺南市永康區康橋大道255號",
+"lat": 23.02474,
+"lng": 120.23767,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "臺南市立圖書館新總館",
+"addr": "臺南市 東橋里 康橋大道",
+"lat": 23.0245,
+"lng": 120.237716,
+"score": 100,
+"kind": "amenity=library"
+}
+],
+"ja": "",
+"id": "pl-tainanshilitushuguanxinzongguan"
+},
+{
+"area": "台南",
+"name": "安平老街",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_395000000A_000812",
+"name": "安平老街(延平老街)",
+"city": "臺南市",
+"town": "安平區",
+"addr": "臺南市安平區延平街",
+"lat": 23.00076,
+"lng": 120.16173,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "安平老街",
+"addr": "臺南市 安平區 ",
+"lat": 23.00067,
+"lng": 120.162401,
+"score": 100,
+"kind": "landuse=retail"
+}
+],
+"ja": "",
+"id": "pl-anpinglaojie"
+},
+{
+"area": "台南",
+"name": "藍晒圖文創園區",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_395000000A_000740",
+"name": "藍晒圖文創園區",
+"city": "臺南市",
+"town": "南區",
+"addr": "臺南市南區西門路一段689巷",
+"lat": 22.98709,
+"lng": 120.19689,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-lanshaituwenchuangyuanqu"
+},
+{
+"area": "台南",
+"name": "關子嶺溫泉",
+"genre": "溫泉",
+"cands": [
+{
+"id": "Attraction_A15011200H_000157",
+"name": "關子嶺溫泉",
+"city": "臺南市",
+"town": "白河區",
+"addr": "臺南市白河區關子嶺風景區",
+"lat": 23.33965,
+"lng": 120.50439,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_395000000A_000590",
+"name": "關子嶺風景區(泥漿溫泉)",
+"city": "臺南市",
+"town": "白河區",
+"addr": "臺南市白河區關嶺里28-3號",
+"lat": 23.34051,
+"lng": 120.50445,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 75
+}
+],
+"ja": "関子嶺温泉",
+"id": "pl-guanzilingwenquan"
+},
+{
+"area": "台南",
+"name": "國立台灣文學館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_395000000A_001142",
+"name": "原台南州廳-台灣文學館",
+"city": "臺南市",
+"town": "中西區",
+"addr": "臺南市中西區中正路1號",
+"lat": 22.99204,
+"lng": 120.20462,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 80
+},
+{
+"src": "osm",
+"name": "國立臺灣文學館",
+"addr": "臺南市 中西區 中正路",
+"lat": 22.991801,
+"lng": 120.204374,
+"score": 100,
+"kind": "tourism=museum"
+}
+],
+"ja": "国立台湾文学館",
+"id": "pl-guolitaiwanwenxueguan"
+},
+{
+"area": "台南",
+"name": "億載金城",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_395000000A_000673",
+"name": "億載金城 (二鯤鯓砲台)",
+"city": "臺南市",
+"town": "安平區",
+"addr": "臺南市安平區光州路3號",
+"lat": 22.98836,
+"lng": 120.16001,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 80
+},
+{
+"src": "osm",
+"name": "億載金城",
+"addr": "臺南市 安平區 安億路",
+"lat": 22.987586,
+"lng": 120.159532,
+"score": 100,
+"kind": "building=yes"
+},
+{
+"src": "osm",
+"name": "億載金城",
+"addr": "臺南市 安平區 光州路",
+"lat": 22.98877,
+"lng": 120.16009,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "億載金城",
+"addr": "臺南市 安平區 光州路",
+"lat": 22.989074,
+"lng": 120.160325,
+"score": 100,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "二鯤シン砲台",
+"id": "pl-yizaijincheng"
+},
+{
+"area": "台南",
+"name": "南鯤鯓代天府",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_395000000A_000466",
+"name": "南鯤鯓代天府",
+"city": "臺南市",
+"town": "北門區",
+"addr": "臺南市北門區鯤江976號",
+"lat": 23.28647,
+"lng": 120.14159,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15011100H_000088",
+"name": "南鯤鯓代天府(大鯤園)",
+"city": "臺南市",
+"town": "北門區",
+"addr": "臺南市北門區蚵寮里976號",
+"lat": 23.28598,
+"lng": 120.1433,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+}
+],
+"ja": "南鯤シン代天府",
+"id": "pl-nankunshendaitianfu"
+},
+{
+"area": "高雄",
+"name": "蓮池潭・龍虎塔",
+"genre": "地標展望",
+"cands": [
+{
+"src": "osm",
+"name": "龍虎塔",
+"addr": "高雄市 左營區 蓮池潭環潭自行車道",
+"lat": 22.680507,
+"lng": 120.292376,
+"score": 86,
+"kind": "tourism=attraction"
+}
+],
+"ja": "蓮池潭",
+"id": "pl-lianchitan-longhuta"
+},
+{
+"area": "高雄",
+"name": "旗津",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_397000000A_000181",
+"name": "旗津觀光漁港",
+"city": "高雄市",
+"town": "旗津區",
+"addr": "高雄市旗津區北汕巷50-60號",
+"lat": 22.59086,
+"lng": 120.2869,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_397000000A_000184",
+"name": "旗津天后宮",
+"city": "高雄市",
+"town": "旗津區",
+"addr": "高雄市旗津區廟前路93號",
+"lat": 22.61338,
+"lng": 120.26843,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_397000000A_000615",
+"name": "旗津貝殼館",
+"city": "高雄市",
+"town": "旗津區",
+"addr": "高雄市旗津區旗津三路887號2F",
+"lat": 22.60115,
+"lng": 120.27425,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_397000000A_000180",
+"name": "旗津星空隧道",
+"city": "高雄市",
+"town": "旗津區",
+"addr": "高雄市旗津區廟前路1巷",
+"lat": 22.61287,
+"lng": 120.26411,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_397000000A_000616",
+"name": "旗津風車公園",
+"city": "高雄市",
+"town": "旗津區",
+"addr": "高雄市旗津區旗津二路",
+"lat": 22.58829,
+"lng": 120.28415,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "電信局(旗津)",
+"addr": "高雄市 旗津區 中洲三路",
+"lat": 22.603505,
+"lng": 120.275376,
+"score": 86,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "旗津区",
+"id": "pl-qijin"
+},
+{
+"area": "高雄",
+"name": "佛光山佛陀紀念館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_397000000A_000579",
+"name": "佛光山佛陀紀念館",
+"city": "高雄市",
+"town": "大樹區",
+"addr": "高雄市大樹區統嶺路1號",
+"lat": 22.75729,
+"lng": 120.44032,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_397000000A_000026",
+"name": "佛光山",
+"city": "高雄市",
+"town": "大樹區",
+"addr": "高雄市大樹區興田里興田路153號",
+"lat": 22.7474,
+"lng": 120.44612,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 80
+}
+],
+"ja": "佛光山佛陀記念館",
+"id": "pl-foguangshanfotuojinianguan"
+},
+{
+"area": "高雄",
+"name": "駁二藝術特區",
+"genre": "美術館",
+"cands": [
+{
+"src": "osm",
+"name": "駁二藝術特區",
+"addr": "高雄市 鹽埕區 必忠街",
+"lat": 22.619526,
+"lng": 120.281618,
+"score": 100,
+"kind": "amenity=arts_centre"
+},
+{
+"src": "osm",
+"name": "駁二藝術特區",
+"addr": "高雄市 鹽埕區 必忠街",
+"lat": 22.619526,
+"lng": 120.281618,
+"score": 100,
+"kind": "tourism=theme_park"
+},
+{
+"src": "osm",
+"name": "駁二藝術特區(必信街)",
+"addr": "高雄市 鹽埕區 必信街",
+"lat": 22.61938,
+"lng": 120.28481,
+"score": 86,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "駁二藝術特區(大智路)",
+"addr": "高雄市 鹽埕區 大智路",
+"lat": 22.620822,
+"lng": 120.284976,
+"score": 86,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "駁二芸術特区",
+"id": "pl-boeryishutequ"
+},
+{
+"area": "高雄",
+"name": "澄清湖",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_397000000A_000623",
+"name": "澄清湖棒球場",
+"city": "高雄市",
+"town": "鳥松區",
+"addr": "高雄市鳥松區鳥松村大埤路113號",
+"lat": 22.6546,
+"lng": 120.35905,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"src": "osm",
+"name": "澄清湖",
+"addr": "高雄市 鳥松區 ",
+"lat": 22.660663,
+"lng": 120.351092,
+"score": 100,
+"kind": "water=reservoir"
+},
+{
+"src": "osm",
+"name": "澄清湖",
+"addr": "高雄市 鳥松區 澄清路",
+"lat": 22.65356,
+"lng": 120.34928,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "澄清湖",
+"addr": "高雄市 鳥松區 澄清路",
+"lat": 22.653366,
+"lng": 120.349456,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "澄清湖(後門)",
+"addr": "高雄市 鳥松區 西岸道路",
+"lat": 22.66833,
+"lng": 120.34591,
+"score": 89,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "澄清湖(仁智亭)",
+"addr": "高雄市 鳥松區 松藝路",
+"lat": 22.66249,
+"lng": 120.34179,
+"score": 86,
+"kind": "amenity=bicycle_rental"
+}
+],
+"ja": "澄清湖",
+"id": "pl-chengqinghu"
+},
+{
+"area": "高雄",
+"name": "愛河",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_397000000A_000637",
+"name": "愛河",
+"city": "高雄市",
+"town": "前金區",
+"addr": "高雄市前金區同盟路接前金區河東路、河西路",
+"lat": 22.62483,
+"lng": 120.28904,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_397000000A_000016",
+"name": "愛河之心",
+"city": "高雄市",
+"town": "三民區",
+"addr": "高雄市三民區博愛一路和同盟一路、二路",
+"lat": 22.65132,
+"lng": 120.30388,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_397000000A_001368",
+"name": "永浴愛河",
+"city": "高雄市",
+"town": "前金區",
+"addr": "高雄市前金區河東路(國賓大飯店旁)",
+"lat": 22.62426,
+"lng": 120.29013,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_397000000A_001057",
+"name": "愛河自行車道",
+"city": "高雄市",
+"town": "前金區",
+"addr": "高雄市前金區（延著愛河路線）",
+"lat": 22.65271,
+"lng": 120.30313,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_397000000A_000010",
+"name": "中都愛河濕地公園",
+"city": "高雄市",
+"town": "三民區",
+"addr": "高雄市三民區同盟三路與十全三路交叉處",
+"lat": 22.64655,
+"lng": 120.28653,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+}
+],
+"ja": "愛河",
+"id": "pl-aihe"
+},
+{
+"area": "高雄",
+"name": "美麗島站・光之穹頂",
+"genre": "地標展望",
+"cands": [
+{
+"id": "Attraction_397000000A_000226",
+"name": "光之穹頂-O5R10美麗島捷運站",
+"city": "高雄市",
+"town": "新興區",
+"addr": "高雄市新興區中山一路115號",
+"lat": 22.63151,
+"lng": 120.30132,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 70
+},
+{
+"src": "osm",
+"name": "光之穹頂",
+"addr": "高雄市 新興區 中山一路",
+"lat": 22.631491,
+"lng": 120.301947,
+"score": 83,
+"kind": "tourism=attraction"
+},
+{
+"src": "osm",
+"name": "美麗島",
+"addr": "高雄市 新興區 中山一路",
+"lat": 22.631394,
+"lng": 120.30186,
+"score": 80,
+"kind": "railway=station"
+},
+{
+"src": "osm",
+"name": "美麗島",
+"addr": "高雄市 新興區 中正三路",
+"lat": 22.631371,
+"lng": 120.302684,
+"score": 80,
+"kind": "railway=stop"
+},
+{
+"src": "osm",
+"name": "美麗島",
+"addr": "高雄市 新興區 中山一路",
+"lat": 22.631231,
+"lng": 120.301905,
+"score": 80,
+"kind": "railway=stop"
+},
+{
+"src": "osm",
+"name": "美麗島",
+"addr": "高雄市 新興區 中山一路",
+"lat": 22.631237,
+"lng": 120.301794,
+"score": 80,
+"kind": "railway=stop"
+}
+],
+"ja": "美麗島駅",
+"id": "pl-meilidaozhan-guangzhiqiongding"
+},
+{
+"area": "高雄",
+"name": "打狗英國領事館",
+"genre": "古蹟老屋",
+"cands": [
+{
+"src": "osm",
+"name": "打狗英國領事館官邸",
+"addr": "高雄市 鼓山區 蓮海路",
+"lat": 22.618844,
+"lng": 120.26698,
+"score": 89,
+"kind": "tourism=attraction"
+},
+{
+"src": "osm",
+"name": "雄鎮北門(打狗英國領事館)",
+"addr": "高雄市 鼓山區 哨船街",
+"lat": 22.617549,
+"lng": 120.267369,
+"score": 83,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "打狗英國領事館登山古道",
+"addr": "高雄市 鼓山區 ",
+"lat": 22.61841,
+"lng": 120.267093,
+"score": 83,
+"kind": "highway=steps"
+},
+{
+"src": "osm",
+"name": "打狗英國領事館文化園區",
+"addr": "高雄市 鼓山區 蓮海路",
+"lat": 22.618284,
+"lng": 120.267214,
+"score": 83,
+"kind": "tourism=theme_park"
+},
+{
+"src": "osm",
+"name": "打狗英國領事館文化園區(山下辦公室)",
+"addr": "高雄市 鼓山區 哨船街",
+"lat": 22.617797,
+"lng": 120.267376,
+"score": 70,
+"kind": "tourism=attraction"
+}
+],
+"ja": "打狗英国領事館文化園区",
+"id": "pl-dagouyingguolingshiguan"
+},
+{
+"area": "高雄",
+"name": "六合夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"src": "osm",
+"name": "六合夜市",
+"addr": "高雄市 新興區 民主橫路",
+"lat": 22.632315,
+"lng": 120.299811,
+"score": 100,
+"kind": "amenity=marketplace"
+},
+{
+"src": "osm",
+"name": "六合夜市(大港埔)",
+"addr": "高雄市 新興區 中山一路",
+"lat": 22.633498,
+"lng": 120.301903,
+"score": 86,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "六合夜市",
+"id": "pl-liuheyeshi"
+},
+{
+"area": "高雄",
+"name": "高雄市立美術館",
+"genre": "美術館",
+"cands": [
+{
+"id": "Attraction_397000000A_000158",
+"name": "高雄市立美術館",
+"city": "高雄市",
+"town": "鼓山區",
+"addr": "高雄市鼓山區美術館路80號",
+"lat": 22.65669,
+"lng": 120.28655,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_397000000A_001587",
+"name": "美術館車站",
+"city": "高雄市",
+"town": "鼓山區",
+"addr": "高雄市鼓山區翠華路 246 號",
+"lat": 22.65153,
+"lng": 120.28117,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_397000000A_000076",
+"name": "曾文忠美術館",
+"city": "高雄市",
+"town": "美濃區",
+"addr": "高雄市美濃區永安路118號",
+"lat": 22.89877,
+"lng": 120.5448,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_397000000A_000022",
+"name": "佛光緣美術館 (總館)",
+"city": "高雄市",
+"town": "大樹區",
+"addr": "高雄市大樹區佛光山寺(大雄寶殿後方)",
+"lat": 22.75196,
+"lng": 120.44484,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 80
+}
+],
+"ja": "",
+"id": "pl-gaoxiongshilimeishuguan"
+},
+{
+"area": "高雄",
+"name": "瑞豐夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"src": "osm",
+"name": "瑞豐夜市",
+"addr": "高雄市 鼓山區 裕誠路",
+"lat": 22.666245,
+"lng": 120.299365,
+"score": 100,
+"kind": "amenity=marketplace"
+},
+{
+"src": "osm",
+"name": "小樂寵Pet (第四排)",
+"addr": "高雄市 鼓山區 裕誠路",
+"lat": 22.666082,
+"lng": 120.299605,
+"score": 0,
+"kind": "shop=pet"
+}
+],
+"ja": "",
+"id": "pl-ruifengyeshi"
+},
+{
+"area": "高雄",
+"name": "橋頭糖廠",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_A25000000E_000110",
+"name": "橋仔頭糖廠藝術村/白屋",
+"city": "高雄市",
+"town": "橋頭區",
+"addr": "高雄市橋頭區興糖路4巷1號",
+"lat": 22.75263,
+"lng": 120.31639,
+"url": "",
+"status": 1,
+"imgs": 2,
+"src": "tb",
+"score": 71
+},
+{
+"src": "osm",
+"name": "橋頭糖廠",
+"addr": "高雄市 橋頭區 興糖路",
+"lat": 22.753556,
+"lng": 120.314555,
+"score": 100,
+"kind": "railway=station"
+},
+{
+"src": "osm",
+"name": "橋頭糖廠",
+"addr": "高雄市 橋頭區 糖北路",
+"lat": 22.755375,
+"lng": 120.314478,
+"score": 100,
+"kind": "tourism=attraction"
+},
+{
+"src": "osm",
+"name": "橋頭糖廠",
+"addr": "高雄市 橋頭區 糖南巷",
+"lat": 22.753487,
+"lng": 120.31458,
+"score": 100,
+"kind": "building=train_station"
+}
+],
+"ja": "",
+"id": "pl-qiaotoutangchang"
+},
+{
+"area": "高雄",
+"name": "鳳儀書院",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_397000000A_000240",
+"name": "鳳儀書院",
+"city": "高雄市",
+"town": "鳳山區",
+"addr": "高雄市鳳山區鳳崗里鳳明街62號",
+"lat": 22.62775,
+"lng": 120.35948,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-fengyishuyuan"
+},
+{
+"area": "高雄",
+"name": "高雄流行音樂中心",
+"genre": "公園",
+"cands": [
+{
+"src": "osm",
+"name": "高雄流行音樂中心",
+"addr": "高雄市 鹽埕區 真愛路",
+"lat": 22.61836,
+"lng": 120.292142,
+"score": 100,
+"kind": "place=square"
+},
+{
+"src": "osm",
+"name": "高雄流行音樂中心",
+"addr": "高雄市 苓雅區 ",
+"lat": 22.61836,
+"lng": 120.292142,
+"score": 100,
+"kind": "place=square"
+},
+{
+"src": "osm",
+"name": "高雄流行音樂中心-礁群",
+"addr": "高雄市 苓雅區 海邊路",
+"lat": 22.618724,
+"lng": 120.291889,
+"score": 89,
+"kind": "amenity=arts_centre"
+},
+{
+"src": "osm",
+"name": "高雄流行音樂中心-高低塔",
+"addr": "高雄市 鹽埕區 真愛路",
+"lat": 22.618039,
+"lng": 120.28899,
+"score": 86,
+"kind": "amenity=arts_centre"
+},
+{
+"src": "osm",
+"name": "高雄流行音樂中心汽車停車場",
+"addr": "高雄市 鹽埕區 真愛路",
+"lat": 22.617327,
+"lng": 120.287028,
+"score": 80,
+"kind": "amenity=parking"
+}
+],
+"ja": "",
+"id": "pl-gaoxiongliuxingyinlezhongxin"
+},
+{
+"area": "高雄",
+"name": "大港橋",
+"genre": "地標展望",
+"cands": [
+{
+"src": "osm",
+"name": "大港橋",
+"addr": "高雄市 鼓山區 ",
+"lat": 22.617411,
+"lng": 120.283626,
+"score": 100,
+"kind": "highway=footway"
+},
+{
+"src": "osm",
+"name": "大港橋",
+"addr": "高雄市 鹽埕區 ",
+"lat": 22.618322,
+"lng": 120.284123,
+"score": 100,
+"kind": "highway=footway"
+},
+{
+"src": "osm",
+"name": "大港橋",
+"addr": "高雄市 鼓山區 大港橋",
+"lat": 22.61784,
+"lng": 120.283871,
+"score": 100,
+"kind": "man_made=bridge"
+}
+],
+"ja": "",
+"id": "pl-dagangqiao"
+},
+{
+"area": "高雄",
+"name": "田寮月世界",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_397000000A_000230",
+"name": "田寮月世界",
+"city": "高雄市",
+"town": "田寮區",
+"addr": "高雄市田寮區崇德里月球路36號",
+"lat": 22.886,
+"lng": 120.38898,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-tianliaoyueshijie"
+},
+{
+"area": "高雄",
+"name": "旗山老街",
+"genre": "老街夜市",
+"cands": [
+{
+"src": "osm",
+"name": "旗山老街",
+"addr": "高雄市 旗山區 ",
+"lat": 22.887447,
+"lng": 120.482062,
+"score": 100,
+"kind": "landuse=retail"
+},
+{
+"src": "osm",
+"name": "旗山老街(華中街)",
+"addr": "高雄市 旗山區 華中街",
+"lat": 22.888029,
+"lng": 120.481603,
+"score": 86,
+"kind": "amenity=bicycle_rental"
+}
+],
+"ja": "",
+"id": "pl-qishanlaojie"
+},
+{
+"area": "高雄",
+"name": "壽山動物園",
+"genre": "動物園水族館",
+"cands": [
+{
+"src": "osm",
+"name": "壽山動物園",
+"addr": "高雄市 鼓山區 萬壽路",
+"lat": 22.634005,
+"lng": 120.276212,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "壽山動物園停車場",
+"addr": "高雄市 鼓山區 萬壽路",
+"lat": 22.6347,
+"lng": 120.28037,
+"score": 86,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "壽山動物園停車場",
+"addr": "高雄市 鼓山區 萬壽路",
+"lat": 22.634486,
+"lng": 120.280136,
+"score": 86,
+"kind": "amenity=parking"
+}
+],
+"ja": "",
+"id": "pl-shoushandongwuyuan"
+},
+{
+"area": "高雄",
+"name": "淨園農場",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "web",
+"name": "淨園農場",
+"addr": "高雄市小港區明聖街135巷10弄12號（只到鄉鎮中心（要自己看地圖））",
+"lat": 22.565389,
+"lng": 120.337979,
+"score": 80,
+"ref": "https://www.aircoffee.com.tw/",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-jingyuannongchang"
+},
+{
+"area": "高雄",
+"name": "西子灣",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_397000000A_000161",
+"name": "西子灣蔣介石行館",
+"city": "高雄市",
+"town": "鼓山區",
+"addr": "高雄市鼓山區蓮海路70號(國立中山大學內)",
+"lat": 22.6272,
+"lng": 120.26468,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 80
+},
+{
+"id": "Attraction_397000000A_000353",
+"name": "哨船頭山碉堡(西子灣)",
+"city": "高雄市",
+"town": "鼓山區",
+"addr": "高雄市鼓山區由安船街30巷小公園對面的登山小徑進入，循打狗英國領事館官邸景觀步道前進",
+"lat": 22.62063,
+"lng": 120.268,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+},
+{
+"id": "Attraction_397000000A_001214",
+"name": "西子灣觀景台（觀海平台）",
+"city": "高雄市",
+"town": "鼓山區",
+"addr": "高雄市鼓山區西子灣觀景台",
+"lat": 22.61769,
+"lng": 120.26591,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 74
+},
+{
+"src": "osm",
+"name": "西子灣(英國領事館官邸)",
+"addr": "高雄市 鼓山區 蓮海路",
+"lat": 22.619671,
+"lng": 120.266506,
+"score": 74,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "哈瑪星",
+"addr": "高雄市 鼓山區 臨海二路",
+"lat": 22.621369,
+"lng": 120.274805,
+"score": 0,
+"kind": "railway=station"
+}
+],
+"ja": "西子湾",
+"id": "pl-xiziwan"
+},
+{
+"area": "高雄",
+"name": "玫瑰聖母聖殿主教座堂",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_397000000A_000626",
+"name": "玫瑰聖母聖殿主教座堂",
+"city": "高雄市",
+"town": "苓雅區",
+"addr": "高雄市苓雅區五福三路151號",
+"lat": 22.62032,
+"lng": 120.29162,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "玫瑰聖母聖殿司教座堂",
+"id": "pl-meiguishengmushengdianzhujiaozuotang"
+},
+{
+"area": "高雄",
+"name": "三鳳宮",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_397000000A_000634",
+"name": "三鳳宮",
+"city": "高雄市",
+"town": "三民區",
+"addr": "高雄市三民區河北二路134號",
+"lat": 22.63584,
+"lng": 120.29416,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "三鳳宮",
+"id": "pl-sanfenggong"
+},
+{
+"area": "高雄",
+"name": "高雄市立歷史博物館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_397000000A_000601",
+"name": "高雄市立歷史博物館",
+"city": "高雄市",
+"town": "鹽埕區",
+"addr": "高雄市鹽埕區中正四路272號",
+"lat": 22.62695,
+"lng": 120.2868,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "高雄市立歴史博物館",
+"id": "pl-gaoxiongshililishibowuguan"
+},
+{
+"area": "高雄",
+"name": "高雄忠烈祠",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"id": "Attraction_397000000A_000163",
+"name": "忠烈祠",
+"city": "高雄市",
+"town": "鼓山區",
+"addr": "高雄市鼓山區忠義路32號",
+"lat": 22.62646,
+"lng": 120.27382,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "高雄忠烈祠",
+"addr": "高雄市 鼓山區 忠義路",
+"lat": 22.626455,
+"lng": 120.27367,
+"score": 100,
+"kind": "building=yes"
+}
+],
+"ja": "",
+"id": "pl-gaoxiongzhonglieci"
+},
+{
+"area": "高雄",
+"name": "義大世界",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_397000000A_000608",
+"name": "義大世界",
+"city": "高雄市",
+"town": "大樹區",
+"addr": "高雄市大樹區學城路一段12號",
+"lat": 22.72984,
+"lng": 120.40673,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-yidashijie"
+},
+{
+"area": "高雄",
+"name": "彌陀漁港海岸光廊",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_397000000A_001211",
+"name": "南寮海岸光廊(彌陀漁港海岸光廊)",
+"city": "高雄市",
+"town": "彌陀區",
+"addr": "高雄市彌陀區南寮路96號",
+"lat": 22.76099,
+"lng": 120.23429,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+}
+],
+"ja": "",
+"id": "pl-mituoyuganghaianguanglang"
+},
+{
+"area": "高雄",
+"name": "高雄逍遙園",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_397000000A_001213",
+"name": "逍遙園",
+"city": "高雄市",
+"town": "新興區",
+"addr": "高雄市新興區六合一路55巷15號錦田路",
+"lat": 22.63167,
+"lng": 120.31007,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+}
+],
+"ja": "",
+"id": "pl-gaoxiongxiaoyaoyuan"
+},
+{
+"area": "高雄",
+"name": "白色戀人貨櫃屋",
+"genre": "公園",
+"cands": [
+{
+"src": "web",
+"name": "白色戀人貨櫃屋",
+"addr": "高雄市前金區河東路189號（門牌）",
+"lat": 22.625372,
+"lng": 120.289677,
+"score": 80,
+"ref": "https://khh.travel/zh-tw/attractions/detail/1139/",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-baiselianrenhuoguiwu"
+},
+{
+"area": "高雄",
+"name": "夢時代購物中心",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_397000000A_000571",
+"name": "統一夢時代購物中心",
+"city": "高雄市",
+"town": "前鎮區",
+"addr": "高雄市前鎮區中華五路789號",
+"lat": 22.59515,
+"lng": 120.30692,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "夢時代購物中心",
+"addr": "高雄市 前鎮區 中華五路",
+"lat": 22.595045,
+"lng": 120.306988,
+"score": 100,
+"kind": "shop=mall"
+},
+{
+"src": "osm",
+"name": "夢時代購物中心",
+"addr": "高雄市 前鎮區 成功二路",
+"lat": 22.59586,
+"lng": 120.30493,
+"score": 100,
+"kind": "amenity=bicycle_rental"
+},
+{
+"src": "osm",
+"name": "Dim Dim Sum",
+"addr": "高雄市 前鎮區 興發路",
+"lat": 22.595326,
+"lng": 120.307747,
+"score": 0,
+"kind": "amenity=restaurant"
+}
+],
+"ja": "統一夢時代",
+"id": "pl-mengshidaigouwuzhongxin"
+},
+{
+"area": "高雄",
+"name": "壽山國家自然公園",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "osm",
+"name": "壽山國家自然公園",
+"addr": "高雄市 ",
+"lat": 22.649634,
+"lng": 120.263581,
+"score": 100,
+"kind": "boundary=national_park"
+},
+{
+"src": "osm",
+"name": "壽山國家自然公園",
+"addr": "高雄市 ",
+"lat": 22.649634,
+"lng": 120.263581,
+"score": 100,
+"kind": "leisure=nature_reserve"
+},
+{
+"src": "osm",
+"name": "半屏山 - 壽山國家自然公園",
+"addr": "高雄市 左營區 翠華路",
+"lat": 22.69105,
+"lng": 120.30298,
+"score": 86,
+"kind": "information=map"
+},
+{
+"src": "osm",
+"name": "半屏山 - 壽山國家自然公園",
+"addr": "高雄市 左營區 翠華路",
+"lat": 22.692798,
+"lng": 120.303277,
+"score": 86,
+"kind": "information=map"
+},
+{
+"src": "osm",
+"name": "半屏山 - 壽山國家自然公園",
+"addr": "高雄市 左營區 半屏山步道 A2",
+"lat": 22.692028,
+"lng": 120.304453,
+"score": 86,
+"kind": "information=map"
+}
+],
+"ja": "",
+"id": "pl-shoushanguojiazirangongyuan"
+},
+{
+"area": "高雄",
+"name": "高雄市立圖書館總館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_397000000A_000069",
+"name": "高雄市立圖書館總館",
+"city": "高雄市",
+"town": "前鎮區",
+"addr": "高雄市前鎮區新光路61號",
+"lat": 22.61024,
+"lng": 120.30174,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "高雄市立図書館総館",
+"id": "pl-gaoxiongshilitushuguanzongguan"
+},
+{
+"area": "高雄",
+"name": "打狗鐵道故事館",
+"genre": "博物館",
+"cands": [
+{
+"src": "web",
+"name": "打狗鐵道故事館",
+"addr": "高雄市鼓山區鼓山一路32號（門牌）",
+"lat": 22.621968,
+"lng": 120.275666,
+"score": 80,
+"ref": "https://khh.travel/zh-tw/attractions/detail/1215/",
+"note": "現名「舊打狗驛故事館」"
+}
+],
+"ja": "高雄港駅",
+"id": "pl-dagoutiedaogushiguan"
+},
+{
+"area": "高雄",
+"name": "棧貳庫",
+"genre": "公園",
+"cands": [
+{
+"src": "osm",
+"name": "棧貳庫",
+"addr": "高雄市 鼓山區 捷興一街",
+"lat": 22.618967,
+"lng": 120.277089,
+"score": 100,
+"kind": "building=warehouse"
+},
+{
+"src": "osm",
+"name": "棧貳庫",
+"addr": "高雄市 鼓山區 蓬萊路",
+"lat": 22.618816,
+"lng": 120.279155,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "棧貳庫 KW2",
+"addr": "高雄市 鼓山區 捷興一街",
+"lat": 22.618891,
+"lng": 120.27775,
+"score": 86,
+"kind": "amenity=arts_centre"
+}
+],
+"ja": "",
+"id": "pl-zhanerku"
+},
+{
+"area": "高雄",
+"name": "蚵仔寮漁港",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "osm",
+"name": "蚵仔寮漁港",
+"addr": "高雄市 梓官區 ",
+"lat": 22.726225,
+"lng": 120.254359,
+"score": 100,
+"kind": "water=harbour"
+},
+{
+"src": "osm",
+"name": "蚵仔寮漁港",
+"addr": "高雄市 梓官區 通安路305巷",
+"lat": 22.726225,
+"lng": 120.254359,
+"score": 100,
+"kind": "leisure=marina"
+},
+{
+"src": "osm",
+"name": "蚵仔寮漁港",
+"addr": "高雄市 梓官區 漁港一路",
+"lat": 22.72695,
+"lng": 120.255729,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "蚵仔寮漁港(北極殿)",
+"addr": "高雄市 梓官區 中正路",
+"lat": 22.727534,
+"lng": 120.257669,
+"score": 86,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "蚵仔寮漁港停車場",
+"addr": "高雄市 梓官區 港九街",
+"lat": 22.727345,
+"lng": 120.255164,
+"score": 86,
+"kind": "amenity=parking"
+}
+],
+"ja": "",
+"id": "pl-hezailiaoyugang"
+},
+{
+"area": "高雄",
+"name": "衛武營國家藝術文化中心",
+"genre": "美術館",
+"cands": [
+{
+"id": "Attraction_397000000A_000247",
+"name": "衛武營國家藝術文化中心",
+"city": "高雄市",
+"town": "鳳山區",
+"addr": "高雄市鳳山區三多一路1號",
+"lat": 22.623,
+"lng": 120.34244,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "衛武営国家芸術文化中心",
+"id": "pl-weiwuyingguojiayishuwenhuazhongxin"
+},
+{
+"area": "高雄",
+"name": "高雄85大樓",
+"genre": "地標展望",
+"cands": [
+{
+"src": "osm",
+"name": "高雄八五大樓",
+"addr": "高雄市 苓雅區 自強三路",
+"lat": 22.611618,
+"lng": 120.300159,
+"score": 22,
+"kind": "building=commercial"
+},
+{
+"src": "osm",
+"name": "高雄八五大樓",
+"addr": "高雄市 苓雅區 自強三路",
+"lat": 22.611618,
+"lng": 120.300159,
+"score": 22,
+"kind": "building=commercial"
+},
+{
+"src": "osm",
+"name": "高雄八五大樓",
+"addr": "高雄市 苓雅區 自強三路",
+"lat": 22.611618,
+"lng": 120.300159,
+"score": 22,
+"kind": "building=commercial"
+},
+{
+"src": "osm",
+"name": "高雄八五大樓",
+"addr": "高雄市 苓雅區 自強三路",
+"lat": 22.611618,
+"lng": 120.300159,
+"score": 22,
+"kind": "building=commercial"
+},
+{
+"src": "osm",
+"name": "高雄商業大樓",
+"addr": "高雄市 鳳山區 協和路",
+"lat": 22.630432,
+"lng": 120.35824,
+"score": 22,
+"kind": "building=apartments"
+}
+],
+"ja": "高雄85ビル",
+"id": "pl-gaoxiong85dalou"
+},
+{
+"area": "高雄",
+"name": "三多商圈",
+"genre": "老街夜市",
+"cands": [
+{
+"src": "osm",
+"name": "三多商圈",
+"addr": "高雄市 苓雅區 中山二路",
+"lat": 22.614153,
+"lng": 120.304422,
+"score": 100,
+"kind": "railway=station"
+},
+{
+"src": "osm",
+"name": "三多商圈",
+"addr": "高雄市 苓雅區 ",
+"lat": 22.61399,
+"lng": 120.304458,
+"score": 100,
+"kind": "place=quarter"
+},
+{
+"src": "osm",
+"name": "三多商圈",
+"addr": "高雄市 苓雅區 中山二路",
+"lat": 22.6135,
+"lng": 120.30457,
+"score": 100,
+"kind": "railway=stop"
+},
+{
+"src": "osm",
+"name": "三多商圈",
+"addr": "高雄市 苓雅區 中山二路",
+"lat": 22.614114,
+"lng": 120.304465,
+"score": 100,
+"kind": "railway=stop"
+}
+],
+"ja": "",
+"id": "pl-sanduoshangquan"
+},
+{
+"area": "屏東",
+"name": "龍磐公園",
+"genre": "公園",
+"cands": [
+{
+"src": "osm",
+"name": "龍磐公園",
+"addr": "屏東縣 恆春鎮 埔頂 ",
+"lat": 21.927802,
+"lng": 120.846974,
+"score": 100,
+"kind": "leisure=park"
+}
+],
+"ja": "",
+"id": "pl-longpangongyuan"
+},
+{
+"area": "屏東",
+"name": "鵝鑾鼻燈塔",
+"genre": "地標展望",
+"cands": [
+{
+"src": "osm",
+"name": "鵝鑾鼻燈塔",
+"addr": "屏東縣 恆春鎮 鵝鑾里 燈塔路",
+"lat": 21.902234,
+"lng": 120.852659,
+"score": 100,
+"kind": "man_made=lighthouse"
+}
+],
+"ja": "",
+"id": "pl-eluanbidengta"
+},
+{
+"area": "屏東",
+"name": "國立海洋生物博物館",
+"genre": "動物園水族館",
+"cands": [
+{
+"src": "osm",
+"name": "國立海洋生物博物館",
+"addr": "台灣省 屏東縣 屏東縣 後灣 後灣路",
+"lat": 22.045753,
+"lng": 120.699334,
+"score": 100,
+"kind": "tourism=museum"
+}
+],
+"ja": "",
+"id": "pl-guolihaiyangshengwubowuguan"
+},
+{
+"area": "屏東",
+"name": "車城福安宮",
+"genre": "寺廟宮廟",
+"cands": [
+{
+"src": "osm",
+"name": "車城福安宮",
+"addr": "台灣省 屏東縣 屏東縣 新街 福安路",
+"lat": 22.070838,
+"lng": 120.710814,
+"score": 100,
+"kind": "amenity=place_of_worship"
+},
+{
+"src": "osm",
+"name": "福安宮香客大樓",
+"addr": "台灣省 屏東縣 屏東縣 福興村 忠孝路",
+"lat": 22.069944,
+"lng": 120.710864,
+"score": 22,
+"kind": "emergency=assembly_point"
+},
+{
+"src": "osm",
+"name": "福安宮香客大樓",
+"addr": "台灣省 屏東縣 屏東縣 福興村 忠孝路",
+"lat": 22.069944,
+"lng": 120.710864,
+"score": 22,
+"kind": "tourism=hostel"
+}
+],
+"ja": "",
+"id": "pl-chechengfuangong"
+},
+{
+"area": "屏東",
+"name": "小琉球",
+"genre": "公園",
+"cands": [
+{
+"src": "osm",
+"name": "小琉球-蜜仔蕃薯糖",
+"addr": "屏東縣 琉球鄉 白沙尾 三民路",
+"lat": 22.351927,
+"lng": 120.384311,
+"score": 80,
+"kind": "craft=confectionery"
+},
+{
+"src": "osm",
+"name": "小琉球 教官の818密室 民宿",
+"addr": "台灣省 屏東縣 屏東縣 上坪腳 中正路",
+"lat": 22.331011,
+"lng": 120.362861,
+"score": 70,
+"kind": "tourism=hostel"
+},
+{
+"src": "osm",
+"name": "琉球嶼",
+"addr": "屏東縣 琉球鄉 大福村 ",
+"lat": 22.338719,
+"lng": 120.371203,
+"score": 30,
+"kind": "place=island"
+}
+],
+"ja": "",
+"id": "pl-xiaoliuqiu"
+},
+{
+"area": "屏東",
+"name": "看海美術館",
+"genre": "美術館",
+"cands": [
+{
+"src": "osm",
+"name": "海口港旅遊服務中心（看海美術館）",
+"addr": "台灣省 屏東縣 屏東縣 海口 海口路",
+"lat": 22.090132,
+"lng": 120.715304,
+"score": 70,
+"kind": "tourism=museum"
+}
+],
+"ja": "",
+"id": "pl-kanhaimeishuguan"
+},
+{
+"area": "屏東",
+"name": "台電南部展示館",
+"genre": "博物館",
+"cands": [
+{
+"src": "web",
+"name": "台電南部展示館",
+"addr": "屏東縣恆春鎮後壁湖路96巷33號（門牌）",
+"lat": 21.949062,
+"lng": 120.744431,
+"score": 80,
+"ref": "https://top.energypark.org.tw/map/southern_map23.htm",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-taidiannanbuzhanshiguan"
+},
+{
+"area": "屏東",
+"name": "鹿境梅花鹿生態園區",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "osm",
+"name": "鹿境梅花鹿生態園區",
+"addr": "台灣省 屏東縣 屏東縣 網紗 恆公路",
+"lat": 22.012446,
+"lng": 120.7417,
+"score": 100,
+"kind": "tourism=zoo"
+}
+],
+"ja": "",
+"id": "pl-lujingmeihualushengtaiyuanqu"
+},
+{
+"area": "屏東",
+"name": "墾丁小巴里島岩",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "web",
+"name": "墾丁小巴里島岩",
+"addr": "屏東縣恆春鎮大光路79-66號（只到路名）",
+"lat": 21.945793,
+"lng": 120.739213,
+"score": 80,
+"ref": "https://bunnyann.tw/little-barry/",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-kendingxiaobalidaoyan"
+},
+{
+"area": "屏東",
+"name": "阿信巧克力農場",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "osm",
+"name": "阿信巧克力農場",
+"addr": "台灣省 屏東縣 屏東縣 萬里桐 萬里路",
+"lat": 21.998763,
+"lng": 120.706221,
+"score": 100,
+"kind": "tourism=attraction"
+}
+],
+"ja": "",
+"id": "pl-axinqiaokelinongchang"
+},
+{
+"area": "屏東",
+"name": "墾丁鹿ㄦ島水豚生態園區",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "web",
+"name": "墾丁鹿ㄦ島水豚生態園區",
+"addr": "屏東縣恆春鎮省北路275之1號（門牌）",
+"lat": 22.016981,
+"lng": 120.743715,
+"score": 80,
+"ref": "https://uukt.com.tw/kenting/48006",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-kendinglu-daoshuitunshengtaiyuanqu"
+},
+{
+"area": "屏東",
+"name": "林後四林平地森林園區",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_345040000G_020021",
+"name": "林後四林平地森林園區",
+"city": "屏東縣",
+"town": "潮州鎮",
+"addr": "屏東縣潮州鎮潮義路221之1",
+"lat": 22.538688964144093,
+"lng": 120.59040598088522,
+"url": "https://recreation.forest.gov.tw/Forest/FP?typ_id=06001",
+"status": 1,
+"imgs": 87,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-linhousilinpingdisenlinyuanqu"
+},
+{
+"area": "屏東",
+"name": "福爾摩莎可可農場",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "web",
+"name": "福爾摩莎可可農場",
+"addr": "屏東縣內埔鄉大同路三段榮和巷80號（只到路名）",
+"lat": 22.648777,
+"lng": 120.579144,
+"score": 80,
+"ref": "https://spot.line.me/detail/675027225254312971",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-fuermoshakekenongchang"
+},
+{
+"area": "屏東",
+"name": "屏菸1936文化基地",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376530000A_000003",
+"name": "屏菸1936文化基地",
+"city": "屏東縣",
+"town": "屏東市",
+"addr": "屏東縣屏東市菸廠路1號",
+"lat": 22.66258,
+"lng": 120.50496,
+"url": "https://www.cultural.pthg.gov.tw/pt1936/Default.aspx",
+"status": 1,
+"imgs": 2,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-pingyan1936wenhuajidi"
+},
+{
+"area": "屏東",
+"name": "勝利星村",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376530000A_000001",
+"name": "勝利星村V.I.P Zone",
+"city": "屏東縣",
+"town": "屏東市",
+"addr": "屏東縣屏東市成功路134號",
+"lat": 22.6742,
+"lng": 120.48436,
+"url": "https://www.cultural.pthg.gov.tw/vipzone/Default.aspx",
+"status": 1,
+"imgs": 2,
+"src": "tb",
+"score": 74
+},
+{
+"src": "osm",
+"name": "勝利星村",
+"addr": "屏東縣 屏東市 永城里 中山路",
+"lat": 22.678625,
+"lng": 120.484648,
+"score": 100,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "",
+"id": "pl-shenglixingcun"
+},
+{
+"area": "屏東",
+"name": "墾丁國家公園・墾丁大街",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "osm",
+"name": "墾丁國家公園",
+"addr": "屏東縣 ",
+"lat": 21.996341,
+"lng": 120.824385,
+"score": 83,
+"kind": "boundary=national_park"
+},
+{
+"src": "osm",
+"name": "墾丁國家公園",
+"addr": "屏東縣 ",
+"lat": 21.996341,
+"lng": 120.824385,
+"score": 83,
+"kind": "leisure=nature_reserve"
+},
+{
+"src": "osm",
+"name": "墾丁大街",
+"addr": "屏東縣 恆春鎮 墾丁里 墾丁路",
+"lat": 21.945086,
+"lng": 120.798974,
+"score": 77,
+"kind": "tourism=attraction"
+},
+{
+"src": "osm",
+"name": "墾丁國家公園界址",
+"addr": "屏東縣 車城鄉 新街村 保新路",
+"lat": 22.054765,
+"lng": 120.72064,
+"score": 45,
+"kind": "historic=boundary_stone"
+},
+{
+"src": "osm",
+"name": "墾丁國家公園管理處遊客中心",
+"addr": "屏東縣 恆春鎮 潭仔灣 墾丁路",
+"lat": 21.948404,
+"lng": 120.780517,
+"score": 30,
+"kind": "information=office"
+}
+],
+"ja": "墾丁国家公園",
+"id": "pl-kendingguojiagongyuan-kendingdajie"
+},
+{
+"area": "屏東",
+"name": "墾丁國家森林遊樂區",
+"genre": "樂園",
+"cands": [
+{
+"id": "Attraction_345040000G_000014",
+"name": "墾丁國家森林遊樂區",
+"city": "屏東縣",
+"town": "恆春鎮",
+"addr": "屏東縣恆春鎮墾丁里公園路201號",
+"lat": 21.958724278213854,
+"lng": 120.81203853828217,
+"url": "https://recreation.forest.gov.tw/Forest/RA?typ_id=0600002",
+"status": 1,
+"imgs": 26,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_345040000G_000015",
+"name": "雙流國家森林遊樂區",
+"city": "屏東縣",
+"town": "獅子鄉",
+"addr": "屏東縣獅子鄉丹路村丹路二巷23號",
+"lat": 22.217671437738247,
+"lng": 120.79586524766609,
+"url": "https://recreation.forest.gov.tw/Forest/RA?typ_id=0600003",
+"status": 1,
+"imgs": 15,
+"src": "tb",
+"score": 54
+}
+],
+"ja": "",
+"id": "pl-kendingguojiasenlinyoulequ"
+},
+{
+"area": "花蓮",
+"name": "七星潭",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376550000A_001190",
+"name": "七星潭海岸風景特定區",
+"city": "花蓮縣",
+"town": "新城鄉",
+"addr": "花蓮縣新城鄉大漢村七星街32號",
+"lat": 24.03143,
+"lng": 121.62718,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 74
+},
+{
+"id": "Attraction_376550000A_001201",
+"name": "兩潭自行車道(七星潭段)",
+"city": "花蓮縣",
+"town": "新城鄉",
+"addr": "花蓮縣新城鄉七星街32號",
+"lat": 24.04164,
+"lng": 121.62252,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 74
+},
+{
+"src": "osm",
+"name": "七星潭",
+"addr": "花蓮縣 花蓮市 ",
+"lat": 24.025843,
+"lng": 121.632257,
+"score": 100,
+"kind": "place=hamlet"
+},
+{
+"src": "osm",
+"name": "七星潭",
+"addr": "花蓮縣 新城鄉 大漢村 七星街",
+"lat": 24.026908,
+"lng": 121.63168,
+"score": 100,
+"kind": "information=office"
+},
+{
+"src": "osm",
+"name": "七星潭",
+"addr": "花蓮縣 新城鄉 大漢村 七星街",
+"lat": 24.030873,
+"lng": 121.626302,
+"score": 100,
+"kind": "highway=bus_stop"
+}
+],
+"ja": "",
+"id": "pl-qixingtan"
+},
+{
+"area": "花蓮",
+"name": "鯉魚潭",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376550000A_001463",
+"name": "鯉魚潭",
+"city": "花蓮縣",
+"town": "壽豐鄉",
+"addr": "花蓮縣壽豐鄉池南村環潭北路100號(臺9丙線大約16k東轉入)",
+"lat": 23.92783,
+"lng": 121.50988,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010300H_000001",
+"name": "鯉魚潭",
+"city": "花蓮縣",
+"town": "壽豐鄉",
+"addr": "花蓮縣壽豐鄉池南村環潭北路100號(臺9丙線大約16k東轉入)",
+"lat": 23.93501,
+"lng": 121.50778,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376550000A_000195",
+"name": "鯉魚潭遊客中心",
+"city": "花蓮縣",
+"town": "壽豐鄉",
+"addr": "花蓮縣壽豐鄉環潭北路100號",
+"lat": 23.935,
+"lng": 121.50778,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_A15010300H_000205",
+"name": "鯉魚潭遊客中心",
+"city": "花蓮縣",
+"town": "壽豐鄉",
+"addr": "花蓮縣壽豐鄉環潭北路100號",
+"lat": 23.93493,
+"lng": 121.50803,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_376550000A_000081",
+"name": "鯉魚潭環潭自行車道",
+"city": "花蓮縣",
+"town": "壽豐鄉",
+"addr": "花蓮縣壽豐鄉環潭北路",
+"lat": 23.92984,
+"lng": 121.51424,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+}
+],
+"ja": "",
+"id": "pl-liyutan"
+},
+{
+"area": "花蓮",
+"name": "雲山水",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376550000A_001008",
+"name": "雲山水植物農場",
+"city": "花蓮縣",
+"town": "壽豐鄉",
+"addr": "花蓮縣壽豐鄉豐坪路二段2巷201弄88號",
+"lat": 23.82788,
+"lng": 121.51602,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_A15010300H_000190",
+"name": "雲山水植物農場",
+"city": "花蓮縣",
+"town": "壽豐鄉",
+"addr": "花蓮縣壽豐鄉豐坪路二段2巷201弄88號",
+"lat": 23.82777,
+"lng": 121.516,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "雲山水",
+"addr": "花蓮縣 壽豐鄉 豐坪 東富街",
+"lat": 23.827714,
+"lng": 121.513646,
+"score": 100,
+"kind": "tourism=attraction"
+}
+],
+"ja": "",
+"id": "pl-yunshanshui"
+},
+{
+"area": "花蓮",
+"name": "大石鼻山步道",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_A15010100H_000265",
+"name": "大石鼻山",
+"city": "花蓮縣",
+"town": "豐濱鄉",
+"addr": "花蓮縣豐濱鄉大石鼻山步道",
+"lat": 23.69688,
+"lng": 121.55089,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "大石鼻山步道",
+"addr": "花蓮縣 豐濱鄉 龜庵(達個莫) ",
+"lat": 23.698316,
+"lng": 121.552038,
+"score": 100,
+"kind": "highway=footway"
+},
+{
+"src": "osm",
+"name": "大石鼻山步道",
+"addr": "花蓮縣 豐濱鄉 龜庵(達個莫) ",
+"lat": 23.696539,
+"lng": 121.551572,
+"score": 100,
+"kind": "highway=steps"
+}
+],
+"ja": "",
+"id": "pl-dashibishanbudao"
+},
+{
+"area": "花蓮",
+"name": "大農大富平地森林園區",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_345040000G_020022",
+"name": "大農大富平地森林園區",
+"city": "花蓮縣",
+"town": "光復鄉",
+"addr": "花蓮縣光復鄉農場路32號",
+"lat": 23.615172797937035,
+"lng": 121.41462151600496,
+"url": "https://recreation.forest.gov.tw/Forest/FP?typ_id=08001",
+"status": 1,
+"imgs": 19,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376550000A_000293",
+"name": "大農大富平地森林園區",
+"city": "花蓮縣",
+"town": "光復鄉",
+"addr": "花蓮縣光復鄉農場路31號",
+"lat": 23.61456,
+"lng": 121.41592,
+"url": "",
+"status": 3,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010300H_000193",
+"name": "大農大富平地森林園區",
+"city": "花蓮縣",
+"town": "光復鄉",
+"addr": "花蓮縣光復鄉農場路31號",
+"lat": 23.61485,
+"lng": 121.41773,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-danongdafupingdisenlinyuanqu"
+},
+{
+"area": "花蓮",
+"name": "吉安慶修院",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_376550000A_001433",
+"name": "吉安慶修院",
+"city": "花蓮縣",
+"town": "吉安鄉",
+"addr": "花蓮縣吉安鄉吉安村中興路345之1號",
+"lat": 23.97369,
+"lng": 121.56471,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010300H_000201",
+"name": "吉安慶修院",
+"city": "花蓮縣",
+"town": "吉安鄉",
+"addr": "花蓮縣吉安鄉吉安村中興路345之1號",
+"lat": 23.97369,
+"lng": 121.56471,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "慶修院",
+"id": "pl-jianqingxiuyuan"
+},
+{
+"area": "花蓮",
+"name": "赤柯山小瑞士農場",
+"genre": "農場牧場",
+"cands": [
+{
+"src": "web",
+"name": "赤柯山小瑞士農場",
+"addr": "花蓮縣玉里鎮高寮275號（門牌）",
+"lat": 23.394405,
+"lng": 121.395619,
+"score": 80,
+"ref": "https://chikemswissfarm.bnbhl.net/",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-chikeshanxiaoruishinongchang"
+},
+{
+"area": "花蓮",
+"name": "台泥 DAKA 園區",
+"genre": "公園",
+"cands": [
+{
+"src": "web",
+"name": "台泥 DAKA 園區",
+"addr": "花蓮縣秀林鄉和平263號（門牌）",
+"lat": 24.303233,
+"lng": 121.752704,
+"score": 80,
+"ref": "https://tour-hualien.hl.gov.tw/TourContent.aspx?n=109&s=316",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-taini-daka-yuanqu"
+},
+{
+"area": "花蓮",
+"name": "四八高地",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376550000A_001205",
+"name": "四八高地瞭望台",
+"city": "花蓮縣",
+"town": "花蓮市",
+"addr": "花蓮縣花蓮市193線道海岸路及華東路交叉處",
+"lat": 24.02229,
+"lng": 121.63487,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"src": "osm",
+"name": "四八高地",
+"addr": "花蓮縣 花蓮市 七星潭 海岸路",
+"lat": 24.022292,
+"lng": 121.63489,
+"score": 100,
+"kind": "tourism=viewpoint"
+}
+],
+"ja": "",
+"id": "pl-sibagaodi"
+},
+{
+"area": "花蓮",
+"name": "將軍府1936",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_376550000A_000049",
+"name": "花蓮將軍府1936",
+"city": "花蓮縣",
+"town": "花蓮市",
+"addr": "花蓮縣花蓮市中正路622巷6號",
+"lat": 23.98055,
+"lng": 121.61284,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+}
+],
+"ja": "",
+"id": "pl-jiangjunfu1936"
+},
+{
+"area": "花蓮",
+"name": "遠雄海洋公園",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376550000A_001258",
+"name": "遠雄海洋公園",
+"city": "花蓮縣",
+"town": "壽豐鄉",
+"addr": "花蓮縣壽豐鄉鹽寮村福德189號",
+"lat": 23.90126,
+"lng": 121.60354,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010100H_000005",
+"name": "遠雄海洋公園",
+"city": "花蓮縣",
+"town": "壽豐鄉",
+"addr": "花蓮縣壽豐鄉鹽寮村福德189號",
+"lat": 23.90134,
+"lng": 121.60337,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-yuanxionghaiyanggongyuan"
+},
+{
+"area": "花蓮",
+"name": "瑞穗牧場",
+"genre": "農場牧場",
+"cands": [
+{
+"id": "Attraction_376550000A_001466",
+"name": "瑞穗牧場",
+"city": "花蓮縣",
+"town": "瑞穗鄉",
+"addr": "花蓮縣瑞穗鄉舞鶴村6鄰157號",
+"lat": 23.47921,
+"lng": 121.34596,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010300H_000168",
+"name": "瑞穗牧場",
+"city": "花蓮縣",
+"town": "瑞穗鄉",
+"addr": "花蓮縣瑞穗鄉舞鶴村6鄰157號",
+"lat": 23.47921,
+"lng": 121.34596,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "瑞穂牧場",
+"id": "pl-ruisuimuchang"
+},
+{
+"area": "花蓮",
+"name": "太魯閣國家公園",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_376550000A_003128",
+"name": "太魯閣國家公園",
+"city": "花蓮縣",
+"town": "秀林鄉",
+"addr": "花蓮縣秀林鄉富世村291號",
+"lat": 24.19392,
+"lng": 121.49067,
+"url": "",
+"status": 3,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "太魯閣国家公園",
+"id": "pl-tailugeguojiagongyuan"
+},
+{
+"area": "花蓮",
+"name": "光復糖廠",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_376550000A_000271",
+"name": "花蓮觀光糖廠(光復糖廠)",
+"city": "花蓮縣",
+"town": "光復鄉",
+"addr": "花蓮縣光復鄉糖廠街19號",
+"lat": 23.65869,
+"lng": 121.42061,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_A15010300H_000020",
+"name": "花蓮觀光糖廠(光復糖廠)",
+"city": "花蓮縣",
+"town": "光復鄉",
+"addr": "花蓮縣光復鄉糖廠街19號",
+"lat": 23.65673,
+"lng": 121.42003,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "光復糖廠",
+"addr": "花蓮縣 光復鄉 大進村 中興路",
+"lat": 23.657993,
+"lng": 121.419066,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "花蓮觀光糖廠",
+"addr": "台灣省 花蓮縣 花蓮縣 大進村 糖廠街",
+"lat": 23.657434,
+"lng": 121.421011,
+"score": 18,
+"kind": "tourism=attraction"
+}
+],
+"ja": "",
+"id": "pl-guangfutangchang"
+},
+{
+"area": "花蓮",
+"name": "東大門夜市",
+"genre": "老街夜市",
+"cands": [
+{
+"id": "Attraction_376550000A_001448",
+"name": "東大門夜市",
+"city": "花蓮縣",
+"town": "花蓮市",
+"addr": "花蓮縣花蓮市重慶路572號",
+"lat": 23.97359,
+"lng": 121.61089,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-dongdamenyeshi"
+},
+{
+"area": "台東",
+"name": "三仙台",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_A15010100H_000041",
+"name": "三仙台",
+"city": "臺東縣",
+"town": "成功鎮",
+"addr": "臺東縣成功鎮基翬路74號",
+"lat": 23.12316,
+"lng": 121.41104,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_376540000A_000333",
+"name": "三仙台風景區",
+"city": "臺東縣",
+"town": "成功鎮",
+"addr": "臺東縣成功鎮三仙里基翬路74號",
+"lat": 23.12331,
+"lng": 121.40826,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 86
+},
+{
+"id": "Attraction_A15010100H_000211",
+"name": "三仙台遊客中心",
+"city": "臺東縣",
+"town": "成功鎮",
+"addr": "臺東縣成功鎮三仙里基翬路87號",
+"lat": 23.12326,
+"lng": 121.4071,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+}
+],
+"ja": "",
+"id": "pl-sanxiantai"
+},
+{
+"area": "台東",
+"name": "初鹿牧場",
+"genre": "農場牧場",
+"cands": [
+{
+"id": "Attraction_376540000A_000285",
+"name": "初鹿牧場",
+"city": "臺東縣",
+"town": "卑南鄉",
+"addr": "臺東縣卑南鄉明峰村牧場1號",
+"lat": 22.86576,
+"lng": 121.10842,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010300H_000058",
+"name": "初鹿牧場",
+"city": "臺東縣",
+"town": "卑南鄉",
+"addr": "臺東縣卑南鄉牧場1號",
+"lat": 22.86582,
+"lng": 121.10597,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-chulumuchang"
+},
+{
+"area": "台東",
+"name": "加路蘭海岸",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_A15010100H_000028",
+"name": "加路蘭",
+"city": "臺東縣",
+"town": "臺東市",
+"addr": "臺東縣臺東市加路蘭遊憩區",
+"lat": 22.8065,
+"lng": 121.197,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+}
+],
+"ja": "",
+"id": "pl-jialulanhaian"
+},
+{
+"area": "台東",
+"name": "鹿野梅花鹿公園",
+"genre": "農場牧場",
+"cands": [
+{
+"id": "Attraction_376540000A_001479",
+"name": "鹿野梅花鹿公園",
+"city": "臺東縣",
+"town": "鹿野鄉",
+"addr": "臺東縣鹿野鄉瑞景路一段23巷15號",
+"lat": 22.94224,
+"lng": 121.15063,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-luyemeihualugongyuan"
+},
+{
+"area": "台東",
+"name": "國立臺灣史前文化博物館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_376540000A_000309",
+"name": "國立臺灣史前文化博物館",
+"city": "臺東縣",
+"town": "臺東市",
+"addr": "臺東縣臺東市豐田里博物館路一號",
+"lat": 22.76069,
+"lng": 121.09136,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-guolitaiwanshiqianwenhuabowuguan"
+},
+{
+"area": "台東",
+"name": "小野柳",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_A15010100H_000212",
+"name": "小野柳遊客中心",
+"city": "臺東縣",
+"town": "臺東市",
+"addr": "臺東縣臺東市松江路一段500號",
+"lat": 22.79564,
+"lng": 121.19607,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_376540000A_000301",
+"name": "富岡地質公園 (小野柳)",
+"city": "臺東縣",
+"town": "臺東市",
+"addr": "臺東縣臺東市松江路一段500號",
+"lat": 22.79478,
+"lng": 121.19818,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+},
+{
+"id": "Attraction_A15010100H_000032",
+"name": "富岡地質公園 (小野柳)",
+"city": "臺東縣",
+"town": "臺東市",
+"addr": "臺東縣臺東市松江路一段500號",
+"lat": 22.7954,
+"lng": 121.196,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 77
+},
+{
+"src": "osm",
+"name": "小野柳",
+"addr": "臺東縣 臺東市 集岡富岡新村 松江路一段",
+"lat": 22.79642,
+"lng": 121.195688,
+"score": 100,
+"kind": "highway=bus_stop"
+},
+{
+"src": "osm",
+"name": "小野柳 -東部海岸富岡地質公園",
+"addr": "台灣省 臺東縣 台東縣 集岡富岡新村 松江路ㄧ段",
+"lat": 22.794142,
+"lng": 121.197676,
+"score": 70,
+"kind": "tourism=attraction"
+}
+],
+"ja": "",
+"id": "pl-xiaoyeliu"
+},
+{
+"area": "台東",
+"name": "池上伯朗大道",
+"genre": "地標展望",
+"cands": [
+{
+"id": "Attraction_376540000A_000430",
+"name": "伯朗大道",
+"city": "臺東縣",
+"town": "池上鄉",
+"addr": "臺東縣池上鄉伯朗大道",
+"lat": 23.09993,
+"lng": 121.2185,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"id": "Attraction_A15010300H_000197",
+"name": "伯朗大道",
+"city": "臺東縣",
+"town": "池上鄉",
+"addr": "臺東縣池上鄉伯朗大道",
+"lat": 23.09878,
+"lng": 121.2126,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "池上伯朗假期背包青旅",
+"addr": "台灣省 臺東縣 臺東縣 大埔 埔新三街",
+"lat": 23.116935,
+"lng": 121.214091,
+"score": 25,
+"kind": "tourism=guest_house"
+}
+],
+"ja": "伯朗大道",
+"id": "pl-chishangbolangdadao"
+},
+{
+"area": "台東",
+"name": "大坡池",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376540000A_000252",
+"name": "大坡池",
+"city": "臺東縣",
+"town": "池上鄉",
+"addr": "臺東縣池上鄉(臺9線322K東側轉入)",
+"lat": 23.11958,
+"lng": 121.22532,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010300H_000041",
+"name": "大坡池",
+"city": "臺東縣",
+"town": "池上鄉",
+"addr": "臺東縣池上鄉(臺9線322K東側轉入)",
+"lat": 23.1201,
+"lng": 121.22404,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-dapochi"
+},
+{
+"area": "台東",
+"name": "鹿野高台",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_376540000A_000450",
+"name": "鹿野高台",
+"city": "臺東縣",
+"town": "鹿野鄉",
+"addr": "臺東縣鹿野鄉永安村高台路46號",
+"lat": 22.91646,
+"lng": 121.12156,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+},
+{
+"id": "Attraction_A15010300H_000053",
+"name": "鹿野高台",
+"city": "臺東縣",
+"town": "鹿野鄉",
+"addr": "臺東縣鹿野鄉永安村高台路46號",
+"lat": 22.91645,
+"lng": 121.12159,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-luyegaotai"
+},
+{
+"area": "台東",
+"name": "多良車站",
+"genre": "地標展望",
+"cands": [
+{
+"id": "Attraction_376540000A_000429",
+"name": "多良火車站",
+"city": "臺東縣",
+"town": "太麻里鄉",
+"addr": "臺東縣太麻里鄉多良村瀧溪路8-1號",
+"lat": 22.50753,
+"lng": 120.95888,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"id": "Attraction_376540000A_001579",
+"name": "多良公車站",
+"city": "臺東縣",
+"town": "太麻里鄉",
+"addr": "臺東縣太麻里鄉多良公車站",
+"lat": 22.50714,
+"lng": 120.95919,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "多良火車站遺址",
+"addr": "臺東縣 太麻里鄉 下多良 多良產業道路",
+"lat": 22.507473,
+"lng": 120.958884,
+"score": 26,
+"kind": "building=train_station"
+}
+],
+"ja": "",
+"id": "pl-duoliangchezhan"
+},
+{
+"area": "澎湖",
+"name": "澎湖跨海大橋",
+"genre": "地標展望",
+"cands": [
+{
+"id": "Attraction_A15010200H_000113",
+"name": "澎湖跨海大橋",
+"city": "澎湖縣",
+"town": "白沙鄉",
+"addr": "澎湖縣白沙鄉通西嶼鄉橋樑",
+"lat": 23.64831,
+"lng": 119.54639,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "澎湖跨海大橋",
+"id": "pl-penghukuahaidaqiao"
+},
+{
+"area": "澎湖",
+"name": "澎湖水族館",
+"genre": "動物園水族館",
+"cands": [
+{
+"id": "Attraction_A15010200H_000040",
+"name": "澎湖水族館",
+"city": "澎湖縣",
+"town": "白沙鄉",
+"addr": "澎湖縣白沙鄉岐頭村58號",
+"lat": 23.65189,
+"lng": 119.6079,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-penghushuizuguan"
+},
+{
+"area": "澎湖",
+"name": "奎壁山摩西分海",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "web",
+"name": "奎壁山摩西分海",
+"addr": "澎湖縣湖西鄉北寮村（只到鄉鎮中心（要自己看地圖））",
+"lat": 23.583845,
+"lng": 119.652732,
+"score": 80,
+"ref": "https://www.settour.com.tw/travel_guide/台灣/奎壁山摩西分海/attractions_POI0000003949.html",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-kuibishanmoxifenhai"
+},
+{
+"area": "澎湖",
+"name": "池東大菓葉玄武岩",
+"genre": "自然景觀",
+"cands": [
+{
+"src": "web",
+"name": "池東大菓葉玄武岩",
+"addr": "澎湖縣西嶼鄉池東村10號（來源頁座標）",
+"lat": 23.595361,
+"lng": 119.51638,
+"score": 80,
+"ref": "https://www.penghu-nsa.gov.tw/TravelInformationSceneryDetailC001200.aspx?Cond=d04d4a89-9d51-495a-a317-2aa1c00ea0e7&Language=1028",
+"note": ""
+}
+],
+"ja": "",
+"id": "pl-chidongdaguoyexuanwuyan"
+},
+{
+"area": "澎湖",
+"name": "風櫃",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_A15010200H_000097",
+"name": "風櫃洞",
+"city": "澎湖縣",
+"town": "馬公市",
+"addr": "澎湖縣馬公市風櫃里風櫃洞",
+"lat": 23.53756,
+"lng": 119.54393,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 92
+}
+],
+"ja": "",
+"id": "pl-fenggui"
+},
+{
+"area": "金門",
+"name": "莒光樓",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_371020000A_000389",
+"name": "莒光樓",
+"city": "金門縣",
+"town": "金城鎮",
+"addr": "金門縣金城鎮賢城路1號",
+"lat": 24.42497,
+"lng": 118.319,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "莒光楼",
+"id": "pl-juguanglou"
+},
+{
+"area": "金門",
+"name": "山后民俗文化村",
+"genre": "自然景觀",
+"cands": [
+{
+"id": "Attraction_371020000A_000517",
+"name": "山后民俗文化村",
+"city": "金門縣",
+"town": "金沙鎮",
+"addr": "金門縣金沙鎮山后民俗文化村",
+"lat": 24.50381,
+"lng": 118.44041,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-shanhouminsuwenhuacun"
+},
+{
+"area": "金門",
+"name": "翟山坑道",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_371020000A_001337",
+"name": "翟山坑道",
+"city": "金門縣",
+"town": "金城鎮",
+"addr": "金門縣金城鎮古崗湖東南方翟山腹",
+"lat": 24.3903,
+"lng": 118.32054,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-dishankengdao"
+},
+{
+"area": "金門",
+"name": "陳景蘭洋樓",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_371020000A_000649",
+"name": "陳景蘭洋樓",
+"city": "金門縣",
+"town": "金湖鎮",
+"addr": "金門縣金湖鎮正義里成功村1號",
+"lat": 24.43727,
+"lng": 118.39009,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-chenjinglanyanglou"
+},
+{
+"area": "金門",
+"name": "古寧頭戰史館",
+"genre": "博物館",
+"cands": [
+{
+"id": "Attraction_371020000A_000533",
+"name": "古寧頭戰史館",
+"city": "金門縣",
+"town": "金寧鄉",
+"addr": "金門縣金寧鄉北山村456號",
+"lat": 24.483,
+"lng": 118.321,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "古寧頭戦史館",
+"id": "pl-guningtouzhanshiguan"
+},
+{
+"area": "金門",
+"name": "建功嶼",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_371020000A_001390",
+"name": "建功嶼",
+"city": "金門縣",
+"town": "金城鎮",
+"addr": "金門縣金城鎮建功嶼",
+"lat": 24.42746,
+"lng": 118.30005,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-jiangongyu"
+},
+{
+"area": "金門",
+"name": "得月樓",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_371020000A_000654",
+"name": "得月樓",
+"city": "金門縣",
+"town": "金城鎮",
+"addr": "金門縣金城鎮前水頭45號",
+"lat": 24.40971,
+"lng": 118.29849,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-deyuelou"
+},
+{
+"area": "金門",
+"name": "沙美摩洛哥",
+"genre": "公園",
+"cands": [
+{
+"id": "Attraction_371020000A_001450",
+"name": "沙美老街(沙美摩洛哥)",
+"city": "金門縣",
+"town": "金沙鎮",
+"addr": "金門縣金沙鎮沙美老街",
+"lat": 24.49061,
+"lng": 118.41227,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+}
+],
+"ja": "",
+"id": "pl-shameimoluoge"
+},
+{
+"area": "金門",
+"name": "獅山砲陣地",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_371020000A_001339",
+"name": "獅山砲陣地",
+"city": "金門縣",
+"town": "金沙鎮",
+"addr": "金門縣金沙鎮陽沙路376號",
+"lat": 24.50396,
+"lng": 118.43708,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-shishanpaozhendi"
+},
+{
+"area": "金門",
+"name": "總兵署",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_371020000A_000393",
+"name": "清金門鎮總兵署",
+"city": "金門縣",
+"town": "金城鎮",
+"addr": "金門縣金城鎮浯江街53號",
+"lat": 24.4323,
+"lng": 118.31841,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 83
+},
+{
+"src": "osm",
+"name": "總兵署服務中心",
+"addr": "福建省 金門縣 金門縣 北門里 浯江街",
+"lat": 24.432492,
+"lng": 118.318417,
+"score": 83,
+"kind": "information=office"
+}
+],
+"ja": "",
+"id": "pl-zongbingshu"
+},
+{
+"area": "馬祖",
+"name": "北海坑道",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_A15010500H_002742",
+"name": "南竿北海坑道",
+"city": "連江縣",
+"town": "南竿鄉",
+"addr": "連江縣南竿鄉連江縣南竿鄉北海坑道",
+"lat": 26.1424951,
+"lng": 119.9289535,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 89
+},
+{
+"src": "osm",
+"name": "北海坑道",
+"addr": "連江縣 北竿鄉 芹壁村 ",
+"lat": 26.217254,
+"lng": 119.98103,
+"score": 100,
+"kind": "waterway=canal"
+},
+{
+"src": "osm",
+"name": "北海坑道",
+"addr": "連江縣 南竿鄉 鐵板村 ",
+"lat": 26.142726,
+"lng": 119.929153,
+"score": 100,
+"kind": "highway=footway"
+},
+{
+"src": "osm",
+"name": "北海坑道",
+"addr": "連江縣 南竿鄉 鐵板村 ",
+"lat": 26.142889,
+"lng": 119.929281,
+"score": 100,
+"kind": "waterway=canal"
+},
+{
+"src": "osm",
+"name": "北海坑道",
+"addr": "連江縣 南竿鄉 鐵板村 ",
+"lat": 26.143707,
+"lng": 119.93006,
+"score": 100,
+"kind": "waterway=canal"
+},
+{
+"src": "osm",
+"name": "北海坑道",
+"addr": "連江縣 南竿鄉 鐵板村 ",
+"lat": 26.143458,
+"lng": 119.929516,
+"score": 100,
+"kind": "waterway=canal"
+}
+],
+"ja": "",
+"id": "pl-beihaikengdao"
+},
+{
+"area": "馬祖",
+"name": "芹壁聚落",
+"genre": "古蹟老屋",
+"cands": [
+{
+"id": "Attraction_A15010500H_002711",
+"name": "芹壁聚落",
+"city": "連江縣",
+"town": "北竿鄉",
+"addr": "連江縣北竿鄉連江縣北竿鄉芹壁村 （位於北竿島北側，沿主要道路與指標即可抵達入口區）",
+"lat": 26.2247825,
+"lng": 119.9836682,
+"url": "",
+"status": 1,
+"imgs": 1,
+"src": "tb",
+"score": 100
+}
+],
+"ja": "",
+"id": "pl-qinbijuluo"
+}
+]
+}

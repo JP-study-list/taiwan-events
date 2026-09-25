@@ -71,6 +71,8 @@ index.html（Cloudflare Pages，組建命令只複製指定檔案進 dist/）
 |---|---|---|
 | `pick_photos.py` | 景點挑圖（Commons／維基） | `assign` 同樣要 `--src`；日文維基 → 可能改中文維基 |
 | `places_review.py` | 後台 hold 景點逐筆決定去留 | — |
+| `places_match_tw.py` | 台灣版景點 H-1 第一段：`_picked-*.json` → 候選地點 `_h1_candidates.json`（觀光署景點資料＋Photon＋`_h1_manual.json`；import `fetch_events`）。拼音編號要 pypinyin（開發用） | — |
+| `places_apply_tw.py` | H-1 第三段：確認網頁資料庫匯出 → `places_src/taiwan.json`（只收已確認） | — |
 | `hours_pick.py` | 營業時間頁逐筆確認 | 關鍵字是日文（営業時間…） |
 | `klook_match.py`／`klook_scout.py` | Klook 商品候選比對（只讀 sitemap） | sitemap 範圍是日本商品 |
 | `codex_kit.py`＋`codex_kit/` | 與外部 Codex 資料夾同步 | `DEFAULT_KIT` 已改成 `None`（2026-09-23）：**`--kit` 必填**。台灣版是否接外部代理待單位 L |

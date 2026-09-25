@@ -40,3 +40,7 @@ places_src/_klook_cache.json
 # ⚠️ 本 repo 會公開，這批是日本版的私有開發紀錄與計畫，**只留本機、絕不進版控**。
 # 換電腦時要自己從 kanto-events 複製過去。
 _ref-kanto/
+
+# 觀光署景點資料的本機快取（單位 H-1，2026-09-26）。約 3 MB、一週重抓一次，進版控只會讓 repo 變胖。
+places_src/_tb_attraction_cache.json
+places_src/_h1_photon_cache.json
