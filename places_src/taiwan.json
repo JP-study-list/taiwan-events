@@ -158,7 +158,7 @@
   {
    "id": "pl-ertongxinleyuan",
    "title": "兒童新樂園",
-   "title_ja": "",
+   "title_ja": "児童新楽園",
    "genre": "樂園",
    "area": "台北",
    "address": "臺北市士林區",
@@ -200,7 +200,7 @@
   {
    "id": "pl-bopiliao",
    "title": "剝皮寮",
-   "title_ja": "",
+   "title_ja": "剝皮寮",
    "genre": "公園",
    "area": "台北",
    "address": "臺北市 萬華區 康定路",
@@ -228,7 +228,7 @@
   {
    "id": "pl-guolitaiwankexuejiaoyuguan",
    "title": "國立臺灣科學教育館",
-   "title_ja": "",
+   "title_ja": "国立台湾科学教育館",
    "genre": "博物館",
    "area": "台北",
    "address": "臺北市士林區",
@@ -242,7 +242,7 @@
   {
    "id": "pl-rongjinshiguangshenghuoyuanqu",
    "title": "榕錦時光生活園區",
-   "title_ja": "",
+   "title_ja": "榕錦時光生活園区",
    "genre": "公園",
    "area": "台北",
    "address": "臺北市 大安區",
@@ -256,7 +256,7 @@
   {
    "id": "pl-guojiatiedaobowuguan",
    "title": "國家鐵道博物館",
-   "title_ja": "",
+   "title_ja": "国家鉄道博物館",
    "genre": "博物館",
    "area": "台北",
    "address": "臺北市 信義區 市民大道五段",
@@ -270,7 +270,7 @@
   {
    "id": "pl-taibeishilimeishuguan",
    "title": "臺北市立美術館",
-   "title_ja": "",
+   "title_ja": "台北市立美術館",
    "genre": "美術館",
    "area": "台北",
    "address": "臺北市中山區",
@@ -284,7 +284,7 @@
   {
    "id": "pl-xiahaichenghuangmiao",
    "title": "霞海城隍廟",
-   "title_ja": "",
+   "title_ja": "霞海城隍廟",
    "genre": "寺廟宮廟",
    "area": "台北",
    "address": "臺北市 大同區 迪化街一段",
@@ -298,7 +298,7 @@
   {
    "id": "pl-minshengshequ-fujinjie",
    "title": "民生社區・富錦街",
-   "title_ja": "",
+   "title_ja": "民生社区・富錦街",
    "genre": "老街夜市",
    "area": "台北",
    "address": "臺北市松山區",
@@ -312,7 +312,7 @@
   {
    "id": "pl-yongkangjie",
    "title": "永康街",
-   "title_ja": "",
+   "title_ja": "永康街",
    "genre": "老街夜市",
    "area": "台北",
    "address": "臺北市大安區",
@@ -340,7 +340,7 @@
   {
    "id": "pl-tianwenkexuejiaoyuguan",
    "title": "天文科學教育館",
-   "title_ja": "",
+   "title_ja": "天文科学教育館",
    "genre": "博物館",
    "area": "台北",
    "address": "臺北市士林區",
@@ -410,7 +410,7 @@
   {
    "id": "pl-nanjichangyeshi",
    "title": "南機場夜市",
-   "title_ja": "",
+   "title_ja": "南機場夜市",
    "genre": "老街夜市",
    "area": "台北",
    "address": "臺北市中正區",
@@ -424,7 +424,7 @@
   {
    "id": "pl-songshanfeijixiang",
    "title": "松山飛機巷",
-   "title_ja": "",
+   "title_ja": "松山空港 飛行機路地（濱江街）",
    "genre": "老街夜市",
    "area": "台北",
    "address": "臺北市中山區濱江街180巷",
@@ -438,7 +438,7 @@
   {
    "id": "pl-shidayeshi",
    "title": "師大夜市",
-   "title_ja": "",
+   "title_ja": "師大夜市",
    "genre": "老街夜市",
    "area": "台北",
    "address": "臺北市 大安區 泰順街39巷",
@@ -452,7 +452,7 @@
   {
    "id": "pl-gongguanyeshi",
    "title": "公館夜市",
-   "title_ja": "",
+   "title_ja": "公館夜市",
    "genre": "老街夜市",
    "area": "台北",
    "address": "臺北市 中正區 羅斯福路四段",
@@ -466,7 +466,7 @@
   {
    "id": "pl-wulailaojie-wenquan",
    "title": "烏來老街・溫泉",
-   "title_ja": "",
+   "title_ja": "烏來老街・温泉",
    "genre": "老街夜市",
    "area": "新北",
    "address": "新北市烏來區烏來街",
@@ -494,7 +494,7 @@
   {
    "id": "pl-danshuilaojie-yurenmatou",
    "title": "淡水老街・漁人碼頭",
-   "title_ja": "",
+   "title_ja": "淡水老街・漁人碼頭（フィッシャーマンズワーフ）",
    "genre": "老街夜市",
    "area": "新北",
    "address": "新北市淡水區中正路、重建街、清水街一帶",
@@ -522,7 +522,7 @@
   {
    "id": "pl-jiufenlaojie",
    "title": "九份老街",
-   "title_ja": "",
+   "title_ja": "九份老街",
    "genre": "老街夜市",
    "area": "新北",
    "address": "新北市瑞芳區基山街(九份老街)",
@@ -550,7 +550,7 @@
   {
    "id": "pl-bitan",
    "title": "碧潭",
-   "title_ja": "",
+   "title_ja": "碧潭",
    "genre": "自然景觀",
    "area": "新北",
    "address": "新北市新店區環河路",
@@ -564,7 +564,7 @@
   {
    "id": "pl-yinggelaojie-taocibowuguan",
    "title": "鶯歌老街・陶瓷博物館",
-   "title_ja": "",
+   "title_ja": "鶯歌老街・陶瓷博物館",
    "genre": "老街夜市",
    "area": "新北",
    "address": "新北市鶯歌區陶瓷街、尖山埔路",
@@ -578,7 +578,7 @@
   {
    "id": "pl-balizuoan",
    "title": "八里左岸",
-   "title_ja": "",
+   "title_ja": "八里左岸",
    "genre": "公園",
    "area": "新北",
    "address": "新北市八里區觀海大道36號",
@@ -592,7 +592,7 @@
   {
    "id": "pl-shenkenglaojie",
    "title": "深坑老街",
-   "title_ja": "",
+   "title_ja": "深坑老街",
    "genre": "老街夜市",
    "area": "新北",
    "address": "新北市深坑區深坑街",
@@ -606,7 +606,7 @@
   {
    "id": "pl-sanxialaojie",
    "title": "三峽老街",
-   "title_ja": "",
+   "title_ja": "三峡老街",
    "genre": "老街夜市",
    "area": "新北",
    "address": "新北市三峽區民權街37-147號",
@@ -634,7 +634,7 @@
   {
    "id": "pl-xinpingximeikuangbowuyuanqu",
    "title": "新平溪煤礦博物園區",
-   "title_ja": "",
+   "title_ja": "新平渓炭鉱博物園区",
    "genre": "公園",
    "area": "新北",
    "address": "新北市平溪區頂寮子5          5號",
@@ -648,7 +648,7 @@
   {
    "id": "pl-xiongkongchayuan",
    "title": "熊空茶園",
-   "title_ja": "",
+   "title_ja": "熊空茶園",
    "genre": "農場牧場",
    "area": "新北",
    "address": "新北市 三峽區",
@@ -704,7 +704,7 @@
   {
    "id": "pl-bitoujiaobudao",
    "title": "鼻頭角步道",
-   "title_ja": "",
+   "title_ja": "鼻頭角歩道",
    "genre": "自然景觀",
    "area": "新北",
    "address": "新北市瑞芳區鼻頭路臺2線約84K處鼻頭漁港旁",
@@ -718,7 +718,7 @@
   {
    "id": "pl-shenaotiedaozixingche",
    "title": "深澳鐵道自行車",
-   "title_ja": "",
+   "title_ja": "深澳レールバイク",
    "genre": "博物館",
    "area": "新北",
    "address": "新北市 瑞芳區 1",
@@ -732,7 +732,7 @@
   {
    "id": "pl-hepingdaogongyuan",
    "title": "和平島公園",
-   "title_ja": "",
+   "title_ja": "和平島公園",
    "genre": "自然景觀",
    "area": "基隆",
    "address": "台灣省  基隆市 中正區 平一路",
@@ -746,7 +746,7 @@
   {
    "id": "pl-jilongmiaokouyeshi",
    "title": "基隆廟口夜市",
-   "title_ja": "",
+   "title_ja": "基隆廟口夜市",
    "genre": "老街夜市",
    "area": "基隆",
    "address": "基隆市 仁愛區",
@@ -760,7 +760,7 @@
   {
    "id": "pl-zhengbinyugangcaisewu",
    "title": "正濱漁港彩色屋",
-   "title_ja": "",
+   "title_ja": "正浜漁港カラフルハウス",
    "genre": "自然景觀",
    "area": "基隆",
    "address": "基隆市 中正區 中正路",
@@ -788,7 +788,7 @@
   {
    "id": "pl-jilongta",
    "title": "基隆塔",
-   "title_ja": "",
+   "title_ja": "基隆塔",
    "genre": "地標展望",
    "area": "基隆",
    "address": "基隆市中正區正義里義二路128號",
@@ -802,7 +802,7 @@
   {
    "id": "pl-agennazaochuanchangyizhi",
    "title": "阿根納造船廠遺址",
-   "title_ja": "",
+   "title_ja": "阿根納造船廠跡",
    "genre": "公園",
    "area": "基隆",
    "address": "基隆市 中正區 正濱路116巷",
@@ -830,7 +830,7 @@
   {
    "id": "pl-daxilaojie",
    "title": "大溪老街",
-   "title_ja": "",
+   "title_ja": "大渓老街",
    "genre": "老街夜市",
    "area": "桃園",
    "address": "桃園市大溪區和平路、中山路",
@@ -844,7 +844,7 @@
   {
    "id": "pl-xpark-shuizuguan",
    "title": "Xpark 水族館",
-   "title_ja": "",
+   "title_ja": "Xpark（エックスパーク）",
    "genre": "動物園水族館",
    "area": "桃園",
    "address": "桃園市 青山里 春德路",
@@ -858,7 +858,7 @@
   {
    "id": "pl-xiaorenguozhutileyuan",
    "title": "小人國主題樂園",
-   "title_ja": "",
+   "title_ja": "小人国テーマパーク",
    "genre": "樂園",
    "area": "桃園",
    "address": "桃園市 高原里 高原路",
@@ -872,7 +872,7 @@
   {
    "id": "pl-taoyuanshilitushuguanxinzongguan",
    "title": "桃園市立圖書館新總館",
-   "title_ja": "",
+   "title_ja": "桃園市立図書館新総館",
    "genre": "博物館",
    "area": "桃園",
    "address": "桃園市 莊敬里 新埔八街",
@@ -900,7 +900,7 @@
   {
    "id": "pl-shimenshuiku",
    "title": "石門水庫",
-   "title_ja": "",
+   "title_ja": "石門ダム",
    "genre": "公園",
    "area": "桃園",
    "address": "桃園市大溪區復興里環湖路一段68號",
@@ -914,7 +914,7 @@
   {
    "id": "pl-zhuweiyugang",
    "title": "竹圍漁港",
-   "title_ja": "",
+   "title_ja": "竹囲漁港",
    "genre": "自然景觀",
    "area": "桃園",
    "address": "桃園市大園區沙崙里1鄰漁港路451巷25號",
@@ -928,7 +928,7 @@
   {
    "id": "pl-hutoushanhuanbaogongyuan",
    "title": "虎頭山環保公園",
-   "title_ja": "",
+   "title_ja": "虎頭山環保公園",
    "genre": "自然景觀",
    "area": "桃園",
    "address": "桃園市桃園區成功路三段",
@@ -956,7 +956,7 @@
   {
    "id": "pl-taiwankejiachawenhuaguan",
    "title": "臺灣客家茶文化館",
-   "title_ja": "",
+   "title_ja": "台湾客家茶文化館",
    "genre": "觀光工廠",
    "area": "桃園",
    "address": "桃園市 高原里",
@@ -970,7 +970,7 @@
   {
    "id": "pl-taoyuanshiliertongmeishuguan",
    "title": "桃園市立兒童美術館",
-   "title_ja": "",
+   "title_ja": "桃園市立児童美術館",
    "genre": "美術館",
    "area": "桃園",
    "address": "桃園市 大智里 大智路",
@@ -984,7 +984,7 @@
   {
    "id": "pl-guojuyangsanguanguanggongchang",
    "title": "國巨洋傘觀光工廠",
-   "title_ja": "",
+   "title_ja": "国巨洋傘観光工場",
    "genre": "觀光工廠",
    "area": "桃園",
    "address": "桃園市大園區國際路一段105巷18號",
@@ -998,7 +998,7 @@
   {
    "id": "pl-mazuxincunjuancunwenchuangyuanqu",
    "title": "馬祖新村眷村文創園區",
-   "title_ja": "",
+   "title_ja": "馬祖新村眷村文創園区",
    "genre": "古蹟老屋",
    "area": "桃園",
    "address": "桃園市中壢區龍吉二街155號",
@@ -1012,7 +1012,7 @@
   {
    "id": "pl-shouxinwuyincheng",
    "title": "手信霧隱城",
-   "title_ja": "",
+   "title_ja": "手信霧隱城",
    "genre": "觀光工廠",
    "area": "桃園",
    "address": "桃園市龍潭區民豐一街99號",
@@ -1026,7 +1026,7 @@
   {
    "id": "pl-hengshanshufayishuguan",
    "title": "橫山書法藝術館",
-   "title_ja": "",
+   "title_ja": "横山書法芸術館",
    "genre": "美術館",
    "area": "桃園",
    "address": "桃園市 青峰里 大仁路",
@@ -1040,7 +1040,7 @@
   {
    "id": "pl-jiubaijisuidao",
    "title": "舊百吉隧道",
-   "title_ja": "",
+   "title_ja": "旧百吉トンネル",
    "genre": "自然景觀",
    "area": "桃園",
    "address": "桃園市大溪區北橫公路，過慈湖，約台七線5公里處",
@@ -1054,7 +1054,7 @@
   {
    "id": "pl-77-qiaokeligongheguo",
    "title": "77 巧克力共和國",
-   "title_ja": "",
+   "title_ja": "77チョコレート共和国",
    "genre": "觀光工廠",
    "area": "桃園",
    "address": "桃園市八德區巧克力街177號",
@@ -1068,7 +1068,7 @@
   {
    "id": "pl-taoyuanguanguangyeshi",
    "title": "桃園觀光夜市",
-   "title_ja": "",
+   "title_ja": "桃園観光夜市",
    "genre": "老街夜市",
    "area": "桃園",
    "address": "桃園市桃園區中正路與北埔路口",
@@ -1082,7 +1082,7 @@
   {
    "id": "pl-longtandachi",
    "title": "龍潭大池",
-   "title_ja": "",
+   "title_ja": "龍潭大池",
    "genre": "自然景觀",
    "area": "桃園",
    "address": "桃園市龍潭區上林里中豐路上林段115巷11號",
@@ -1096,7 +1096,7 @@
   {
    "id": "pl-yuemeishidishengtaigongyuan",
    "title": "月眉濕地生態公園",
-   "title_ja": "",
+   "title_ja": "月眉湿地生態公園",
    "genre": "自然景觀",
    "area": "桃園",
    "address": "桃園市 月眉里 月湖路",
@@ -1110,7 +1110,7 @@
   {
    "id": "pl-badeluoyusongsenlin",
    "title": "八德落羽松森林",
-   "title_ja": "",
+   "title_ja": "八徳ラクウショウの森",
    "genre": "公園",
    "area": "桃園",
    "address": "桃園市大溪區浮筧街158之1號",
@@ -1124,7 +1124,7 @@
   {
    "id": "pl-xinzhushilidongwuyuan",
    "title": "新竹市立動物園",
-   "title_ja": "",
+   "title_ja": "新竹市立動物園",
    "genre": "動物園水族館",
    "area": "新竹",
    "address": "新竹市東區新竹市東區食品路66號",
@@ -1138,7 +1138,7 @@
   {
    "id": "pl-neiwanlaojie",
    "title": "內灣老街",
-   "title_ja": "",
+   "title_ja": "内湾老街",
    "genre": "老街夜市",
    "area": "新竹",
    "address": "新竹縣橫山鄉中正路",
@@ -1152,7 +1152,7 @@
   {
    "id": "pl-beipulaojie",
    "title": "北埔老街",
-   "title_ja": "",
+   "title_ja": "北埔老街",
    "genre": "老街夜市",
    "area": "新竹",
    "address": "新竹縣北埔鄉北埔街",
@@ -1166,7 +1166,7 @@
   {
    "id": "pl-liufucunzhutiyouleyuan",
    "title": "六福村主題遊樂園",
-   "title_ja": "",
+   "title_ja": "六福村テーマパーク",
    "genre": "樂園",
    "area": "新竹",
    "address": "新竹縣關西鎮仁安里拱子溝60號",
@@ -1180,7 +1180,7 @@
   {
    "id": "pl-nanliaoyugang",
    "title": "南寮漁港",
-   "title_ja": "",
+   "title_ja": "南寮漁港",
    "genre": "自然景觀",
    "area": "新竹",
    "address": "新竹市 南寮里 新港三路",
@@ -1194,7 +1194,7 @@
   {
    "id": "pl-xinzhuduchenghuangmiao",
    "title": "新竹都城隍廟",
-   "title_ja": "",
+   "title_ja": "新竹都城隍廟",
    "genre": "寺廟宮廟",
    "area": "新竹",
    "address": "新竹市北區新竹市北區中山路75號",
@@ -1208,7 +1208,7 @@
   {
    "id": "pl-qingwashitiankongbudao",
    "title": "青蛙石天空步道",
-   "title_ja": "",
+   "title_ja": "青蛙石スカイウォーク",
    "genre": "自然景觀",
    "area": "新竹",
    "address": "新竹縣 尖石鄉 那羅一",
@@ -1222,7 +1222,7 @@
   {
    "id": "pl-emeihu",
    "title": "峨眉湖",
-   "title_ja": "",
+   "title_ja": "峨眉湖",
    "genre": "自然景觀",
    "area": "新竹",
    "address": "新竹縣峨眉鄉",
@@ -1236,7 +1236,7 @@
   {
    "id": "pl-feiwumamayuernongchang",
    "title": "廢物媽媽育兒農場",
-   "title_ja": "",
+   "title_ja": "廃物媽媽育児農場",
    "genre": "農場牧場",
    "area": "新竹",
    "address": "新竹市香山區海埔路518巷75弄85之1號",
@@ -1250,7 +1250,7 @@
   {
    "id": "pl-shanshangrenjiasenlinnongchang",
    "title": "山上人家森林農場",
-   "title_ja": "",
+   "title_ja": "山上人家森林農場",
    "genre": "農場牧場",
    "area": "新竹",
    "address": "新竹縣五峰鄉大隘村23鄰468-5號",
@@ -1278,7 +1278,7 @@
   {
    "id": "pl-beipulengquan",
    "title": "北埔冷泉",
-   "title_ja": "",
+   "title_ja": "北埔冷泉",
    "genre": "溫泉",
    "area": "新竹",
    "address": "新竹縣北埔鄉",
@@ -1292,7 +1292,7 @@
   {
    "id": "pl-qingqingcaoyuan",
    "title": "青青草原",
-   "title_ja": "",
+   "title_ja": "青青草原",
    "genre": "自然景觀",
    "area": "新竹",
    "address": "新竹市香山區新竹市香山區草原路",
@@ -1306,7 +1306,7 @@
   {
    "id": "pl-xiangshanshidishangxiebudao",
    "title": "香山濕地賞蟹步道",
-   "title_ja": "",
+   "title_ja": "香山湿地 カニ観察歩道",
    "genre": "自然景觀",
    "area": "新竹",
    "address": "新竹市香山區新竹市香山區中華路五段320巷35號",
@@ -1320,7 +1320,7 @@
   {
    "id": "pl-xiaodingdangkexuezhutileyuan",
    "title": "小叮噹科學主題樂園",
-   "title_ja": "",
+   "title_ja": "ドラえもん科学テーマパーク（小叮噹科学主題楽園）",
    "genre": "樂園",
    "area": "新竹",
    "address": "新竹縣新豐鄉康和路199號",
@@ -1334,7 +1334,7 @@
   {
    "id": "pl-xinwawukejiawenhuabaocunqu",
    "title": "新瓦屋客家文化保存區",
-   "title_ja": "",
+   "title_ja": "新瓦屋客家文化保存区",
    "genre": "公園",
    "area": "新竹",
    "address": "新竹縣竹北市文興路一段123號",
@@ -1348,7 +1348,7 @@
   {
    "id": "pl-hukouhaokewenchuangyuanqu",
    "title": "湖口好客文創園區",
-   "title_ja": "",
+   "title_ja": "湖口好客文創園区",
    "genre": "古蹟老屋",
    "area": "新竹",
    "address": "新竹縣湖口鄉中平路一段510號",
@@ -1362,7 +1362,7 @@
   {
    "id": "pl-lvshijieshengtainongchang",
    "title": "綠世界生態農場",
-   "title_ja": "",
+   "title_ja": "緑世界生態農場",
    "genre": "農場牧場",
    "area": "新竹",
    "address": "新竹縣北埔鄉大湖村7鄰尾隘子20號",
@@ -1376,7 +1376,7 @@
   {
    "id": "pl-simakusi",
    "title": "司馬庫斯",
-   "title_ja": "",
+   "title_ja": "スマングス（司馬庫斯）",
    "genre": "公園",
    "area": "新竹",
    "address": "新竹縣尖石鄉玉峰村14鄰斯馬庫斯2號",
@@ -1390,7 +1390,7 @@
   {
    "id": "pl-fengxiangpubu",
    "title": "豐鄉瀑布",
-   "title_ja": "",
+   "title_ja": "豊郷瀑布",
    "genre": "自然景觀",
    "area": "新竹",
    "address": "新竹縣橫山鄉竹35鄉道旁號",
@@ -1418,7 +1418,7 @@
   {
    "id": "pl-mawudutansuosenlin",
    "title": "馬武督探索森林",
-   "title_ja": "",
+   "title_ja": "馬武督探索森林",
    "genre": "公園",
    "area": "新竹",
    "address": "新竹縣 關西鎮 錦山里 楓林大道",
@@ -1432,7 +1432,7 @@
   {
    "id": "pl-donganguqiao",
    "title": "東安古橋",
-   "title_ja": "",
+   "title_ja": "東安古橋",
    "genre": "地標展望",
    "area": "新竹",
    "address": "新竹縣 關西鎮 北斗里 中山東路",
@@ -1446,7 +1446,7 @@
   {
    "id": "pl-xiaorusongyishuyuanqu",
    "title": "蕭如松藝術園區",
-   "title_ja": "",
+   "title_ja": "蕭如松芸術園区",
    "genre": "美術館",
    "area": "新竹",
    "address": "新竹縣竹東鎮三民街60號",
@@ -1460,7 +1460,7 @@
   {
    "id": "pl-zhudongguanguangyeshi",
    "title": "竹東觀光夜市",
-   "title_ja": "",
+   "title_ja": "竹東観光夜市",
    "genre": "老街夜市",
    "area": "新竹",
    "address": "台灣省 新竹縣 新竹縣 楓樹下 沿河街",
@@ -1474,7 +1474,7 @@
   {
    "id": "pl-xinpushibingjiaoyunongyuan",
    "title": "新埔柿餅教育農園",
-   "title_ja": "",
+   "title_ja": "新埔 干し柿教育農園",
    "genre": "公園",
    "area": "新竹",
    "address": "新竹縣新埔鎮旱坑路一段501號",
@@ -1488,7 +1488,7 @@
   {
    "id": "pl-fuxiangxianrenzhangyuan",
    "title": "福祥仙人掌園",
-   "title_ja": "",
+   "title_ja": "福祥サボテン園",
    "genre": "公園",
    "area": "新竹",
    "address": "新竹縣新埔鎮北平里4鄰大平窩38號",
@@ -1502,7 +1502,7 @@
   {
    "id": "pl-xinfenghongshulin",
    "title": "新豐紅樹林",
-   "title_ja": "",
+   "title_ja": "新豊マングローブ林",
    "genre": "公園",
    "area": "新竹",
    "address": "新竹縣新豐鄉池府路156號",
@@ -1516,7 +1516,7 @@
   {
    "id": "pl-dongmenshichang",
    "title": "東門市場",
-   "title_ja": "",
+   "title_ja": "東門市場",
    "genre": "老街夜市",
    "area": "新竹",
    "address": "新竹市 中正里 中正路",
@@ -1558,7 +1558,7 @@
   {
    "id": "pl-guolichuantongyishuzhongxin",
    "title": "國立傳統藝術中心",
-   "title_ja": "",
+   "title_ja": "国立伝統芸術中心",
    "genre": "美術館",
    "area": "宜蘭",
    "address": "台灣省 宜蘭縣 宜蘭縣 社尾 五濱路二段",
@@ -1572,7 +1572,7 @@
   {
    "id": "pl-taipingshanguojiasenlinyoulequ",
    "title": "太平山國家森林遊樂區",
-   "title_ja": "",
+   "title_ja": "太平山国家森林遊楽区",
    "genre": "樂園",
    "area": "宜蘭",
    "address": "宜蘭縣大同鄉太平巷58之1號",
@@ -1586,7 +1586,7 @@
   {
    "id": "pl-lanyangbowuguan",
    "title": "蘭陽博物館",
-   "title_ja": "",
+   "title_ja": "蘭陽博物館",
    "genre": "博物館",
    "area": "宜蘭",
    "address": "宜蘭縣頭城鎮青雲路三段750號",
@@ -1600,7 +1600,7 @@
   {
    "id": "pl-lanyangdongzhiwuwangguo",
    "title": "蘭陽動植物王國",
-   "title_ja": "",
+   "title_ja": "蘭陽動植物王国",
    "genre": "公園",
    "area": "宜蘭",
    "address": "宜蘭縣 壯圍鄉 番社 紅葉路",
@@ -1628,7 +1628,7 @@
   {
    "id": "pl-dafuguanhaipingtai",
    "title": "大福觀海平台",
-   "title_ja": "",
+   "title_ja": "大福観海平台",
    "genre": "自然景觀",
    "area": "宜蘭",
    "address": "宜蘭縣壯圍鄉壯濱路六段228巷",
@@ -1642,7 +1642,7 @@
   {
    "id": "pl-luodongyeshi",
    "title": "羅東夜市",
-   "title_ja": "",
+   "title_ja": "羅東夜市",
    "genre": "老街夜市",
    "area": "宜蘭",
    "address": "宜蘭縣羅東鎮興東路與民權路口",
@@ -1656,7 +1656,7 @@
   {
    "id": "pl-zhangmeiamanongchang",
    "title": "張美阿嬤農場",
-   "title_ja": "",
+   "title_ja": "張美おばあちゃん農場",
    "genre": "農場牧場",
    "area": "宜蘭",
    "address": "宜蘭縣 三星鄉 廣洲仔",
@@ -1670,7 +1670,7 @@
   {
    "id": "pl-hupaimifenguanguanggongchang",
    "title": "虎牌米粉觀光工廠",
-   "title_ja": "",
+   "title_ja": "虎牌ビーフン観光工場",
    "genre": "觀光工廠",
    "area": "宜蘭",
    "address": "宜蘭縣五結鄉利興三路5號",
@@ -1684,7 +1684,7 @@
   {
    "id": "pl-yilanjiuchang",
    "title": "宜蘭酒廠",
-   "title_ja": "",
+   "title_ja": "宜蘭酒廠",
    "genre": "觀光工廠",
    "area": "宜蘭",
    "address": "台灣省 宜蘭縣 宜蘭縣 中山里 舊城西路",
@@ -1698,7 +1698,7 @@
   {
    "id": "pl-jinchegamalanweishijijiuchang",
    "title": "金車噶瑪蘭威士忌酒廠",
-   "title_ja": "",
+   "title_ja": "カバラン蒸留所（金車噶瑪蘭）",
    "genre": "觀光工廠",
    "area": "宜蘭",
    "address": "宜蘭縣員山鄉員山路二段326號",
@@ -1726,7 +1726,7 @@
   {
    "id": "pl-qidingzimusuidao",
    "title": "崎頂子母隧道",
-   "title_ja": "",
+   "title_ja": "崎頂子母トンネル",
    "genre": "自然景觀",
    "area": "苗栗",
    "address": "苗栗縣竹南鎮崎頂隧道",
@@ -1740,7 +1740,7 @@
   {
    "id": "pl-yawenqilixiangmeiguisenlin",
    "title": "雅聞七里香玫瑰森林",
-   "title_ja": "",
+   "title_ja": "雅聞七里香ローズガーデン",
    "genre": "農場牧場",
    "area": "苗栗",
    "address": "苗栗縣頭屋鄉明德路226號",
@@ -1754,7 +1754,7 @@
   {
    "id": "pl-chengxiangsenlin",
    "title": "橙香森林",
-   "title_ja": "",
+   "title_ja": "橙香森林",
    "genre": "農場牧場",
    "area": "苗栗",
    "address": "苗栗縣頭屋鄉明德路6號",
@@ -1768,7 +1768,7 @@
   {
    "id": "pl-zhuoyexiaowu",
    "title": "卓也小屋",
-   "title_ja": "",
+   "title_ja": "卓也小屋",
    "genre": "農場牧場",
    "area": "苗栗",
    "address": "苗栗縣三義鄉雙潭村崩山下1-9號",
@@ -1782,7 +1782,7 @@
   {
    "id": "pl-feiniumuchang",
    "title": "飛牛牧場",
-   "title_ja": "",
+   "title_ja": "飛牛牧場",
    "genre": "農場牧場",
    "area": "苗栗",
    "address": "苗栗縣通霄鎮南和里166號",
@@ -1796,7 +1796,7 @@
   {
    "id": "pl-qiaokeliyunzhuang",
    "title": "巧克力雲莊",
-   "title_ja": "",
+   "title_ja": "チョコレート雲荘",
    "genre": "公園",
    "area": "苗栗",
    "address": "苗栗縣大湖鄉富興村水尾坪49-2號",
@@ -1810,7 +1810,7 @@
   {
    "id": "pl-moneimimihuayuan",
    "title": "莫內秘密花園",
-   "title_ja": "",
+   "title_ja": "モネの秘密の花園",
    "genre": "農場牧場",
    "area": "苗栗",
    "address": "苗栗縣 銅鑼鄉 串寮坑",
@@ -1824,7 +1824,7 @@
   {
    "id": "pl-penglaixihuyubudao",
    "title": "蓬萊溪護魚步道",
-   "title_ja": "",
+   "title_ja": "蓬莱渓護魚歩道",
    "genre": "自然景觀",
    "area": "苗栗",
    "address": "苗栗縣南庄鄉蓬萊溪自然生態園區",
@@ -1838,7 +1838,7 @@
   {
    "id": "pl-lvyishanzhuang",
    "title": "綠意山莊",
-   "title_ja": "",
+   "title_ja": "緑意山荘",
    "genre": "農場牧場",
    "area": "苗栗",
    "address": "苗栗縣 苑裡鎮 大埔",
@@ -1852,7 +1852,7 @@
   {
    "id": "pl-huataoyao",
    "title": "華陶窯",
-   "title_ja": "",
+   "title_ja": "華陶窯",
    "genre": "公園",
    "area": "苗栗",
    "address": "苗栗縣 苑裡鎮 陳厝前",
@@ -1880,7 +1880,7 @@
   {
    "id": "pl-tianrenchawenhuaguan",
    "title": "天仁茶文化館",
-   "title_ja": "",
+   "title_ja": "天仁茶文化館",
    "genre": "觀光工廠",
    "area": "苗栗",
    "address": "苗栗縣竹南鎮中華路422號",
@@ -1894,7 +1894,7 @@
   {
    "id": "pl-nanzhuanglaojie-guihuaxiang",
    "title": "南庄老街・桂花巷",
-   "title_ja": "",
+   "title_ja": "南庄老街・桂花巷",
    "genre": "老街夜市",
    "area": "苗栗",
    "address": "苗栗縣南庄鄉桂花巷",
@@ -1908,7 +1908,7 @@
   {
    "id": "pl-longfengyugang",
    "title": "龍鳳漁港",
-   "title_ja": "",
+   "title_ja": "龍鳳漁港",
    "genre": "自然景觀",
    "area": "苗栗",
    "address": "苗栗縣 竹南鎮 大坵園",
@@ -1922,7 +1922,7 @@
   {
    "id": "pl-baishatungongtiangong",
    "title": "白沙屯拱天宮",
-   "title_ja": "",
+   "title_ja": "白沙屯拱天宮",
    "genre": "寺廟宮廟",
    "area": "苗栗",
    "address": "苗栗縣通霄鎮白東里8號",
@@ -1936,7 +1936,7 @@
   {
    "id": "pl-sanyimudiaolaojie-bowuguan",
    "title": "三義木雕老街・博物館",
-   "title_ja": "",
+   "title_ja": "三義木彫り老街・木彫博物館",
    "genre": "老街夜市",
    "area": "苗栗",
    "address": "苗栗縣三義鄉廣盛村廣聲新城88號",
@@ -1950,7 +1950,7 @@
   {
    "id": "pl-dahucaomeiwenhuaguan",
    "title": "大湖草莓文化館",
-   "title_ja": "",
+   "title_ja": "大湖イチゴ文化館",
    "genre": "博物館",
    "area": "苗栗",
    "address": "苗栗縣大湖鄉富興村八寮灣2-4號",
@@ -2006,7 +2006,7 @@
   {
    "id": "pl-gongyuanyanke",
    "title": "宮原眼科",
-   "title_ja": "",
+   "title_ja": "宮原眼科",
    "genre": "寺廟宮廟",
    "area": "台中",
    "address": "臺中市中區中山路20號",
@@ -2048,7 +2048,7 @@
   {
    "id": "pl-shenjixincun",
    "title": "審計新村",
-   "title_ja": "",
+   "title_ja": "審計新村",
    "genre": "古蹟老屋",
    "area": "台中",
    "address": "臺中市西區民生路368巷",
@@ -2076,7 +2076,7 @@
   {
    "id": "pl-libaoleyuan",
    "title": "麗寶樂園",
-   "title_ja": "",
+   "title_ja": "麗宝楽園",
    "genre": "樂園",
    "area": "台中",
    "address": "臺中市 后里區 麗寶休息站廣場",
@@ -2090,7 +2090,7 @@
   {
    "id": "pl-dajiazhenlangong",
    "title": "大甲鎮瀾宮",
-   "title_ja": "",
+   "title_ja": "大甲鎮瀾宮",
    "genre": "寺廟宮廟",
    "area": "台中",
    "address": "臺中市大甲區順天路158號",
@@ -2104,7 +2104,7 @@
   {
    "id": "pl-lvchuanshuianlangdao",
    "title": "綠川水岸廊道",
-   "title_ja": "",
+   "title_ja": "緑川水岸廊道",
    "genre": "公園",
    "area": "台中",
    "address": "臺中市中區綠川西街135號",
@@ -2132,7 +2132,7 @@
   {
    "id": "pl-xinshexunyicaosenlin",
    "title": "新社薰衣草森林",
-   "title_ja": "",
+   "title_ja": "ラベンダーの森 新社店",
    "genre": "公園",
    "area": "台中",
    "address": "臺中市新社區中興街20號",
@@ -2146,7 +2146,7 @@
   {
    "id": "pl-taizhonghaiyangguan",
    "title": "台中海洋館",
-   "title_ja": "",
+   "title_ja": "台中アクアリウム",
    "genre": "動物園水族館",
    "area": "台中",
    "address": "臺中市清水區海洋路168號",
@@ -2160,7 +2160,7 @@
   {
    "id": "pl-baoxiongyulematou",
    "title": "寶熊漁樂碼頭",
-   "title_ja": "",
+   "title_ja": "宝熊漁楽碼頭",
    "genre": "公園",
    "area": "台中",
    "address": "臺中市潭子區中山路三段11號",
@@ -2188,7 +2188,7 @@
   {
    "id": "pl-taizhongyitiedaowenhuayuanqu",
    "title": "臺中驛鐵道文化園區",
-   "title_ja": "",
+   "title_ja": "台中駅鉄道文化園区",
    "genre": "博物館",
    "area": "台中",
    "address": "臺中市中區台灣大道一段1段1號",
@@ -2202,7 +2202,7 @@
   {
    "id": "pl-houfengtiemadao",
    "title": "后豐鐵馬道",
-   "title_ja": "",
+   "title_ja": "后豊サイクリングロード",
    "genre": "公園",
    "area": "台中",
    "address": "臺中市豐原區國豐路三段",
@@ -2216,7 +2216,7 @@
   {
    "id": "pl-taizhonglvmeitu",
    "title": "臺中綠美圖",
-   "title_ja": "",
+   "title_ja": "台中緑美図",
    "genre": "公園",
    "area": "台中",
    "address": "臺中市 西屯區",
@@ -2244,7 +2244,7 @@
   {
    "id": "pl-luyasenlin",
    "title": "鹿雅森林",
-   "title_ja": "",
+   "title_ja": "鹿雅森林",
    "genre": "公園",
    "area": "台中",
    "address": "臺中市沙鹿區臺灣大道七段346巷302號",
@@ -2300,7 +2300,7 @@
   {
    "id": "pl-caowudao",
    "title": "草悟道",
-   "title_ja": "",
+   "title_ja": "草悟道",
    "genre": "公園",
    "area": "台中",
    "address": "臺中市西區向上北路",
@@ -2314,7 +2314,7 @@
   {
    "id": "pl-diguotangchang-lalaport",
    "title": "帝國糖廠・LaLaport",
-   "title_ja": "",
+   "title_ja": "帝国製糖廠・ららぽーと台中",
    "genre": "古蹟老屋",
    "area": "台中",
    "address": "臺中市東區樂業路30號",
@@ -2370,7 +2370,7 @@
   {
    "id": "pl-baguashantiankongbudao",
    "title": "八卦山天空步道",
-   "title_ja": "",
+   "title_ja": "八卦山スカイウォーク",
    "genre": "自然景觀",
    "area": "彰化",
    "address": "彰化縣 彰化市 卦山里",
@@ -2384,7 +2384,7 @@
   {
    "id": "pl-huyujiguancheyuanqu",
    "title": "戶羽機關車園區",
-   "title_ja": "",
+   "title_ja": "戸羽機関車園区",
    "genre": "公園",
    "area": "彰化",
    "address": "彰化縣 彰化市 忠孝里 彰美路一段3巷",
@@ -2398,7 +2398,7 @@
   {
    "id": "pl-wanjingyiyuan",
    "title": "萬景藝苑",
-   "title_ja": "",
+   "title_ja": "万景芸苑",
    "genre": "美術館",
    "area": "彰化",
    "address": "彰化縣溪州鄉彰化縣溪州鄉中山路4段68號",
@@ -2412,7 +2412,7 @@
   {
    "id": "pl-puyanshunzegong",
    "title": "埔鹽順澤宮",
-   "title_ja": "",
+   "title_ja": "埔塩順沢宮",
    "genre": "寺廟宮廟",
    "area": "彰化",
    "address": "彰化縣大村鄉彰化縣埔鹽鄉中正路55號",
@@ -2426,7 +2426,7 @@
   {
    "id": "pl-haotiansenlin",
    "title": "好田森林",
-   "title_ja": "",
+   "title_ja": "好田森林",
    "genre": "公園",
    "area": "彰化",
    "address": "彰化縣 田尾鄉 曾厝崙",
@@ -2440,7 +2440,7 @@
   {
    "id": "pl-zhangjingluxiuxiannongchang",
    "title": "長頸鹿休閒農場",
-   "title_ja": "",
+   "title_ja": "キリン・レジャー農場",
    "genre": "農場牧場",
    "area": "彰化",
    "address": "彰化縣埔鹽鄉新生路建471號",
@@ -2454,7 +2454,7 @@
   {
    "id": "pl-chengmeiwenhuayuan",
    "title": "成美文化園",
-   "title_ja": "",
+   "title_ja": "成美文化園",
    "genre": "公園",
    "area": "彰化",
    "address": "彰化縣永靖鄉彰化縣永靖鄉中山路二段60號",
@@ -2468,7 +2468,7 @@
   {
    "id": "pl-jingfangyuan",
    "title": "菁芳園",
-   "title_ja": "",
+   "title_ja": "菁芳園",
    "genre": "公園",
    "area": "彰化",
    "address": "彰化縣田尾鄉張厝巷73-1號",
@@ -2482,7 +2482,7 @@
   {
    "id": "pl-taiwanyougebingqianxueyuan",
    "title": "台灣優格餅乾學院",
-   "title_ja": "",
+   "title_ja": "台湾優格クッキー学院（餅乾学院）",
    "genre": "觀光工廠",
    "area": "彰化",
    "address": "彰化縣線西鄉草豐路501巷5號",
@@ -2496,7 +2496,7 @@
   {
    "id": "pl-baiguoshantansuoleyuan",
    "title": "百果山探索樂園",
-   "title_ja": "",
+   "title_ja": "百果山探索楽園",
    "genre": "樂園",
    "area": "彰化",
    "address": "彰化縣員林市出水巷12-36號",
@@ -2510,7 +2510,7 @@
   {
    "id": "pl-fangyuanshidihaikongbudao",
    "title": "芳苑濕地海空步道",
-   "title_ja": "",
+   "title_ja": "芳苑湿地海空歩道",
    "genre": "自然景觀",
    "area": "彰化",
    "address": "彰化縣芳苑鄉528彰化縣芳苑鄉芳漢路158號二段161巷臨",
@@ -2524,7 +2524,7 @@
   {
    "id": "pl-luganglaojie",
    "title": "鹿港老街",
-   "title_ja": "",
+   "title_ja": "鹿港老街",
    "genre": "老街夜市",
    "area": "彰化",
    "address": "彰化縣鹿港鎮彰化縣鹿港鎮瑤林街",
@@ -2538,7 +2538,7 @@
   {
    "id": "pl-luganglongshansi",
    "title": "鹿港龍山寺",
-   "title_ja": "",
+   "title_ja": "鹿港龍山寺",
    "genre": "寺廟宮廟",
    "area": "彰化",
    "address": "彰化縣鹿港鎮彰化縣鹿港鎮龍山街100號",
@@ -2552,7 +2552,7 @@
   {
    "id": "pl-lugangtianhougong",
    "title": "鹿港天后宮",
-   "title_ja": "",
+   "title_ja": "鹿港天后宮",
    "genre": "寺廟宮廟",
    "area": "彰化",
    "address": "彰化縣鹿港鎮彰化縣鹿港鎮中山路430號",
@@ -2594,7 +2594,7 @@
   {
    "id": "pl-xitou",
    "title": "溪頭（自然教育園區・妖怪村）",
-   "title_ja": "",
+   "title_ja": "渓頭（自然教育園区・妖怪村）",
    "genre": "公園",
    "area": "南投",
    "address": "南投縣鹿谷鄉森林巷9號",
@@ -2608,7 +2608,7 @@
   {
    "id": "pl-xiangshanyoukezhongxin",
    "title": "向山遊客中心",
-   "title_ja": "",
+   "title_ja": "向山ビジターセンター",
    "genre": "自然景觀",
    "area": "南投",
    "address": "台灣省 南投縣 南投縣 向山 中山路",
@@ -2622,7 +2622,7 @@
   {
    "id": "pl-shuilisheyaotaoyiwenhuayuanqu",
    "title": "水里蛇窯陶藝文化園區",
-   "title_ja": "",
+   "title_ja": "水里蛇窯陶芸文化園区",
    "genre": "美術館",
    "area": "南投",
    "address": "南投縣水里鄉頂崁村回窯路16號",
@@ -2636,7 +2636,7 @@
   {
    "id": "pl-chunqiushanlin",
    "title": "春秋山林",
-   "title_ja": "",
+   "title_ja": "春秋山林",
    "genre": "農場牧場",
    "area": "南投",
    "address": "南投縣國姓鄉北原路30-16號",
@@ -2650,7 +2650,7 @@
   {
    "id": "pl-jiujiufengdongwuleyuan",
    "title": "九九峰動物樂園",
-   "title_ja": "",
+   "title_ja": "九九峰動物楽園",
    "genre": "動物園水族館",
    "area": "南投",
    "address": "台灣省 南投縣 南投縣 匏子寮 富頂路一段726巷",
@@ -2664,7 +2664,7 @@
   {
    "id": "pl-ruilongpubuyuanqu",
    "title": "瑞龍瀑布園區",
-   "title_ja": "",
+   "title_ja": "瑞龍瀑布園区",
    "genre": "自然景觀",
    "area": "南投",
    "address": "南投縣竹山鎮坪頂路",
@@ -2678,7 +2678,7 @@
   {
    "id": "pl-shuanglongpubuqicaidiaoqiao",
    "title": "雙龍瀑布七彩吊橋",
-   "title_ja": "",
+   "title_ja": "双龍瀑布七彩吊り橋",
    "genre": "地標展望",
    "area": "南投",
    "address": "南投縣信義鄉光復巷",
@@ -2692,7 +2692,7 @@
   {
    "id": "pl-qingjingnongchang",
    "title": "清境農場",
-   "title_ja": "",
+   "title_ja": "清境農場",
    "genre": "農場牧場",
    "area": "南投",
    "address": "南投縣仁愛鄉仁和路170號",
@@ -2706,7 +2706,7 @@
   {
    "id": "pl-ninaqiaokelimengxiangchengbao",
    "title": "妮娜巧克力夢想城堡",
-   "title_ja": "",
+   "title_ja": "ニナチョコレート城",
    "genre": "公園",
    "area": "南投",
    "address": "台灣省 南投縣 南投縣 紙寮坑 桃米路",
@@ -2720,7 +2720,7 @@
   {
    "id": "pl-checheng",
    "title": "車埕",
-   "title_ja": "",
+   "title_ja": "車埕",
    "genre": "公園",
    "area": "南投",
    "address": "台灣省 南投縣 南投縣 車埕 民權巷",
@@ -2734,7 +2734,7 @@
   {
    "id": "pl-qianqiaoguniuleyuanmuchang",
    "title": "千巧谷牛樂園牧場",
-   "title_ja": "",
+   "title_ja": "千巧谷牛楽園牧場",
    "genre": "樂園",
    "area": "雲林",
    "address": "雲林縣崙背鄉雲林縣崙背鄉東興路182之32號",
@@ -2748,7 +2748,7 @@
   {
    "id": "pl-jianhushanshijie",
    "title": "劍湖山世界",
-   "title_ja": "",
+   "title_ja": "剣湖山世界",
    "genre": "樂園",
    "area": "雲林",
    "address": "雲林縣 古坑鄉 焿子頭 雲212",
@@ -2762,7 +2762,7 @@
   {
    "id": "pl-yunlingzhiqiu",
    "title": "雲嶺之丘",
-   "title_ja": "",
+   "title_ja": "雲嶺之丘",
    "genre": "公園",
    "area": "雲林",
    "address": "雲林縣古坑鄉雲林縣古坑鄉草嶺村",
@@ -2776,7 +2776,7 @@
   {
    "id": "pl-tukuyikekezhuangyuan",
    "title": "土庫驛可可莊園",
-   "title_ja": "",
+   "title_ja": "土庫駅カカオ荘園",
    "genre": "農場牧場",
    "area": "雲林",
    "address": "台灣省 雲林縣 雲林縣 過港 大同路",
@@ -2790,7 +2790,7 @@
   {
    "id": "pl-etongleyuan",
    "title": "鵝童樂園",
-   "title_ja": "",
+   "title_ja": "鵝童楽園",
    "genre": "樂園",
    "area": "雲林",
    "address": "雲林縣斗六市斗六市嘉新路222號",
@@ -2804,7 +2804,7 @@
   {
    "id": "pl-yawenbalihaian",
    "title": "雅聞峇里海岸",
-   "title_ja": "",
+   "title_ja": "雅聞バリ海岸",
    "genre": "自然景觀",
    "area": "雲林",
    "address": "雲林縣斗六市雲林縣斗六市中興路333號",
@@ -2818,7 +2818,7 @@
   {
    "id": "pl-gukenglvsesuidao",
    "title": "古坑綠色隧道",
-   "title_ja": "",
+   "title_ja": "古坑緑のトンネル",
    "genre": "自然景觀",
    "area": "雲林",
    "address": "雲林縣古坑鄉雲林縣古坑鄉湳仔村湳仔路",
@@ -2846,7 +2846,7 @@
   {
    "id": "pl-datongjiangyouheijinniangzaoguan",
    "title": "大同醬油黑金釀造館",
-   "title_ja": "",
+   "title_ja": "大同醤油 黒金醸造館",
    "genre": "觀光工廠",
    "area": "雲林",
    "address": "雲林縣斗六市雲林縣斗六市工業區斗工二路39號",
@@ -2860,7 +2860,7 @@
   {
    "id": "pl-alishanguojiasenlinyoulequ",
    "title": "阿里山國家森林遊樂區",
-   "title_ja": "",
+   "title_ja": "阿里山国家森林遊楽区",
    "genre": "樂園",
    "area": "嘉義",
    "address": "嘉義縣阿里山鄉中正村59號",
@@ -2874,7 +2874,7 @@
   {
    "id": "pl-guiyisenhuocun",
    "title": "檜意森活村",
-   "title_ja": "",
+   "title_ja": "檜意森活村",
    "genre": "公園",
    "area": "嘉義",
    "address": "嘉義市東區共和路370號",
@@ -2930,7 +2930,7 @@
   {
    "id": "pl-jiayishilibowuguan",
    "title": "嘉義市立博物館",
-   "title_ja": "",
+   "title_ja": "嘉義市立博物館",
    "genre": "博物館",
    "area": "嘉義",
    "address": "嘉義市東區忠孝路275-1號",
@@ -2944,7 +2944,7 @@
   {
    "id": "pl-danayigu",
    "title": "達娜伊谷",
-   "title_ja": "",
+   "title_ja": "達娜伊谷",
    "genre": "公園",
    "area": "嘉義",
    "address": "嘉義縣 阿里山鄉 山美村",
@@ -2958,7 +2958,7 @@
   {
    "id": "pl-taipingyunti",
    "title": "太平雲梯",
-   "title_ja": "",
+   "title_ja": "太平雲梯",
    "genre": "公園",
    "area": "嘉義",
    "address": "嘉義縣梅山鄉太平村下坑仔5號",
@@ -2972,7 +2972,7 @@
   {
    "id": "pl-oulewozhumengchengbao",
    "title": "歐樂沃築夢城堡",
-   "title_ja": "",
+   "title_ja": "欧楽沃ドリームキャッスル",
    "genre": "公園",
    "area": "嘉義",
    "address": "嘉義縣 大林鎮 大美里",
@@ -2986,7 +2986,7 @@
   {
    "id": "pl-bairenyagaoguanguanggongchang",
    "title": "白人牙膏觀光工廠",
-   "title_ja": "",
+   "title_ja": "白人牙膏観光工場",
    "genre": "觀光工廠",
    "area": "嘉義",
    "address": "嘉義縣 水上鄉 十一指厝",
@@ -3000,7 +3000,7 @@
   {
    "id": "pl-huanxicaishenmiao",
    "title": "歡喜財神廟",
-   "title_ja": "",
+   "title_ja": "歓喜財神廟",
    "genre": "寺廟宮廟",
    "area": "嘉義",
    "address": "嘉義縣中埔鄉下庄仔19號",
@@ -3014,7 +3014,7 @@
   {
    "id": "pl-wanglaishanaiqingdacaoyuan",
    "title": "旺萊山愛情大草原",
-   "title_ja": "",
+   "title_ja": "旺莱山愛情大草原",
    "genre": "自然景觀",
    "area": "嘉義",
    "address": "嘉義縣番路鄉車埕15號",
@@ -3028,7 +3028,7 @@
   {
    "id": "pl-miemieshangshumengchongleyuan",
    "title": "咩咩上樹萌寵樂園",
-   "title_ja": "",
+   "title_ja": "咩咩上樹アニマルパーク",
    "genre": "樂園",
    "area": "嘉義",
    "address": "台灣省 嘉義縣 嘉義縣 東勢寮 故宮大道",
@@ -3042,7 +3042,7 @@
   {
    "id": "pl-gaiyazhuangyuan",
    "title": "蓋婭莊園",
-   "title_ja": "",
+   "title_ja": "ガイア荘園（蓋婭莊園）",
    "genre": "農場牧場",
    "area": "嘉義",
    "address": "嘉義縣 大林鎮 大美里",
@@ -3056,7 +3056,7 @@
   {
    "id": "pl-zuodengnisichengbao",
    "title": "佐登妮絲城堡",
-   "title_ja": "",
+   "title_ja": "ザトーニス城（佐登妮絲城堡）",
    "genre": "公園",
    "area": "嘉義",
    "address": "台灣省 嘉義縣 嘉義縣 半廍子 大埔美園區三路",
@@ -3070,7 +3070,7 @@
   {
    "id": "pl-xinjiadakunchongguan",
    "title": "新嘉大昆蟲館",
-   "title_ja": "",
+   "title_ja": "新嘉大昆虫館",
    "genre": "動物園水族館",
    "area": "嘉義",
    "address": "嘉義市東區學府路300號",
@@ -3084,7 +3084,7 @@
   {
    "id": "pl-fenqihu",
    "title": "奮起湖",
-   "title_ja": "",
+   "title_ja": "奮起湖",
    "genre": "自然景觀",
    "area": "嘉義",
    "address": "嘉義縣竹崎鄉中和村奮起湖",
@@ -3098,7 +3098,7 @@
   {
    "id": "pl-jiayijiujianyu",
    "title": "嘉義舊監獄",
-   "title_ja": "",
+   "title_ja": "嘉義旧監獄（獄政博物館）",
    "genre": "公園",
    "area": "嘉義",
    "address": "嘉義市東區維新路140號",
@@ -3112,7 +3112,7 @@
   {
    "id": "pl-jiayichenghuangmiao",
    "title": "嘉義城隍廟",
-   "title_ja": "",
+   "title_ja": "嘉義城隍廟",
    "genre": "寺廟宮廟",
    "area": "嘉義",
    "address": "嘉義市東區吳鳳北路168號",
@@ -3168,7 +3168,7 @@
   {
    "id": "pl-sicaolvsesuidao",
    "title": "四草綠色隧道",
-   "title_ja": "",
+   "title_ja": "四草緑のトンネル",
    "genre": "自然景觀",
    "area": "台南",
    "address": "臺南市安南區大眾路(四草大眾廟旁)",
@@ -3182,7 +3182,7 @@
   {
    "id": "pl-shennongjie",
    "title": "神農街",
-   "title_ja": "",
+   "title_ja": "神農街",
    "genre": "老街夜市",
    "area": "台南",
    "address": "臺南市中西區神農街",
@@ -3196,7 +3196,7 @@
   {
    "id": "pl-anpingshuwu-dejiyanghang",
    "title": "安平樹屋・德記洋行",
-   "title_ja": "",
+   "title_ja": "安平樹屋・徳記洋行",
    "genre": "公園",
    "area": "台南",
    "address": "臺南市安平區古堡街108號旁",
@@ -3252,7 +3252,7 @@
   {
    "id": "pl-zuozhenhuashiyuanqu",
    "title": "左鎮化石園區",
-   "title_ja": "",
+   "title_ja": "左鎮化石園区",
    "genre": "博物館",
    "area": "台南",
    "address": "臺南市 榮和里 南部橫貫公路",
@@ -3294,7 +3294,7 @@
   {
    "id": "pl-yuguangdao",
    "title": "漁光島",
-   "title_ja": "",
+   "title_ja": "漁光島",
    "genre": "自然景觀",
    "area": "台南",
    "address": "臺南市 上鯤鯓",
@@ -3308,7 +3308,7 @@
   {
    "id": "pl-shiguwenchuangyuanqu",
    "title": "十鼓文創園區",
-   "title_ja": "",
+   "title_ja": "十鼓文創園区",
    "genre": "古蹟老屋",
    "area": "台南",
    "address": "臺南市仁德區文華路二段326號",
@@ -3322,7 +3322,7 @@
   {
    "id": "pl-jingzaijiaowapanyantian",
    "title": "井仔腳瓦盤鹽田",
-   "title_ja": "",
+   "title_ja": "井仔脚瓦盤塩田",
    "genre": "公園",
    "area": "台南",
    "address": "臺南市北門區永華里井仔腳興安宮旁",
@@ -3350,7 +3350,7 @@
   {
    "id": "pl-shenyuanjishuianpinghanghaicheng",
    "title": "深緣及水安平航海城",
-   "title_ja": "",
+   "title_ja": "深緣及水安平航海城",
    "genre": "自然景觀",
    "area": "台南",
    "address": "臺南市安平區湖內一街99巷33號",
@@ -3364,7 +3364,7 @@
   {
    "id": "pl-shuijiaoshewenhuayuanqu",
    "title": "水交社文化園區",
-   "title_ja": "",
+   "title_ja": "水交社文化園区",
    "genre": "公園",
    "area": "台南",
    "address": "臺南市南區興中街118號",
@@ -3392,7 +3392,7 @@
   {
    "id": "pl-taijiangguojiagongyuanyoukezhongxin",
    "title": "台江國家公園遊客中心",
-   "title_ja": "",
+   "title_ja": "台江国家公園ビジターセンター",
    "genre": "自然景觀",
    "area": "台南",
    "address": "臺南市 四草里 廣場",
@@ -3406,7 +3406,7 @@
   {
    "id": "pl-cangjinge",
    "title": "藏金閣",
-   "title_ja": "",
+   "title_ja": "藏金閣",
    "genre": "公園",
    "area": "台南",
    "address": "臺南市中西區府前路二段370號",
@@ -3420,7 +3420,7 @@
   {
    "id": "pl-madoudaitianfu",
    "title": "麻豆代天府",
-   "title_ja": "",
+   "title_ja": "麻豆代天府",
    "genre": "公園",
    "area": "台南",
    "address": "臺南市麻豆區南勢里關帝廟60號",
@@ -3434,7 +3434,7 @@
   {
    "id": "pl-sidianwumiao",
    "title": "祀典武廟",
-   "title_ja": "",
+   "title_ja": "祀典武廟",
    "genre": "寺廟宮廟",
    "area": "台南",
    "address": "台南市 中西區 永福路二段",
@@ -3448,7 +3448,7 @@
   {
    "id": "pl-qiguyanshan",
    "title": "七股鹽山",
-   "title_ja": "",
+   "title_ja": "七股塩山",
    "genre": "自然景觀",
    "area": "台南",
    "address": "臺南市七股區鹽埕里66號",
@@ -3462,7 +3462,7 @@
   {
    "id": "pl-qiguyoukezhongxin",
    "title": "七股遊客中心",
-   "title_ja": "",
+   "title_ja": "七股ビジターセンター",
    "genre": "公園",
    "area": "台南",
    "address": "臺南市七股區塩埕里塩埕102-8號",
@@ -3476,7 +3476,7 @@
   {
    "id": "pl-yawenhubinliaoyusenlin",
    "title": "雅聞湖濱療癒森林",
-   "title_ja": "",
+   "title_ja": "雅聞湖浜療癒森林",
    "genre": "自然景觀",
    "area": "台南",
    "address": "臺南市 上茄苳里 縱貫公路",
@@ -3490,7 +3490,7 @@
   {
    "id": "pl-nanchengxiangshi",
    "title": "南埕衖事",
-   "title_ja": "",
+   "title_ja": "南埕衖事",
    "genre": "古蹟老屋",
    "area": "台南",
    "address": "臺南市 中西區 忠義路二段",
@@ -3518,7 +3518,7 @@
   {
    "id": "pl-shugunongchang",
    "title": "樹谷農場",
-   "title_ja": "",
+   "title_ja": "樹谷農場",
    "genre": "農場牧場",
    "area": "台南",
    "address": "臺南市新市區中心東路12號",
@@ -3532,7 +3532,7 @@
   {
    "id": "pl-deyuanpihelancun",
    "title": "德元埤荷蘭村",
-   "title_ja": "",
+   "title_ja": "德元埤荷蘭村",
    "genre": "公園",
    "area": "台南",
    "address": "臺南市柳營區神農里新厝100號",
@@ -3546,7 +3546,7 @@
   {
    "id": "pl-guidanwenquantiyanchi",
    "title": "龜丹溫泉體驗池",
-   "title_ja": "",
+   "title_ja": "亀丹温泉体験池",
    "genre": "溫泉",
    "area": "台南",
    "address": "臺南市楠西區龜丹里南186線2.8k支路內之龜丹溪畔",
@@ -3560,7 +3560,7 @@
   {
    "id": "pl-heleguangchang",
    "title": "河樂廣場",
-   "title_ja": "",
+   "title_ja": "河楽広場",
    "genre": "公園",
    "area": "台南",
    "address": "臺南市 中西區 中正路",
@@ -3588,7 +3588,7 @@
   {
    "id": "pl-dingtoueshazhou",
    "title": "頂頭額沙洲",
-   "title_ja": "",
+   "title_ja": "頂頭額沙洲",
    "genre": "自然景觀",
    "area": "台南",
    "address": "臺南市七股區鹽埕里68號",
@@ -3602,7 +3602,7 @@
   {
    "id": "pl-shugushenghuokexueguan",
    "title": "樹谷生活科學館",
-   "title_ja": "",
+   "title_ja": "樹谷生活科学館",
    "genre": "博物館",
    "area": "台南",
    "address": "臺南市新市區中心東路12號",
@@ -3616,7 +3616,7 @@
   {
    "id": "pl-longtianwenhuazichanjiaoyuyuanqu",
    "title": "隆田文化資產教育園區",
-   "title_ja": "",
+   "title_ja": "隆田文化資産教育園区",
    "genre": "公園",
    "area": "台南",
    "address": "台南市 隆田里",
@@ -3630,7 +3630,7 @@
   {
    "id": "pl-heiqiaopaixiangchangbowuguan",
    "title": "黑橋牌香腸博物館",
-   "title_ja": "",
+   "title_ja": "黒橋牌ソーセージ博物館",
    "genre": "觀光工廠",
    "area": "台南",
    "address": "臺南市南區新忠路2號",
@@ -3644,7 +3644,7 @@
   {
    "id": "pl-tainanshilitushuguanxinzongguan",
    "title": "臺南市立圖書館新總館",
-   "title_ja": "",
+   "title_ja": "台南市立図書館新総館",
    "genre": "博物館",
    "area": "台南",
    "address": "臺南市 東橋里 康橋大道",
@@ -3658,7 +3658,7 @@
   {
    "id": "pl-anpinglaojie",
    "title": "安平老街",
-   "title_ja": "",
+   "title_ja": "安平老街",
    "genre": "老街夜市",
    "area": "台南",
    "address": "臺南市 安平區",
@@ -3672,7 +3672,7 @@
   {
    "id": "pl-lanshaituwenchuangyuanqu",
    "title": "藍晒圖文創園區",
-   "title_ja": "",
+   "title_ja": "藍晒図文創園区（ブループリント・カルチャー＆クリエイティブパーク）",
    "genre": "古蹟老屋",
    "area": "台南",
    "address": "臺南市南區西門路一段689巷",
@@ -3868,7 +3868,7 @@
   {
    "id": "pl-gaoxiongshilimeishuguan",
    "title": "高雄市立美術館",
-   "title_ja": "",
+   "title_ja": "高雄市立美術館",
    "genre": "美術館",
    "area": "高雄",
    "address": "高雄市鼓山區美術館路80號",
@@ -3882,7 +3882,7 @@
   {
    "id": "pl-ruifengyeshi",
    "title": "瑞豐夜市",
-   "title_ja": "",
+   "title_ja": "瑞豊夜市",
    "genre": "老街夜市",
    "area": "高雄",
    "address": "高雄市 鼓山區 裕誠路",
@@ -3896,7 +3896,7 @@
   {
    "id": "pl-qiaotoutangchang",
    "title": "橋頭糖廠",
-   "title_ja": "",
+   "title_ja": "橋頭糖廠",
    "genre": "古蹟老屋",
    "area": "高雄",
    "address": "高雄市 橋頭區 興糖路",
@@ -3910,7 +3910,7 @@
   {
    "id": "pl-fengyishuyuan",
    "title": "鳳儀書院",
-   "title_ja": "",
+   "title_ja": "鳳儀書院",
    "genre": "古蹟老屋",
    "area": "高雄",
    "address": "高雄市鳳山區鳳崗里鳳明街62號",
@@ -3924,7 +3924,7 @@
   {
    "id": "pl-gaoxiongliuxingyinlezhongxin",
    "title": "高雄流行音樂中心",
-   "title_ja": "",
+   "title_ja": "高雄ポップミュージックセンター",
    "genre": "公園",
    "area": "高雄",
    "address": "高雄市 鹽埕區 真愛路",
@@ -3938,7 +3938,7 @@
   {
    "id": "pl-dagangqiao",
    "title": "大港橋",
-   "title_ja": "",
+   "title_ja": "大港橋",
    "genre": "地標展望",
    "area": "高雄",
    "address": "高雄市 鼓山區",
@@ -3952,7 +3952,7 @@
   {
    "id": "pl-tianliaoyueshijie",
    "title": "田寮月世界",
-   "title_ja": "",
+   "title_ja": "田寮月世界",
    "genre": "自然景觀",
    "area": "高雄",
    "address": "高雄市田寮區崇德里月球路36號",
@@ -3966,7 +3966,7 @@
   {
    "id": "pl-qishanlaojie",
    "title": "旗山老街",
-   "title_ja": "",
+   "title_ja": "旗山老街",
    "genre": "老街夜市",
    "area": "高雄",
    "address": "高雄市 旗山區",
@@ -3980,7 +3980,7 @@
   {
    "id": "pl-shoushandongwuyuan",
    "title": "壽山動物園",
-   "title_ja": "",
+   "title_ja": "寿山動物園",
    "genre": "動物園水族館",
    "area": "高雄",
    "address": "高雄市 鼓山區 萬壽路",
@@ -3994,7 +3994,7 @@
   {
    "id": "pl-jingyuannongchang",
    "title": "淨園農場",
-   "title_ja": "",
+   "title_ja": "浄園農場",
    "genre": "農場牧場",
    "area": "高雄",
    "address": "高雄市小港區明聖街135巷10弄12號",
@@ -4064,7 +4064,7 @@
   {
    "id": "pl-gaoxiongzhonglieci",
    "title": "高雄忠烈祠",
-   "title_ja": "",
+   "title_ja": "高雄忠烈祠",
    "genre": "寺廟宮廟",
    "area": "高雄",
    "address": "高雄市 鼓山區 忠義路",
@@ -4078,7 +4078,7 @@
   {
    "id": "pl-yidashijie",
    "title": "義大世界",
-   "title_ja": "",
+   "title_ja": "義大世界",
    "genre": "樂園",
    "area": "高雄",
    "address": "高雄市大樹區學城路一段12號",
@@ -4092,7 +4092,7 @@
   {
    "id": "pl-mituoyuganghaianguanglang",
    "title": "彌陀漁港海岸光廊",
-   "title_ja": "",
+   "title_ja": "弥陀漁港海岸光廊",
    "genre": "自然景觀",
    "area": "高雄",
    "address": "高雄市彌陀區南寮路96號",
@@ -4106,7 +4106,7 @@
   {
    "id": "pl-gaoxiongxiaoyaoyuan",
    "title": "高雄逍遙園",
-   "title_ja": "",
+   "title_ja": "高雄逍遙園",
    "genre": "公園",
    "area": "高雄",
    "address": "高雄市新興區六合一路55巷15號錦田路",
@@ -4120,7 +4120,7 @@
   {
    "id": "pl-baiselianrenhuoguiwu",
    "title": "白色戀人貨櫃屋",
-   "title_ja": "",
+   "title_ja": "白色恋人コンテナハウス",
    "genre": "公園",
    "area": "高雄",
    "address": "高雄市前金區河東路189號",
@@ -4148,7 +4148,7 @@
   {
    "id": "pl-shoushanguojiazirangongyuan",
    "title": "壽山國家自然公園",
-   "title_ja": "",
+   "title_ja": "寿山国家自然公園",
    "genre": "自然景觀",
    "area": "高雄",
    "address": "高雄市",
@@ -4190,7 +4190,7 @@
   {
    "id": "pl-zhanerku",
    "title": "棧貳庫",
-   "title_ja": "",
+   "title_ja": "棧弐庫（KW2）",
    "genre": "公園",
    "area": "高雄",
    "address": "高雄市 鼓山區 捷興一街",
@@ -4204,7 +4204,7 @@
   {
    "id": "pl-hezailiaoyugang",
    "title": "蚵仔寮漁港",
-   "title_ja": "",
+   "title_ja": "蚵仔寮漁港",
    "genre": "自然景觀",
    "area": "高雄",
    "address": "高雄市 梓官區",
@@ -4246,7 +4246,7 @@
   {
    "id": "pl-sanduoshangquan",
    "title": "三多商圈",
-   "title_ja": "",
+   "title_ja": "三多商圈",
    "genre": "老街夜市",
    "area": "高雄",
    "address": "高雄市 苓雅區 中山二路",
@@ -4260,7 +4260,7 @@
   {
    "id": "pl-longpangongyuan",
    "title": "龍磐公園",
-   "title_ja": "",
+   "title_ja": "龍磐公園",
    "genre": "公園",
    "area": "屏東",
    "address": "屏東縣 恆春鎮 埔頂",
@@ -4274,7 +4274,7 @@
   {
    "id": "pl-eluanbidengta",
    "title": "鵝鑾鼻燈塔",
-   "title_ja": "",
+   "title_ja": "鵝鑾鼻灯台",
    "genre": "地標展望",
    "area": "屏東",
    "address": "屏東縣 恆春鎮 鵝鑾里 燈塔路",
@@ -4288,7 +4288,7 @@
   {
    "id": "pl-guolihaiyangshengwubowuguan",
    "title": "國立海洋生物博物館",
-   "title_ja": "",
+   "title_ja": "国立海洋生物博物館",
    "genre": "動物園水族館",
    "area": "屏東",
    "address": "台灣省 屏東縣 屏東縣 後灣 後灣路",
@@ -4302,7 +4302,7 @@
   {
    "id": "pl-chechengfuangong",
    "title": "車城福安宮",
-   "title_ja": "",
+   "title_ja": "車城福安宮",
    "genre": "寺廟宮廟",
    "area": "屏東",
    "address": "台灣省 屏東縣 屏東縣 新街 福安路",
@@ -4316,7 +4316,7 @@
   {
    "id": "pl-xiaoliuqiu",
    "title": "小琉球",
-   "title_ja": "",
+   "title_ja": "小琉球",
    "genre": "公園",
    "area": "屏東",
    "address": "屏東縣 琉球鄉 白沙尾 三民路",
@@ -4330,7 +4330,7 @@
   {
    "id": "pl-kanhaimeishuguan",
    "title": "看海美術館",
-   "title_ja": "",
+   "title_ja": "看海美術館",
    "genre": "美術館",
    "area": "屏東",
    "address": "台灣省 屏東縣 屏東縣 海口 海口路",
@@ -4344,7 +4344,7 @@
   {
    "id": "pl-taidiannanbuzhanshiguan",
    "title": "台電南部展示館",
-   "title_ja": "",
+   "title_ja": "台電南部展示館",
    "genre": "博物館",
    "area": "屏東",
    "address": "屏東縣恆春鎮後壁湖路96巷33號",
@@ -4358,7 +4358,7 @@
   {
    "id": "pl-lujingmeihualushengtaiyuanqu",
    "title": "鹿境梅花鹿生態園區",
-   "title_ja": "",
+   "title_ja": "鹿境梅花鹿生態園区",
    "genre": "農場牧場",
    "area": "屏東",
    "address": "台灣省 屏東縣 屏東縣 網紗 恆公路",
@@ -4372,7 +4372,7 @@
   {
    "id": "pl-kendingxiaobalidaoyan",
    "title": "墾丁小巴里島岩",
-   "title_ja": "",
+   "title_ja": "墾丁小巴里島岩",
    "genre": "自然景觀",
    "area": "屏東",
    "address": "屏東縣恆春鎮大光路79-66號",
@@ -4386,7 +4386,7 @@
   {
    "id": "pl-axinqiaokelinongchang",
    "title": "阿信巧克力農場",
-   "title_ja": "",
+   "title_ja": "阿信チョコレート農場",
    "genre": "農場牧場",
    "area": "屏東",
    "address": "台灣省 屏東縣 屏東縣 萬里桐 萬里路",
@@ -4400,7 +4400,7 @@
   {
    "id": "pl-kendinglu-daoshuitunshengtaiyuanqu",
    "title": "墾丁鹿ㄦ島水豚生態園區",
-   "title_ja": "",
+   "title_ja": "墾丁鹿ㄦ島カピバラ生態園区",
    "genre": "農場牧場",
    "area": "屏東",
    "address": "屏東縣恆春鎮省北路275之1號",
@@ -4414,7 +4414,7 @@
   {
    "id": "pl-linhousilinpingdisenlinyuanqu",
    "title": "林後四林平地森林園區",
-   "title_ja": "",
+   "title_ja": "林後四林平地森林園区",
    "genre": "公園",
    "area": "屏東",
    "address": "屏東縣潮州鎮潮義路221之1",
@@ -4428,7 +4428,7 @@
   {
    "id": "pl-fuermoshakekenongchang",
    "title": "福爾摩莎可可農場",
-   "title_ja": "",
+   "title_ja": "フォルモサ・カカオファーム",
    "genre": "農場牧場",
    "area": "屏東",
    "address": "屏東縣內埔鄉大同路三段榮和巷80號",
@@ -4442,7 +4442,7 @@
   {
    "id": "pl-pingyan1936wenhuajidi",
    "title": "屏菸1936文化基地",
-   "title_ja": "",
+   "title_ja": "屏菸1936文化基地",
    "genre": "公園",
    "area": "屏東",
    "address": "屏東縣屏東市菸廠路1號",
@@ -4456,7 +4456,7 @@
   {
    "id": "pl-shenglixingcun",
    "title": "勝利星村",
-   "title_ja": "",
+   "title_ja": "勝利星村",
    "genre": "公園",
    "area": "屏東",
    "address": "屏東縣 屏東市 永城里 中山路",
@@ -4484,7 +4484,7 @@
   {
    "id": "pl-kendingguojiasenlinyoulequ",
    "title": "墾丁國家森林遊樂區",
-   "title_ja": "",
+   "title_ja": "墾丁国家森林遊楽区",
    "genre": "樂園",
    "area": "屏東",
    "address": "屏東縣恆春鎮墾丁里公園路201號",
@@ -4498,7 +4498,7 @@
   {
    "id": "pl-qixingtan",
    "title": "七星潭",
-   "title_ja": "",
+   "title_ja": "七星潭",
    "genre": "自然景觀",
    "area": "花蓮",
    "address": "花蓮縣 花蓮市",
@@ -4512,7 +4512,7 @@
   {
    "id": "pl-liyutan",
    "title": "鯉魚潭",
-   "title_ja": "",
+   "title_ja": "鯉魚潭",
    "genre": "自然景觀",
    "area": "花蓮",
    "address": "花蓮縣壽豐鄉池南村環潭北路100號(臺9丙線大約16k東轉入)",
@@ -4526,7 +4526,7 @@
   {
    "id": "pl-yunshanshui",
    "title": "雲山水",
-   "title_ja": "",
+   "title_ja": "雲山水",
    "genre": "自然景觀",
    "area": "花蓮",
    "address": "花蓮縣 壽豐鄉 豐坪 東富街",
@@ -4540,7 +4540,7 @@
   {
    "id": "pl-dashibishanbudao",
    "title": "大石鼻山步道",
-   "title_ja": "",
+   "title_ja": "大石鼻山歩道",
    "genre": "自然景觀",
    "area": "花蓮",
    "address": "花蓮縣 豐濱鄉 龜庵(達個莫)",
@@ -4554,7 +4554,7 @@
   {
    "id": "pl-danongdafupingdisenlinyuanqu",
    "title": "大農大富平地森林園區",
-   "title_ja": "",
+   "title_ja": "大農大富平地森林園区",
    "genre": "公園",
    "area": "花蓮",
    "address": "花蓮縣光復鄉農場路32號",
@@ -4582,7 +4582,7 @@
   {
    "id": "pl-chikeshanxiaoruishinongchang",
    "title": "赤柯山小瑞士農場",
-   "title_ja": "",
+   "title_ja": "赤柯山小瑞士農場",
    "genre": "農場牧場",
    "area": "花蓮",
    "address": "花蓮縣玉里鎮高寮275號",
@@ -4596,7 +4596,7 @@
   {
    "id": "pl-taini-daka-yuanqu",
    "title": "台泥 DAKA 園區",
-   "title_ja": "",
+   "title_ja": "台泥DAKA園区",
    "genre": "公園",
    "area": "花蓮",
    "address": "花蓮縣秀林鄉和平263號",
@@ -4610,7 +4610,7 @@
   {
    "id": "pl-sibagaodi",
    "title": "四八高地",
-   "title_ja": "",
+   "title_ja": "四八高地",
    "genre": "公園",
    "area": "花蓮",
    "address": "花蓮縣 花蓮市 七星潭 海岸路",
@@ -4624,7 +4624,7 @@
   {
    "id": "pl-jiangjunfu1936",
    "title": "將軍府1936",
-   "title_ja": "",
+   "title_ja": "将軍府1936",
    "genre": "古蹟老屋",
    "area": "花蓮",
    "address": "花蓮縣花蓮市中正路622巷6號",
@@ -4638,7 +4638,7 @@
   {
    "id": "pl-yuanxionghaiyanggongyuan",
    "title": "遠雄海洋公園",
-   "title_ja": "",
+   "title_ja": "遠雄海洋公園",
    "genre": "自然景觀",
    "area": "花蓮",
    "address": "花蓮縣壽豐鄉鹽寮村福德189號",
@@ -4680,7 +4680,7 @@
   {
    "id": "pl-guangfutangchang",
    "title": "光復糖廠",
-   "title_ja": "",
+   "title_ja": "光復糖廠",
    "genre": "古蹟老屋",
    "area": "花蓮",
    "address": "花蓮縣 光復鄉 大進村 中興路",
@@ -4694,7 +4694,7 @@
   {
    "id": "pl-dongdamenyeshi",
    "title": "東大門夜市",
-   "title_ja": "",
+   "title_ja": "東大門夜市",
    "genre": "老街夜市",
    "area": "花蓮",
    "address": "花蓮縣花蓮市重慶路572號",
@@ -4708,7 +4708,7 @@
   {
    "id": "pl-sanxiantai",
    "title": "三仙台",
-   "title_ja": "",
+   "title_ja": "三仙台",
    "genre": "公園",
    "area": "台東",
    "address": "臺東縣成功鎮基翬路74號",
@@ -4722,7 +4722,7 @@
   {
    "id": "pl-chulumuchang",
    "title": "初鹿牧場",
-   "title_ja": "",
+   "title_ja": "初鹿牧場",
    "genre": "農場牧場",
    "area": "台東",
    "address": "臺東縣卑南鄉明峰村牧場1號",
@@ -4736,7 +4736,7 @@
   {
    "id": "pl-jialulanhaian",
    "title": "加路蘭海岸",
-   "title_ja": "",
+   "title_ja": "加路蘭海岸",
    "genre": "自然景觀",
    "area": "台東",
    "address": "臺東縣臺東市加路蘭遊憩區",
@@ -4750,7 +4750,7 @@
   {
    "id": "pl-luyemeihualugongyuan",
    "title": "鹿野梅花鹿公園",
-   "title_ja": "",
+   "title_ja": "鹿野梅花鹿公園",
    "genre": "農場牧場",
    "area": "台東",
    "address": "臺東縣鹿野鄉瑞景路一段23巷15號",
@@ -4764,7 +4764,7 @@
   {
    "id": "pl-guolitaiwanshiqianwenhuabowuguan",
    "title": "國立臺灣史前文化博物館",
-   "title_ja": "",
+   "title_ja": "国立台湾史前文化博物館",
    "genre": "博物館",
    "area": "台東",
    "address": "臺東縣臺東市豐田里博物館路一號",
@@ -4778,7 +4778,7 @@
   {
    "id": "pl-xiaoyeliu",
    "title": "小野柳",
-   "title_ja": "",
+   "title_ja": "小野柳",
    "genre": "公園",
    "area": "台東",
    "address": "臺東縣 臺東市 集岡富岡新村 松江路一段",
@@ -4806,7 +4806,7 @@
   {
    "id": "pl-dapochi",
    "title": "大坡池",
-   "title_ja": "",
+   "title_ja": "大坡池",
    "genre": "公園",
    "area": "台東",
    "address": "臺東縣池上鄉(臺9線322K東側轉入)",
@@ -4820,7 +4820,7 @@
   {
    "id": "pl-luyegaotai",
    "title": "鹿野高台",
-   "title_ja": "",
+   "title_ja": "鹿野高台",
    "genre": "公園",
    "area": "台東",
    "address": "臺東縣鹿野鄉永安村高台路46號",
@@ -4834,7 +4834,7 @@
   {
    "id": "pl-duoliangchezhan",
    "title": "多良車站",
-   "title_ja": "",
+   "title_ja": "多良車站",
    "genre": "地標展望",
    "area": "台東",
    "address": "臺東縣太麻里鄉多良村瀧溪路8-1號",
@@ -4862,7 +4862,7 @@
   {
    "id": "pl-penghushuizuguan",
    "title": "澎湖水族館",
-   "title_ja": "",
+   "title_ja": "澎湖水族館",
    "genre": "動物園水族館",
    "area": "澎湖",
    "address": "澎湖縣白沙鄉岐頭村58號",
@@ -4876,7 +4876,7 @@
   {
    "id": "pl-kuibishanmoxifenhai",
    "title": "奎壁山摩西分海",
-   "title_ja": "",
+   "title_ja": "奎壁山 モーゼの海割れ",
    "genre": "自然景觀",
    "area": "澎湖",
    "address": "澎湖縣湖西鄉北寮村",
@@ -4890,7 +4890,7 @@
   {
    "id": "pl-chidongdaguoyexuanwuyan",
    "title": "池東大菓葉玄武岩",
-   "title_ja": "",
+   "title_ja": "池東大菓葉玄武岩",
    "genre": "自然景觀",
    "area": "澎湖",
    "address": "澎湖縣西嶼鄉池東村10號",
@@ -4904,7 +4904,7 @@
   {
    "id": "pl-fenggui",
    "title": "風櫃",
-   "title_ja": "",
+   "title_ja": "風櫃",
    "genre": "自然景觀",
    "area": "澎湖",
    "address": "澎湖縣馬公市風櫃里風櫃洞",
@@ -4932,7 +4932,7 @@
   {
    "id": "pl-shanhouminsuwenhuacun",
    "title": "山后民俗文化村",
-   "title_ja": "",
+   "title_ja": "山后民俗文化村",
    "genre": "自然景觀",
    "area": "金門",
    "address": "金門縣金沙鎮山后民俗文化村",
@@ -4946,7 +4946,7 @@
   {
    "id": "pl-dishankengdao",
    "title": "翟山坑道",
-   "title_ja": "",
+   "title_ja": "翟山坑道",
    "genre": "古蹟老屋",
    "area": "金門",
    "address": "金門縣金城鎮古崗湖東南方翟山腹",
@@ -4960,7 +4960,7 @@
   {
    "id": "pl-chenjinglanyanglou",
    "title": "陳景蘭洋樓",
-   "title_ja": "",
+   "title_ja": "陳景蘭洋楼",
    "genre": "古蹟老屋",
    "area": "金門",
    "address": "金門縣金湖鎮正義里成功村1號",
@@ -4988,7 +4988,7 @@
   {
    "id": "pl-jiangongyu",
    "title": "建功嶼",
-   "title_ja": "",
+   "title_ja": "建功嶼",
    "genre": "公園",
    "area": "金門",
    "address": "金門縣金城鎮建功嶼",
@@ -5002,7 +5002,7 @@
   {
    "id": "pl-deyuelou",
    "title": "得月樓",
-   "title_ja": "",
+   "title_ja": "得月楼",
    "genre": "古蹟老屋",
    "area": "金門",
    "address": "金門縣金城鎮前水頭45號",
@@ -5016,7 +5016,7 @@
   {
    "id": "pl-shameimoluoge",
    "title": "沙美摩洛哥",
-   "title_ja": "",
+   "title_ja": "沙美モロッコ",
    "genre": "公園",
    "area": "金門",
    "address": "金門縣金沙鎮沙美老街",
@@ -5030,7 +5030,7 @@
   {
    "id": "pl-shishanpaozhendi",
    "title": "獅山砲陣地",
-   "title_ja": "",
+   "title_ja": "獅山砲陣地",
    "genre": "古蹟老屋",
    "area": "金門",
    "address": "金門縣金沙鎮陽沙路376號",
@@ -5044,7 +5044,7 @@
   {
    "id": "pl-zongbingshu",
    "title": "總兵署",
-   "title_ja": "",
+   "title_ja": "総兵署",
    "genre": "古蹟老屋",
    "area": "金門",
    "address": "金門縣金城鎮浯江街53號",
@@ -5058,7 +5058,7 @@
   {
    "id": "pl-beihaikengdao",
    "title": "北海坑道",
-   "title_ja": "",
+   "title_ja": "北海坑道",
    "genre": "古蹟老屋",
    "area": "馬祖",
    "address": "連江縣 北竿鄉 芹壁村",
@@ -5072,7 +5072,7 @@
   {
    "id": "pl-qinbijuluo",
    "title": "芹壁聚落",
-   "title_ja": "",
+   "title_ja": "芹壁聚落",
    "genre": "古蹟老屋",
    "area": "馬祖",
    "address": "連江縣北竿鄉連江縣北竿鄉芹壁村 （位於北竿島北側，沿主要道路與指標即可抵達入口區）",
