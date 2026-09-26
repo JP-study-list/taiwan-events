@@ -551,6 +551,11 @@
     📌 測試小事：headless Chrome 的 `--window-size` 寬度有下限（約 500），截 420 寬的圖會看起來「被撐出畫面」，
     要量手機寬度請用 `Emulation.setDeviceMetricsOverride`。
 
+20. **給使用者用的確認網頁（Artifact）不要把工具列固定在頂端**（2026-09-26 使用者回報「有些不能點擊」）。
+    手機上那塊統計＋篩選＋地區按鈕高達四分之一個螢幕，捲到它底下的選項全被蓋住；claude.ai App 自己的標題列也浮在頂端。
+    驗法：手機模擬（`setTouchEmulationEnabled`）逐段捲動，對每個可點元素中心點做 `elementFromPoint`，
+    修改前抓到 20 多個、修改後 0 個——**這個檢查有鑑別力，之後做確認頁先跑它再給使用者。**
+
 ### Secrets 指標（**值不寫進本檔**）
 
 - runner repo 要用的 PAT：**另申請一把只授權 `taiwan-events` 的**，存 runner repo 的 GitHub Secrets
