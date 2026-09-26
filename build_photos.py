@@ -293,7 +293,11 @@ def write_img_fields(assign, dry):
                 rec['img'] = new
                 touched = True
         if touched and not dry:
-            out = json.dumps(d, ensure_ascii=False, indent=2)
+            # 台灣版（2026-09-26）：沿用檔案原本的縮排與結尾換行（taiwan.json 是 indent=1），
+            # 否則整檔每一行都變、看不出真正改了哪幾筆。
+            l2 = raw.split('\n')[1] if '\n' in raw else ''
+            ind = (len(l2) - len(l2.lstrip(' '))) or 2
+            out = json.dumps(d, ensure_ascii=False, indent=ind) + ('\n' if raw.endswith('\n') else '')
             if out != raw:
                 open(path, 'w', encoding='utf-8').write(out)
     return changes

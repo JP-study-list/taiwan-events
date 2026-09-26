@@ -113,6 +113,7 @@ def cmd_build():
     with ThreadPoolExecutor(2) as ex:       # Wikimedia 要客氣：兩條就好
         list(ex.map(job, need))
 
+    ledger = PP.load_json(PP.WIKI_LEDGER, {})
     areas = _areas(ps)
     index = []
     n_sug = n_pick = n_none = 0
@@ -127,9 +128,15 @@ def cmd_build():
                 cs.append({'f': c['file'], 's': c.get('src') or 'geo', 'n': c.get('note', ''),
                            'lic': c.get('lic', ''), 'by': c.get('by', '')[:60], 'u': c.get('page', ''),
                            'i': 'data:image/webp;base64,' + base64.b64encode(open(f, 'rb').read()).decode()})
-            # 建議：維基條目主圖（排第一的維基候選），而且沒有距離警告。
-            # ⚠️ 只是「先幫你選」，頁面上照樣看得到、改得掉；匯回時也只收使用者畫面上當下的選擇。
-            sug = cs[0]['f'] if cs and cs[0]['s'] == 'wiki' and '⚠' not in cs[0]['n'] else None
+            # 建議：**維基條目的代表照片**（Wikidata P18 或條目主圖，`fetch --wiki` 記在 ledger 的 main），
+            # 而且條目座標沒有離太遠（沒有 ⚠）。
+            # ⚠️⚠️ 不可以用「排第一的維基候選」：條目沒有代表照片（或太小被濾掉）時，排第一的是分類裡
+            # 按字母第一張——2026-09-26 實測 183 筆建議裡 40 筆是這種，總統參拜的新聞照、地圖、
+            # 巴塞隆納的街頭活動、烏來的溫泉都被當成建議，而使用者沒有動它們就送出了。
+            main = set(ledger.get(p['id'], {}).get('main') or [])
+            sug = next((c['f'] for c in cs if c['s'] == 'wiki' and c['f'] in main and '⚠' not in c['n']), None)
+            if sug:        # 代表照片排第一張，與「先幫你選的」打勾那格一致
+                cs.sort(key=lambda c: c['f'] != sug)
             n_sug += bool(sug)
             n_pick += bool(cs) and not sug
             n_none += not cs

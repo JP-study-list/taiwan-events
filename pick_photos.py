@@ -363,6 +363,9 @@ def cmd_fetch_wiki():
 
         want = []
         p18 = _claim(ent, 'P18')
+        # 條目的代表照片（Wikidata P18、條目主圖）。只有這兩張算「就是它」，可以先幫使用者選；
+        # 分類裡的其他照片可能是典禮、人像、地圖（2026-09-26 實測 40 筆被誤選，見 places_photo_tw.py）。
+        rec['main'] = sorted({x.replace('_', ' ') for x in (p18, pg.get('pageimage')) if x})
         if p18:
             want.append('File:' + p18)
         elif pg.get('pageimage'):

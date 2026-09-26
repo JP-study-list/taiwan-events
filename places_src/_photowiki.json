@@ -21,7 +21,11 @@
   "qid": "Q697957",
   "cat": "Love River",
   "dist_km": 0.15,
-  "n": 10
+  "n": 10,
+  "main": [
+   "2018-01-01 Love River 01.jpg",
+   "Kaohsiung-Love-River.jpg"
+  ]
  },
  "pl-alishanguojiasenlinyoulequ": {
   "title": "zh:阿里山國家森林遊樂區",
@@ -29,7 +33,11 @@
   "qid": "Q17032783",
   "cat": "Alishan National Forest Recreation Area",
   "dist_km": 0.9,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Alishan National Forest Recreation Area main entrance 20071201.jpg",
+   "Alishan National Forest Recreation Area main entrance 20170317.jpg"
+  ]
  },
  "pl-anpinggubao": {
   "title": "zh:安平古堡",
@@ -37,7 +45,11 @@
   "qid": "Q20706255",
   "cat": "Fort Zeelandia, Taiwan",
   "dist_km": 0.02,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Tainan Taiwan Fort-Zeelandia-01.jpg",
+   "臺南市安平區安平古堡與臺灣城殘蹟.jpg"
+  ]
  },
  "pl-anpinglaojie": {
   "title": "ja:安平老街",
@@ -77,7 +89,11 @@
   "qid": "Q101107175",
   "cat": "Baguashan Great Buddha Scenic Area",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "ChangHua Baguashan.jpg",
+   "彰化地標 八卦山大佛 遠拍.jpg"
+  ]
  },
  "pl-baguashantiankongbudao": {
   "title": "ja:八卦山スカイウォーク",
@@ -117,7 +133,10 @@
   "qid": "Q15913457",
   "cat": "Baishatun Gong Tian Temple",
   "dist_km": 0.03,
-  "n": 10
+  "n": 10,
+  "main": [
+   "白沙屯拱天宮正面照.jpg"
+  ]
  },
  "pl-balizuoan": {
   "title": "ja:八里左岸",
@@ -133,7 +152,11 @@
   "qid": "Q10956400",
   "cat": "Taichung Bao Jue Buddhist Temple",
   "dist_km": 0.06,
-  "n": 10
+  "n": 10,
+  "main": [
+   "寶覺寺正殿斜照.jpg",
+   "寶覺禪寺舊正殿.JPG"
+  ]
  },
  "pl-baoxiongyulematou": {
   "title": "ja:宝熊漁楽碼頭",
@@ -149,7 +172,11 @@
   "qid": "Q707970",
   "cat": "Chaotian Temple",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Chaotian Temple 20120716.jpg",
+   "北港朝天宮 三川殿.jpg"
+  ]
  },
  "pl-beihaikengdao": {
   "title": "zh:北海坑道",
@@ -157,7 +184,8 @@
   "qid": "Q43789836",
   "cat": null,
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-beihuiguixiantaiyangguan": {
   "title": "zh:北回歸線太陽館",
@@ -165,7 +193,10 @@
   "qid": "Q19852167",
   "cat": "Monument of Tropic of Cancer, Chiayi",
   "dist_km": 0.14,
-  "n": 8
+  "n": 8,
+  "main": [
+   "Tropic of Cancer Monument in Chiayi Taiwan 01.jpg"
+  ]
  },
  "pl-beipulaojie": {
   "title": "zh:北埔老街",
@@ -173,7 +204,8 @@
   "qid": "Q10902682",
   "cat": null,
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-beipulengquan": {
   "title": "zh:北埔冷泉",
@@ -181,7 +213,10 @@
   "qid": "Q10902676",
   "cat": "Beipu Cold Spring",
   "dist_km": 0.0,
-  "n": 1
+  "n": 1,
+  "main": [
+   "Beipu Cold Spring.jpg"
+  ]
  },
  "pl-beitouwenquan-diregu": {
   "title": "ja:北投温泉",
@@ -189,7 +224,10 @@
   "qid": "Q10902995",
   "cat": "Beitou Hot Spring",
   "dist_km": 0.26,
-  "n": 5
+  "n": 5,
+  "main": [
+   "Beitou Hell Valley 13.jpg"
+  ]
  },
  "pl-bitan": {
   "title": "zh:碧潭",
@@ -197,7 +235,11 @@
   "qid": "Q4918747",
   "cat": "Bitan (landform)",
   "dist_km": 0.54,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Bitan Xindian Taiwan.jpg",
+   "碧潭 腳踏船20100314.JPG"
+  ]
  },
  "pl-bitoujiaobudao": {
   "title": "ja:鼻頭角歩道",
@@ -213,7 +255,11 @@
   "qid": "Q10566573",
   "cat": "Pier-2 Art Center",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "LiveWarehouse Kaohsiung.jpg",
+   "Pier-2 Art Center.jpg"
+  ]
  },
  "pl-bopiliao": {
   "title": "zh:剝皮寮",
@@ -221,7 +267,10 @@
   "qid": "Q10899202",
   "cat": "Bopiliao",
   "dist_km": 0.06,
-  "n": 10
+  "n": 10,
+  "main": [
+   "剝皮寮歷史街區20220617.jpg"
+  ]
  },
  "pl-caihongjuancun": {
   "title": "zh:彩虹眷村",
@@ -229,7 +278,11 @@
   "qid": "Q22814370",
   "cat": "Rainbow village",
   "dist_km": 0.08,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Militärsiedlung Caihong.jpg",
+   "Rainbow lanterns lit up the Rainbow Village (cropped).jpg"
+  ]
  },
  "pl-cangjinge": {
   "title": "ja:藏金閣",
@@ -245,7 +298,11 @@
   "qid": "Q10505098",
   "cat": "Calligraphy Greenway",
   "dist_km": null,
-  "n": 2
+  "n": 2,
+  "main": [
+   "201503 台中 草悟道 16791603180 63244db0c7 o.jpg",
+   "Jingguo Parkway aerial photographs.tif"
+  ]
  },
  "pl-chaojinggongyuan-zhinenghaiyangguan": {
   "title": "ja:八斗子",
@@ -253,7 +310,10 @@
   "qid": "Q10892193",
   "cat": "Badouzi, Keelung",
   "dist_km": null,
-  "n": 8
+  "n": 8,
+  "main": [
+   "Bisha Fishing Harbor-1.JPG"
+  ]
  },
  "pl-checheng": {
   "title": "ja:車埕",
@@ -269,7 +329,10 @@
   "qid": "Q15930723",
   "cat": "Checheng Fuan Temple",
   "dist_km": 0.07,
-  "n": 10
+  "n": 10,
+  "main": [
+   "車城福安宮.jpg"
+  ]
  },
  "pl-chengmeiwenhuayuan": {
   "title": "zh:成美文化園",
@@ -277,7 +340,10 @@
   "qid": "Q129661303",
   "cat": "Chengmei Cultural Park",
   "dist_km": 0.08,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Chengmei Cultural Park-02.2024-08-23.jpg"
+  ]
  },
  "pl-chengqinghu": {
   "title": "zh:澄清湖",
@@ -285,7 +351,11 @@
   "qid": "Q57333",
   "cat": "Chengcing Lake",
   "dist_km": 1.73,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Chengcing Lake Scenic Area-13.2023-10-31.jpg",
+   "澄清湖一隅.jpg"
+  ]
  },
  "pl-chengxiangsenlin": {
   "title": "ja:橙香森林",
@@ -301,7 +371,11 @@
   "qid": "Q28414594",
   "cat": "Chen Jing-lan Western House",
   "dist_km": 0.0,
-  "n": 10
+  "n": 10,
+  "main": [
+   "金門 陳景蘭洋樓.jpg",
+   "金門陳景蘭洋樓.jpg"
+  ]
  },
  "pl-chidongdaguoyexuanwuyan": {
   "title": "ja:池東大菓葉玄武岩",
@@ -317,7 +391,11 @@
   "qid": "Q714431",
   "cat": "Chihkan Tower",
   "dist_km": 0.05,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Chihkan Tower night.JPG",
+   "台南 赤崁樓.jpg"
+  ]
  },
  "pl-chikeshanxiaoruishinongchang": {
   "title": "ja:赤柯山小瑞士農場",
@@ -333,7 +411,10 @@
   "qid": "Q17498975",
   "cat": "Mr. Brown Avenue",
   "dist_km": 0.15,
-  "n": 7
+  "n": 7,
+  "main": [
+   "Mr. Brown Avenue.jpg"
+  ]
  },
  "pl-chulumuchang": {
   "title": "zh:初鹿牧場",
@@ -341,7 +422,10 @@
   "qid": "Q10898252",
   "cat": "Chulu Ranch",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Chu Lu Ranch 2009.04.11.JPG"
+  ]
  },
  "pl-chunqiushanlin": {
   "title": "ja:春秋山林",
@@ -357,7 +441,10 @@
   "qid": "Q392488",
   "cat": "Dadaocheng",
   "dist_km": 0.07,
-  "n": 10
+  "n": 10,
+  "main": [
+   "大稻埕百珍圖 wiki dadaocheng.jpg"
+  ]
  },
  "pl-dafuguanhaipingtai": {
   "title": "ja:大福観海平台",
@@ -373,7 +460,11 @@
   "qid": "Q86727465",
   "cat": "Dagang Bridge",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "2020. 09.06 總統參訪「大港橋」 (50311069692).jpg",
+   "Dagang Bridge - Kaohsiung - 大港橋 (2026) - img 02.jpg"
+  ]
  },
  "pl-dagoutiedaogushiguan": {
   "title": "zh:打狗鐵道故事館",
@@ -381,7 +472,10 @@
   "qid": "Q11673244",
   "cat": "Kaohsiung Port Station",
   "dist_km": 0.13,
-  "n": 10
+  "n": 10,
+  "main": [
+   "打狗鐵道故事館01.jpg"
+  ]
  },
  "pl-dagouyingguolingshiguan": {
   "title": "zh:打狗英國領事館",
@@ -389,7 +483,11 @@
   "qid": "Q5470078",
   "cat": "Former British Consulate at Takao",
   "dist_km": 0.01,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Former British Consul's Residence at Takow, Former British Consulate at Takow - Kaohsiung (2026) - img 07.jpg",
+   "Former British Consulate at Takao.jpg"
+  ]
  },
  "pl-dahucaomeiwenhuaguan": {
   "title": "ja:大湖イチゴ文化館",
@@ -405,7 +503,11 @@
   "qid": "Q10936936",
   "cat": "Dajia Jenn Lann Temple",
   "dist_km": 0.0,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Dajia Jenn Lann Temple-02.2024-08-27.jpg",
+   "Dajia Jenn Lann Temple-03.2024-08-27.jpg"
+  ]
  },
  "pl-danayigu": {
   "title": "ja:達娜伊谷",
@@ -437,7 +539,10 @@
   "qid": "Q10934450",
   "cat": "Dapo Pond",
   "dist_km": 0.11,
-  "n": 3
+  "n": 3,
+  "main": [
+   "A corner of Dapo Pond.jpg"
+  ]
  },
  "pl-dashibishanbudao": {
   "title": "ja:大石鼻山歩道",
@@ -453,7 +558,8 @@
   "qid": "Q17747172",
   "cat": null,
   "dist_km": 0.01,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-daxilaojie": {
   "title": "zh:大溪老街",
@@ -461,7 +567,11 @@
   "qid": "Q10936578",
   "cat": "Daxi Old Street",
   "dist_km": 0.07,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Daxi Old Street 20120316.jpg",
+   "大溪 和平路老街 Daxi Old Street - panoramio.jpg"
+  ]
  },
  "pl-deyuanpihelancun": {
   "title": "ja:德元埤荷蘭村",
@@ -485,7 +595,11 @@
   "qid": "Q10458863",
   "cat": "Taichung Second Public Retail Market",
   "dist_km": 0.01,
-  "n": 10
+  "n": 10,
+  "main": [
+   "台中第二市場.jpg",
+   "第二市場 (1).jpg"
+  ]
  },
  "pl-diguotangchang-lalaport": {
   "title": "ja:帝国製糖廠・ららぽーと台中",
@@ -509,7 +623,11 @@
   "qid": "Q17006334",
   "cat": "Jhaishan Tunnel",
   "dist_km": 0.02,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Jhaishan Tunnel, Kinmen, Taiwan.JPG",
+   "Zhaishan Tunnel DSC 3378.jpg"
+  ]
  },
  "pl-donganguqiao": {
   "title": "ja:東安古橋",
@@ -525,7 +643,10 @@
   "qid": "Q50410482",
   "cat": "Dongdamen Night Market",
   "dist_km": 0.05,
-  "n": 9
+  "n": 9,
+  "main": [
+   "41-花蓮東大門夜市，林記燒番麥 (29518961025).jpg"
+  ]
  },
  "pl-dongmenshichang": {
   "title": "zh:東門市場",
@@ -533,7 +654,8 @@
   "qid": "Q115536437",
   "cat": null,
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-duoliangchezhan": {
   "title": "zh:多良車站",
@@ -541,7 +663,8 @@
   "qid": "Q115611307",
   "cat": null,
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-eluanbidengta": {
   "title": "zh:鵝鑾鼻燈塔",
@@ -549,7 +672,10 @@
   "qid": "Q5367908",
   "cat": "Eluanbi Lighthouse",
   "dist_km": 0.02,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Eluanbi Lighthouse 20240918-3.jpg"
+  ]
  },
  "pl-emeihu": {
   "title": "zh:峨眉湖",
@@ -557,7 +683,11 @@
   "qid": "Q11051816",
   "cat": "Dapu Reservoir",
   "dist_km": 0.61,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Tai Po Reservoir water.jpg",
+   "大埔水庫一景.jpg"
+  ]
  },
  "pl-ertongxinleyuan": {
   "title": "zh:兒童新樂園",
@@ -565,7 +695,11 @@
   "qid": "Q21139624",
   "cat": "Taipei Children's Amusement Park",
   "dist_km": 0.0,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Main Entrance, Taipei Children's Amusement Park 20180722.jpg",
+   "Taipei Children's Amusement Park 20141224.jpg"
+  ]
  },
  "pl-etongleyuan": {
   "title": "ja:鵝童楽園",
@@ -589,7 +723,10 @@
   "qid": "Q15217930",
   "cat": "Flying Cow Ranch",
   "dist_km": 0.18,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Cow Statues in Flying Cow Ranch.JPG"
+  ]
  },
  "pl-feiwumamayuernongchang": {
   "title": "ja:廃物媽媽育児農場",
@@ -613,7 +750,11 @@
   "qid": "Q848911",
   "cat": "Feng Chia Night Market",
   "dist_km": 0.25,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Crowds on Fuxing Road 20120417 night.jpg",
+   "逢甲商圈文華路夜市一景.jpg"
+  ]
  },
  "pl-fengxiangpubu": {
   "title": "ja:豊郷瀑布",
@@ -629,7 +770,11 @@
   "qid": "Q11173708",
   "cat": "Fongyi Tutorial Academy",
   "dist_km": 0.02,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Fongyi Tutorial Academy, Front Square, Fongshan District, Kaohsiung City (Taiwan).jpg",
+   "鳳儀書院-1.jpg"
+  ]
  },
  "pl-fenqihu": {
   "title": "zh:奮起湖",
@@ -637,7 +782,11 @@
   "qid": "Q10942675",
   "cat": "Fenqihu",
   "dist_km": 0.12,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Fenchihu in foggy forest.jpg",
+   "View of the village of Fenqihu 02 20251211.jpg"
+  ]
  },
  "pl-foguangshanfotuojinianguan": {
   "title": "zh:佛光山佛陀紀念館",
@@ -645,7 +794,10 @@
   "qid": "Q4984158",
   "cat": "Fo Guang Shan Buddha Museum",
   "dist_km": 0.11,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Fo Guang Shan Buddha Museum 佛光山佛陀紀念館 .jpg"
+  ]
  },
  "pl-fuermoshakekenongchang": {
   "title": "ja:フォルモサ・カカオファーム",
@@ -677,7 +829,11 @@
   "qid": "Q15622440",
   "cat": "Gaomei Wetlands",
   "dist_km": 0.14,
-  "n": 10
+  "n": 10,
+  "main": [
+   "台中高美濕地.jpg",
+   "高美濕地濱海區域.jpg"
+  ]
  },
  "pl-gaoxiong85dalou": {
   "title": "zh:高雄85大樓",
@@ -685,7 +841,11 @@
   "qid": "Q337631",
   "cat": "Tuntex Sky Tower",
   "dist_km": 0.01,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Kaohsiung 85 Sky Tower 01.jpg",
+   "Kaohsiung Taiwan Kaohsiung-85-Building-01.jpg"
+  ]
  },
  "pl-gaoxiongliuxingyinlezhongxin": {
   "title": "zh:高雄流行音樂中心",
@@ -693,7 +853,10 @@
   "qid": "Q11150975",
   "cat": "Kaohsiung Music Center",
   "dist_km": 0.34,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Kaohsiung Music Center and Great Tiger Bridge during 2022 Taiwan Lantern Festival.jpg"
+  ]
  },
  "pl-gaoxiongshililishibowuguan": {
   "title": "zh:高雄市立歷史博物館",
@@ -701,7 +864,11 @@
   "qid": "Q6125749",
   "cat": "Kaohsiung Museum of History",
   "dist_km": 0.1,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Kaohsiung Museum of History face 20070106.jpg",
+   "高雄市立歷史博物館.jpg"
+  ]
  },
  "pl-gaoxiongshilimeishuguan": {
   "title": "zh:高雄市立美術館",
@@ -709,7 +876,11 @@
   "qid": "Q3846600",
   "cat": "Kaohsiung Museum of Fine Arts",
   "dist_km": 0.03,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Taiwan Kaohsiung Museum of Fine Arts.JPG",
+   "高雄市立美術館20240704.jpg"
+  ]
  },
  "pl-gaoxiongshilitushuguanzongguan": {
   "title": "zh:高雄市立圖書館總館",
@@ -717,7 +888,11 @@
   "qid": "Q15910145",
   "cat": "Kaohsiung Main Library",
   "dist_km": 0.01,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Kaohsiung Main Library 201507.jpg",
+   "高雄市立圖書館總館夜景.JPG"
+  ]
  },
  "pl-gaoxiongxiaoyaoyuan": {
   "title": "ja:高雄逍遙園",
@@ -741,7 +916,10 @@
   "qid": "Q5364039",
   "cat": "Gongguan, Taipei",
   "dist_km": 0.37,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Taiwan 2009 Taipei GongGuan At Night FRD 8551.jpg"
+  ]
  },
  "pl-gongyuanyanke": {
   "title": "zh:宮原眼科",
@@ -749,7 +927,11 @@
   "qid": "Q109670694",
   "cat": "Miyahara Eye Hospital",
   "dist_km": 0.0,
-  "n": 10
+  "n": 10,
+  "main": [
+   "2012-01-17 the \"Miyahara Eye Hospital\" food shop and restaurant in Taichung.jpg",
+   "Miyahara Eye Hospital in March 2026.jpg"
+  ]
  },
  "pl-guangfutangchang": {
   "title": "ja:光復糖廠",
@@ -765,7 +947,11 @@
   "qid": "Q717027",
   "cat": "Guanziling Hot Spring",
   "dist_km": 0.04,
-  "n": 6
+  "n": 6,
+  "main": [
+   "Guan-Zi-Ling Toong Mao Spa Resort 20170528.jpg",
+   "Guanziling 11.jpg"
+  ]
  },
  "pl-guidanwenquantiyanchi": {
   "title": "ja:亀丹温泉体験池",
@@ -781,7 +967,11 @@
   "qid": "Q717742",
   "cat": "Gueishan Island",
   "dist_km": 0.16,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Guishan Island.jpg",
+   "龜山戴帽-攝影者吳裕隆.jpg"
+  ]
  },
  "pl-guiyisenhuocun": {
   "title": "zh:檜意森活村",
@@ -789,7 +979,11 @@
   "qid": "Q18118683",
   "cat": "Hinoki Village",
   "dist_km": 0.01,
-  "n": 10
+  "n": 10,
+  "main": [
+   "嘉義檜意森活村.JPG",
+   "檜意森活村--張利聰jpg.jpg"
+  ]
  },
  "pl-gukenglvsesuidao": {
   "title": "ja:古坑緑のトンネル",
@@ -805,7 +999,11 @@
   "qid": "Q5618827",
   "cat": "Guningtou Battle Museum",
   "dist_km": 0.0,
-  "n": 3
+  "n": 3,
+  "main": [
+   "2013-02-03 古寧頭戰史館正面.jpg",
+   "古宁头战史馆 - Guningtou War Museum - 2014.05 - panoramio.jpg"
+  ]
  },
  "pl-guojiatiedaobowuguan": {
   "title": "zh:國家鐵道博物館",
@@ -813,7 +1011,11 @@
   "qid": "Q97167858",
   "cat": "National Railway Museum, Taiwan",
   "dist_km": 0.13,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Preparatory Office of National Railway Museum main gate 20220330.jpg",
+   "國家鐵道博物館-總辦公室.jpg"
+  ]
  },
  "pl-guojuyangsanguanguanggongchang": {
   "title": "ja:国巨洋傘観光工場",
@@ -829,7 +1031,11 @@
   "qid": "Q6971385",
   "cat": "National Center for Traditional Arts",
   "dist_km": 1.17,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Folk Art Boulevard.jpg",
+   "國立傳統藝術中心售票處 20240708.jpg"
+  ]
  },
  "pl-guoligugongbowuyuan": {
   "title": "zh:國立故宮博物院",
@@ -837,7 +1043,10 @@
   "qid": "Q540668",
   "cat": "National Palace Museum",
   "dist_km": 0.02,
-  "n": 10
+  "n": 10,
+  "main": [
+   "NationalPalace MuseumFrontView.jpg"
+  ]
  },
  "pl-guoligugongbowuyuannanbuyuanqu": {
   "title": "zh:國立故宮博物院南部院區",
@@ -845,7 +1054,11 @@
   "qid": "Q10927084",
   "cat": "Southern Branch of the National Palace Museum",
   "dist_km": 0.01,
-  "n": 10
+  "n": 10,
+  "main": [
+   "NPMSB Moyun Hall and Feibai Hall.jpg",
+   "Southern Branch of the National Palace Museum main building and zhimei bridge.jpg"
+  ]
  },
  "pl-guolihaiyangkejibowuguan": {
   "title": "zh:國立海洋科技博物館",
@@ -853,7 +1066,10 @@
   "qid": "Q8784491",
   "cat": "National Museum of Marine Science and Technology",
   "dist_km": 0.18,
-  "n": 10
+  "n": 10,
+  "main": [
+   "基隆海科館 Keelung Marine Science and Technology Museum - panoramio.jpg"
+  ]
  },
  "pl-guolihaiyangshengwubowuguan": {
   "title": "zh:國立海洋生物博物館",
@@ -861,7 +1077,11 @@
   "qid": "Q697507",
   "cat": "National Museum of Marine Biology and Aquarium",
   "dist_km": 0.22,
-  "n": 10
+  "n": 10,
+  "main": [
+   "ROC-NMMBA Open Ocean Aquarium 20160515b.jpg",
+   "ROC-NMMBA kelp forests 20130519.jpg"
+  ]
  },
  "pl-guolitaiwanbowuguan": {
   "title": "zh:國立臺灣博物館",
@@ -869,7 +1089,11 @@
   "qid": "Q706692",
   "cat": "National Taiwan Museum",
   "dist_km": 0.0,
-  "n": 10
+  "n": 10,
+  "main": [
+   "National Taiwan Museum front 20070912.jpg",
+   "國立臺灣博物館正門.jpg"
+  ]
  },
  "pl-guolitaiwankexuejiaoyuguan": {
   "title": "zh:國立臺灣科學教育館",
@@ -877,7 +1101,11 @@
   "qid": "Q10927242",
   "cat": "National Taiwan Science Education Center",
   "dist_km": 0.06,
-  "n": 10
+  "n": 10,
+  "main": [
+   "National Taiwan Science Education Center front.jpg",
+   "National Taiwan Science Education Center in Shilin District, Taipei 20070317.jpg"
+  ]
  },
  "pl-guolitaiwanmeishuguan": {
   "title": "zh:國立台灣美術館",
@@ -885,7 +1113,11 @@
   "qid": "Q10927014",
   "cat": "National Taiwan Museum of Fine Arts",
   "dist_km": 0.11,
-  "n": 10
+  "n": 10,
+  "main": [
+   "NTMoFA-1.jpg",
+   "國立臺灣美術館景2.jpg"
+  ]
  },
  "pl-guolitaiwanshiqianwenhuabowuguan": {
   "title": "zh:國立臺灣史前文化博物館",
@@ -893,7 +1125,11 @@
   "qid": "Q1540258",
   "cat": "National Museum of Prehistory (Taiwan)",
   "dist_km": 0.06,
-  "n": 9
+  "n": 9,
+  "main": [
+   "National Museum of Prehistory, Taitung 02.jpg",
+   "ROC National Museum of Prehistory Seal.svg"
+  ]
  },
  "pl-guolitaiwanwenxueguan": {
   "title": "zh:國立台灣文學館",
@@ -901,7 +1137,11 @@
   "qid": "Q2422289",
   "cat": "National Museum of Taiwan Literature",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "20250719國立臺灣文學館.jpg",
+   "National Museum of Taiwan Literature.JPG"
+  ]
  },
  "pl-guolizirankexuebowuguan": {
   "title": "zh:國立自然科學博物館",
@@ -909,7 +1149,11 @@
   "qid": "Q3847114",
   "cat": "National Museum of Natural Science (Taichung)",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Entrance building of National Museum of Natural Science.jpg",
+   "National Museum of Natural Science Taichung 01.jpg"
+  ]
  },
  "pl-haotiansenlin": {
   "title": "ja:好田森林",
@@ -933,7 +1177,10 @@
   "qid": "Q15902043",
   "cat": "Tainan China Town",
   "dist_km": 0.01,
-  "n": 6
+  "n": 6,
+  "main": [
+   "Tainan China Town 20090831.jpg"
+  ]
  },
  "pl-hengshanshufayishuguan": {
   "title": "zh:橫山書法藝術館",
@@ -941,7 +1188,11 @@
   "qid": "Q109256963",
   "cat": "Hengshan Calligraphy Art Center",
   "dist_km": 0.01,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Hengshan Calligraphy Art Center aerial photograph.jpg",
+   "Hengshan Calligraphy Art Center buildings.jpg"
+  ]
  },
  "pl-hepingdaogongyuan": {
   "title": "ja:和平島公園",
@@ -957,7 +1208,10 @@
   "qid": "Q10916962",
   "cat": "TRA Hexing Station",
   "dist_km": 0.05,
-  "n": 7
+  "n": 7,
+  "main": [
+   "Taiwan HeSing Railway Station.JPG"
+  ]
  },
  "pl-hezailiaoyugang": {
   "title": "zh:蚵仔寮漁港",
@@ -965,7 +1219,10 @@
   "qid": "Q97623389",
   "cat": "Keziliao Fishing Harbor",
   "dist_km": 0.07,
-  "n": 10
+  "n": 10,
+  "main": [
+   "蚵仔寮漁港(遠處可見85大樓).jpg"
+  ]
  },
  "pl-hongmaocheng": {
   "title": "ja:紅毛城",
@@ -973,7 +1230,11 @@
   "qid": "Q713077",
   "cat": "Fort Santo Domingo",
   "dist_km": 0.34,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Official consulate fort santo domingo.jpg",
+   "國旗飄揚紅毛城.JPG"
+  ]
  },
  "pl-houdongmaocun": {
   "title": "zh:猴硐貓村",
@@ -981,7 +1242,11 @@
   "qid": "Q15903162",
   "cat": "Houtong Cat Village",
   "dist_km": 0.02,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Houtong Cat Bridge.JPG",
+   "Houtong, Taiwan 01.jpg"
+  ]
  },
  "pl-houfengtiemadao": {
   "title": "zh:后豐鐵馬道",
@@ -989,7 +1254,8 @@
   "qid": "Q10917982",
   "cat": "Houfeng Bikeway",
   "dist_km": 0.15,
-  "n": 3
+  "n": 3,
+  "main": []
  },
  "pl-huanxicaishenmiao": {
   "title": "ja:歓喜財神廟",
@@ -1005,7 +1271,11 @@
   "qid": "Q14594864",
   "cat": "Huashan 1914 Creative Park",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Huashan 1914 Creative Park and Hueida Building 20090127.jpg",
+   "Huashan 1914, Syntrend and Jinshan e01 20150701.jpg"
+  ]
  },
  "pl-huataimingpincheng": {
   "title": "zh:華泰名品城",
@@ -1013,7 +1283,10 @@
   "qid": "Q24836922",
   "cat": "Gloria Outlets",
   "dist_km": 0.06,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Gloria Outlets 20230402.jpg"
+  ]
  },
  "pl-huataoyao": {
   "title": "zh:華陶窯",
@@ -1021,7 +1294,10 @@
   "qid": "Q15907837",
   "cat": null,
   "dist_km": 0.21,
-  "n": 0
+  "n": 0,
+  "main": [
+   "華陶窯 漂流木牌.jpg"
+  ]
  },
  "pl-huayuanyeshi": {
   "title": "zh:花園夜市",
@@ -1029,7 +1305,11 @@
   "qid": "Q5360584",
   "cat": "Tainan Flower Night Market",
   "dist_km": 0.03,
-  "n": 10
+  "n": 10,
+  "main": [
+   "North DistrictX.PNG",
+   "台南花園夜市 路景.jpg"
+  ]
  },
  "pl-hukouhaokewenchuangyuanqu": {
   "title": "ja:湖口好客文創園区",
@@ -1053,7 +1333,11 @@
   "qid": "Q17036520",
   "cat": "Hutoushan Environmental Park",
   "dist_km": 0.01,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Hutoushan Environmental Restoration Park 虎頭山環保公園 - panoramio.jpg",
+   "虎頭山環保公園 Hutoushan Environmental Park - panoramio.jpg"
+  ]
  },
  "pl-huyujiguancheyuanqu": {
   "title": "ja:戸羽機関車園区",
@@ -1085,7 +1369,11 @@
   "qid": "Q19459215",
   "cat": "Jiangong Island",
   "dist_km": 0.01,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Jiangong Island - DSCF9484.JPG",
+   "建功屿步道 - Footpath to Jiangong Islet - 2014.09 - panoramio.jpg"
+  ]
  },
  "pl-jianhushanshijie": {
   "title": "zh:劍湖山世界",
@@ -1093,7 +1381,11 @@
   "qid": "Q3161941",
   "cat": "Janfusun Fancyworld",
   "dist_km": 0.6,
-  "n": 6
+  "n": 6,
+  "main": [
+   "Diving Machine G5 2.jpg",
+   "Janfusun Fancyworld ferris wheel.jpg"
+  ]
  },
  "pl-jianqingxiuyuan": {
   "title": "zh:吉安慶修院",
@@ -1101,7 +1393,10 @@
   "qid": "Q11074185",
   "cat": "Ji'an Keishuin",
   "dist_km": 0.03,
-  "n": 10
+  "n": 10,
+  "main": [
+   "吉安慶修院.jpg"
+  ]
  },
  "pl-jiaoxiwenquan": {
   "title": "zh:礁溪溫泉",
@@ -1109,7 +1404,11 @@
   "qid": "Q11588124",
   "cat": "Jiaoxi Hot Spring",
   "dist_km": 0.11,
-  "n": 10
+  "n": 10,
+  "main": [
+   "湯圍溝溫泉頭井 (12.03.14) - panoramio.jpg",
+   "湯圍溪.jpg"
+  ]
  },
  "pl-jiayichenghuangmiao": {
   "title": "zh:嘉義城隍廟",
@@ -1117,7 +1416,11 @@
   "qid": "Q10924086",
   "cat": "Chiayi City Cheng Huang Temple",
   "dist_km": 0.06,
-  "n": 10
+  "n": 10,
+  "main": [
+   "2022年的嘉義城隍廟.jpg",
+   "Chiayi Cheng Huang (City God) Temple, Pailou (Arch) (Taiwan).jpg"
+  ]
  },
  "pl-jiayigongyuan-sherita": {
   "title": "ja:嘉義公園",
@@ -1125,7 +1428,11 @@
   "qid": "Q10924084",
   "cat": "Chiayi Park",
   "dist_km": 0.58,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Chia yi park wt.JPG",
+   "嘉義公園小西湖夜景20180827.jpg"
+  ]
  },
  "pl-jiayijiujianyu": {
   "title": "zh:嘉義舊監獄",
@@ -1133,7 +1440,11 @@
   "qid": "Q10924158",
   "cat": "Prison Museum, Taiwan",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "2022年的嘉義舊監獄入口。.jpg",
+   "Old Chiayi Prison, front gate (Taiwan).jpg"
+  ]
  },
  "pl-jiayishilibowuguan": {
   "title": "zh:嘉義市立博物館",
@@ -1141,7 +1452,11 @@
   "qid": "Q17499045",
   "cat": "Chiayi Municipal Museum",
   "dist_km": 0.03,
-  "n": 2
+  "n": 2,
+  "main": [
+   "嘉義市立博物館 Chiayi Municipal Museum - panoramio.jpg",
+   "嘉義市立博物館.JPG"
+  ]
  },
  "pl-jilongmiaokouyeshi": {
   "title": "zh:基隆廟口夜市",
@@ -1149,7 +1464,11 @@
   "qid": "Q10930446",
   "cat": "Miaokou Night Market",
   "dist_km": 0.12,
-  "n": 10
+  "n": 10,
+  "main": [
+   "2017-07-15 Keelung Miaokou Night Market 02.jpg",
+   "2026.03.27 Keelung Miaokou Night Market.jpg"
+  ]
  },
  "pl-jilongta": {
   "title": "zh:基隆塔",
@@ -1157,7 +1476,10 @@
   "qid": "Q124514502",
   "cat": "Keelung Tower",
   "dist_km": 0.0,
-  "n": 9
+  "n": 9,
+  "main": [
+   "Keelung Tower and Tsú-phóo-tuânn 20231023.jpg"
+  ]
  },
  "pl-jinchegamalanweishijijiuchang": {
   "title": "ja:カバラン蒸留所(金車噶瑪蘭)",
@@ -1181,7 +1503,11 @@
   "qid": "Q5365867",
   "cat": "Jinguashi",
   "dist_km": 1.24,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Jinguashi view from Jioufen 20100731.jpg",
+   "Taiwan 2009 JinGuaShi Historic Gold Mine Valley View Right Page FRD 8840.jpg"
+  ]
  },
  "pl-jingyuannongchang": {
   "title": "ja:浄園農場",
@@ -1205,7 +1531,11 @@
   "qid": "Q11567253",
   "cat": "Wulai Hot Spring",
   "dist_km": 0.25,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Wulai Hot Springs 01.JPG",
+   "Wulai Hotsprings 01.jpg"
+  ]
  },
  "pl-jiubaijisuidao": {
   "title": "ja:旧百吉トンネル",
@@ -1221,7 +1551,11 @@
   "qid": "Q10878674",
   "cat": "Jiufen Old Street",
   "dist_km": 0.1,
-  "n": 10
+  "n": 10,
+  "main": [
+   "224, Taiwan, 新北市瑞芳區崇文里 - panoramio (11).jpg",
+   "Jiufen 04.jpg"
+  ]
  },
  "pl-jiujiufengdongwuleyuan": {
   "title": "zh:九九峰動物樂園",
@@ -1229,7 +1563,8 @@
   "qid": "Q120964441",
   "cat": null,
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-jiuzuwenhuacun": {
   "title": "zh:九族文化村",
@@ -1237,7 +1572,11 @@
   "qid": "Q4798544",
   "cat": "Formosan Aboriginal Culture Village",
   "dist_km": 0.31,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Culture Square of Formosan Aboriginal Culture Village 01 20260210.jpg",
+   "櫻花盛開在臺灣南投九族文化村 Cherry blossom - Sakura in Formosa Aboriginal Culture Village, Nantou, TAIWAN.jpg"
+  ]
  },
  "pl-juguanglou": {
   "title": "zh:莒光樓",
@@ -1245,7 +1584,11 @@
   "qid": "Q8291305",
   "cat": "Juguang Tower",
   "dist_km": 0.0,
-  "n": 9
+  "n": 9,
+  "main": [
+   "Juguang Tower 20180727.jpg",
+   "Juguanglou.JPG"
+  ]
  },
  "pl-kanhaimeishuguan": {
   "title": "ja:看海美術館",
@@ -1261,7 +1604,11 @@
   "qid": "Q707982",
   "cat": "Kenting National Park",
   "dist_km": 3.36,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Maobitou Cape 01.jpg",
+   "Taiwan Sunset 1.jpg"
+  ]
  },
  "pl-kendingguojiasenlinyoulequ": {
   "title": "zh:墾丁國家森林遊樂區",
@@ -1269,7 +1616,10 @@
   "qid": "Q10931418",
   "cat": "Kenting National Forest Recreation Area",
   "dist_km": 0.02,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Kenting National Forest Recreation Area entrance WEI, WAN-CHEN.jpg"
+  ]
  },
  "pl-kendinglu-daoshuitunshengtaiyuanqu": {
   "title": "ja:墾丁鹿ㄦ島カピバラ生態園区",
@@ -1301,7 +1651,10 @@
   "qid": "Q48727563",
   "cat": "Blueprint Culture and Creative Park",
   "dist_km": 0.05,
-  "n": 7
+  "n": 7,
+  "main": [
+   "Frontalansicht.JPG"
+  ]
  },
  "pl-lanyangbowuguan": {
   "title": "zh:蘭陽博物館",
@@ -1309,7 +1662,10 @@
   "qid": "Q13518182",
   "cat": "Lanyang Museum",
   "dist_km": 0.02,
-  "n": 10
+  "n": 10,
+  "main": [
+   "宜蘭 蘭陽博物館 I-lan LanYang Museum Taiwan.jpg"
+  ]
  },
  "pl-lanyangdongzhiwuwangguo": {
   "title": "ja:蘭陽動植物王国",
@@ -1325,7 +1681,10 @@
   "qid": "Q123563690",
   "cat": "Lao Tang Lake Art Village",
   "dist_km": 21.0,
-  "n": 3
+  "n": 3,
+  "main": [
+   "老塘湖藝術村.jpg"
+  ]
  },
  "pl-lianchitan-longhuta": {
   "title": "ja:蓮池潭",
@@ -1333,7 +1692,10 @@
   "qid": "Q698996",
   "cat": "Lotus Pond, Kaohsiung",
   "dist_km": 0.71,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Kaohsiung Lianchitan ( WEI, WAN-CHEN ).jpg"
+  ]
  },
  "pl-libaoleyuan": {
   "title": "zh:麗寶樂園",
@@ -1341,7 +1703,10 @@
   "qid": "Q11175218",
   "cat": "Lihpao Land",
   "dist_km": 0.17,
-  "n": 8
+  "n": 8,
+  "main": [
+   "View of Lihpao Land.jpg"
+  ]
  },
  "pl-linbaihuo": {
   "title": "zh:林百貨",
@@ -1349,7 +1714,11 @@
   "qid": "Q3846861",
   "cat": "Hayashi Department Store",
   "dist_km": 0.06,
-  "n": 10
+  "n": 10,
+  "main": [
+   "林百貨 (2013).JPG",
+   "矗立古都繁榮路口的原林百貨店.jpg"
+  ]
  },
  "pl-linbenyuanyuandi": {
   "title": "ja:林本源園邸",
@@ -1357,7 +1726,10 @@
   "qid": "Q6550027",
   "cat": "Lin Family Mansion and Garden",
   "dist_km": 0.07,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Lin Family Mansion and Garden 2006-6-28 11-16-18 0048.jpg"
+  ]
  },
  "pl-linhousilinpingdisenlinyuanqu": {
   "title": "zh:林後四林平地森林園區",
@@ -1365,7 +1737,10 @@
   "qid": "Q41715262",
   "cat": null,
   "dist_km": 0.0,
-  "n": 0
+  "n": 0,
+  "main": [
+   "林後四林園區鳥居信平銅像(斜照).jpg"
+  ]
  },
  "pl-liufucunzhutiyouleyuan": {
   "title": "zh:六福村主題遊樂園",
@@ -1373,7 +1748,10 @@
   "qid": "Q3229621",
   "cat": "Leofoo Village Theme Park",
   "dist_km": 0.35,
-  "n": 4
+  "n": 4,
+  "main": [
+   "LeofooVillage MainEntrance Back.jpg"
+  ]
  },
  "pl-liuheyeshi": {
   "title": "zh:六合夜市",
@@ -1381,7 +1759,10 @@
   "qid": "Q701113",
   "cat": "Liouho Night Market",
   "dist_km": 0.26,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Liouho-Night-Market-Kaohsiung.jpg"
+  ]
  },
  "pl-liyutan": {
   "title": "zh:鯉魚潭",
@@ -1389,7 +1770,8 @@
   "qid": "Q359716",
   "cat": "Carp Lake",
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-longfengyugang": {
   "title": "zh:龍鳳漁港",
@@ -1397,7 +1779,11 @@
   "qid": "Q17499836",
   "cat": "Long Fong Fishing Port",
   "dist_km": 0.28,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Long Fong Fishing Port 08.jpg",
+   "Long Fong Fishing Port 10.jpg"
+  ]
  },
  "pl-longpangongyuan": {
   "title": "ja:龍磐公園",
@@ -1413,7 +1799,11 @@
   "qid": "Q6674347",
   "cat": "Longtan Lake (Taoyuan)",
   "dist_km": 3.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "自龍潭大池南端看龍潭南天宮.jpg",
+   "自龍潭大池畔看龍潭南天宮（2）.jpg"
+  ]
  },
  "pl-longtianwenhuazichanjiaoyuyuanqu": {
   "title": "ja:隆田文化資産教育園区",
@@ -1429,7 +1819,10 @@
   "qid": "Q60991306",
   "cat": "Lukang Old Street",
   "dist_km": null,
-  "n": 10
+  "n": 10,
+  "main": [
+   "鹿港老街小巷07.jpg"
+  ]
  },
  "pl-luganglongshansi": {
   "title": "zh:鹿港龍山寺",
@@ -1438,7 +1831,11 @@
   "cat": null,
   "dist_km": 111.2,
   "n": 0,
-  "rejected": "座標差 111km，判定配到別的地方"
+  "rejected": "座標差 111km，判定配到別的地方",
+  "main": [
+   "鹿港龍山寺(夜拍正門).jpg",
+   "鹿港龍山寺正殿.jpg"
+  ]
  },
  "pl-lugangtianhougong": {
   "title": "zh:鹿港天后宮",
@@ -1446,7 +1843,10 @@
   "qid": "Q11175035",
   "cat": "Lugang Mazu Temple",
   "dist_km": 0.01,
-  "n": 10
+  "n": 10,
+  "main": [
+   "鹿港天后宮.JPG"
+  ]
  },
  "pl-lujingmeihualushengtaiyuanqu": {
   "title": "ja:鹿境梅花鹿生態園区",
@@ -1462,7 +1862,10 @@
   "qid": "Q9031618",
   "cat": "Luodong Night Market",
   "dist_km": 0.04,
-  "n": 9
+  "n": 9,
+  "main": [
+   "Luodong Night Market.JPG"
+  ]
  },
  "pl-luyasenlin": {
   "title": "ja:鹿雅森林",
@@ -1502,7 +1905,8 @@
   "qid": "Q15222106",
   "cat": "Green World Ecological Farm",
   "dist_km": 0.41,
-  "n": 10
+  "n": 10,
+  "main": []
  },
  "pl-lvyishanzhuang": {
   "title": "ja:緑意山荘",
@@ -1518,7 +1922,11 @@
   "qid": "Q28860008",
   "cat": "Madou Daitian Temple",
   "dist_km": 0.29,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Inside Madou Daitian Temple.jpg",
+   "麻豆代天府 Mado Daitian Temple - panoramio.jpg"
+  ]
  },
  "pl-maokong": {
   "title": "zh:貓空",
@@ -1526,7 +1934,10 @@
   "qid": "Q6753633",
   "cat": "Maokong",
   "dist_km": 0.13,
-  "n": 10
+  "n": 10,
+  "main": [
+   "貓空壺穴.JPG"
+  ]
  },
  "pl-mawudutansuosenlin": {
   "title": "ja:馬武督探索森林",
@@ -1542,7 +1953,10 @@
   "qid": "Q60991784",
   "cat": "Matsu New Village",
   "dist_km": 0.05,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Matsu New Village 02.jpg"
+  ]
  },
  "pl-meiguishengmushengdianzhujiaozuotang": {
   "title": "zh:玫瑰聖母聖殿主教座堂",
@@ -1550,7 +1964,11 @@
   "qid": "Q57345",
   "cat": "Holy Rosary Cathedral of Kaohsiung",
   "dist_km": 0.0,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Holy Rosary Cathedral, Kaohsiung 2012.JPG",
+   "玫瑰聖母堂（高雄）.jpg"
+  ]
  },
  "pl-meilidaozhan-guangzhiqiongding": {
   "title": "ja:美麗島駅",
@@ -1558,7 +1976,11 @@
   "qid": "Q5470226",
   "cat": "Formosa Boulevard Station",
   "dist_km": 0.07,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Exit 4, Formosa Boulevard Station 20221128(1).jpg",
+   "高雄捷運 MiNe-KissX 103-0064RG (3181388669).jpg"
+  ]
  },
  "pl-mengshidaigouwuzhongxin": {
   "title": "zh:夢時代購物中心",
@@ -1566,7 +1988,11 @@
   "qid": "Q5306407",
   "cat": "Dream Mall",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "統一夢時代購物中心 (2).JPG",
+   "統一夢時代購物中心.JPG"
+  ]
  },
  "pl-mengxialongshansi": {
   "title": "zh:艋舺龍山寺",
@@ -1574,7 +2000,11 @@
   "qid": "Q706761",
   "cat": "Bangka Lungshan Temple",
   "dist_km": 0.0,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Bangka Lungshan Temple (cropped).jpg",
+   "台北市艋舺龍山寺.jpg"
+  ]
  },
  "pl-miaolihuochetouyuanqu": {
   "title": "zh:苗栗火車頭園區",
@@ -1582,7 +2012,11 @@
   "qid": "Q11616127",
   "cat": "Miaoli Railway Museum",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Miaolirailwaymuseum202501.jpg",
+   "Taiwan MiaoliCity MiaoliRailwayMuseum.jpg"
+  ]
  },
  "pl-miemieshangshumengchongleyuan": {
   "title": "ja:咩咩上樹アニマルパーク",
@@ -1630,7 +2064,10 @@
   "qid": "Q10908241",
   "cat": "Nan Ji Chang Night Market",
   "dist_km": null,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Nan Ji Chang Night Market entrance.jpg"
+  ]
  },
  "pl-nankunshendaitianfu": {
   "title": "zh:南鯤鯓代天府",
@@ -1638,7 +2075,11 @@
   "qid": "Q10909351",
   "cat": "Nankunshen Temple",
   "dist_km": 0.16,
-  "n": 10
+  "n": 10,
+  "main": [
+   "南鯤鯓代天府廣場.jpg",
+   "南鯤鯓代天府祈福與香爐.jpg"
+  ]
  },
  "pl-nanliaoyugang": {
   "title": "zh:南寮漁港",
@@ -1646,7 +2087,8 @@
   "qid": "Q15889920",
   "cat": null,
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-nanzhuanglaojie-guihuaxiang": {
   "title": "ja:南庄老街・桂花巷",
@@ -1662,7 +2104,10 @@
   "qid": "Q10891351",
   "cat": null,
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": [
+   "Neiwan Old Theatre.jpg"
+  ]
  },
  "pl-ninaqiaokelimengxiangchengbao": {
   "title": "ja:ニナチョコレート城",
@@ -1678,7 +2123,11 @@
   "qid": "Q16926585",
   "cat": "Ningxia Road Night Market",
   "dist_km": 0.15,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Ningxia Night Market 20250520.jpg",
+   "寧夏夜市 4.jpg"
+  ]
  },
  "pl-oulewozhumengchengbao": {
   "title": "ja:欧楽沃ドリームキャッスル",
@@ -1694,7 +2143,11 @@
   "qid": "Q717624",
   "cat": "Penghu Great Bridge",
   "dist_km": 0.2,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Penghu Great Bridge 20150619.jpg",
+   "Penghu Great Bridge.jpg"
+  ]
  },
  "pl-penghushuizuguan": {
   "title": "zh:澎湖水族館",
@@ -1702,7 +2155,10 @@
   "qid": "Q22031680",
   "cat": null,
   "dist_km": 0.56,
-  "n": 0
+  "n": 0,
+  "main": [
+   "澎湖水族館.jpg"
+  ]
  },
  "pl-penglaixihuyubudao": {
   "title": "ja:蓬莱渓護魚歩道",
@@ -1718,7 +2174,10 @@
   "qid": "Q118121943",
   "cat": null,
   "dist_km": 0.16,
-  "n": 1
+  "n": 1,
+  "main": [
+   "20230502 Pingtung 1936 Tobacco Culture Base.png"
+  ]
  },
  "pl-puyanshunzegong": {
   "title": "zh:埔鹽順澤宮",
@@ -1726,7 +2185,11 @@
   "qid": "Q67393075",
   "cat": "Buyan Shunze Temple",
   "dist_km": 0.02,
-  "n": 10
+  "n": 10,
+  "main": [
+   "埔鹽順澤宮 (5)立面.jpg",
+   "埔鹽順澤宮 (6)立面近照.jpg"
+  ]
  },
  "pl-qianqiaoguniuleyuanmuchang": {
   "title": "ja:千巧谷牛楽園牧場",
@@ -1750,7 +2213,11 @@
   "qid": "Q11121917",
   "cat": "Ciaotou Sugar Factory",
   "dist_km": 0.47,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Ciaotou Sugar Factory 20150130-1.jpg",
+   "橋仔頭糖廠 Taiwan Sugar Museum - panoramio.jpg"
+  ]
  },
  "pl-qidingzimusuidao": {
   "title": "ja:崎頂子母トンネル",
@@ -1766,7 +2233,11 @@
   "qid": "Q10864730",
   "cat": "Qigu Salt Mountain",
   "dist_km": 0.53,
-  "n": 3
+  "n": 3,
+  "main": [
+   "七股盐山 - Qigu Salt Mound - 2012.02 - panoramio.jpg",
+   "七股鹽山.jpg"
+  ]
  },
  "pl-qiguyoukezhongxin": {
   "title": "ja:七股ビジターセンター",
@@ -1782,7 +2253,11 @@
   "qid": "Q706704",
   "cat": "Cijin District, Kaohsiung",
   "dist_km": 3.85,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Cijin District view from Mt QiHou.jpg",
+   "Shoushan National Nature Park（WEI, WAN-CHEN）－海上明珠旗後山.jpg"
+  ]
  },
  "pl-qimeibowuguan": {
   "title": "zh:奇美博物館",
@@ -1790,7 +2265,11 @@
   "qid": "Q5095087",
   "cat": "Chi Mei Museum",
   "dist_km": 0.02,
-  "n": 10
+  "n": 10,
+  "main": [
+   "20250718奇美博物館.jpg",
+   "Chimei museum1.jpg"
+  ]
  },
  "pl-qinbijuluo": {
   "title": "ja:芹壁聚落",
@@ -1806,7 +2285,10 @@
   "qid": "Q14657879",
   "cat": "Qingjing Farm",
   "dist_km": 0.11,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Evergreen grassland.jpg"
+  ]
  },
  "pl-qingqingcaoyuan": {
   "title": "zh:青青草原",
@@ -1814,7 +2296,10 @@
   "qid": "Q56280812",
   "cat": "Green Green Grassland",
   "dist_km": null,
-  "n": 7
+  "n": 7,
+  "main": [
+   "Qingjing Qing Qing Grassland 清境青青草原 - panoramio.jpg"
+  ]
  },
  "pl-qingwashitiankongbudao": {
   "title": "ja:青蛙石スカイウォーク",
@@ -1830,7 +2315,11 @@
   "qid": "Q11085455",
   "cat": "Cishan Old Street",
   "dist_km": 0.22,
-  "n": 8
+  "n": 8,
+  "main": [
+   "Tourists walking along the old street in Cishan.jpg",
+   "旗山亭仔腳（石拱圈）＜1＞.jpg"
+  ]
  },
  "pl-qixingtan": {
   "title": "zh:七星潭",
@@ -1838,7 +2327,11 @@
   "qid": "Q16890300",
   "cat": "Chihsingtan Beach",
   "dist_km": 0.9,
-  "n": 10
+  "n": 10,
+  "main": [
+   "2004.02.01.七星潭 - panoramio.jpg",
+   "Taiwan 2009 HuaLien City CiSingTan Bay FRD 8343.jpg"
+  ]
  },
  "pl-raohejieyeshi": {
   "title": "zh:饒河街夜市",
@@ -1846,7 +2339,11 @@
   "qid": "Q707622",
   "cat": "Raohe Street Night Market",
   "dist_km": 0.5,
-  "n": 10
+  "n": 10,
+  "main": [
+   "East Entrance of Raohe Street Night Market 20060118 night.jpg",
+   "East Entrance of Raohe Street Night Market 20170530 night.jpg"
+  ]
  },
  "pl-riyuetan": {
   "title": "zh:日月潭",
@@ -1854,7 +2351,10 @@
   "qid": "Q716206",
   "cat": "Sun Moon Lake",
   "dist_km": 2.0,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Sun Moon Lake Sentinel-2B MSI 2024-04-04.jpg"
+  ]
  },
  "pl-rongjinshiguangshenghuoyuanqu": {
   "title": "ja:榕錦時光生活園区",
@@ -1870,7 +2370,10 @@
   "qid": "Q7378744",
   "cat": "Ruifeng Night Market",
   "dist_km": 0.06,
-  "n": 10
+  "n": 10,
+  "main": [
+   "高雄市瑞豐夜市與裕誠路.jpg"
+  ]
  },
  "pl-ruilongpubuyuanqu": {
   "title": "ja:瑞龍瀑布園区",
@@ -1886,7 +2389,11 @@
   "qid": "Q10421697",
   "cat": "Rareseed Ranch",
   "dist_km": 0.16,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Mizuhomakiba05.jpg",
+   "Mizuhomakiba06.jpg"
+  ]
  },
  "pl-sanduoshangquan": {
   "title": "zh:三多商圈",
@@ -1894,7 +2401,10 @@
   "qid": "Q120662710",
   "cat": null,
   "dist_km": 0.17,
-  "n": 0
+  "n": 0,
+  "main": [
+   "Kaohsiung from 85 Sky Tower (Day).jpg"
+  ]
  },
  "pl-sanfenggong": {
   "title": "zh:三鳳宮",
@@ -1902,7 +2412,10 @@
   "qid": "Q9383278",
   "cat": "Sanfong Temple",
   "dist_km": 0.0,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Kaohsiung - Sunfong Temple 三鳳宮 (2026) - img 06.jpg"
+  ]
  },
  "pl-sanxialaojie": {
   "title": "zh:三峽老街",
@@ -1910,7 +2423,11 @@
   "qid": "Q10865951",
   "cat": "Minquan Old Street",
   "dist_km": 0.09,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Minquan Old Street, Sanxia, Taiwan.jpg",
+   "三峽老街成和染坊、林榮祥染坊與老元吉附近 20190730.jpg"
+  ]
  },
  "pl-sanxiantai": {
   "title": "zh:三仙台",
@@ -1918,7 +2435,11 @@
   "qid": "Q7419006",
   "cat": "Sansiantai",
   "dist_km": 0.6,
-  "n": 10
+  "n": 10,
+  "main": [
+   "2010 07 12280 5339 Chenggong Township.JPG",
+   "Sansiantai Bridge 02.jpg"
+  ]
  },
  "pl-sanyimudiaolaojie-bowuguan": {
   "title": "ja:三義木彫り老街・木彫博物館",
@@ -1942,7 +2463,10 @@
   "qid": "Q17007017",
   "cat": "Kinmen Folk Culture Village",
   "dist_km": 0.08,
-  "n": 10
+  "n": 10,
+  "main": [
+   "山后民俗村 - Shanhou Folk Culture Village - 2014.09 - panoramio.jpg"
+  ]
  },
  "pl-shanshanghuayuanshuidaobowuguan": {
   "title": "zh:山上花園水道博物館",
@@ -1950,7 +2474,11 @@
   "qid": "Q15909173",
   "cat": "Hilltop Garden Watercourse Museum",
   "dist_km": 0.52,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Shanshang Water Treatment Plant, Tainan City (Taiwan).jpg",
+   "台南水道.jpg"
+  ]
  },
  "pl-shanshangrenjiasenlinnongchang": {
   "title": "ja:山上人家森林農場",
@@ -1966,7 +2494,11 @@
   "qid": "Q1365704",
   "cat": "Roundhouses",
   "dist_km": null,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Chunghua fan-shaped garage.jpg",
+   "Roundhouse Park Toronto.jpg"
+  ]
  },
  "pl-shenaotiedaozixingche": {
   "title": "ja:深澳レールバイク",
@@ -1990,7 +2522,11 @@
   "qid": "Q48970014",
   "cat": "Shenji New Village",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Shenji New Village view2 201905.jpg",
+   "審計新村文創聚落.jpg"
+  ]
  },
  "pl-shenkenglaojie": {
   "title": "zh:深坑老街",
@@ -1998,7 +2534,11 @@
   "qid": "Q11153169",
   "cat": "Shenkeng Old Street",
   "dist_km": 0.07,
-  "n": 10
+  "n": 10,
+  "main": [
+   "New Taipei, Banqiao District, New Taipei City, Taiwan - panoramio (8).jpg",
+   "深坑老街01.jpg"
+  ]
  },
  "pl-shennongjie": {
   "title": "ja:神農街",
@@ -2022,7 +2562,10 @@
   "qid": "Q11060183",
   "cat": "Shida Night Market",
   "dist_km": 0.14,
-  "n": 7
+  "n": 7,
+  "main": [
+   "師大夜市 - 2975218708.jpg"
+  ]
  },
  "pl-shifenpubu-pingxilaojie": {
   "title": "ja:十分瀑布",
@@ -2030,7 +2573,11 @@
   "qid": "Q38369",
   "cat": "Shifen Waterfall",
   "dist_km": 5.61,
-  "n": 10
+  "n": 10,
+  "main": [
+   "ShiFengWaterFall 002.jpg",
+   "Shifen Waterfall with beautiful emerald water.jpg"
+  ]
  },
  "pl-shiguwenchuangyuanqu": {
   "title": "ja:十鼓文創園区",
@@ -2046,7 +2593,11 @@
   "qid": "Q697118",
   "cat": "Shilin Night Market",
   "dist_km": 0.3,
-  "n": 10
+  "n": 10,
+  "main": [
+   "ShiLin.jpg",
+   "士林公有市場8512.jpg"
+  ]
  },
  "pl-shimenshuiku": {
   "title": "zh:石門水庫",
@@ -2054,7 +2605,8 @@
   "qid": "Q16071584",
   "cat": null,
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-shishanpaozhendi": {
   "title": "ja:獅山砲陣地",
@@ -2070,7 +2622,10 @@
   "qid": "Q9097841",
   "cat": "Shoushan Zoo",
   "dist_km": 0.16,
-  "n": 2
+  "n": 2,
+  "main": [
+   "Shoushan Zoo Entrance 2023.jpg"
+  ]
  },
  "pl-shoushanguojiazirangongyuan": {
   "title": "zh:壽山國家自然公園",
@@ -2078,7 +2633,11 @@
   "qid": "Q10931665",
   "cat": "Shoushan National Nature Park",
   "dist_km": 0.3,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Shoushan National Natural Park+ 西子灣眺望旗後山.jpg",
+   "天雨洞.jpg"
+  ]
  },
  "pl-shouxinwuyincheng": {
   "title": "ja:手信霧隱城",
@@ -2118,7 +2677,10 @@
   "qid": "Q15904378",
   "cat": "Shuijiaoshe",
   "dist_km": null,
-  "n": 1
+  "n": 1,
+  "main": [
+   "臺南水交社建築 01.JPG"
+  ]
  },
  "pl-shuilisheyaotaoyiwenhuayuanqu": {
   "title": "ja:水里蛇窯陶芸文化園区",
@@ -2142,7 +2704,10 @@
   "qid": null,
   "cat": null,
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": [
+   "Sihcao Green Tunnel.JPG"
+  ]
  },
  "pl-sidianwumiao": {
   "title": "zh:祀典武廟",
@@ -2150,7 +2715,11 @@
   "qid": "Q15079274",
   "cat": "Sacrificial Rites Martial Temple, Tainan",
   "dist_km": 0.02,
-  "n": 10
+  "n": 10,
+  "main": [
+   "台南武廟.jpg",
+   "台南祀典武廟.jpg"
+  ]
  },
  "pl-simakusi": {
   "title": "zh:司馬庫斯",
@@ -2158,7 +2727,10 @@
   "qid": "Q7252224",
   "cat": "Smangus",
   "dist_km": 0.24,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Smangus.jpg"
+  ]
  },
  "pl-songshanfeijixiang": {
   "title": "ja:松山空港 飛行機路地(濱江街)",
@@ -2174,7 +2746,11 @@
   "qid": "Q11104372",
   "cat": "Songshan Cultural and Creative Park",
   "dist_km": 0.19,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Baroque Garden, Songshan Cultural and Creative Park 20130402.jpg",
+   "松山菸廠製菸工廠北面.jpg"
+  ]
  },
  "pl-suaolengquan": {
   "title": "zh:蘇澳冷泉",
@@ -2182,7 +2758,11 @@
   "qid": "Q6144364",
   "cat": "Su'ao Cold Spring",
   "dist_km": 0.31,
-  "n": 10
+  "n": 10,
+  "main": [
+   "2022 Su'ao Cold Spring i.jpg",
+   "2022 Su'ao Cold Spring s3.jpg"
+  ]
  },
  "pl-taibei101": {
   "title": "zh:台北101",
@@ -2190,7 +2770,11 @@
   "qid": "Q83101",
   "cat": "Taipei 101",
   "dist_km": 0.03,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Taipei 101 from Xiangshan 20250731.jpg",
+   "Taipei 101 logo.svg"
+  ]
  },
  "pl-taibeidangdaiyishuguan": {
   "title": "zh:台北當代藝術館",
@@ -2198,7 +2782,11 @@
   "qid": "Q699040",
   "cat": "Museum of Contemporary Art, Taipei",
   "dist_km": 0.01,
-  "n": 10
+  "n": 10,
+  "main": [
+   "台北當代藝術館建築.jpg",
+   "臺北市政府舊址（原建成小學校）.jpg"
+  ]
  },
  "pl-taibeishilidongwuyuan": {
   "title": "zh:臺北市立動物園",
@@ -2206,7 +2794,11 @@
   "qid": "Q591131",
   "cat": "Taipei Zoo",
   "dist_km": 0.53,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Taipei Zoo Entrance 20220822.jpg",
+   "Taipei Zoo Entrance.jpg"
+  ]
  },
  "pl-taibeishilimeishuguan": {
   "title": "zh:臺北市立美術館",
@@ -2214,7 +2806,11 @@
   "qid": "Q697319",
   "cat": "Taipei Fine Arts Museum",
   "dist_km": 0.07,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Taipei Fine Arts Museum and China Eastern aircraft 20120628.jpg",
+   "Taipei-fine-arts-museum.jpg"
+  ]
  },
  "pl-taidiannanbuzhanshiguan": {
   "title": "ja:台電南部展示館",
@@ -2238,7 +2834,11 @@
   "qid": "Q707427",
   "cat": "Taroko National Park",
   "dist_km": 16.25,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Eternal Spring Shrine in Taroko.JPG",
+   "Taiwan 2009 HuaLien Taroko Gorge Biking PB160057.jpg"
+  ]
  },
  "pl-tainankongmiao": {
   "title": "zh:台南孔廟",
@@ -2246,7 +2846,11 @@
   "qid": "Q697776",
   "cat": "Tainan Confucius Temple",
   "dist_km": 0.02,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Confucius Temple Tainan - Ta Cheng Hall 臺南孔廟大成殿 (2026) - img 06.jpg",
+   "臺南孔子廟 大成坊.JPG"
+  ]
  },
  "pl-tainanshilitushuguanxinzongguan": {
   "title": "ja:台南市立図書館新総館",
@@ -2262,7 +2866,11 @@
   "qid": "Q15915271",
   "cat": "Tainan Art Museum",
   "dist_km": 0.02,
-  "n": 3
+  "n": 3,
+  "main": [
+   "Building 1 of Tainan Art Museum.jpg",
+   "Tainan Art Museum Building 1.jpg"
+  ]
  },
  "pl-taini-daka-yuanqu": {
   "title": "ja:台泥DAKA園区",
@@ -2278,7 +2886,10 @@
   "qid": "Q10941333",
   "cat": "Taipingshan National Forest Recreation Area",
   "dist_km": 7.55,
-  "n": 10
+  "n": 10,
+  "main": [
+   "太平山森林遊樂區FUJI8469.JPG"
+  ]
  },
  "pl-taipingyunti": {
   "title": "zh:太平雲梯",
@@ -2286,7 +2897,10 @@
   "qid": "Q38251826",
   "cat": "Taiping Sky Bridge",
   "dist_km": 30.3,
-  "n": 0
+  "n": 0,
+  "main": [
+   "太平雲梯 - 26529573198.jpg"
+  ]
  },
  "pl-taiwankejiachawenhuaguan": {
   "title": "ja:台湾客家茶文化館",
@@ -2310,7 +2924,11 @@
   "qid": "Q276764",
   "cat": "Taichung Park",
   "dist_km": 0.18,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Taichung Park-1.JPG",
+   "湖心亭遠景.jpg"
+  ]
  },
  "pl-taizhongguojiagejuyuan": {
   "title": "zh:臺中國家歌劇院",
@@ -2318,7 +2936,11 @@
   "qid": "Q555338",
   "cat": "National Taichung Theater",
   "dist_km": 0.05,
-  "n": 10
+  "n": 10,
+  "main": [
+   "National Taichung Theater aerial view 2019.jpg",
+   "台中大都會歌劇院 2014.7.jpg"
+  ]
  },
  "pl-taizhonghaiyangguan": {
   "title": "zh:台中海洋館",
@@ -2326,7 +2948,10 @@
   "qid": "Q135927744",
   "cat": null,
   "dist_km": 0.01,
-  "n": 0
+  "n": 0,
+  "main": [
+   "Taichung aquarium logo.svg"
+  ]
  },
  "pl-taizhonglvmeitu": {
   "title": "zh:臺中綠美圖",
@@ -2334,7 +2959,11 @@
   "qid": "Q28413141",
   "cat": "Taichung Green Museumbrary",
   "dist_km": null,
-  "n": 9
+  "n": 9,
+  "main": [
+   "Taichung Green Museumbrary 2024 (cropped).jpg",
+   "Taichung Green Museumbrary 2024 08.jpg"
+  ]
  },
  "pl-taizhongyitiedaowenhuayuanqu": {
   "title": "zh:臺中驛鐵道文化園區",
@@ -2342,7 +2971,10 @@
   "qid": "Q109350209",
   "cat": "Taichung Station Railway Cultural Park",
   "dist_km": null,
-  "n": 10
+  "n": 10,
+  "main": [
+   "June 2023 interior of Taichung Station Railway Cultural Park 04.jpg"
+  ]
  },
  "pl-taoyuanguanguangyeshi": {
   "title": "zh:桃園觀光夜市",
@@ -2350,7 +2982,8 @@
   "qid": "Q11112225",
   "cat": null,
   "dist_km": 0.04,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-taoyuanshenshe": {
   "title": "ja:桃園神社",
@@ -2358,7 +2991,10 @@
   "qid": "Q7684357",
   "cat": "Taoyuan Shrine",
   "dist_km": 0.03,
-  "n": 10
+  "n": 10,
+  "main": [
+   "WorshipHallOfTouyanMartyrsShirne.jpg"
+  ]
  },
  "pl-taoyuanshiliertongmeishuguan": {
   "title": "ja:桃園市立児童美術館",
@@ -2382,7 +3018,8 @@
   "qid": "Q498577",
   "cat": "Laputa: Castle in the Sky",
   "dist_km": null,
-  "n": 8
+  "n": 8,
+  "main": []
  },
  "pl-tianliaoyueshijie": {
   "title": "ja:田寮月世界",
@@ -2390,7 +3027,8 @@
   "qid": "Q31391378",
   "cat": null,
   "dist_km": 5.4,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-tianrenchawenhuaguan": {
   "title": "ja:天仁茶文化館",
@@ -2438,7 +3076,11 @@
   "qid": "Q16242379",
   "cat": "Wanpi World Zoo",
   "dist_km": 0.23,
-  "n": 3
+  "n": 3,
+  "main": [
+   "20230528-IMG 5701.jpg",
+   "頑皮世界動物園.jpg"
+  ]
  },
  "pl-weiwuyingguojiayishuwenhuazhongxin": {
   "title": "zh:衛武營國家藝術文化中心",
@@ -2446,7 +3088,10 @@
   "qid": "Q14779193",
   "cat": "National Kaohsiung Center for Arts",
   "dist_km": 0.37,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Wei-Wu-Ying Center for the Arts 01.jpg"
+  ]
  },
  "pl-wenhualuyeshi": {
   "title": "zh:文化路夜市",
@@ -2454,7 +3099,10 @@
   "qid": "Q11079612",
   "cat": "Wenhua Road Night Market, Chiayi City",
   "dist_km": 0.04,
-  "n": 10
+  "n": 10,
+  "main": [
+   "嘉義文化路夜市.jpg"
+  ]
  },
  "pl-wufenglinjiagongbaodiyuanqu": {
   "title": "zh:霧峰林家宮保第園區",
@@ -2462,7 +3110,11 @@
   "qid": "Q8039064",
   "cat": "Wufeng Lin Family Mansion and Garden",
   "dist_km": 0.16,
-  "n": 10
+  "n": 10,
+  "main": [
+   "古厝戲台.jpg",
+   "霧峰林家將軍府.jpg"
+  ]
  },
  "pl-wulailaojie-wenquan": {
   "title": "ja:烏來老街・温泉",
@@ -2478,7 +3130,8 @@
   "qid": "Q11124844",
   "cat": null,
   "dist_km": 0.03,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-xiahaichenghuangmiao": {
   "title": "zh:霞海城隍廟",
@@ -2486,7 +3139,8 @@
   "qid": "Q23999367",
   "cat": null,
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-xiangshan": {
   "title": "zh:象山",
@@ -2494,7 +3148,8 @@
   "qid": "Q6700691",
   "cat": null,
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-xiangshanshidishangxiebudao": {
   "title": "zh:香山濕地賞蟹步道",
@@ -2502,7 +3157,10 @@
   "qid": "Q86728838",
   "cat": null,
   "dist_km": null,
-  "n": 1
+  "n": 1,
+  "main": [
+   "香山濕地賞蟹步道.jpg"
+  ]
  },
  "pl-xiangshanyoukezhongxin": {
   "title": "ja:向山ビジターセンター",
@@ -2518,7 +3176,10 @@
   "qid": "Q10958042",
   "cat": "Little Ding-Dong Science Theme Park",
   "dist_km": 0.04,
-  "n": 3
+  "n": 3,
+  "main": [
+   "Little Ding-Dong Science Theme Park entrance sign 20140816.jpg"
+  ]
  },
  "pl-xiaoliuqiu": {
   "title": "zh:小琉球",
@@ -2526,7 +3187,11 @@
   "qid": "Q6480986",
   "cat": "Lamay Island",
   "dist_km": 0.4,
-  "n": 10
+  "n": 10,
+  "main": [
+   "EO1 ALI Lamay Island.jpg",
+   "花瓶石.JPG"
+  ]
  },
  "pl-xiaorenguozhutileyuan": {
   "title": "zh:小人國主題樂園",
@@ -2534,7 +3199,11 @@
   "qid": "Q10957726",
   "cat": "Window On World Theme Park",
   "dist_km": 0.65,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Mini models of buildings in WOW (cropped).jpg",
+   "TW Win-On-China fdr.jpg"
+  ]
  },
  "pl-xiaorusongyishuyuanqu": {
   "title": "zh:蕭如松藝術園區",
@@ -2542,7 +3211,10 @@
   "qid": "Q15921857",
   "cat": "Xiao Ru-Song Art Park",
   "dist_km": null,
-  "n": 7
+  "n": 7,
+  "main": [
+   "蕭如松藝術園區大門.jpg"
+  ]
  },
  "pl-xiaoyeliu": {
   "title": "ja:小野柳",
@@ -2558,7 +3230,8 @@
   "qid": "Q11561800",
   "cat": "Xihu Sugar Factory",
   "dist_km": 0.09,
-  "n": 10
+  "n": 10,
+  "main": []
  },
  "pl-ximenting": {
   "title": "zh:西門町",
@@ -2566,7 +3239,11 @@
   "qid": "Q63227",
   "cat": "Ximending",
   "dist_km": 0.22,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Ximending rainbow crossing 201910.jpg",
+   "Ximending rainbow crossing 20260326 (IMG 8656).jpg"
+  ]
  },
  "pl-xinfenghongshulin": {
   "title": "ja:新豊マングローブ林",
@@ -2582,7 +3259,11 @@
   "qid": "Q712387",
   "cat": "Xingtian Temple",
   "dist_km": 0.01,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Xingtian Temple 07.23.jpg",
+   "行天宮臺北本宮.jpg"
+  ]
  },
  "pl-xinjiadakunchongguan": {
   "title": "ja:新嘉大昆虫館",
@@ -2598,7 +3279,11 @@
   "qid": "Q10915601",
   "cat": "XPX Taiwan Coal Mine Museum",
   "dist_km": 0.08,
-  "n": 10
+  "n": 10,
+  "main": [
+   "New Pinghsi Coal Tunnel.JPG",
+   "新平溪煤礦坑口.jpg"
+  ]
  },
  "pl-xinpushibingjiaoyunongyuan": {
   "title": "ja:新埔 干し柿教育農園",
@@ -2622,7 +3307,10 @@
   "qid": "Q120499232",
   "cat": "Hsinwawu Hakka Culture conservation Area",
   "dist_km": 0.04,
-  "n": 7
+  "n": 7,
+  "main": [
+   "新瓦屋 西河世第.jpg"
+  ]
  },
  "pl-xinzhuduchenghuangmiao": {
   "title": "zh:新竹都城隍廟",
@@ -2630,7 +3318,11 @@
   "qid": "Q11084079",
   "cat": "Hsinchu City God Temple",
   "dist_km": 0.32,
-  "n": 10
+  "n": 10,
+  "main": [
+   "COVID-19期間的新竹都城隍廟.jpg",
+   "Hsinchu City God Temple-01.2023-11-21.jpg"
+  ]
  },
  "pl-xinzhushilidongwuyuan": {
   "title": "zh:新竹市立動物園",
@@ -2638,7 +3330,11 @@
   "qid": "Q11084009",
   "cat": "Hsinchu Zoo",
   "dist_km": 0.2,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Entrance of Hsinchu Zoo 2019.jpg",
+   "New gate 1 of Hsinchu Zoo 2020.jpg"
+  ]
  },
  "pl-xinzhushimeishuguan": {
   "title": "zh:新竹市美術館",
@@ -2646,7 +3342,11 @@
   "qid": "Q17164638",
   "cat": "Hsinchu City Art Gallery and Reclamation Hall",
   "dist_km": 1.06,
-  "n": 10
+  "n": 10,
+  "main": [
+   "新竹市役所..DSC 7588+.jpg",
+   "新竹市役所.JPG"
+  ]
  },
  "pl-xiongkongchayuan": {
   "title": "ja:熊空茶園",
@@ -2670,7 +3370,11 @@
   "qid": "Q697968",
   "cat": "Sizihwan Scenic Area",
   "dist_km": 1.19,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Port of Kaohsiung 20141010-1.jpg",
+   "View over Sizihwan.jpg"
+  ]
  },
  "pl-xpark-shuizuguan": {
   "title": "ja:Xpark(エックスパーク)",
@@ -2686,7 +3390,11 @@
   "qid": "Q709029",
   "cat": "Yangmingshan National Park",
   "dist_km": 2.76,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Yangmingshan National Park - Chien Ying Lee - 01.jpg",
+   "YangmingshanNP MenHuanChao 001.jpg"
+  ]
  },
  "pl-yawenbalihaian": {
   "title": "ja:雅聞バリ海岸",
@@ -2718,7 +3426,11 @@
   "qid": "Q716932",
   "cat": "Yehliu Geopark",
   "dist_km": 0.09,
-  "n": 10
+  "n": 10,
+  "main": [
+   "1 yehliu 2015 panorama.jpg",
+   "Yehliu, northern part.jpg"
+  ]
  },
  "pl-yidashijie": {
   "title": "zh:義大世界",
@@ -2726,7 +3438,10 @@
   "qid": "Q30941396",
   "cat": "E-Da World",
   "dist_km": null,
-  "n": 6
+  "n": 6,
+  "main": [
+   "Vista of E-Da Outlet Mall 20131117.jpg"
+  ]
  },
  "pl-yilanjiuchang": {
   "title": "zh:宜蘭酒廠",
@@ -2734,7 +3449,11 @@
   "qid": "Q10426084",
   "cat": "Chia Chi Lan Liquor Museum",
   "dist_km": 0.09,
-  "n": 7
+  "n": 7,
+  "main": [
+   "Yilan-Chai Chi Lan Liquor Museum.jpg",
+   "宜蘭酒廠歷史建築群 (2).jpg"
+  ]
  },
  "pl-yinggelaojie-taocibowuguan": {
   "title": "ja:鶯歌老街・陶瓷博物館",
@@ -2750,7 +3469,11 @@
   "qid": "Q697518",
   "cat": "Eternal Golden Castle",
   "dist_km": 0.13,
-  "n": 10
+  "n": 10,
+  "main": [
+   "1 aerial pano eternal golden castle tainan 2017.jpg",
+   "2021年的億載金城城門.jpg"
+  ]
  },
  "pl-yizhongjie": {
   "title": "zh:一中街",
@@ -2758,7 +3481,11 @@
   "qid": "Q8053971",
   "cat": "Yizhong Street",
   "dist_km": 0.3,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Road name sign and traffic light of Yizhong Street 20170528.jpg",
+   "Yizhong Street 201905.jpg"
+  ]
  },
  "pl-yongkangjie": {
   "title": "zh:永康街",
@@ -2766,7 +3493,8 @@
   "qid": "Q11132022",
   "cat": null,
   "dist_km": null,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-yuanxionghaiyanggongyuan": {
   "title": "zh:遠雄海洋公園",
@@ -2774,7 +3502,11 @@
   "qid": "Q14610973",
   "cat": "Farglory Ocean Park",
   "dist_km": 0.22,
-  "n": 5
+  "n": 5,
+  "main": [
+   "Farglory Ocean Park dolphin show stage 20150411.jpg",
+   "NewLogo2024.jpg"
+  ]
  },
  "pl-yuemeishidishengtaigongyuan": {
   "title": "ja:月眉湿地生態公園",
@@ -2790,7 +3522,8 @@
   "qid": "Q28409976",
   "cat": null,
   "dist_km": 0.36,
-  "n": 0
+  "n": 0,
+  "main": []
  },
  "pl-yunlingzhiqiu": {
   "title": "ja:雲嶺之丘",
@@ -2806,7 +3539,10 @@
   "qid": "Q30946921",
   "cat": "Yunshanshui Natural Ecological Farm",
   "dist_km": null,
-  "n": 8
+  "n": 8,
+  "main": [
+   "35-花蓮雲山水 (29410005762).jpg"
+  ]
  },
  "pl-zhanerku": {
   "title": "zh:棧貳庫",
@@ -2814,7 +3550,11 @@
   "qid": "Q10566877",
   "cat": "Kaohsiung Port Warehouse No.2",
   "dist_km": 0.02,
-  "n": 9
+  "n": 9,
+  "main": [
+   "棧二庫.jpg",
+   "高雄漁人碼頭.JPG"
+  ]
  },
  "pl-zhangjingluxiuxiannongchang": {
   "title": "ja:キリン・レジャー農場",
@@ -2847,7 +3587,11 @@
   "cat": null,
   "dist_km": 12635.19,
   "n": 0,
-  "rejected": "座標差 12635km，判定配到別的地方"
+  "rejected": "座標差 12635km，判定配到別的地方",
+  "main": [
+   "Global Citizen Festival Central Park New York City from NYonAir (15351915006).jpg",
+   "Southwest corner of Central Park, looking east, NYC.jpg"
+  ]
  },
  "pl-zhongzhengjiniantang": {
   "title": "zh:中正紀念堂",
@@ -2855,7 +3599,11 @@
   "qid": "Q540794",
   "cat": "Chiang Kai-shek Memorial Hall",
   "dist_km": 0.36,
-  "n": 10
+  "n": 10,
+  "main": [
+   "2022年的中正紀念堂.jpg",
+   "Chiang Kai-shek memorial amk.jpg"
+  ]
  },
  "pl-zhudongguanguangyeshi": {
   "title": "ja:竹東観光夜市",
@@ -2879,7 +3627,11 @@
   "qid": "Q15925262",
   "cat": "Chuwei Fishing Harbor",
   "dist_km": 0.19,
-  "n": 10
+  "n": 10,
+  "main": [
+   "2010 07 11020 4885 Dayuan Township.JPG",
+   "Chuwei port.jpg"
+  ]
  },
  "pl-zongbingshu": {
   "title": "ja:総兵署",
@@ -2895,7 +3647,10 @@
   "qid": "Q130531636",
   "cat": "Château de Jourdeness",
   "dist_km": 0.03,
-  "n": 10
+  "n": 10,
+  "main": [
+   "Château de Jourdeness-01.2024-10-14.jpg"
+  ]
  },
  "pl-zuozhenhuashiyuanqu": {
   "title": "zh:左鎮化石園區",
@@ -2903,6 +3658,9 @@
   "qid": "Q19853609",
   "cat": "Tainan City Zuojhen Fossil Park",
   "dist_km": 0.1,
-  "n": 3
+  "n": 3,
+  "main": [
+   "臺南左鎮化石園區.jpg"
+  ]
  }
 }
