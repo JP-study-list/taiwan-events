@@ -69,9 +69,10 @@ index.html（Cloudflare Pages，組建命令只複製指定檔案進 dist/）
 
 | 檔案 | 職責 | 台灣版待改 |
 |---|---|---|
-| `pick_photos.py` | 景點挑圖（Commons／維基） | `assign` 同樣要 `--src`；日文維基 → 可能改中文維基 |
+| `pick_photos.py` | 景點挑圖（Commons／維基）。`fetch --wiki` 台灣版先查中文維基、查不到才日文維基（2026-09-26）；`serve` 是本機網頁，台灣版改用 `places_photo_tw.py` 的手機頁 | `assign` 同樣要 `--src` |
 | `places_review.py` | 後台 hold 景點逐筆決定去留 | — |
 | `places_match_tw.py` | 台灣版景點 H-1 第一段：`_picked-*.json` → 候選地點 `_h1_candidates.json`（觀光署景點資料＋Photon＋`_h1_manual.json`；import `fetch_events`）。拼音編號要 pypinyin（開發用） | — |
+| `places_photo_tw.py` | H-4 景點照片：`build` 候選（`_photocache.json`）→ 縮圖包 `places_src/_h4_photo/data/`（不進版控）給手機挑圖頁；`export` 挑圖頁資料庫匯出 → `_photopick.json`（檔名換回索引）／`_photoskip.json`。挑圖頁與測試在 `places_src/_h4_photo/` | — |
 | `places_apply_ja.py` | 景點日文名：`_h2_ja/names.json` 初稿＋審閱頁改過的 → 寫回 `taiwan.json` 的 `title_ja` | — |
 | `places_apply_tw.py` | H-1 第三段：確認網頁資料庫匯出 → `places_src/taiwan.json`（只收已確認） | — |
 | `hours_pick.py` | 營業時間頁逐筆確認 | 關鍵字是日文（営業時間…） |

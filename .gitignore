@@ -44,3 +44,7 @@ _ref-kanto/
 # 觀光署景點資料的本機快取（單位 H-1，2026-09-26）。約 3 MB、一週重抓一次，進版控只會讓 repo 變胖。
 places_src/_tb_attraction_cache.json
 places_src/_h1_photon_cache.json
+
+# 景點照片挑圖頁（單位 H-4）：縮圖包與下載快取（維基照片縮圖，不進版控）
+places_src/_h4_photo/data/
+places_src/_h4_photo/_thumbs/

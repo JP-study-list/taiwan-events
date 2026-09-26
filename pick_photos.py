@@ -83,6 +83,8 @@ PORT = 8901
 
 # ── 第二種來源：日文維基／Wikidata（2026-09-04 加）─────────────────
 JAWIKI = 'https://ja.wikipedia.org/w/api.php'
+# 台灣版（2026-09-26，單位 H-4）：先用中文名查中文維基，查不到才用日文名查日文維基。
+ZHWIKI = 'https://zh.wikipedia.org/w/api.php'
 WIKIDATA = 'https://www.wikidata.org/w/api.php'
 WIKI_LEDGER = os.path.join(HERE, 'places_src', '_photowiki.json')
 WIKI_MAX = 10        # 一個景點最多留幾張維基來源的候選
@@ -155,7 +157,10 @@ def cand_of(page):
     r = w / h
     if r > 2.0 or r < 0.4:
         return None
-    em = ii.get('extmetadata', {})
+    # ⚠️ 沒有任何中繼資料時 API 回的是空陣列 `[]` 而不是 `{}`（2026-09-26 台灣版實跑撞到，整支中止）
+    em = ii.get('extmetadata') or {}
+    if not isinstance(em, dict):
+        em = {}
     return {
         'file': page['title'][5:],           # 去掉 "File:"
         'w': w, 'h': h,
@@ -205,7 +210,7 @@ def cmd_fetch():
 
 # ───────────────────────────────────────────── fetch --wiki（第二種來源）
 
-def _jawiki_batch(titles):
+def _jawiki_batch(titles, base=JAWIKI):
     """精確標題 → 條目。⚠️⚠️ **絕對不可以改成全文搜尋**（地雷 #3d）：
     維基的搜尋「一定會給你最像的那個」——實測查「池袋ロフト」回澀谷總店、
     查「横浜タカシマヤ」回名古屋店。而這批資料裡就有現成的陷阱：
@@ -215,7 +220,7 @@ def _jawiki_batch(titles):
     out = {}
     for k in range(0, len(titles), 40):
         batch = titles[k:k + 40]
-        d = wapi(JAWIKI, {'action': 'query', 'titles': '|'.join(batch), 'redirects': 1,
+        d = wapi(base, {'action': 'query', 'titles': '|'.join(batch), 'redirects': 1,
                           'prop': 'coordinates|pageimages|pageprops',
                           'piprop': 'name', 'ppprop': 'wikibase_item'})
         q = d.get('query', {})
@@ -308,8 +313,19 @@ def cmd_fetch_wiki():
     if not todo:
         return
 
-    titles = [p.get('title_ja') or p['title'] for p in todo]
-    pages = _jawiki_batch(titles)
+    # 台灣版：中文名 → 中文維基優先；查不到的才拿日文名問日文維基。
+    # 鍵用「語言:標題」，免得中日同形的名字（博物館那種）撞在一起。
+    zh = _jawiki_batch([p['title'] for p in todo], ZHWIKI)
+    miss = [p for p in todo if not zh.get(p['title'])]
+    ja = _jawiki_batch([p.get('title_ja') or p['title'] for p in miss]) if miss else {}
+    titles, pages = [], {}
+    for p in todo:
+        if zh.get(p['title']):
+            k = 'zh:' + p['title']; pages[k] = zh[p['title']]
+        else:
+            t = p.get('title_ja') or p['title']
+            k = 'ja:' + t; pages[k] = ja.get(t)
+        titles.append(k)
     qids = [ (pages.get(t) or {}).get('pageprops', {}).get('wikibase_item')
              for t in titles ]
     ents = _wikidata_batch([q for q in qids if q])
@@ -323,7 +339,7 @@ def cmd_fetch_wiki():
         if not pg:
             ledger[p['id']] = rec
             continue
-        rec['article'] = pg['title']
+        rec['article'] = t[:3] + pg['title']
         qid = (pg.get('pageprops') or {}).get('wikibase_item')
         rec['qid'] = qid
         ent = ents.get(qid or '', {})

@@ -568,6 +568,11 @@
     **改前改後兩個版本一模一樣地失敗**，看起來像「景點頁壞了」。本機測前端時讓測試 server 在缺檔時送
     `{"events":[]}`（或從 test-run 的 artifact 下載一份）。另外景點分頁**預設是地圖**，要驗卡片先按 `[data-mode=list]`。
     景點開關（D-4）也可以在 server 送 `index.html` 時拿掉 `no-places`，不必改 repo。
+23. **確認網頁（Artifact）的原始檔在本機測，要自己補上發布時的外殼**（2026-09-26，H-4）。原始檔沒有 `<meta charset>`、viewport、
+    `[hidden]{display:none!important}`，平台發布時才加。直接用 http.server 開：中文全變亂碼、手機寬度錯、
+    **`display:grid` 的遮罩設了 hidden 照樣整片蓋住畫面**——所有「點得到嗎」一起失敗，看起來像頁面壞了。
+    測試 server 送 HTML 時前面接上外殼；頁面自己也寫 `[hidden]{display:none!important}`，不靠平台。
+    另：`scrollIntoView({block:'nearest'})` 會把按鈕貼在畫面最底，下緣 844.05 對視窗 844，「在畫面內」要容許 1px。
 
 ### Secrets 指標（**值不寫進本檔**）
 
