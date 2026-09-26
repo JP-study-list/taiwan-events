@@ -1,0 +1,87 @@
+<title>景點日文名確認</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+TC:wght@900&display=swap">
+<style>
+:root{--bg:#F5F6F2;--surface:#FFF;--ink:#1C2420;--muted:#65706A;--line:#DDE2DC;--accent:#0E7C66;--accent-soft:#E1F0EB;--chg:#A6700F;--chg-soft:#FBF0DA;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#111513;--surface:#191F1C;--ink:#E3E9E5;--muted:#96A29B;--line:#2A322E;--accent:#4FC3A1;--accent-soft:#1B3029;--chg:#E3B04F;--chg-soft:#33291A;}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#111513;--surface:#191F1C;--ink:#E3E9E5;--muted:#96A29B;--line:#2A322E;--accent:#4FC3A1;--accent-soft:#1B3029;--chg:#E3B04F;--chg-soft:#33291A;}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;padding-inline:16px;padding-block:24px 80px}
+.wrap{max-width:760px;margin:0 auto;display:grid;gap:14px}
+h1{font:900 28px/1.2 "Noto Serif TC","Songti TC",serif;margin:0}
+p{margin:0;max-width:66ch}.muted{color:var(--muted)}
+.note{font-size:13px;border-left:3px solid var(--line);padding-left:12px}
+.stat{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;font-size:14px}
+.stat b{font-size:19px;font-variant-numeric:tabular-nums;margin-right:2px}
+#save{margin-left:auto;font-size:13px;color:var(--muted)}#save.err{color:#B8433A}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{all:unset;cursor:pointer;font-size:13px;padding:3px 11px;border:1px solid var(--line);border-radius:999px;background:var(--surface);white-space:nowrap}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h2{font-size:18px;margin:10px 0 4px}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:6px 12px;align-items:center;padding:8px 12px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row.chg{background:var(--chg-soft)}
+.zh{font-weight:500;min-width:0}
+.zh small{display:block;font-size:11.5px;color:var(--muted);font-weight:400}
+input{font:15px/1.4 "Noto Sans JP","Hiragino Sans",sans-serif;width:100%;box-sizing:border-box;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+@media (max-width:520px){.row{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+<header style="display:grid;gap:8px">
+  <h1>景點日文名確認</h1>
+  <p><b>263 筆是我翻的，看一下有沒有怪的，直接改那一格就會存起來；不用改的不用動。</b>另外 100 筆是日文維基的條目名稱，按「日文維基的」可以看。</p>
+  <p class="muted">翻法：專有名詞保留漢字、換成日文字形（國→国、灣→湾）；常見說法換成日文（觀光工廠→観光工場、燈塔→灯台、遊客中心→ビジターセンター）；有慣用日文名的用慣用名（司馬庫斯→スマングス）。改過的會變黃色，清空那格就回到我的譯名。</p>
+  <p class="note muted" id="mode">正在連線…</p>
+</header>
+<div class="stat"><span><b id="nChg">0</b>筆你改過</span><span id="save"></span></div>
+<div class="chips" id="filters">
+  <button class="chip on" data-f="ai" type="button">我翻的（263）</button>
+  <button class="chip" data-f="wiki" type="button">日文維基的（100）</button>
+  <button class="chip" data-f="chg" type="button">你改過的</button>
+</div>
+<main id="main" style="display:grid;gap:6px"></main>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let R=[],E={},filter="ai",db=null,dbOK=false;
+const LS="twja_v1",CID=Math.random().toString(36).slice(2),lastLocal={};
+try{E=JSON.parse(localStorage.getItem(LS)||"{}")||{};}catch(e){E={};}
+const saveLocal=()=>{try{localStorage.setItem(LS,JSON.stringify(E));}catch(e){}};
+const cur=r=>(E[r.k]||{})[r.n]??r.ja;
+function render(){
+  const by=new Map();let nChg=0;
+  for(const r of R){const chg=(E[r.k]||{})[r.n]!=null;if(chg)nChg++;
+    if(filter==="chg"?!chg:r.src!==filter)continue;if(!by.has(r.a))by.set(r.a,[]);by.get(r.a).push(r);}
+  $("#nChg").textContent=nChg;
+  $("#main").innerHTML=[...by].map(([a,rs])=>`<h2>${esc(a)}</h2><div class="list">${rs.map(r=>{const chg=(E[r.k]||{})[r.n]!=null;
+    return `<div class="row ${chg?"chg":""}"><div class="zh">${esc(r.n)}${chg?`<small>原本：${esc(r.ja)}</small>`:""}</div><input type="text" lang="ja" data-k="${r.k}" data-n="${esc(r.n)}" value="${esc(cur(r))}" aria-label="${esc(r.n)} 的日文名"></div>`;}).join("")}</div>`).join("")||'<p class="muted">這個篩選下沒有項目</p>';
+}
+// 改一格只存那一格、只更新那一列的樣子，不重畫整頁（整頁重畫會吃掉正在進行的點擊，見 CLAUDE.md 地雷 21）
+document.addEventListener("change",e=>{const t=e.target;if(t.tagName!=="INPUT"||!t.dataset.k)return;
+  const k=t.dataset.k,n=t.dataset.n,r=R.find(x=>x.k===k&&x.n===n),v=t.value.trim();
+  E[k]=E[k]||{};if(!v||v===r.ja){delete E[k][n];t.value=r.ja;}else E[k][n]=v;
+  lastLocal[k]=Date.now();saveLocal();flush(k);
+  const row=t.closest(".row"),chg=E[k][n]!=null;row.classList.toggle("chg",chg);
+  let sm=row.querySelector("small");if(chg&&!sm){sm=document.createElement("small");row.querySelector(".zh").appendChild(sm);}
+  if(sm){if(chg)sm.textContent="原本："+r.ja;else sm.remove();}
+  $("#nChg").textContent=Object.values(E).reduce((s,o)=>s+Object.keys(o).length,0);});
+document.addEventListener("click",e=>{const f=e.target.closest("#filters .chip");if(!f)return;filter=f.dataset.f;
+  document.querySelectorAll("#filters .chip").forEach(x=>x.classList.toggle("on",x===f));render();});
+const writing={},dirty={};
+function setSave(t,err){const el=$("#save");el.textContent=t;el.className=err?"err":"";}
+async function flush(k){if(!dbOK)return;if(writing[k]){dirty[k]=true;return;}writing[k]=true;setSave("儲存中…");
+  try{do{dirty[k]=false;await db.doc("ja/"+k).set({j:E[k]||{},at:new Date().toISOString(),cid:CID});}while(dirty[k]);setSave("已儲存");}
+  catch(e){setSave("儲存失敗，稍後再改一次",true);}finally{writing[k]=false;}}
+fetch("names.json").then(r=>r.json()).then(d=>{R=d;render();connect();}).catch(()=>{$("#main").innerHTML='<p class="muted">資料載入失敗，請重新整理。</p>';});
+async function connect(){
+  try{db=window.claude&&await window.claude.use("db");}catch(e){db=null;}
+  if(!db){$("#mode").textContent="這個畫面連不到儲存空間，你改的只會記在這台裝置上。改完請告訴我一聲。";return;}
+  dbOK=true;$("#mode").textContent="已連線：改完離開那一格就會存起來。";
+  db.collection("ja").onSnapshot(snap=>{let ch=false;
+    for(const d of snap.docs){const b=d.data()||{};if(writing[d.id]||b.cid===CID||Date.now()-(lastLocal[d.id]||0)<10000)continue;
+      if(JSON.stringify(b.j||{})!==JSON.stringify(E[d.id]||{})){E[d.id]=b.j||{};ch=true;}}
+    if(ch&&!document.activeElement?.matches?.("input")){saveLocal();render();}},
+    ()=>{dbOK=false;$("#mode").textContent="連線中斷：接下來改的只記在這台裝置上，重新整理可以再連。";});
+}
+</script>
