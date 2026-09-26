@@ -27,7 +27,11 @@ var OGDL_TAIL='此開放資料依政府資料開放授權條款 (Open Government
 var OGDL_STATEMENTS=[
   '文化部 2026 藝文活動-所有類別 '+OGDL_TAIL,
   '交通部觀光署 2026 活動 - 觀光資訊資料庫 '+OGDL_TAIL
-];
+].concat(FEATURES.places?[
+  // 景點（單位 H-5，2026-09-26 查證：資料集 7777，同一份授權條款）。363 筆裡 222 筆的座標與地址取自這份。
+  // **跟著景點開關**：景點藏著時站上沒有用到它，列出來只會讓人以為有。
+  '交通部觀光署 2026 景點 - 觀光資訊資料庫 '+OGDL_TAIL
+]:[]);
 var PLACE_TYPE='景點';
 // 餐廳進行程（單位 I）的分類值。**與 PLACE_TYPE 同一條規則**：不進 TYPES（餐廳不在
 // store.events 裡，放進去會多一顆永遠篩不到東西的 chip），但共用 --c-餐廳／--pin-餐廳。
