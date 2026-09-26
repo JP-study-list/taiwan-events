@@ -56,7 +56,7 @@ REPORT_DIR = os.path.join(ROOT, '_probe')
 SCHEMA_VERSION = 1
 # 正規化邏輯的版本。**改動欄位對應或座標判定後 +1**，既有資料才會重查。
 # 與 fetch_events.py 的 GEO_VERSION、build_restaurants.py 的 BUILD_VERSION 同一個道理。
-BUILD_VERSION = 1
+BUILD_VERSION = 2   # 2：台灣版，座標與地區改用 H-1 確認值（2026-09-26）
 
 # 「範圍外」這個原因的標記字串（2026-08-22）。**它與其他擋下原因必須分得開**：
 # 範圍外是**正確的過濾＋刻意的預收**（大阪的景點，等地區桶開通就會上線），
@@ -83,38 +83,37 @@ PLACE_TYPE = '景點'
 # 這個識別要保住 ②色相圈已經很擠（餐廳 23 類把它用滿了，見 CLAUDE.md）
 # ③圖例改成「圖示對照表」照樣有內容。**所以新增小類不需要動任何 CSS 變數。**
 GENRES = {
-    '神社寺廟':   '神社・寺院',
+    # 台灣版（單位 H-3，2026-09-26）。日本版的 8 類放不進夜市、老街、觀光工廠、農場，
+    # 使用者同意改成 12 類；動工時再加「古蹟老屋」（赤崁樓、安平古堡、華山、駁二這種）。
+    # 順序＝圖例順序。**顏色仍然不隨小類變**（方案 B），新增小類只要 js/icons.js 多一個圖示。
+    '寺廟宮廟':   '寺院・廟',
     '博物館':     '博物館',
     '美術館':     '美術館',
-    '公園庭園':   '公園・庭園',
-    '水族館動物園': '水族館・動物園',
+    '古蹟老屋':   '古跡・歴史建築',
+    '公園':       '公園',
+    '動物園水族館': '動物園・水族館',
+    '樂園':       'テーマパーク',
     '地標展望':   'ランドマーク・展望',
-    # 2026-08-21 開的第七類。瀑布、溪谷、洞窟、岩場這種「沒有建物、人是去看地形的」，
-    # 塞進「公園庭園」會與六義園那種人造庭園頂著同一個圖示。**開新小類不必動任何
-    # CSS 變數**（方案 B：六個小類本來就同色），成本只有 js/icons.js 的一個圖示。
-    '自然景勝':   '自然・景勝地',
-    # 2026-09-03 開的第八類（單位 R 挖出來的）。溫泉旅館的日歸入浴、砂湯、
-    # 溫泉主題設施——**七個小類沒有一個貼得上**：塞「公園庭園」會與六義園頂著
-    # 同一個圖示，塞「自然景勝」又不是地形。實測 Klook 那 212 件裡就有 11 件是這種，
-    # 而日本到處都是。**開新小類不必動任何 CSS 變數**（方案 B：小類本來就同色）。
+    '自然景觀':   '自然・景勝地',
     '溫泉':       '温泉',
+    '老街夜市':   '老街・夜市',
+    '觀光工廠':   '観光工場',
+    '農場牧場':   '農場・牧場',
 }
 
 # 寫法差異的容錯。**由 GENRES 自動生成反查表再疊上這張**，所以 GENRES 加一行
 # 不必記得改第二處——手寫兩張表的話，漏改的症狀是「填了正確類別卻說不認得」。
 GENRE_ALIAS = {
-    '神社': '神社寺廟', '寺廟': '神社寺廟', '寺院': '神社寺廟', '神社寺院': '神社寺廟',
-    '寺': '神社寺廟', '神社・寺': '神社寺廟',
-    '博物館美術館': '', '美術館博物館': '',   # 空值＝刻意不猜，見 resolve_genre
-    '公園': '公園庭園', '庭園': '公園庭園', '公園・庭園': '公園庭園',
-    '水族館': '水族館動物園', '動物園': '水族館動物園', '水族館・動物園': '水族館動物園',
-    '地標': '地標展望', '展望': '地標展望', '展望台': '地標展望',
-    'ランドマーク・展望': '地標展望',
-    '自然': '自然景勝', '景勝': '自然景勝', '景勝地': '自然景勝',
-    '滝': '自然景勝', '瀑布': '自然景勝', '渓谷': '自然景勝', '溪谷': '自然景勝',
-    '洞窟': '自然景勝', '自然・景勝地': '自然景勝',
-    '温泉': '溫泉', '湯': '溫泉', '日帰り温泉': '溫泉', '砂湯': '溫泉',
-    'スパ': '溫泉', '銭湯': '溫泉', '露天風呂': '溫泉', '溫泉設施': '溫泉',
+    '寺廟': '寺廟宮廟', '宮廟': '寺廟宮廟', '廟宇': '寺廟宮廟', '寺院': '寺廟宮廟',
+    '古蹟': '古蹟老屋', '歷史建築': '古蹟老屋', '文創園區': '古蹟老屋',
+    '動物園': '動物園水族館', '水族館': '動物園水族館',
+    '主題樂園': '樂園', '遊樂園': '樂園',
+    '地標': '地標展望', '展望': '地標展望', '觀景台': '地標展望',
+    '自然': '自然景觀', '自然景勝': '自然景觀', '景觀': '自然景觀',
+    '温泉': '溫泉', '冷泉': '溫泉',
+    '老街': '老街夜市', '夜市': '老街夜市', '商圈': '老街夜市',
+    '工廠': '觀光工廠', '観光工場': '觀光工廠',
+    '農場': '農場牧場', '牧場': '農場牧場',
 }
 _GENRE_LOOKUP = {}
 for _zh, _ja in GENRES.items():
@@ -126,7 +125,10 @@ for _zh, _ja in GENRES.items():
 # 那裡是分享連結的白名單，比這裡寬鬆一點沒關係、嚴格一點會讓分享的景點憑空消失。
 ID_RE = re.compile(r'^pl-[a-z0-9-]{1,40}$')
 
-REQUIRED = ('id', 'title', 'title_ja', 'address', 'url')
+# 台灣版（H-2）：只剩 id 與 title 必填。座標由 H-1 確認網頁逐筆確認過（lat／lng 直接帶進來）；
+# 地圖搜尋來的景點多半沒有官網、只有區級地址，擋下它們等於擋掉鵝鑾鼻燈塔、駁二這一批。
+# 日文名空白時暫時沿用中文名（報表會列出來，待補翻譯）。
+REQUIRED = ('id', 'title')
 # H2 會寫、H1 不碰的欄位。**一定要從既有 places.json 繼承**，否則 H2 上線後
 # 每次重跑都會把上個月抓到的營業時間清掉，而且不會有任何錯誤訊息。
 # ⚠️ `hours_fail` 也在裡面：**它是「連續幾次抓不到」的計數，不繼承就永遠是 0**，
@@ -697,70 +699,37 @@ def normalize(row, prev, cache, recheck, no_osm=False):
     if not rec['venue_ja']:
         rec['venue_ja'] = rec['title_ja']
 
-    pref, city = br.parse_address(rec['address'])
-    area = br.area_of(pref, city)
-    # 兩種原因分開講：地址解析得出來只是不在範圍內（大阪的景點）＝**預收**；
-    # 解析不出來（地址只寫到縣級或根本沒寫）＝該修的資料缺陷。
-    if not area and not (pref and city):
-        bad.append('地址解析不出縣或市區町村：%s' % rec['address'])
+    # ── 台灣版（H-2）：地區與座標都用 H-1 確認過的值，不查任何東西 ──────
+    # 日本版在這裡用國土地理院查地址、再用 build_restaurants 判地區桶；台灣沒有對應的服務，
+    # 而 363 筆的座標已經由使用者在確認網頁逐筆看過（places_apply_tw.py 寫出的 lat／lng）。
+    # ⚠️ **不要在這裡補「查不到就去查」**：沒有座標代表這筆沒被確認過，應該擋下叫人回確認網頁，
+    # 而不是讓程式猜一個——猜錯的圖釘跟對的長得一模一樣（CLAUDE.md §8 地雷 19）。
+    area = br.norm_text(row.get('area', ''))
+    if area not in fe.AREAS:
+        bad.append('地區「%s」不是地區桶之一' % area)
         return rec, bad
-    if not area:
-        # ── 預收（2026-08-22，使用者決定）─────────────────────────────
-        # 範圍外的景點**先收進來、照樣查座標，只是不輸出到 places.json**。
-        # ⚠️ **舊版在這裡就 return，於是連一次 GSI 都不會打**——資料會安安靜靜
-        # 躺在 places_src/ 裡，地址對不對沒有任何人驗過，直到地區桶開通那天
-        # 才一次爆出一堆問題，而當初查資料的脈絡早就沒了。
-        # 現在照查，換到的兩件事：①地址現在就被驗證（查不到會進【擋下】）
-        # ②座標寫進 _geocache.json（以完整地址為鍵），**開通那天重跑是 0 次查詢、
-        # 立刻上線**。
-        # `bad` 仍然非空，所以它不會進 places.json——這一點與舊版完全相同。
-        rec['_pending'] = '%s %s' % (pref, city)
-        bad.append('%s（%s）' % (PENDING_TAG, rec['_pending']))
+    try:
+        lat, lng = float(row.get('lat')), float(row.get('lng'))
+    except (TypeError, ValueError):
+        bad.append('沒有確認過的座標（lat／lng 空白，要回 H-1 確認網頁）')
+        return rec, bad
+    if not fe.in_bbox(lat, lng):
+        bad.append('座標 %s,%s 不在台灣範圍內' % (lat, lng))
+        return rec, bad
     rec['area'] = area
     rec['type'] = PLACE_TYPE
-
-    # 座標：既有的 precise 且版本相同就沿用（與餐廳、活動同一個增量規則）。
+    rec['lat'], rec['lng'], rec['geo'] = round(lat, 6), round(lng, 6), 'precise'
+    # 座標怎麼來的：tb 觀光署／osm 地圖搜尋／own 使用者自己貼／web 網路查到的地址。前端不讀，給報表與人看。
+    rec['geo_src'] = br.norm_text(row.get('src', ''))
+    if not rec['title_ja']:
+        rec['title_ja'] = rec['title']
+        rec['_ja_missing'] = True
+        if rec['venue_ja'] == '':
+            rec['venue_ja'] = rec['title']
     old = prev.get(rec['id'])
-    if (not recheck and old and old.get('geo') == 'precise'
-            and old.get('build_v') == BUILD_VERSION
-            and br.norm_text(old.get('address', '')) == rec['address']):
-        rec['lat'], rec['lng'], rec['geo'] = old['lat'], old['lng'], 'precise'
-        # 沿用座標就要一起沿用「這個座標是怎麼來的」。漏了它等於每個月
-        # 在報表上把一筆推論來的座標洗成一般的 precise。
-        if old.get('geo_src'):
-            rec['geo_src'] = old['geo_src']
-        note = ''
-        reused = True
-    else:
-        lat, lng, geo, note = geocode(rec['address'], cache)
-        reused = False
-        if lat is None:
-            # **查不到座標就不輸出。** 沒有座標的景點在行程裡會讓距離計算變 NaN、
-            # 排序與地圖全部失效——寧可它不出現、報表上叫人去修地址。
-            # 景點只有幾十筆，人工修得動；活動有幾百筆才需要「退回地區中心」那套。
-            bad.append('查不到座標（%s）' % note)
-            return rec, bad
-        rec['lat'], rec['lng'], rec['geo'] = lat, lng, geo
-        # GSI 只到大字／町名時的最後一手：問 OSM 有沒有這個景點。
-        # ⚠️ **只在 approx 時才問**——precise 已經是番地級，再問一次只會
-        # 多打一次 Overpass、還多一個「猜錯」的機會。
-        # ⚠️ **預收的不問 OSM，這不是省事是防撞。** Overpass 有一道 240 秒的
-        # 全域時間預算（OSM_TIME_BUDGET_S），用完就跳過剩下的。預收可能有幾百筆，
-        # 讓它們跟真的會顯示在地圖上的景點搶同一個預算，結果會是
-        # **在地圖上的那幾筆 approx 被跳過、永遠留在概略位置**，而報表只會說
-        # 「時間預算用完跳過 N 筆」——看不出來是被預收擠掉的。
-        # 預收現在需要的是「地址對不對」（GSI 那一段已經給了），不是圖釘精度。
-        # 等地區桶開通，它們就變成 in-range，那時自然會走這條路。
-        if geo == 'approx' and not no_osm and not rec.get('_pending'):
-            hit, why = osm_rescue(rec, cache)
-            if hit:
-                osm_note = why
-                # ⚠️ **舊的 note 一定要清掉。** 它是「地址只查到某某大字，可能是
-                # 區公所座標」，而座標已經被換成 OSM 的了——留著它，報表的
-                # 【參考】那段（條件是 `_note` 非空且 `geo=='precise'`）會把這 6 筆
-                # 全部列成「查詢時砍過地址才查到」，**配上一句已經不成立的說明**。
-                # 這一筆的故事由【OSM 補位】那段負責講。
-                note = ''
+    note = ''
+    reused = False
+    pref = ''
 
     rec['build_v'] = BUILD_VERSION
     # H2 的欄位一律從既有輸出繼承（本程式不產生它們）
@@ -1323,6 +1292,10 @@ def main():
                                            for a, n in sorted(by_area.items(), key=lambda kv: -kv[1])))
     # 這行同樣會被公開摘要 grep 走（前綴白名單 `^\[places\] `），**只有類別名與數字**，
     # 不含景點名或網址，所以不必動公開 repo 的 workflow。
+    ja_miss = [r for r in recs if r.get('_ja_missing')]
+    if ja_miss:
+        # 台灣版（H-2）新增的一行。日文名空白的暫時顯示中文名，**只印數字**（公開摘要白名單同上）。
+        print('[places] 日文名待補 %d 筆（暫時顯示中文名）' % len(ja_miss))
     print('[places] 類別分布 ' + '・'.join('%s %d' % (g, by_genre.get(g, 0)) for g in GENRES))
     if hours_info:
         # 這一行也會被公開紀錄 grep 走。**只印數字不印景點名**——名稱與提醒
