@@ -52,7 +52,7 @@ index.html（Cloudflare Pages，組建命令只複製指定檔案進 dist/）
 | `css/style.css` | 全站樣式（2,500 行） | 大致可沿用 |
 | `js/*.js` | 27 個 ES Modules，進入點 `js/main.js` | 見下 |
 | `js/config.js` | **設定與中日文案的集中處**（942 行）：`AREAS` 地區桶、分類、localStorage key、雙語字串 | 站名已改（中 `寄道日和・台灣`／日 `寄道日和・台湾`）；localStorage 前綴已改 `twev_`（14 支前端檔、37 處，2026-09-23）；地區桶已換成台灣 20 桶＋五大區（E-3）；聯絡信箱 `events@rensakobo.com`；說明與隱私權文案仍寫日本（D-6） |
-| `js/icons.js` | 分類圖示（Tabler 線條圖）。活動七類在 `EVENT_ICON`；台灣版「表演」＝音符、「祭典」＝亭子（2026-09-24）；景點的「神社寺廟」仍是鳥居（H） | — |
+| `js/icons.js` | 分類圖示（Tabler 線條圖）。活動七類在 `EVENT_ICON`；台灣版「表演」＝音符、「祭典」＝亭子（2026-09-24）；景點 13 類在 `PLACE_ICON`（2026-09-26，H-3；寺廟宮廟＝亭子，與祭典同圖、疊圖靠形狀分）。**新增景點小類要同時補 `js/config.js` 的 `PLACE_GENRES`（順序）與這裡的圖示** | — |
 | `js/tickets.js` | Klook 票券聯盟連結組裝 | 台灣版要一組**固定**的不同標籤（例 `tw-popup`） |
 | `apple-touch-icon.png`、`robots.txt`、`sitemap.xml` | iOS 圖示、SEO | `robots.txt`／`sitemap.xml` 網址指向日本版 |
 

@@ -563,6 +563,12 @@
     另一個同源的坑：**輸入框離開（change）就整頁重畫，會把使用者正要按的按鈕在放開前換掉，那一下點擊就消失**；
     按下期間延後重畫，按鈕本身也直接讀卡片上的輸入框。測試與網頁原始檔在 `places_src/_h1_confirm/`。
 
+22. **本機沒有 `events.json` 時整頁不畫，連景點也不出來**（2026-09-26，H-3）。`main.js` 等活動與景點兩份都到齊才 render，
+    而 `events.json` 只在 Actions 產生、不在 repo。症狀是景點分頁點得開、`body` 有 `places-open`，但圖例與卡片都是 0——
+    **改前改後兩個版本一模一樣地失敗**，看起來像「景點頁壞了」。本機測前端時讓測試 server 在缺檔時送
+    `{"events":[]}`（或從 test-run 的 artifact 下載一份）。另外景點分頁**預設是地圖**，要驗卡片先按 `[data-mode=list]`。
+    景點開關（D-4）也可以在 server 送 `index.html` 時拿掉 `no-places`，不必改 repo。
+
 ### Secrets 指標（**值不寫進本檔**）
 
 - runner repo 要用的 PAT：**另申請一把只授權 `taiwan-events` 的**，存 runner repo 的 GitHub Secrets
