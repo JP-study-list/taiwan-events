@@ -36,7 +36,9 @@
 }
 ],
 "ja": "台北101",
-"id": "pl-taibei101"
+"id": "pl-taibei101",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -151,7 +153,9 @@
 }
 ],
 "ja": "大稲埕",
-"id": "pl-dadaocheng-dihuajie"
+"id": "pl-dadaocheng-dihuajie",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台北",
@@ -174,7 +178,9 @@
 }
 ],
 "ja": "国立故宮博物院",
-"id": "pl-guoligugongbowuyuan"
+"id": "pl-guoligugongbowuyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -197,7 +203,9 @@
 }
 ],
 "ja": "艋舺龍山寺",
-"id": "pl-mengxialongshansi"
+"id": "pl-mengxialongshansi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -220,7 +228,9 @@
 }
 ],
 "ja": "中正紀念堂",
-"id": "pl-zhongzhengjiniantang"
+"id": "pl-zhongzhengjiniantang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -316,7 +326,9 @@
 }
 ],
 "ja": "北投温泉",
-"id": "pl-beitouwenquan-diregu"
+"id": "pl-beitouwenquan-diregu",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台北",
@@ -339,7 +351,9 @@
 }
 ],
 "ja": "西門町",
-"id": "pl-ximenting"
+"id": "pl-ximenting",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -362,7 +376,9 @@
 }
 ],
 "ja": "台北市立動物園",
-"id": "pl-taibeishilidongwuyuan"
+"id": "pl-taibeishilidongwuyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -385,7 +401,9 @@
 }
 ],
 "ja": "士林夜市",
-"id": "pl-shilinyeshi"
+"id": "pl-shilinyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -500,7 +518,9 @@
 }
 ],
 "ja": "陽明山",
-"id": "pl-yangmingshan"
+"id": "pl-yangmingshan",
+"sug": 5,
+"auto": true
 },
 {
 "area": "台北",
@@ -523,7 +543,9 @@
 }
 ],
 "ja": "寧夏路夜市",
-"id": "pl-ningxiayeshi"
+"id": "pl-ningxiayeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -546,7 +568,9 @@
 }
 ],
 "ja": "",
-"id": "pl-ertongxinleyuan"
+"id": "pl-ertongxinleyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -583,7 +607,9 @@
 }
 ],
 "ja": "行天宮",
-"id": "pl-xingtiangong"
+"id": "pl-xingtiangong",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -647,7 +673,9 @@
 }
 ],
 "ja": "猫空",
-"id": "pl-maokong"
+"id": "pl-maokong",
+"sug": 2,
+"auto": true
 },
 {
 "area": "台北",
@@ -679,7 +707,9 @@
 }
 ],
 "ja": "",
-"id": "pl-bopiliao"
+"id": "pl-bopiliao",
+"sug": 1,
+"auto": false
 },
 {
 "area": "台北",
@@ -761,7 +791,9 @@
 }
 ],
 "ja": "象山",
-"id": "pl-xiangshan"
+"id": "pl-xiangshan",
+"sug": 2,
+"auto": true
 },
 {
 "area": "台北",
@@ -798,7 +830,9 @@
 }
 ],
 "ja": "",
-"id": "pl-guolitaiwankexuejiaoyuguan"
+"id": "pl-guolitaiwankexuejiaoyuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -816,7 +850,9 @@
 }
 ],
 "ja": "",
-"id": "pl-rongjinshiguangshenghuoyuanqu"
+"id": "pl-rongjinshiguangshenghuoyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -852,7 +888,9 @@
 }
 ],
 "ja": "",
-"id": "pl-guojiatiedaobowuguan"
+"id": "pl-guojiatiedaobowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -917,7 +955,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taibeishilimeishuguan"
+"id": "pl-taibeishilimeishuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -958,7 +998,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xiahaichenghuangmiao"
+"id": "pl-xiahaichenghuangmiao",
+"sug": 1,
+"auto": true
 },
 {
 "area": "台北",
@@ -981,7 +1023,9 @@
 }
 ],
 "ja": "",
-"id": "pl-minshengshequ-fujinjie"
+"id": "pl-minshengshequ-fujinjie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -1004,7 +1048,9 @@
 }
 ],
 "ja": "",
-"id": "pl-yongkangjie"
+"id": "pl-yongkangjie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -1027,7 +1073,9 @@
 }
 ],
 "ja": "饒河街観光夜市",
-"id": "pl-raohejieyeshi"
+"id": "pl-raohejieyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -1064,7 +1112,9 @@
 }
 ],
 "ja": "",
-"id": "pl-tianwenkexuejiaoyuguan"
+"id": "pl-tianwenkexuejiaoyuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -1143,7 +1193,9 @@
 }
 ],
 "ja": "国立台湾博物館",
-"id": "pl-guolitaiwanbowuguan"
+"id": "pl-guolitaiwanbowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -1166,7 +1218,9 @@
 }
 ],
 "ja": "華山1914文化創意産業園区",
-"id": "pl-huashan1914wenchuangyuanqu"
+"id": "pl-huashan1914wenchuangyuanqu",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台北",
@@ -1203,7 +1257,9 @@
 }
 ],
 "ja": "台湾総督府専売局松山煙草工場",
-"id": "pl-songshanwenchuangyuanqu"
+"id": "pl-songshanwenchuangyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -1226,7 +1282,9 @@
 }
 ],
 "ja": "台北当代芸術館",
-"id": "pl-taibeidangdaiyishuguan"
+"id": "pl-taibeidangdaiyishuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -1249,7 +1307,9 @@
 }
 ],
 "ja": "",
-"id": "pl-nanjichangyeshi"
+"id": "pl-nanjichangyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台北",
@@ -1268,7 +1328,9 @@
 }
 ],
 "ja": "",
-"id": "pl-songshanfeijixiang"
+"id": "pl-songshanfeijixiang",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台北",
@@ -1286,7 +1348,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shidayeshi"
+"id": "pl-shidayeshi",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台北",
@@ -1304,7 +1368,9 @@
 }
 ],
 "ja": "",
-"id": "pl-gongguanyeshi"
+"id": "pl-gongguanyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -1369,7 +1435,9 @@
 }
 ],
 "ja": "",
-"id": "pl-wulailaojie-wenquan"
+"id": "pl-wulailaojie-wenquan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -1434,7 +1502,9 @@
 }
 ],
 "ja": "十分瀑布",
-"id": "pl-shifenpubu-pingxilaojie"
+"id": "pl-shifenpubu-pingxilaojie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -1471,7 +1541,9 @@
 }
 ],
 "ja": "",
-"id": "pl-danshuilaojie-yurenmatou"
+"id": "pl-danshuilaojie-yurenmatou",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -1550,7 +1622,9 @@
 }
 ],
 "ja": "金瓜石鉱山",
-"id": "pl-jinguashi-huangjinbowuguan"
+"id": "pl-jinguashi-huangjinbowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -1573,7 +1647,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jiufenlaojie"
+"id": "pl-jiufenlaojie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -1610,7 +1686,9 @@
 }
 ],
 "ja": "野柳風景特定区",
-"id": "pl-yeliudizhigongyuan"
+"id": "pl-yeliudizhigongyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -1675,7 +1753,9 @@
 }
 ],
 "ja": "",
-"id": "pl-bitan"
+"id": "pl-bitan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -1740,7 +1820,9 @@
 }
 ],
 "ja": "",
-"id": "pl-yinggelaojie-taocibowuguan"
+"id": "pl-yinggelaojie-taocibowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -1836,7 +1918,9 @@
 }
 ],
 "ja": "",
-"id": "pl-balizuoan"
+"id": "pl-balizuoan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "新北",
@@ -1859,7 +1943,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shenkenglaojie"
+"id": "pl-shenkenglaojie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -1882,7 +1968,9 @@
 }
 ],
 "ja": "",
-"id": "pl-sanxialaojie"
+"id": "pl-sanxialaojie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -1956,7 +2044,9 @@
 }
 ],
 "ja": "烏来温泉",
-"id": "pl-jinshanlaojie-wenquan"
+"id": "pl-jinshanlaojie-wenquan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "新北",
@@ -1993,7 +2083,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xinpingximeikuangbowuyuanqu"
+"id": "pl-xinpingximeikuangbowuyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -2011,7 +2103,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xiongkongchayuan"
+"id": "pl-xiongkongchayuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -2071,7 +2165,9 @@
 }
 ],
 "ja": "紅毛城",
-"id": "pl-hongmaocheng"
+"id": "pl-hongmaocheng",
+"sug": 0,
+"auto": false
 },
 {
 "area": "新北",
@@ -2122,7 +2218,9 @@
 }
 ],
 "ja": "猴ドウ猫村",
-"id": "pl-houdongmaocun"
+"id": "pl-houdongmaocun",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -2145,7 +2243,9 @@
 }
 ],
 "ja": "林本源園邸",
-"id": "pl-linbenyuanyuandi"
+"id": "pl-linbenyuanyuandi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -2168,7 +2268,9 @@
 }
 ],
 "ja": "",
-"id": "pl-bitoujiaobudao"
+"id": "pl-bitoujiaobudao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新北",
@@ -2195,7 +2297,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shenaotiedaozixingche"
+"id": "pl-shenaotiedaozixingche",
+"sug": 0,
+"auto": true
 },
 {
 "area": "基隆",
@@ -2259,7 +2363,9 @@
 }
 ],
 "ja": "",
-"id": "pl-hepingdaogongyuan"
+"id": "pl-hepingdaogongyuan",
+"sug": 2,
+"auto": true
 },
 {
 "area": "基隆",
@@ -2277,7 +2383,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jilongmiaokouyeshi"
+"id": "pl-jilongmiaokouyeshi",
+"sug": 0,
+"auto": false
 },
 {
 "area": "基隆",
@@ -2295,7 +2403,9 @@
 }
 ],
 "ja": "",
-"id": "pl-zhengbinyugangcaisewu"
+"id": "pl-zhengbinyugangcaisewu",
+"sug": 0,
+"auto": false
 },
 {
 "area": "基隆",
@@ -2332,7 +2442,9 @@
 }
 ],
 "ja": "国立海洋科技博物館",
-"id": "pl-guolihaiyangkejibowuguan"
+"id": "pl-guolihaiyangkejibowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "基隆",
@@ -2369,7 +2481,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jilongta"
+"id": "pl-jilongta",
+"sug": 0,
+"auto": true
 },
 {
 "area": "基隆",
@@ -2401,7 +2515,9 @@
 }
 ],
 "ja": "",
-"id": "pl-agennazaochuanchangyizhi"
+"id": "pl-agennazaochuanchangyizhi",
+"sug": 1,
+"auto": true
 },
 {
 "area": "基隆",
@@ -2452,7 +2568,9 @@
 }
 ],
 "ja": "八斗子",
-"id": "pl-chaojinggongyuan-zhinenghaiyangguan"
+"id": "pl-chaojinggongyuan-zhinenghaiyangguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2475,7 +2593,9 @@
 }
 ],
 "ja": "",
-"id": "pl-daxilaojie"
+"id": "pl-daxilaojie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2507,7 +2627,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xpark-shuizuguan"
+"id": "pl-xpark-shuizuguan",
+"sug": 1,
+"auto": false
 },
 {
 "area": "桃園",
@@ -2539,7 +2661,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xiaorenguozhutileyuan"
+"id": "pl-xiaorenguozhutileyuan",
+"sug": 1,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2557,7 +2681,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taoyuanshilitushuguanxinzongguan"
+"id": "pl-taoyuanshilitushuguanxinzongguan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "桃園",
@@ -2589,7 +2715,9 @@
 }
 ],
 "ja": "桃園神社",
-"id": "pl-taoyuanshenshe"
+"id": "pl-taoyuanshenshe",
+"sug": 1,
+"auto": false
 },
 {
 "area": "桃園",
@@ -2626,7 +2754,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shimenshuiku"
+"id": "pl-shimenshuiku",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2649,7 +2779,9 @@
 }
 ],
 "ja": "",
-"id": "pl-zhuweiyugang"
+"id": "pl-zhuweiyugang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2686,7 +2818,9 @@
 }
 ],
 "ja": "",
-"id": "pl-hutoushanhuanbaogongyuan"
+"id": "pl-hutoushanhuanbaogongyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2709,7 +2843,9 @@
 }
 ],
 "ja": "グロリア・アウトレット",
-"id": "pl-huataimingpincheng"
+"id": "pl-huataimingpincheng",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2763,7 +2899,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taiwankejiachawenhuaguan"
+"id": "pl-taiwankejiachawenhuaguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2781,7 +2919,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taoyuanshiliertongmeishuguan"
+"id": "pl-taoyuanshiliertongmeishuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2800,7 +2940,9 @@
 }
 ],
 "ja": "",
-"id": "pl-guojuyangsanguanguanggongchang"
+"id": "pl-guojuyangsanguanguanggongchang",
+"sug": 0,
+"auto": false
 },
 {
 "area": "桃園",
@@ -2823,7 +2965,9 @@
 }
 ],
 "ja": "",
-"id": "pl-mazuxincunjuancunwenchuangyuanqu"
+"id": "pl-mazuxincunjuancunwenchuangyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2860,7 +3004,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shouxinwuyincheng"
+"id": "pl-shouxinwuyincheng",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2887,7 +3033,9 @@
 }
 ],
 "ja": "",
-"id": "pl-hengshanshufayishuguan"
+"id": "pl-hengshanshufayishuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2910,7 +3058,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jiubaijisuidao"
+"id": "pl-jiubaijisuidao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2947,7 +3097,9 @@
 }
 ],
 "ja": "",
-"id": "pl-77-qiaokeligongheguo"
+"id": "pl-77-qiaokeligongheguo",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2970,7 +3122,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taoyuanguanguangyeshi"
+"id": "pl-taoyuanguanguangyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -2993,7 +3147,9 @@
 }
 ],
 "ja": "",
-"id": "pl-longtandachi"
+"id": "pl-longtandachi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "桃園",
@@ -3011,7 +3167,9 @@
 }
 ],
 "ja": "",
-"id": "pl-yuemeishidishengtaigongyuan"
+"id": "pl-yuemeishidishengtaigongyuan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "桃園",
@@ -3034,7 +3192,9 @@
 }
 ],
 "ja": "",
-"id": "pl-badeluoyusongsenlin"
+"id": "pl-badeluoyusongsenlin",
+"sug": 0,
+"auto": false
 },
 {
 "area": "新竹",
@@ -3057,7 +3217,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xinzhushilidongwuyuan"
+"id": "pl-xinzhushilidongwuyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3080,7 +3242,9 @@
 }
 ],
 "ja": "",
-"id": "pl-neiwanlaojie"
+"id": "pl-neiwanlaojie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3131,7 +3295,9 @@
 }
 ],
 "ja": "",
-"id": "pl-beipulaojie"
+"id": "pl-beipulaojie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3154,7 +3320,9 @@
 }
 ],
 "ja": "",
-"id": "pl-liufucunzhutiyouleyuan"
+"id": "pl-liufucunzhutiyouleyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3181,7 +3349,9 @@
 }
 ],
 "ja": "",
-"id": "pl-nanliaoyugang"
+"id": "pl-nanliaoyugang",
+"sug": 0,
+"auto": false
 },
 {
 "area": "新竹",
@@ -3204,7 +3374,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xinzhuduchenghuangmiao"
+"id": "pl-xinzhuduchenghuangmiao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3231,7 +3403,9 @@
 }
 ],
 "ja": "",
-"id": "pl-qingwashitiankongbudao"
+"id": "pl-qingwashitiankongbudao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3296,7 +3470,9 @@
 }
 ],
 "ja": "",
-"id": "pl-emeihu"
+"id": "pl-emeihu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3315,7 +3491,9 @@
 }
 ],
 "ja": "",
-"id": "pl-feiwumamayuernongchang"
+"id": "pl-feiwumamayuernongchang",
+"sug": 0,
+"auto": false
 },
 {
 "area": "新竹",
@@ -3338,7 +3516,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shanshangrenjiasenlinnongchang"
+"id": "pl-shanshangrenjiasenlinnongchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3361,7 +3541,9 @@
 }
 ],
 "ja": "新竹市役所",
-"id": "pl-xinzhushimeishuguan"
+"id": "pl-xinzhushimeishuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3384,7 +3566,9 @@
 }
 ],
 "ja": "",
-"id": "pl-beipulengquan"
+"id": "pl-beipulengquan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3407,7 +3591,9 @@
 }
 ],
 "ja": "",
-"id": "pl-qingqingcaoyuan"
+"id": "pl-qingqingcaoyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3444,7 +3630,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xiangshanshidishangxiebudao"
+"id": "pl-xiangshanshidishangxiebudao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3467,7 +3655,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xiaodingdangkexuezhutileyuan"
+"id": "pl-xiaodingdangkexuezhutileyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3490,7 +3680,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xinwawukejiawenhuabaocunqu"
+"id": "pl-xinwawukejiawenhuabaocunqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3513,7 +3705,9 @@
 }
 ],
 "ja": "",
-"id": "pl-hukouhaokewenchuangyuanqu"
+"id": "pl-hukouhaokewenchuangyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3550,7 +3744,9 @@
 }
 ],
 "ja": "",
-"id": "pl-lvshijieshengtainongchang"
+"id": "pl-lvshijieshengtainongchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3587,7 +3783,9 @@
 }
 ],
 "ja": "",
-"id": "pl-simakusi"
+"id": "pl-simakusi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3610,7 +3808,9 @@
 }
 ],
 "ja": "",
-"id": "pl-fengxiangpubu"
+"id": "pl-fengxiangpubu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3628,7 +3828,9 @@
 }
 ],
 "ja": "合興駅",
-"id": "pl-hexingchezhan"
+"id": "pl-hexingchezhan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3660,7 +3862,9 @@
 }
 ],
 "ja": "",
-"id": "pl-mawudutansuosenlin"
+"id": "pl-mawudutansuosenlin",
+"sug": 1,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3701,7 +3905,9 @@
 }
 ],
 "ja": "",
-"id": "pl-donganguqiao"
+"id": "pl-donganguqiao",
+"sug": 1,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3738,7 +3944,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xiaorusongyishuyuanqu"
+"id": "pl-xiaorusongyishuyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3765,7 +3973,9 @@
 }
 ],
 "ja": "",
-"id": "pl-zhudongguanguangyeshi"
+"id": "pl-zhudongguanguangyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3784,7 +3994,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xinpushibingjiaoyunongyuan"
+"id": "pl-xinpushibingjiaoyunongyuan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "新竹",
@@ -3807,7 +4019,9 @@
 }
 ],
 "ja": "",
-"id": "pl-fuxiangxianrenzhangyuan"
+"id": "pl-fuxiangxianrenzhangyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3830,7 +4044,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xinfenghongshulin"
+"id": "pl-xinfenghongshulin",
+"sug": 0,
+"auto": true
 },
 {
 "area": "新竹",
@@ -3898,7 +4114,9 @@
 }
 ],
 "ja": "",
-"id": "pl-dongmenshichang"
+"id": "pl-dongmenshichang",
+"sug": 1,
+"auto": true
 },
 {
 "area": "宜蘭",
@@ -3935,7 +4153,9 @@
 }
 ],
 "ja": "亀山島",
-"id": "pl-guishandao"
+"id": "pl-guishandao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "宜蘭",
@@ -4031,7 +4251,9 @@
 }
 ],
 "ja": "礁渓温泉",
-"id": "pl-jiaoxiwenquan"
+"id": "pl-jiaoxiwenquan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "宜蘭",
@@ -4072,7 +4294,9 @@
 }
 ],
 "ja": "",
-"id": "pl-guolichuantongyishuzhongxin"
+"id": "pl-guolichuantongyishuzhongxin",
+"sug": 1,
+"auto": true
 },
 {
 "area": "宜蘭",
@@ -4109,7 +4333,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taipingshanguojiasenlinyoulequ"
+"id": "pl-taipingshanguojiasenlinyoulequ",
+"sug": 0,
+"auto": true
 },
 {
 "area": "宜蘭",
@@ -4132,7 +4358,9 @@
 }
 ],
 "ja": "",
-"id": "pl-lanyangbowuguan"
+"id": "pl-lanyangbowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "宜蘭",
@@ -4150,7 +4378,9 @@
 }
 ],
 "ja": "",
-"id": "pl-lanyangdongzhiwuwangguo"
+"id": "pl-lanyangdongzhiwuwangguo",
+"sug": 0,
+"auto": true
 },
 {
 "area": "宜蘭",
@@ -4187,7 +4417,9 @@
 }
 ],
 "ja": "蘇澳冷泉",
-"id": "pl-suaolengquan"
+"id": "pl-suaolengquan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "宜蘭",
@@ -4206,7 +4438,9 @@
 }
 ],
 "ja": "",
-"id": "pl-dafuguanhaipingtai"
+"id": "pl-dafuguanhaipingtai",
+"sug": 0,
+"auto": false
 },
 {
 "area": "宜蘭",
@@ -4229,7 +4463,9 @@
 }
 ],
 "ja": "",
-"id": "pl-luodongyeshi"
+"id": "pl-luodongyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "宜蘭",
@@ -4256,7 +4492,9 @@
 }
 ],
 "ja": "",
-"id": "pl-zhangmeiamanongchang"
+"id": "pl-zhangmeiamanongchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "宜蘭",
@@ -4279,7 +4517,9 @@
 }
 ],
 "ja": "",
-"id": "pl-hupaimifenguanguanggongchang"
+"id": "pl-hupaimifenguanguanggongchang",
+"sug": 0,
+"auto": false
 },
 {
 "area": "宜蘭",
@@ -4348,7 +4588,9 @@
 }
 ],
 "ja": "",
-"id": "pl-yilanjiuchang"
+"id": "pl-yilanjiuchang",
+"sug": 3,
+"auto": true
 },
 {
 "area": "宜蘭",
@@ -4371,7 +4613,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jinchegamalanweishijijiuchang"
+"id": "pl-jinchegamalanweishijijiuchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4398,7 +4642,9 @@
 }
 ],
 "ja": "苗栗鉄道文物展示館",
-"id": "pl-miaolihuochetouyuanqu"
+"id": "pl-miaolihuochetouyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4448,7 +4694,9 @@
 }
 ],
 "ja": "",
-"id": "pl-qidingzimusuidao"
+"id": "pl-qidingzimusuidao",
+"sug": 0,
+"auto": false
 },
 {
 "area": "苗栗",
@@ -4485,7 +4733,9 @@
 }
 ],
 "ja": "",
-"id": "pl-yawenqilixiangmeiguisenlin"
+"id": "pl-yawenqilixiangmeiguisenlin",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4504,7 +4754,9 @@
 }
 ],
 "ja": "",
-"id": "pl-chengxiangsenlin"
+"id": "pl-chengxiangsenlin",
+"sug": 0,
+"auto": false
 },
 {
 "area": "苗栗",
@@ -4541,7 +4793,9 @@
 }
 ],
 "ja": "",
-"id": "pl-zhuoyexiaowu"
+"id": "pl-zhuoyexiaowu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4564,7 +4818,9 @@
 }
 ],
 "ja": "",
-"id": "pl-feiniumuchang"
+"id": "pl-feiniumuchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4587,7 +4843,9 @@
 }
 ],
 "ja": "",
-"id": "pl-qiaokeliyunzhuang"
+"id": "pl-qiaokeliyunzhuang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4614,7 +4872,9 @@
 }
 ],
 "ja": "",
-"id": "pl-moneimimihuayuan"
+"id": "pl-moneimimihuayuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4637,7 +4897,9 @@
 }
 ],
 "ja": "",
-"id": "pl-penglaixihuyubudao"
+"id": "pl-penglaixihuyubudao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4673,7 +4935,9 @@
 }
 ],
 "ja": "",
-"id": "pl-lvyishanzhuang"
+"id": "pl-lvyishanzhuang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4691,7 +4955,9 @@
 }
 ],
 "ja": "",
-"id": "pl-huataoyao"
+"id": "pl-huataoyao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4709,7 +4975,9 @@
 }
 ],
 "ja": "天空の城ラピュタ",
-"id": "pl-tiankongzhicheng"
+"id": "pl-tiankongzhicheng",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4732,7 +5000,9 @@
 }
 ],
 "ja": "",
-"id": "pl-tianrenchawenhuaguan"
+"id": "pl-tianrenchawenhuaguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4769,7 +5039,9 @@
 }
 ],
 "ja": "",
-"id": "pl-nanzhuanglaojie-guihuaxiang"
+"id": "pl-nanzhuanglaojie-guihuaxiang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4837,7 +5109,9 @@
 }
 ],
 "ja": "",
-"id": "pl-longfengyugang"
+"id": "pl-longfengyugang",
+"sug": 1,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4860,7 +5134,9 @@
 }
 ],
 "ja": "",
-"id": "pl-baishatungongtiangong"
+"id": "pl-baishatungongtiangong",
+"sug": 0,
+"auto": true
 },
 {
 "area": "苗栗",
@@ -4924,7 +5200,9 @@
 }
 ],
 "ja": "",
-"id": "pl-sanyimudiaolaojie-bowuguan"
+"id": "pl-sanyimudiaolaojie-bowuguan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "苗栗",
@@ -4947,7 +5225,9 @@
 }
 ],
 "ja": "",
-"id": "pl-dahucaomeiwenhuaguan"
+"id": "pl-dahucaomeiwenhuaguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5025,7 +5305,9 @@
 }
 ],
 "ja": "高美湿地",
-"id": "pl-gaomeishidi"
+"id": "pl-gaomeishidi",
+"sug": 3,
+"auto": true
 },
 {
 "area": "台中",
@@ -5048,7 +5330,9 @@
 }
 ],
 "ja": "台中国家歌劇院",
-"id": "pl-taizhongguojiagejuyuan"
+"id": "pl-taizhongguojiagejuyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5107,7 +5391,9 @@
 }
 ],
 "ja": "彩虹眷村",
-"id": "pl-caihongjuancun"
+"id": "pl-caihongjuancun",
+"sug": 1,
+"auto": true
 },
 {
 "area": "台中",
@@ -5130,7 +5416,9 @@
 }
 ],
 "ja": "",
-"id": "pl-gongyuanyanke"
+"id": "pl-gongyuanyanke",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5181,7 +5469,9 @@
 }
 ],
 "ja": "国立自然科学博物館",
-"id": "pl-guolizirankexuebowuguan"
+"id": "pl-guolizirankexuebowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5204,7 +5494,9 @@
 }
 ],
 "ja": "逢甲夜市",
-"id": "pl-fengjiayeshi"
+"id": "pl-fengjiayeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5227,7 +5519,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shenjixincun"
+"id": "pl-shenjixincun",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5250,7 +5544,9 @@
 }
 ],
 "ja": "宝覚寺",
-"id": "pl-baojuesi"
+"id": "pl-baojuesi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5291,7 +5587,9 @@
 }
 ],
 "ja": "",
-"id": "pl-libaoleyuan"
+"id": "pl-libaoleyuan",
+"sug": 1,
+"auto": true
 },
 {
 "area": "台中",
@@ -5314,7 +5612,9 @@
 }
 ],
 "ja": "",
-"id": "pl-dajiazhenlangong"
+"id": "pl-dajiazhenlangong",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5337,7 +5637,9 @@
 }
 ],
 "ja": "",
-"id": "pl-lvchuanshuianlangdao"
+"id": "pl-lvchuanshuianlangdao",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台中",
@@ -5360,7 +5662,9 @@
 }
 ],
 "ja": "セントラル・パーク",
-"id": "pl-zhongyanggongyuan"
+"id": "pl-zhongyanggongyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5383,7 +5687,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xinshexunyicaosenlin"
+"id": "pl-xinshexunyicaosenlin",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台中",
@@ -5406,7 +5712,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taizhonghaiyangguan"
+"id": "pl-taizhonghaiyangguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5443,7 +5751,9 @@
 }
 ],
 "ja": "",
-"id": "pl-baoxiongyulematou"
+"id": "pl-baoxiongyulematou",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5494,7 +5804,9 @@
 }
 ],
 "ja": "台中公園",
-"id": "pl-taizhonggongyuan"
+"id": "pl-taizhonggongyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5531,7 +5843,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taizhongyitiedaowenhuayuanqu"
+"id": "pl-taizhongyitiedaowenhuayuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5554,7 +5868,9 @@
 }
 ],
 "ja": "",
-"id": "pl-houfengtiemadao"
+"id": "pl-houfengtiemadao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5586,7 +5902,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taizhonglvmeitu"
+"id": "pl-taizhonglvmeitu",
+"sug": 1,
+"auto": true
 },
 {
 "area": "台中",
@@ -5609,7 +5927,9 @@
 }
 ],
 "ja": "台中市第二市場",
-"id": "pl-diershichang"
+"id": "pl-diershichang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5628,7 +5948,9 @@
 }
 ],
 "ja": "",
-"id": "pl-luyasenlin"
+"id": "pl-luyasenlin",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台中",
@@ -5682,7 +6004,9 @@
 }
 ],
 "ja": "一中商圈",
-"id": "pl-yizhongjie"
+"id": "pl-yizhongjie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5705,7 +6029,9 @@
 }
 ],
 "ja": "国立台湾美術館",
-"id": "pl-guolitaiwanmeishuguan"
+"id": "pl-guolitaiwanmeishuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5742,7 +6068,9 @@
 }
 ],
 "ja": "霧峰林家宅園",
-"id": "pl-wufenglinjiagongbaodiyuanqu"
+"id": "pl-wufenglinjiagongbaodiyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5765,7 +6093,9 @@
 }
 ],
 "ja": "",
-"id": "pl-caowudao"
+"id": "pl-caowudao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台中",
@@ -5847,7 +6177,9 @@
 }
 ],
 "ja": "",
-"id": "pl-diguotangchang-lalaport"
+"id": "pl-diguotangchang-lalaport",
+"sug": 0,
+"auto": false
 },
 {
 "area": "彰化",
@@ -5870,7 +6202,9 @@
 }
 ],
 "ja": "扇形庫",
-"id": "pl-shanxingcheku"
+"id": "pl-shanxingcheku",
+"sug": 0,
+"auto": true
 },
 {
 "area": "彰化",
@@ -5893,7 +6227,9 @@
 }
 ],
 "ja": "渓湖糖廠",
-"id": "pl-xihutangchang"
+"id": "pl-xihutangchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "彰化",
@@ -5975,7 +6311,9 @@
 }
 ],
 "ja": "八卦山大仏",
-"id": "pl-baguashandafu"
+"id": "pl-baguashandafu",
+"sug": 2,
+"auto": true
 },
 {
 "area": "彰化",
@@ -6011,7 +6349,9 @@
 }
 ],
 "ja": "",
-"id": "pl-baguashantiankongbudao"
+"id": "pl-baguashantiankongbudao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "彰化",
@@ -6029,7 +6369,9 @@
 }
 ],
 "ja": "",
-"id": "pl-huyujiguancheyuanqu"
+"id": "pl-huyujiguancheyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "彰化",
@@ -6052,7 +6394,9 @@
 }
 ],
 "ja": "",
-"id": "pl-wanjingyiyuan"
+"id": "pl-wanjingyiyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "彰化",
@@ -6075,7 +6419,9 @@
 }
 ],
 "ja": "",
-"id": "pl-puyanshunzegong"
+"id": "pl-puyanshunzegong",
+"sug": 0,
+"auto": true
 },
 {
 "area": "彰化",
@@ -6093,7 +6439,9 @@
 }
 ],
 "ja": "",
-"id": "pl-haotiansenlin"
+"id": "pl-haotiansenlin",
+"sug": 0,
+"auto": true
 },
 {
 "area": "彰化",
@@ -6112,7 +6460,9 @@
 }
 ],
 "ja": "",
-"id": "pl-zhangjingluxiuxiannongchang"
+"id": "pl-zhangjingluxiuxiannongchang",
+"sug": 0,
+"auto": false
 },
 {
 "area": "彰化",
@@ -6135,7 +6485,9 @@
 }
 ],
 "ja": "",
-"id": "pl-chengmeiwenhuayuan"
+"id": "pl-chengmeiwenhuayuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "彰化",
@@ -6154,7 +6506,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jingfangyuan"
+"id": "pl-jingfangyuan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "彰化",
@@ -6173,7 +6527,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taiwanyougebingqianxueyuan"
+"id": "pl-taiwanyougebingqianxueyuan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "彰化",
@@ -6196,7 +6552,9 @@
 }
 ],
 "ja": "",
-"id": "pl-baiguoshantansuoleyuan"
+"id": "pl-baiguoshantansuoleyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "彰化",
@@ -6219,7 +6577,9 @@
 }
 ],
 "ja": "",
-"id": "pl-fangyuanshidihaikongbudao"
+"id": "pl-fangyuanshidihaikongbudao",
+"sug": 0,
+"auto": false
 },
 {
 "area": "彰化",
@@ -6242,7 +6602,9 @@
 }
 ],
 "ja": "",
-"id": "pl-luganglaojie"
+"id": "pl-luganglaojie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "彰化",
@@ -6265,7 +6627,9 @@
 }
 ],
 "ja": "",
-"id": "pl-luganglongshansi"
+"id": "pl-luganglongshansi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "彰化",
@@ -6288,7 +6652,9 @@
 }
 ],
 "ja": "",
-"id": "pl-lugangtianhougong"
+"id": "pl-lugangtianhougong",
+"sug": 0,
+"auto": true
 },
 {
 "area": "南投",
@@ -6403,7 +6769,9 @@
 }
 ],
 "ja": "日月潭",
-"id": "pl-riyuetan"
+"id": "pl-riyuetan",
+"sug": 5,
+"auto": true
 },
 {
 "area": "南投",
@@ -6440,7 +6808,9 @@
 }
 ],
 "ja": "九族文化村",
-"id": "pl-jiuzuwenhuacun"
+"id": "pl-jiuzuwenhuacun",
+"sug": 0,
+"auto": true
 },
 {
 "area": "南投",
@@ -6490,7 +6860,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xitou"
+"id": "pl-xitou",
+"sug": 0,
+"auto": false
 },
 {
 "area": "南投",
@@ -6522,7 +6894,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xiangshanyoukezhongxin"
+"id": "pl-xiangshanyoukezhongxin",
+"sug": 1,
+"auto": true
 },
 {
 "area": "南投",
@@ -6559,7 +6933,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shuilisheyaotaoyiwenhuayuanqu"
+"id": "pl-shuilisheyaotaoyiwenhuayuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "南投",
@@ -6578,7 +6954,9 @@
 }
 ],
 "ja": "",
-"id": "pl-chunqiushanlin"
+"id": "pl-chunqiushanlin",
+"sug": 0,
+"auto": false
 },
 {
 "area": "南投",
@@ -6596,7 +6974,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jiujiufengdongwuleyuan"
+"id": "pl-jiujiufengdongwuleyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "南投",
@@ -6619,7 +6999,9 @@
 }
 ],
 "ja": "",
-"id": "pl-ruilongpubuyuanqu"
+"id": "pl-ruilongpubuyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "南投",
@@ -6642,7 +7024,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shuanglongpubuqicaidiaoqiao"
+"id": "pl-shuanglongpubuqicaidiaoqiao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "南投",
@@ -6665,7 +7049,9 @@
 }
 ],
 "ja": "",
-"id": "pl-qingjingnongchang"
+"id": "pl-qingjingnongchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "南投",
@@ -6711,7 +7097,9 @@
 }
 ],
 "ja": "",
-"id": "pl-ninaqiaokelimengxiangchengbao"
+"id": "pl-ninaqiaokelimengxiangchengbao",
+"sug": 2,
+"auto": true
 },
 {
 "area": "南投",
@@ -6826,7 +7214,9 @@
 }
 ],
 "ja": "",
-"id": "pl-checheng"
+"id": "pl-checheng",
+"sug": 5,
+"auto": true
 },
 {
 "area": "雲林",
@@ -6849,7 +7239,9 @@
 }
 ],
 "ja": "",
-"id": "pl-qianqiaoguniuleyuanmuchang"
+"id": "pl-qianqiaoguniuleyuanmuchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "雲林",
@@ -6890,7 +7282,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jianhushanshijie"
+"id": "pl-jianhushanshijie",
+"sug": 1,
+"auto": true
 },
 {
 "area": "雲林",
@@ -6913,7 +7307,9 @@
 }
 ],
 "ja": "",
-"id": "pl-yunlingzhiqiu"
+"id": "pl-yunlingzhiqiu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "雲林",
@@ -6931,7 +7327,9 @@
 }
 ],
 "ja": "",
-"id": "pl-tukuyikekezhuangyuan"
+"id": "pl-tukuyikekezhuangyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "雲林",
@@ -6954,7 +7352,9 @@
 }
 ],
 "ja": "",
-"id": "pl-etongleyuan"
+"id": "pl-etongleyuan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "雲林",
@@ -6991,7 +7391,9 @@
 }
 ],
 "ja": "",
-"id": "pl-yawenbalihaian"
+"id": "pl-yawenbalihaian",
+"sug": 0,
+"auto": false
 },
 {
 "area": "雲林",
@@ -7014,7 +7416,9 @@
 }
 ],
 "ja": "",
-"id": "pl-gukenglvsesuidao"
+"id": "pl-gukenglvsesuidao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "雲林",
@@ -7037,7 +7441,9 @@
 }
 ],
 "ja": "北港朝天宮",
-"id": "pl-beigangchaotiangong"
+"id": "pl-beigangchaotiangong",
+"sug": 0,
+"auto": true
 },
 {
 "area": "雲林",
@@ -7074,7 +7480,9 @@
 }
 ],
 "ja": "",
-"id": "pl-datongjiangyouheijinniangzaoguan"
+"id": "pl-datongjiangyouheijinniangzaoguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7097,7 +7505,9 @@
 }
 ],
 "ja": "",
-"id": "pl-alishanguojiasenlinyoulequ"
+"id": "pl-alishanguojiasenlinyoulequ",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7134,7 +7544,9 @@
 }
 ],
 "ja": "",
-"id": "pl-guiyisenhuocun"
+"id": "pl-guiyisenhuocun",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7171,7 +7583,9 @@
 }
 ],
 "ja": "故宮博物院南部院区",
-"id": "pl-guoligugongbowuyuannanbuyuanqu"
+"id": "pl-guoligugongbowuyuannanbuyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7208,7 +7622,9 @@
 }
 ],
 "ja": "嘉義公園",
-"id": "pl-jiayigongyuan-sherita"
+"id": "pl-jiayigongyuan-sherita",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7235,7 +7651,9 @@
 }
 ],
 "ja": "嘉義北回帰線標誌",
-"id": "pl-beihuiguixiantaiyangguan"
+"id": "pl-beihuiguixiantaiyangguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7258,7 +7676,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jiayishilibowuguan"
+"id": "pl-jiayishilibowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7308,7 +7728,9 @@
 }
 ],
 "ja": "",
-"id": "pl-danayigu"
+"id": "pl-danayigu",
+"sug": 1,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7331,7 +7753,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taipingyunti"
+"id": "pl-taipingyunti",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7349,7 +7773,9 @@
 }
 ],
 "ja": "",
-"id": "pl-oulewozhumengchengbao"
+"id": "pl-oulewozhumengchengbao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7367,7 +7793,9 @@
 }
 ],
 "ja": "",
-"id": "pl-bairenyagaoguanguanggongchang"
+"id": "pl-bairenyagaoguanguanggongchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7386,7 +7814,9 @@
 }
 ],
 "ja": "",
-"id": "pl-huanxicaishenmiao"
+"id": "pl-huanxicaishenmiao",
+"sug": 0,
+"auto": false
 },
 {
 "area": "嘉義",
@@ -7405,7 +7835,9 @@
 }
 ],
 "ja": "",
-"id": "pl-wanglaishanaiqingdacaoyuan"
+"id": "pl-wanglaishanaiqingdacaoyuan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "嘉義",
@@ -7423,7 +7855,9 @@
 }
 ],
 "ja": "",
-"id": "pl-miemieshangshumengchongleyuan"
+"id": "pl-miemieshangshumengchongleyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7450,7 +7884,9 @@
 }
 ],
 "ja": "",
-"id": "pl-gaiyazhuangyuan"
+"id": "pl-gaiyazhuangyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7504,7 +7940,9 @@
 }
 ],
 "ja": "",
-"id": "pl-zuodengnisichengbao"
+"id": "pl-zuodengnisichengbao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7523,7 +7961,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xinjiadakunchongguan"
+"id": "pl-xinjiadakunchongguan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "嘉義",
@@ -7588,7 +8028,9 @@
 }
 ],
 "ja": "",
-"id": "pl-fenqihu"
+"id": "pl-fenqihu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "嘉義",
@@ -7629,7 +8071,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jiayijiujianyu"
+"id": "pl-jiayijiujianyu",
+"sug": 0,
+"auto": false
 },
 {
 "area": "嘉義",
@@ -7661,7 +8105,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jiayichenghuangmiao"
+"id": "pl-jiayichenghuangmiao",
+"sug": 0,
+"auto": false
 },
 {
 "area": "嘉義",
@@ -7684,7 +8130,9 @@
 }
 ],
 "ja": "文化路夜市",
-"id": "pl-wenhualuyeshi"
+"id": "pl-wenhualuyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -7707,7 +8155,9 @@
 }
 ],
 "ja": "奇美博物館",
-"id": "pl-qimeibowuguan"
+"id": "pl-qimeibowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -7744,7 +8194,9 @@
 }
 ],
 "ja": "ハヤシ百貨店",
-"id": "pl-linbaihuo"
+"id": "pl-linbaihuo",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -7781,7 +8233,9 @@
 }
 ],
 "ja": "",
-"id": "pl-sicaolvsesuidao"
+"id": "pl-sicaolvsesuidao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -7804,7 +8258,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shennongjie"
+"id": "pl-shennongjie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -7841,7 +8297,9 @@
 }
 ],
 "ja": "",
-"id": "pl-anpingshuwu-dejiyanghang"
+"id": "pl-anpingshuwu-dejiyanghang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -7878,7 +8336,9 @@
 }
 ],
 "ja": "安平古堡",
-"id": "pl-anpinggubao"
+"id": "pl-anpinggubao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -7901,7 +8361,9 @@
 }
 ],
 "ja": "台南孔子廟",
-"id": "pl-tainankongmiao"
+"id": "pl-tainankongmiao",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台南",
@@ -7969,7 +8431,9 @@
 }
 ],
 "ja": "台南市美術館",
-"id": "pl-tainanshimeishuguan"
+"id": "pl-tainanshimeishuguan",
+"sug": 1,
+"auto": false
 },
 {
 "area": "台南",
@@ -8024,7 +8488,9 @@
 }
 ],
 "ja": "",
-"id": "pl-zuozhenhuashiyuanqu"
+"id": "pl-zuozhenhuashiyuanqu",
+"sug": 2,
+"auto": true
 },
 {
 "area": "台南",
@@ -8047,7 +8513,9 @@
 }
 ],
 "ja": "赤崁楼",
-"id": "pl-chikanlou"
+"id": "pl-chikanlou",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8092,7 +8560,9 @@
 }
 ],
 "ja": "花園夜市",
-"id": "pl-huayuanyeshi"
+"id": "pl-huayuanyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8119,7 +8589,9 @@
 }
 ],
 "ja": "",
-"id": "pl-yuguangdao"
+"id": "pl-yuguangdao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8142,7 +8614,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shiguwenchuangyuanqu"
+"id": "pl-shiguwenchuangyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8179,7 +8653,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jingzaijiaowapanyantian"
+"id": "pl-jingzaijiaowapanyantian",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8202,7 +8678,9 @@
 }
 ],
 "ja": "頑皮世界野生動物園",
-"id": "pl-wanpishijieyeshengdongwuyuan"
+"id": "pl-wanpishijieyeshengdongwuyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8221,7 +8699,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shenyuanjishuianpinghanghaicheng"
+"id": "pl-shenyuanjishuianpinghanghaicheng",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台南",
@@ -8244,7 +8724,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shuijiaoshewenhuayuanqu"
+"id": "pl-shuijiaoshewenhuayuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8262,7 +8744,9 @@
 }
 ],
 "ja": "老塘湖芸術村",
-"id": "pl-laotanghuyishucun"
+"id": "pl-laotanghuyishucun",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8289,7 +8773,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taijiangguojiagongyuanyoukezhongxin"
+"id": "pl-taijiangguojiagongyuanyoukezhongxin",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8308,7 +8794,9 @@
 }
 ],
 "ja": "",
-"id": "pl-cangjinge"
+"id": "pl-cangjinge",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台南",
@@ -8331,7 +8819,9 @@
 }
 ],
 "ja": "",
-"id": "pl-madoudaitianfu"
+"id": "pl-madoudaitianfu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8363,7 +8853,9 @@
 }
 ],
 "ja": "",
-"id": "pl-sidianwumiao"
+"id": "pl-sidianwumiao",
+"sug": 1,
+"auto": true
 },
 {
 "area": "台南",
@@ -8400,7 +8892,9 @@
 }
 ],
 "ja": "",
-"id": "pl-qiguyanshan"
+"id": "pl-qiguyanshan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8423,7 +8917,9 @@
 }
 ],
 "ja": "",
-"id": "pl-qiguyoukezhongxin"
+"id": "pl-qiguyoukezhongxin",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8455,7 +8951,9 @@
 }
 ],
 "ja": "",
-"id": "pl-yawenhubinliaoyusenlin"
+"id": "pl-yawenhubinliaoyusenlin",
+"sug": 1,
+"auto": true
 },
 {
 "area": "台南",
@@ -8473,7 +8971,9 @@
 }
 ],
 "ja": "",
-"id": "pl-nanchengxiangshi"
+"id": "pl-nanchengxiangshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8491,7 +8991,9 @@
 }
 ],
 "ja": "武聖夜市",
-"id": "pl-wushengyeshi"
+"id": "pl-wushengyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8514,7 +9016,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shugunongchang"
+"id": "pl-shugunongchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8537,7 +9041,9 @@
 }
 ],
 "ja": "",
-"id": "pl-deyuanpihelancun"
+"id": "pl-deyuanpihelancun",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8574,7 +9080,9 @@
 }
 ],
 "ja": "",
-"id": "pl-guidanwenquantiyanchi"
+"id": "pl-guidanwenquantiyanchi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8633,7 +9141,9 @@
 }
 ],
 "ja": "",
-"id": "pl-heleguangchang"
+"id": "pl-heleguangchang",
+"sug": 1,
+"auto": true
 },
 {
 "area": "台南",
@@ -8670,7 +9180,9 @@
 }
 ],
 "ja": "旧台南水道",
-"id": "pl-shanshanghuayuanshuidaobowuguan"
+"id": "pl-shanshanghuayuanshuidaobowuguan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台南",
@@ -8693,7 +9205,9 @@
 }
 ],
 "ja": "",
-"id": "pl-dingtoueshazhou"
+"id": "pl-dingtoueshazhou",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8716,7 +9230,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shugushenghuokexueguan"
+"id": "pl-shugushenghuokexueguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8766,7 +9282,9 @@
 }
 ],
 "ja": "",
-"id": "pl-longtianwenhuazichanjiaoyuyuanqu"
+"id": "pl-longtianwenhuazichanjiaoyuyuanqu",
+"sug": 1,
+"auto": true
 },
 {
 "area": "台南",
@@ -8803,7 +9321,9 @@
 }
 ],
 "ja": "",
-"id": "pl-heiqiaopaixiangchangbowuguan"
+"id": "pl-heiqiaopaixiangchangbowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8835,7 +9355,9 @@
 }
 ],
 "ja": "",
-"id": "pl-tainanshilitushuguanxinzongguan"
+"id": "pl-tainanshilitushuguanxinzongguan",
+"sug": 1,
+"auto": true
 },
 {
 "area": "台南",
@@ -8867,7 +9389,9 @@
 }
 ],
 "ja": "",
-"id": "pl-anpinglaojie"
+"id": "pl-anpinglaojie",
+"sug": 1,
+"auto": true
 },
 {
 "area": "台南",
@@ -8890,7 +9414,9 @@
 }
 ],
 "ja": "",
-"id": "pl-lanshaituwenchuangyuanqu"
+"id": "pl-lanshaituwenchuangyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8927,7 +9453,9 @@
 }
 ],
 "ja": "関子嶺温泉",
-"id": "pl-guanzilingwenquan"
+"id": "pl-guanzilingwenquan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台南",
@@ -8959,7 +9487,9 @@
 }
 ],
 "ja": "国立台湾文学館",
-"id": "pl-guolitaiwanwenxueguan"
+"id": "pl-guolitaiwanwenxueguan",
+"sug": 1,
+"auto": true
 },
 {
 "area": "台南",
@@ -9009,7 +9539,9 @@
 }
 ],
 "ja": "二鯤シン砲台",
-"id": "pl-yizaijincheng"
+"id": "pl-yizaijincheng",
+"sug": 1,
+"auto": true
 },
 {
 "area": "台南",
@@ -9046,7 +9578,9 @@
 }
 ],
 "ja": "南鯤シン代天府",
-"id": "pl-nankunshendaitianfu"
+"id": "pl-nankunshendaitianfu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9064,7 +9598,9 @@
 }
 ],
 "ja": "蓮池潭",
-"id": "pl-lianchitan-longhuta"
+"id": "pl-lianchitan-longhuta",
+"sug": 0,
+"auto": false
 },
 {
 "area": "高雄",
@@ -9152,7 +9688,9 @@
 }
 ],
 "ja": "旗津区",
-"id": "pl-qijin"
+"id": "pl-qijin",
+"sug": 0,
+"auto": false
 },
 {
 "area": "高雄",
@@ -9189,7 +9727,9 @@
 }
 ],
 "ja": "佛光山佛陀記念館",
-"id": "pl-foguangshanfotuojinianguan"
+"id": "pl-foguangshanfotuojinianguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9234,7 +9774,9 @@
 }
 ],
 "ja": "駁二芸術特区",
-"id": "pl-boeryishutequ"
+"id": "pl-boeryishutequ",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9302,7 +9844,9 @@
 }
 ],
 "ja": "澄清湖",
-"id": "pl-chengqinghu"
+"id": "pl-chengqinghu",
+"sug": 1,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9381,7 +9925,9 @@
 }
 ],
 "ja": "愛河",
-"id": "pl-aihe"
+"id": "pl-aihe",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9449,7 +9995,9 @@
 }
 ],
 "ja": "美麗島駅",
-"id": "pl-meilidaozhan-guangzhiqiongding"
+"id": "pl-meilidaozhan-guangzhiqiongding",
+"sug": 1,
+"auto": false
 },
 {
 "area": "高雄",
@@ -9503,7 +10051,9 @@
 }
 ],
 "ja": "打狗英国領事館文化園区",
-"id": "pl-dagouyingguolingshiguan"
+"id": "pl-dagouyingguolingshiguan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "高雄",
@@ -9530,7 +10080,9 @@
 }
 ],
 "ja": "六合夜市",
-"id": "pl-liuheyeshi"
+"id": "pl-liuheyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9595,7 +10147,9 @@
 }
 ],
 "ja": "",
-"id": "pl-gaoxiongshilimeishuguan"
+"id": "pl-gaoxiongshilimeishuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9622,7 +10176,9 @@
 }
 ],
 "ja": "",
-"id": "pl-ruifengyeshi"
+"id": "pl-ruifengyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9672,7 +10228,9 @@
 }
 ],
 "ja": "",
-"id": "pl-qiaotoutangchang"
+"id": "pl-qiaotoutangchang",
+"sug": 1,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9695,7 +10253,9 @@
 }
 ],
 "ja": "",
-"id": "pl-fengyishuyuan"
+"id": "pl-fengyishuyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9749,7 +10309,9 @@
 }
 ],
 "ja": "",
-"id": "pl-gaoxiongliuxingyinlezhongxin"
+"id": "pl-gaoxiongliuxingyinlezhongxin",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9785,7 +10347,9 @@
 }
 ],
 "ja": "",
-"id": "pl-dagangqiao"
+"id": "pl-dagangqiao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9808,7 +10372,9 @@
 }
 ],
 "ja": "",
-"id": "pl-tianliaoyueshijie"
+"id": "pl-tianliaoyueshijie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9835,7 +10401,9 @@
 }
 ],
 "ja": "",
-"id": "pl-qishanlaojie"
+"id": "pl-qishanlaojie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9871,7 +10439,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shoushandongwuyuan"
+"id": "pl-shoushandongwuyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -9890,7 +10460,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jingyuannongchang"
+"id": "pl-jingyuannongchang",
+"sug": 0,
+"auto": false
 },
 {
 "area": "高雄",
@@ -9959,7 +10531,9 @@
 }
 ],
 "ja": "西子湾",
-"id": "pl-xiziwan"
+"id": "pl-xiziwan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "高雄",
@@ -9982,7 +10556,9 @@
 }
 ],
 "ja": "玫瑰聖母聖殿司教座堂",
-"id": "pl-meiguishengmushengdianzhujiaozuotang"
+"id": "pl-meiguishengmushengdianzhujiaozuotang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -10005,7 +10581,9 @@
 }
 ],
 "ja": "三鳳宮",
-"id": "pl-sanfenggong"
+"id": "pl-sanfenggong",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -10028,7 +10606,9 @@
 }
 ],
 "ja": "高雄市立歴史博物館",
-"id": "pl-gaoxiongshililishibowuguan"
+"id": "pl-gaoxiongshililishibowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -10060,7 +10640,9 @@
 }
 ],
 "ja": "",
-"id": "pl-gaoxiongzhonglieci"
+"id": "pl-gaoxiongzhonglieci",
+"sug": 1,
+"auto": true
 },
 {
 "area": "高雄",
@@ -10083,7 +10665,9 @@
 }
 ],
 "ja": "",
-"id": "pl-yidashijie"
+"id": "pl-yidashijie",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -10106,7 +10690,9 @@
 }
 ],
 "ja": "",
-"id": "pl-mituoyuganghaianguanglang"
+"id": "pl-mituoyuganghaianguanglang",
+"sug": 0,
+"auto": false
 },
 {
 "area": "高雄",
@@ -10129,7 +10715,9 @@
 }
 ],
 "ja": "",
-"id": "pl-gaoxiongxiaoyaoyuan"
+"id": "pl-gaoxiongxiaoyaoyuan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "高雄",
@@ -10148,7 +10736,9 @@
 }
 ],
 "ja": "",
-"id": "pl-baiselianrenhuoguiwu"
+"id": "pl-baiselianrenhuoguiwu",
+"sug": 0,
+"auto": false
 },
 {
 "area": "高雄",
@@ -10198,7 +10788,9 @@
 }
 ],
 "ja": "統一夢時代",
-"id": "pl-mengshidaigouwuzhongxin"
+"id": "pl-mengshidaigouwuzhongxin",
+"sug": 1,
+"auto": true
 },
 {
 "area": "高雄",
@@ -10252,7 +10844,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shoushanguojiazirangongyuan"
+"id": "pl-shoushanguojiazirangongyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -10275,7 +10869,9 @@
 }
 ],
 "ja": "高雄市立図書館総館",
-"id": "pl-gaoxiongshilitushuguanzongguan"
+"id": "pl-gaoxiongshilitushuguanzongguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -10286,15 +10882,17 @@
 "src": "web",
 "name": "打狗鐵道故事館",
 "addr": "高雄市鼓山區鼓山一路32號（門牌）",
-"lat": 22.621968,
-"lng": 120.275666,
+"lat": 22.624339,
+"lng": 120.277097,
 "score": 80,
 "ref": "https://khh.travel/zh-tw/attractions/detail/1215/",
 "note": "現名「舊打狗驛故事館」"
 }
 ],
 "ja": "高雄港駅",
-"id": "pl-dagoutiedaogushiguan"
+"id": "pl-dagoutiedaogushiguan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "高雄",
@@ -10330,7 +10928,9 @@
 }
 ],
 "ja": "",
-"id": "pl-zhanerku"
+"id": "pl-zhanerku",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -10384,7 +10984,9 @@
 }
 ],
 "ja": "",
-"id": "pl-hezailiaoyugang"
+"id": "pl-hezailiaoyugang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -10407,7 +11009,9 @@
 }
 ],
 "ja": "衛武営国家芸術文化中心",
-"id": "pl-weiwuyingguojiayishuwenhuazhongxin"
+"id": "pl-weiwuyingguojiayishuwenhuazhongxin",
+"sug": 0,
+"auto": true
 },
 {
 "area": "高雄",
@@ -10461,7 +11065,9 @@
 }
 ],
 "ja": "高雄85ビル",
-"id": "pl-gaoxiong85dalou"
+"id": "pl-gaoxiong85dalou",
+"sug": 0,
+"auto": false
 },
 {
 "area": "高雄",
@@ -10506,7 +11112,9 @@
 }
 ],
 "ja": "",
-"id": "pl-sanduoshangquan"
+"id": "pl-sanduoshangquan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "屏東",
@@ -10524,7 +11132,9 @@
 }
 ],
 "ja": "",
-"id": "pl-longpangongyuan"
+"id": "pl-longpangongyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "屏東",
@@ -10542,7 +11152,9 @@
 }
 ],
 "ja": "",
-"id": "pl-eluanbidengta"
+"id": "pl-eluanbidengta",
+"sug": 0,
+"auto": true
 },
 {
 "area": "屏東",
@@ -10560,7 +11172,9 @@
 }
 ],
 "ja": "",
-"id": "pl-guolihaiyangshengwubowuguan"
+"id": "pl-guolihaiyangshengwubowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "屏東",
@@ -10596,7 +11210,9 @@
 }
 ],
 "ja": "",
-"id": "pl-chechengfuangong"
+"id": "pl-chechengfuangong",
+"sug": 0,
+"auto": true
 },
 {
 "area": "屏東",
@@ -10632,7 +11248,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xiaoliuqiu"
+"id": "pl-xiaoliuqiu",
+"sug": 0,
+"auto": false
 },
 {
 "area": "屏東",
@@ -10650,7 +11268,9 @@
 }
 ],
 "ja": "",
-"id": "pl-kanhaimeishuguan"
+"id": "pl-kanhaimeishuguan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "屏東",
@@ -10669,7 +11289,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taidiannanbuzhanshiguan"
+"id": "pl-taidiannanbuzhanshiguan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "屏東",
@@ -10687,7 +11309,9 @@
 }
 ],
 "ja": "",
-"id": "pl-lujingmeihualushengtaiyuanqu"
+"id": "pl-lujingmeihualushengtaiyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "屏東",
@@ -10706,7 +11330,9 @@
 }
 ],
 "ja": "",
-"id": "pl-kendingxiaobalidaoyan"
+"id": "pl-kendingxiaobalidaoyan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "屏東",
@@ -10724,7 +11350,9 @@
 }
 ],
 "ja": "",
-"id": "pl-axinqiaokelinongchang"
+"id": "pl-axinqiaokelinongchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "屏東",
@@ -10743,7 +11371,9 @@
 }
 ],
 "ja": "",
-"id": "pl-kendinglu-daoshuitunshengtaiyuanqu"
+"id": "pl-kendinglu-daoshuitunshengtaiyuanqu",
+"sug": 0,
+"auto": false
 },
 {
 "area": "屏東",
@@ -10766,7 +11396,9 @@
 }
 ],
 "ja": "",
-"id": "pl-linhousilinpingdisenlinyuanqu"
+"id": "pl-linhousilinpingdisenlinyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "屏東",
@@ -10785,7 +11417,9 @@
 }
 ],
 "ja": "",
-"id": "pl-fuermoshakekenongchang"
+"id": "pl-fuermoshakekenongchang",
+"sug": 0,
+"auto": false
 },
 {
 "area": "屏東",
@@ -10808,7 +11442,9 @@
 }
 ],
 "ja": "",
-"id": "pl-pingyan1936wenhuajidi"
+"id": "pl-pingyan1936wenhuajidi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "屏東",
@@ -10840,7 +11476,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shenglixingcun"
+"id": "pl-shenglixingcun",
+"sug": 1,
+"auto": true
 },
 {
 "area": "屏東",
@@ -10894,7 +11532,9 @@
 }
 ],
 "ja": "墾丁国家公園",
-"id": "pl-kendingguojiagongyuan-kendingdajie"
+"id": "pl-kendingguojiagongyuan-kendingdajie",
+"sug": 0,
+"auto": false
 },
 {
 "area": "屏東",
@@ -10931,7 +11571,9 @@
 }
 ],
 "ja": "",
-"id": "pl-kendingguojiasenlinyoulequ"
+"id": "pl-kendingguojiasenlinyoulequ",
+"sug": 0,
+"auto": true
 },
 {
 "area": "花蓮",
@@ -10995,7 +11637,9 @@
 }
 ],
 "ja": "",
-"id": "pl-qixingtan"
+"id": "pl-qixingtan",
+"sug": 2,
+"auto": true
 },
 {
 "area": "花蓮",
@@ -11074,7 +11718,9 @@
 }
 ],
 "ja": "",
-"id": "pl-liyutan"
+"id": "pl-liyutan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "花蓮",
@@ -11120,7 +11766,9 @@
 }
 ],
 "ja": "",
-"id": "pl-yunshanshui"
+"id": "pl-yunshanshui",
+"sug": 2,
+"auto": true
 },
 {
 "area": "花蓮",
@@ -11161,7 +11809,9 @@
 }
 ],
 "ja": "",
-"id": "pl-dashibishanbudao"
+"id": "pl-dashibishanbudao",
+"sug": 1,
+"auto": true
 },
 {
 "area": "花蓮",
@@ -11212,7 +11862,9 @@
 }
 ],
 "ja": "",
-"id": "pl-danongdafupingdisenlinyuanqu"
+"id": "pl-danongdafupingdisenlinyuanqu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "花蓮",
@@ -11249,7 +11901,9 @@
 }
 ],
 "ja": "慶修院",
-"id": "pl-jianqingxiuyuan"
+"id": "pl-jianqingxiuyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "花蓮",
@@ -11268,7 +11922,9 @@
 }
 ],
 "ja": "",
-"id": "pl-chikeshanxiaoruishinongchang"
+"id": "pl-chikeshanxiaoruishinongchang",
+"sug": 0,
+"auto": false
 },
 {
 "area": "花蓮",
@@ -11287,7 +11943,9 @@
 }
 ],
 "ja": "",
-"id": "pl-taini-daka-yuanqu"
+"id": "pl-taini-daka-yuanqu",
+"sug": 0,
+"auto": false
 },
 {
 "area": "花蓮",
@@ -11319,7 +11977,9 @@
 }
 ],
 "ja": "",
-"id": "pl-sibagaodi"
+"id": "pl-sibagaodi",
+"sug": 1,
+"auto": true
 },
 {
 "area": "花蓮",
@@ -11342,7 +12002,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jiangjunfu1936"
+"id": "pl-jiangjunfu1936",
+"sug": 0,
+"auto": false
 },
 {
 "area": "花蓮",
@@ -11379,7 +12041,9 @@
 }
 ],
 "ja": "",
-"id": "pl-yuanxionghaiyanggongyuan"
+"id": "pl-yuanxionghaiyanggongyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "花蓮",
@@ -11416,7 +12080,9 @@
 }
 ],
 "ja": "瑞穂牧場",
-"id": "pl-ruisuimuchang"
+"id": "pl-ruisuimuchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "花蓮",
@@ -11439,7 +12105,9 @@
 }
 ],
 "ja": "太魯閣国家公園",
-"id": "pl-tailugeguojiagongyuan"
+"id": "pl-tailugeguojiagongyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "花蓮",
@@ -11494,7 +12162,9 @@
 }
 ],
 "ja": "",
-"id": "pl-guangfutangchang"
+"id": "pl-guangfutangchang",
+"sug": 2,
+"auto": true
 },
 {
 "area": "花蓮",
@@ -11517,7 +12187,9 @@
 }
 ],
 "ja": "",
-"id": "pl-dongdamenyeshi"
+"id": "pl-dongdamenyeshi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台東",
@@ -11568,7 +12240,9 @@
 }
 ],
 "ja": "",
-"id": "pl-sanxiantai"
+"id": "pl-sanxiantai",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台東",
@@ -11605,7 +12279,9 @@
 }
 ],
 "ja": "",
-"id": "pl-chulumuchang"
+"id": "pl-chulumuchang",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台東",
@@ -11628,7 +12304,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jialulanhaian"
+"id": "pl-jialulanhaian",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台東",
@@ -11651,7 +12329,9 @@
 }
 ],
 "ja": "",
-"id": "pl-luyemeihualugongyuan"
+"id": "pl-luyemeihualugongyuan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台東",
@@ -11674,7 +12354,9 @@
 }
 ],
 "ja": "",
-"id": "pl-guolitaiwanshiqianwenhuabowuguan"
+"id": "pl-guolitaiwanshiqianwenhuabowuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台東",
@@ -11743,7 +12425,9 @@
 }
 ],
 "ja": "",
-"id": "pl-xiaoyeliu"
+"id": "pl-xiaoyeliu",
+"sug": 3,
+"auto": true
 },
 {
 "area": "台東",
@@ -11789,7 +12473,9 @@
 }
 ],
 "ja": "伯朗大道",
-"id": "pl-chishangbolangdadao"
+"id": "pl-chishangbolangdadao",
+"sug": 0,
+"auto": false
 },
 {
 "area": "台東",
@@ -11826,7 +12512,9 @@
 }
 ],
 "ja": "",
-"id": "pl-dapochi"
+"id": "pl-dapochi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台東",
@@ -11863,7 +12551,9 @@
 }
 ],
 "ja": "",
-"id": "pl-luyegaotai"
+"id": "pl-luyegaotai",
+"sug": 0,
+"auto": true
 },
 {
 "area": "台東",
@@ -11909,7 +12599,9 @@
 }
 ],
 "ja": "",
-"id": "pl-duoliangchezhan"
+"id": "pl-duoliangchezhan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "澎湖",
@@ -11932,7 +12624,9 @@
 }
 ],
 "ja": "澎湖跨海大橋",
-"id": "pl-penghukuahaidaqiao"
+"id": "pl-penghukuahaidaqiao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "澎湖",
@@ -11955,7 +12649,9 @@
 }
 ],
 "ja": "",
-"id": "pl-penghushuizuguan"
+"id": "pl-penghushuizuguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "澎湖",
@@ -11974,7 +12670,9 @@
 }
 ],
 "ja": "",
-"id": "pl-kuibishanmoxifenhai"
+"id": "pl-kuibishanmoxifenhai",
+"sug": 0,
+"auto": false
 },
 {
 "area": "澎湖",
@@ -11993,7 +12691,9 @@
 }
 ],
 "ja": "",
-"id": "pl-chidongdaguoyexuanwuyan"
+"id": "pl-chidongdaguoyexuanwuyan",
+"sug": 0,
+"auto": false
 },
 {
 "area": "澎湖",
@@ -12016,7 +12716,9 @@
 }
 ],
 "ja": "",
-"id": "pl-fenggui"
+"id": "pl-fenggui",
+"sug": 0,
+"auto": true
 },
 {
 "area": "金門",
@@ -12039,7 +12741,9 @@
 }
 ],
 "ja": "莒光楼",
-"id": "pl-juguanglou"
+"id": "pl-juguanglou",
+"sug": 0,
+"auto": true
 },
 {
 "area": "金門",
@@ -12062,7 +12766,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shanhouminsuwenhuacun"
+"id": "pl-shanhouminsuwenhuacun",
+"sug": 0,
+"auto": true
 },
 {
 "area": "金門",
@@ -12085,7 +12791,9 @@
 }
 ],
 "ja": "",
-"id": "pl-dishankengdao"
+"id": "pl-dishankengdao",
+"sug": 0,
+"auto": true
 },
 {
 "area": "金門",
@@ -12108,7 +12816,9 @@
 }
 ],
 "ja": "",
-"id": "pl-chenjinglanyanglou"
+"id": "pl-chenjinglanyanglou",
+"sug": 0,
+"auto": true
 },
 {
 "area": "金門",
@@ -12131,7 +12841,9 @@
 }
 ],
 "ja": "古寧頭戦史館",
-"id": "pl-guningtouzhanshiguan"
+"id": "pl-guningtouzhanshiguan",
+"sug": 0,
+"auto": true
 },
 {
 "area": "金門",
@@ -12154,7 +12866,9 @@
 }
 ],
 "ja": "",
-"id": "pl-jiangongyu"
+"id": "pl-jiangongyu",
+"sug": 0,
+"auto": true
 },
 {
 "area": "金門",
@@ -12177,7 +12891,9 @@
 }
 ],
 "ja": "",
-"id": "pl-deyuelou"
+"id": "pl-deyuelou",
+"sug": 0,
+"auto": true
 },
 {
 "area": "金門",
@@ -12200,7 +12916,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shameimoluoge"
+"id": "pl-shameimoluoge",
+"sug": 0,
+"auto": false
 },
 {
 "area": "金門",
@@ -12223,7 +12941,9 @@
 }
 ],
 "ja": "",
-"id": "pl-shishanpaozhendi"
+"id": "pl-shishanpaozhendi",
+"sug": 0,
+"auto": true
 },
 {
 "area": "金門",
@@ -12255,7 +12975,9 @@
 }
 ],
 "ja": "",
-"id": "pl-zongbingshu"
+"id": "pl-zongbingshu",
+"sug": 0,
+"auto": false
 },
 {
 "area": "馬祖",
@@ -12323,7 +13045,9 @@
 }
 ],
 "ja": "",
-"id": "pl-beihaikengdao"
+"id": "pl-beihaikengdao",
+"sug": 1,
+"auto": true
 },
 {
 "area": "馬祖",
@@ -12346,7 +13070,9 @@
 }
 ],
 "ja": "",
-"id": "pl-qinbijuluo"
+"id": "pl-qinbijuluo",
+"sug": 0,
+"auto": true
 }
 ]
 }

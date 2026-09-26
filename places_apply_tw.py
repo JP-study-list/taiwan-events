@@ -5,7 +5,7 @@
     python3 places_apply_tw.py <確認結果資料夾> [輸出檔]     # 預設 → places_src/taiwan.json
 
 <確認結果資料夾> 是確認網頁資料庫 `confirm` 集合的匯出（每區一個 aNN.json，
-Claude 用 ArtifactData 的 list＋out_dir 存下來的那份）。**只收「已確認」而且選了某個候選的**；
+Claude 用 ArtifactData 的 list＋out_dir 存下來的那份）。**只收「已確認」而且選了某個候選的**（名稱幾乎一樣、`auto` 的預設就算確認）；
 「待確認」「都不對」一律不寫，並在最後列出來——沒確認過的東西不可以默默進正式資料。
 
 輸出格式照 places_src/_template.json（id／title／title_ja／genre／address／url），
@@ -37,6 +37,9 @@ def main():
     out, todo, none, ids = [], [], [], set()
     for r in d["rows"]:
         s = picks.get("a%02d" % areas.index(r["area"]), {}).get(r["name"])
+        if not s and r.get("auto"):
+            # 名稱幾乎一樣、預設就算確認的（使用者沒動過它）
+            s = {"c": r["sug"], "g": r["genre"], "ja": r["ja"], "id": r["id"], "ok": True}
         if not s or not s.get("ok"):
             todo.append(r["area"] + "：" + r["name"])
             continue

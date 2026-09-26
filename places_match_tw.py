@@ -297,6 +297,13 @@ def main():
         tbname = next((c["name"] for c in r["cands"][:1] if c["src"] == "tb"), "")
         r["ja"] = ja.get(first) or ja.get(tbname) or ""
         r["id"] = slug(r["name"], used, next((c["id"] for c in r["cands"] if c.get("id")), "x"))
+        # 建議＝分數最高的那一個（同分取前面）。觀光署或地圖搜尋的名稱幾乎一樣（≥90）時，
+        # 使用者 2026-09-26 同意**直接算確認**，確認頁預設不顯示，只給他看其餘的。
+        if r["cands"]:
+            bi = max(range(len(r["cands"])), key=lambda k: (r["cands"][k]["score"], -k))
+            r["sug"] = bi
+            b = r["cands"][bi]
+            r["auto"] = b["src"] in ("tb", "osm") and b["score"] >= 90
     json.dump({"genres": GENRES, "rows": rows}, open(OUT, "w", encoding="utf-8"),
               ensure_ascii=False, indent=0)
     good = sum(1 for r in rows if r["cands"] and r["cands"][0]["score"] >= 90)
