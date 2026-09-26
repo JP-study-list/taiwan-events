@@ -1,0 +1,158 @@
+<title>景點地點確認</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@900&display=swap">
+<style>
+:root{--bg:#F5F6F2;--surface:#FFF;--ink:#1C2420;--muted:#65706A;--line:#DDE2DC;--accent:#0E7C66;--accent-soft:#E1F0EB;
+--tb:#0E7C66;--osm:#3D6FB6;--warn:#A6700F;--warn-soft:#FBF0DA;--bad:#B8433A;--bad-soft:#F7E4E1;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#111513;--surface:#191F1C;--ink:#E3E9E5;--muted:#96A29B;--line:#2A322E;--accent:#4FC3A1;--accent-soft:#1B3029;--tb:#4FC3A1;--osm:#86AEEA;--warn:#E3B04F;--warn-soft:#33291A;--bad:#EE877C;--bad-soft:#3A2220;}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#111513;--surface:#191F1C;--ink:#E3E9E5;--muted:#96A29B;--line:#2A322E;--accent:#4FC3A1;--accent-soft:#1B3029;--tb:#4FC3A1;--osm:#86AEEA;--warn:#E3B04F;--warn-soft:#33291A;--bad:#EE877C;--bad-soft:#3A2220;}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;padding-inline:16px;padding-block:24px 80px}
+.wrap{max-width:860px;margin:0 auto;display:grid;gap:16px}
+h1{font:900 28px/1.2 "Noto Serif TC","Songti TC",serif;margin:0}
+p{margin:0;max-width:66ch}.muted{color:var(--muted)}
+.note{font-size:13px;border-left:3px solid var(--line);padding-left:12px}
+/* 不固定在頂端：手機上它有四分之一個螢幕高，捲到它底下的選項會被蓋住點不到（2026-09-26 使用者回報）；App 自己的標題列也浮在頂端 */
+.bar{background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line);display:grid;gap:8px}
+.stat{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;font-size:14px}
+.stat b{font-size:19px;font-variant-numeric:tabular-nums;margin-right:2px}
+#save{margin-left:auto;font-size:13px;color:var(--muted)}#save.err{color:var(--bad)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{all:unset;cursor:pointer;font-size:13px;padding:3px 11px;border:1px solid var(--line);border-radius:999px;background:var(--surface);white-space:nowrap}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip b{font-variant-numeric:tabular-nums}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.area{display:grid;gap:10px;scroll-margin-top:60px}
+.area h2{margin:12px 0 0;font-size:20px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.area h2 small{font-size:13px;font-weight:400;color:var(--muted)}
+.bulk{all:unset;cursor:pointer;font-size:13px;color:var(--accent);text-decoration:underline}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:8px}
+.card.ok{border-color:var(--accent)}
+.card.none{border-color:var(--bad)}
+.head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.nm{font-weight:700;font-size:16px}
+.id{font:12px/1 ui-monospace,Menlo,monospace;color:var(--muted)}
+.st{font-size:12px;padding:1px 8px;border-radius:999px;margin-left:auto}
+.st.todo{background:var(--warn-soft);color:var(--warn)}.st.ok{background:var(--accent);color:var(--bg)}.st.none{background:var(--bad-soft);color:var(--bad)}
+.cands{display:grid;gap:4px}
+.cand{display:grid;grid-template-columns:auto 1fr auto;gap:2px 10px;align-items:start;padding:6px 8px;border-radius:8px;border:1px solid transparent;cursor:pointer}
+.cand:hover{background:var(--accent-soft)}
+.cand.sel{border-color:var(--accent);background:var(--accent-soft)}
+.cand input{margin-top:5px}
+.cn{font-weight:500}
+.cm{grid-column:2;font-size:12.5px;color:var(--muted)}
+.src{font-size:11.5px;padding:0 6px;border-radius:4px;margin-right:6px;vertical-align:1px;border:1px solid currentColor}
+.src.tb{color:var(--tb)}.src.osm{color:var(--osm)}.src.web{color:var(--warn)}.src.own{color:var(--ink)}
+.cand a{font-size:12.5px;color:var(--accent);white-space:nowrap}
+.sug{font-size:11.5px;color:var(--warn);margin-left:6px}
+.fields{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:13.5px}
+.fields label{display:flex;align-items:center;gap:6px}
+select,input[type=text]{font:inherit;font-size:14px;padding:4px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);min-width:0}
+input[type=text]{width:13em}
+.go{all:unset;cursor:pointer;font-size:14px;font-weight:700;padding:6px 16px;border-radius:8px;background:var(--accent);color:var(--bg);margin-left:auto}
+.card.ok .go{background:transparent;color:var(--accent);border:1px solid var(--accent);font-weight:500}
+.empty{padding:10px;color:var(--muted);font-size:14px}
+</style>
+<div class="wrap">
+<header style="display:grid;gap:8px">
+  <h1>景點地點確認</h1>
+  <p><b>只要看 76 筆。</b>另外 287 筆的名稱跟觀光署資料或地圖幾乎一模一樣，已經自動確認（按「已確認」可以看到，要改也可以）。</p>
+  <p class="muted">每一筆選出正確的地點，順便看一下分類和日文名，按「確認」就存起來。綠字＝觀光署資料，藍字＝地圖搜尋（OpenStreetMap），黃字＝我上網查到的地址（標「只到鄉鎮中心」的一定要看一下地圖）。按「地圖」可以在 Google 地圖上看那個點。都不對的話：在 Google 地圖找到正確位置，長按取得座標（或複製網址），貼到「自己貼座標」那一格就好；真的找不到再選「都不對」。</p>
+  <p class="muted">大稻埕、陽明山、日月潭這種一整個區域的，選一個代表點就好。景點編號（灰色小字）上線後就不能改，看起來怪的可以在最下面的欄位直接改。</p>
+  <p class="note muted" id="mode">正在連線…</p>
+</header>
+<div class="bar">
+  <div class="stat"><span><b id="nOk">0</b>筆已確認</span><span><b id="nTodo">0</b>筆待確認</span><span><b id="nNone">0</b>筆都不對</span><span id="save"></span></div>
+  <div class="chips" id="filters">
+    <button class="chip on" data-f="todo" type="button">只看待確認</button>
+    <button class="chip" data-f="all" type="button">全部</button>
+    <button class="chip" data-f="ok" type="button">已確認</button>
+    <button class="chip" data-f="none" type="button">都不對</button>
+  </div>
+  <nav class="chips" id="toc"></nav>
+</div>
+<main id="main" style="display:grid;gap:8px"></main>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let D=null,AREAS=[],S={},filter="todo",db=null,dbOK=false;
+const LS="twconfirm_v2";
+const CID=Math.random().toString(36).slice(2);   // 這個分頁的代號：資料庫回來的通知若是自己寫的就不理
+const lastLocal={};                               // 每區最後一次本機改動的時間
+try{S=JSON.parse(localStorage.getItem(LS)||"{}")||{};}catch(e){S={};}
+const saveLocal=()=>{try{localStorage.setItem(LS,JSON.stringify(S));}catch(e){}};
+const akey=i=>"a"+String(i).padStart(2,"0");
+function sug(r){if(r.sug!=null)return r.sug;let b=-1,bs=-1;r.cands.forEach((c,i)=>{if(c.score>bs){bs=c.score;b=i;}});return b;}
+function st(ak,r){const o=(S[ak]||{})[r.name]||{};return{c:o.c??sug(r),g:o.g??r.genre,ja:o.ja??r.ja,id:o.id??r.id,ok:o.ok??!!r.auto,auto:!o.ok&&o.ok!==false&&!!r.auto&&!("c" in o),lat:o.lat,lng:o.lng};}
+function status(s){return !s.ok?"todo":s.c===-1?"none":"ok";}
+const gmap=c=>`https://www.google.com/maps/search/?api=1&query=${c.lat},${c.lng}`;
+function card(ak,r,idx){
+  const s=st(ak,r),k=status(s),si=sug(r);
+  const cands=r.cands.map((c,i)=>`<label class="cand ${s.c===i?"sel":""}"><input type="radio" name="r${idx}" data-a="${ak}" data-n="${esc(r.name)}" value="${i}" ${s.c===i?"checked":""}>
+<div><span class="src ${c.src}">${{tb:"觀光署",osm:"地圖",web:"網路查到的地址"}[c.src]}</span><span class="cn">${esc(c.name)}</span>${i===si?'<span class="sug">建議</span>':""}</div>
+<a href="${gmap(c)}" target="_blank" rel="noopener">地圖</a><div class="cm">${esc(c.addr||"")}${c.src==="tb"&&c.imgs?`｜${c.imgs} 張照片`:""}${c.status===0||c.status===3?"｜⚠️ 觀光署標記停業或暫停":""}${c.note?"｜"+esc(c.note):""}${c.ref?`｜<a href="${esc(c.ref)}" target="_blank" rel="noopener">地址出處</a>`:""}</div></label>`).join("");
+  const own=s.c===-2&&s.lat!=null?`<label class="cand sel"><input type="radio" checked disabled><div><span class="src own">自己貼的座標</span><span class="cn">${s.lat}, ${s.lng}</span></div><a href="${gmap(s)}" target="_blank" rel="noopener">地圖</a></label>`:"";
+  const none=`<label class="cand ${s.c===-1?"sel":""}"><input type="radio" name="r${idx}" data-a="${ak}" data-n="${esc(r.name)}" value="-1" ${s.c===-1?"checked":""}><div><span class="cn">都不對</span>${r.cands.length?"":'<span class="sug">沒有找到任何候選</span>'}</div></label>`;
+  return `<div class="card ${k}" data-a="${ak}" data-n="${esc(r.name)}"><div class="head"><span class="nm">${esc(r.name)}</span><span class="id">${esc(s.id)}</span><span class="st ${k}">${s.auto?"名稱一樣，自動確認":{todo:"待確認",ok:"已確認",none:"都不對"}[k]}</span></div>
+<div class="cands">${cands}${own}${none}</div>
+<div class="fields"><label>分類<select data-f="g">${D.genres.map(g=>`<option ${g===s.g?"selected":""}>${g}</option>`).join("")}</select></label>
+<label>日文名<input type="text" data-f="ja" value="${esc(s.ja)}" placeholder="（空白＝之後用 AI 翻）"></label>
+<label>自己貼座標<input type="text" data-f="xy" placeholder="例：25.0339, 121.5645 或 Google 地圖網址" value=""></label>
+<label>編號<input type="text" data-f="id" value="${esc(s.id)}" style="width:12em;font-family:ui-monospace,Menlo,monospace;font-size:13px"></label>
+<button class="go" type="button">${s.ok?"已確認 ✓":"確認"}</button></div></div>`;
+}
+let pDown=false,wantRender=false;
+function requestRender(){if(pDown)wantRender=true;else render();}
+document.addEventListener("pointerdown",()=>{pDown=true;},true);
+document.addEventListener("pointerup",()=>{setTimeout(()=>{pDown=false;if(wantRender){wantRender=false;render();}},80);},true);
+document.addEventListener("pointercancel",()=>{pDown=false;if(wantRender){wantRender=false;render();}},true);
+function render(){
+  let nOk=0,nTodo=0,nNone=0,idx=0;const toc=[],secs=[];
+  AREAS.forEach((a,ai)=>{const ak=akey(ai);let at=0;const cards=[];
+    for(const r of a.rows){const k=status(st(ak,r));if(k==="ok")nOk++;else if(k==="none")nNone++;else{nTodo++;at++;}
+      if(filter!=="all"&&filter!==k){idx++;continue;}cards.push(card(ak,r,idx++));}
+    toc.push(`<a class="chip" href="#${ak}">${a.name} <b>${at}</b></a>`);
+    const easy=a.rows.filter(r=>{const s=st(ak,r);return !s.ok&&s.c>=0&&r.cands[s.c].score>=90;}).length;
+    secs.push(`<section class="area" id="${ak}"><h2>${a.name}<small>待確認 ${at} / ${a.rows.length}</small>${easy?`<button class="bulk" type="button" data-bulk="${ak}">這區名稱幾乎一樣的 ${easy} 筆照建議確認</button>`:""}</h2>${cards.join("")||'<div class="empty">這個篩選下沒有項目</div>'}</section>`);
+  });
+  $("#nOk").textContent=nOk;$("#nTodo").textContent=nTodo;$("#nNone").textContent=nNone;$("#toc").innerHTML=toc.join("");
+  const y=window.scrollY;$("#main").innerHTML=secs.join("");window.scrollTo(0,y);
+}
+function setv(ak,name,patch){lastLocal[ak]=Date.now();S[ak]=S[ak]||{};const r=AREAS[+ak.slice(1)].rows.find(x=>x.name===name);S[ak][name]={...st(ak,r),...patch};saveLocal();flush(ak);}
+const writing={},dirty={};
+function setSave(t,err){const el=$("#save");el.textContent=t;el.className=err?"err":"";}
+async function flush(ak){if(!dbOK)return;if(writing[ak]){dirty[ak]=true;return;}writing[ak]=true;setSave("儲存中…");
+  try{do{dirty[ak]=false;await db.doc("confirm/"+ak).set({s:S[ak]||{},at:new Date().toISOString(),cid:CID});}while(dirty[ak]);setSave("已儲存");}
+  catch(e){setSave(e&&e.code==="invalid_argument"?"沒有修改權限，改動只存在這台裝置":"儲存失敗，稍後再按一次",true);}finally{writing[ak]=false;}}
+document.addEventListener("change",e=>{const t=e.target,cd=t.closest(".card");if(!cd)return;const ak=cd.dataset.a,n=cd.dataset.n;
+  if(t.type==="radio")setv(ak,n,{c:+t.value});
+  else if(t.dataset.f==="xy"){const p=parseXY(t.value);if(!p){t.setCustomValidity("看不懂這個座標，請貼「緯度, 經度」或 Google 地圖網址");t.reportValidity();return;}
+    t.setCustomValidity("");setv(ak,n,{c:-2,lat:p[0],lng:p[1]});requestRender();return;}
+  else if(t.dataset.f)setv(ak,n,{[t.dataset.f]:t.value.trim()});
+  if(t.type==="radio"||t.tagName==="SELECT")requestRender();});
+function parseXY(v){v=(v||"").trim();let m=v.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/)||v.match(/[?&](?:q|query|ll)=(-?\d+\.\d+),\s*(-?\d+\.\d+)/)||v.match(/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/)||v.match(/^\(?\s*(-?\d+\.\d+)\s*[,，\s]\s*(-?\d+\.\d+)\s*\)?$/);
+  if(!m)return null;let a=+m[1],b=+m[2];if(a>100){[a,b]=[b,a];}if(a<21.5||a>26.6||b<118||b>122.5)return null;return[+a.toFixed(6),+b.toFixed(6)];}
+document.addEventListener("click",e=>{
+  const g=e.target.closest(".go");if(g){const cd=g.closest(".card");const patch={ok:true};
+    for(const inp of cd.querySelectorAll("input[data-f]")){const v=inp.value.trim();
+      if(inp.dataset.f==="xy"){if(v){const p=parseXY(v);if(!p){inp.setCustomValidity("看不懂這個座標，請貼「緯度, 經度」或 Google 地圖網址");inp.reportValidity();return;}Object.assign(patch,{c:-2,lat:p[0],lng:p[1]});}}
+      else patch[inp.dataset.f]=v;}
+    const sel=cd.querySelector("select[data-f]");if(sel)patch.g=sel.value;
+    setv(cd.dataset.a,cd.dataset.n,patch);render();return;}
+  const b=e.target.closest("[data-bulk]");if(b){const ak=b.dataset.bulk;const a=AREAS[+ak.slice(1)];S[ak]=S[ak]||{};
+    for(const r of a.rows){const s=st(ak,r);if(!s.ok&&s.c>=0&&r.cands[s.c].score>=90)S[ak][r.name]={...s,ok:true};}saveLocal();flush(ak);render();return;}
+  const f=e.target.closest("#filters .chip");if(f){filter=f.dataset.f;document.querySelectorAll("#filters .chip").forEach(x=>x.classList.toggle("on",x===f));render();}
+});
+fetch("candidates.json").then(r=>r.json()).then(d=>{D=d;const m=new Map();for(const r of d.rows){if(!m.has(r.area))m.set(r.area,[]);m.get(r.area).push(r);}
+  AREAS=[...m].map(([name,rows])=>({name,rows}));render();connect();}).catch(()=>{$("#main").innerHTML='<p class="empty">資料載入失敗，請重新整理。</p>';});
+async function connect(){
+  try{db=window.claude&&await window.claude.use("db");}catch(e){db=null;}
+  if(!db){$("#mode").textContent="這個畫面連不到儲存空間，你按的只會記在這台裝置上。改完請告訴我一聲。";return;}
+  dbOK=true;$("#mode").textContent="已連線：每一下都會存起來，換裝置打開也還在。";
+  db.collection("confirm").onSnapshot(snap=>{let ch=false;for(const d of snap.docs){if(writing[d.id]||d.metadata&&d.metadata.hasPendingWrites)continue;const body=d.data()||{};
+      // ⚠️ 自己寫的回聲、或本機 10 秒內改過的區，不可以拿資料庫的內容蓋回來：
+      // 先存的那一筆通知可能比後存的晚到，拿它蓋就會把剛按的「確認」變回「待確認」（2026-09-26 實際發生）。
+      if(body.cid===CID||Date.now()-(lastLocal[d.id]||0)<10000)continue;const s=body.s||{};
+      if(JSON.stringify(s)!==JSON.stringify(S[d.id]||{})){S[d.id]=s;ch=true;}}if(ch){saveLocal();render();}},
+    ()=>{dbOK=false;$("#mode").textContent="連線中斷：接下來的改動只記在這台裝置上，重新整理可以再連。";});
+}
+</script>
